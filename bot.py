@@ -125,7 +125,7 @@ ITEMS = [
         "query": "lego 10267",
         "max_price": 50,
         "require_any": ["10267", "gingerbread house"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
+        "exclude_words": LEGO_EXCLUDE_WORDS + ["40337"],
     },
 ]
 
