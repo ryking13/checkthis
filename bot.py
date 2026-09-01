@@ -38,17 +38,21 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 #   max_price      - alert only if price is at or below this
 #   require_words  - (optional) title must contain ALL of these words
 #                     (case-insensitive) in addition to matching the query
+#   exclude_words  - (optional) title must NOT contain any of these words
+#                     (case-insensitive)
 #   label          - friendly name shown in Discord alerts
 ITEMS = [
     {
         "label": "AirPort Express A1392",
         "query": "airport express a1392",
         "max_price": 20,
+        "exclude_words": ["a1264", "a1084", "a1143", "a1408", "base station"],
     },
     {
         "label": "Codenames Deep Undercover",
         "query": "codenames deep undercover",
         "max_price": 20,
+        "exclude_words": ["man", "woman"],
     },
     {
         "label": "TI-84 Plus",
@@ -115,6 +119,13 @@ def matches_required_words(title: str, require_words: list[str] | None) -> bool:
     return all(word.lower() in title_lower for word in require_words)
 
 
+def matches_excluded_words(title: str, exclude_words: list[str] | None) -> bool:
+    if not exclude_words:
+        return True
+    title_lower = title.lower()
+    return not any(word.lower() in title_lower for word in exclude_words)
+
+
 def load_seen() -> set[str]:
     if not SEEN_FILE.exists():
         return set()
@@ -167,6 +178,9 @@ def run():
 
             title = listing.get("title", "")
             if not matches_required_words(title, item.get("require_words")):
+                continue
+
+            if not matches_excluded_words(title, item.get("exclude_words")):
                 continue
 
             send_discord_alert(item, listing)
