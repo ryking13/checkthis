@@ -44,6 +44,20 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 #   exclude_words  - (optional) title must NOT contain any of these words
 #                     (case-insensitive)
 #   label          - friendly name shown in Discord alerts
+
+# Shared exclusion list applied to all LEGO set searches - filters out
+# standalone minifigures, box/bag/manual-only listings, parts lots,
+# incomplete sets, and third-party lighting kits (not the actual set).
+LEGO_EXCLUDE_WORDS = [
+    "minifigure",
+    "minifigures",
+    "only",
+    "pieces",
+    "light kit",
+    "lighting kit",
+    "incomplete",
+]
+
 ITEMS = [
     {
         "label": "AirPort Express A1392",
@@ -75,35 +89,43 @@ ITEMS = [
     # query uses the set number (most reliable - sellers almost always
     # include it), require_any lets either the set number or set name
     # count as a match, in case a listing only has one or the other.
+    # LEGO_EXCLUDE_WORDS filters out common junk matches: standalone
+    # minifigures, incomplete/parts-only listings, and third-party
+    # lighting kits that aren't the actual set.
     {
         "label": "LEGO Central Perk (21319)",
         "query": "lego 21319",
         "max_price": 40,
         "require_any": ["21319", "central perk"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
         "label": "LEGO DeLorean Time Machine (21103)",
         "query": "lego 21103",
         "max_price": 35,
         "require_any": ["21103", "delorean"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
         "label": "LEGO Ship in a Bottle (21313)",
         "query": "lego 21313",
         "max_price": 40,
         "require_any": ["21313", "ship in a bottle"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
         "label": "LEGO Medieval Blacksmith (21325)",
         "query": "lego 21325",
         "max_price": 50,
         "require_any": ["21325", "medieval blacksmith"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
         "label": "LEGO Gingerbread House (10267)",
         "query": "lego 10267",
         "max_price": 50,
         "require_any": ["10267", "gingerbread house"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
     },
 ]
 
