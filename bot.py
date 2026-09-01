@@ -38,6 +38,9 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 #   max_price      - alert only if price is at or below this
 #   require_words  - (optional) title must contain ALL of these words
 #                     (case-insensitive) in addition to matching the query
+#   require_any    - (optional) title must contain AT LEAST ONE of these
+#                     words/phrases (case-insensitive) - used for "set
+#                     number OR set name" style matching
 #   exclude_words  - (optional) title must NOT contain any of these words
 #                     (case-insensitive)
 #   label          - friendly name shown in Discord alerts
@@ -46,24 +49,61 @@ ITEMS = [
         "label": "AirPort Express A1392",
         "query": "airport express a1392",
         "max_price": 20,
-        "exclude_words": ["a1264", "a1084", "a1143", "a1408", "base station"],
+        "exclude_words": ["a1264", "a1084", "a1143", "a1408"],
     },
     {
         "label": "Codenames Deep Undercover",
         "query": "codenames deep undercover",
         "max_price": 20,
-        "exclude_words": ["man", "woman"],
+        "exclude_words": ["man", "woman", "pieces"],
     },
     {
         "label": "TI-84 Plus",
         "query": "ti-84 plus",
         "max_price": 20,
         "require_words": ["plus"],  # must specifically say "Plus", not just any TI-84
+        "exclude_words": ["school"],
     },
     {
         "label": "TI-Nspire CX",
         "query": "ti-nspire cx",
         "max_price": 30,
+        "exclude_words": ["school"],
+    },
+
+    # --- LEGO sets ---
+    # query uses the set number (most reliable - sellers almost always
+    # include it), require_any lets either the set number or set name
+    # count as a match, in case a listing only has one or the other.
+    {
+        "label": "LEGO Central Perk (21319)",
+        "query": "lego 21319",
+        "max_price": 40,
+        "require_any": ["21319", "central perk"],
+    },
+    {
+        "label": "LEGO DeLorean Time Machine (21103)",
+        "query": "lego 21103",
+        "max_price": 35,
+        "require_any": ["21103", "delorean"],
+    },
+    {
+        "label": "LEGO Ship in a Bottle (21313)",
+        "query": "lego 21313",
+        "max_price": 40,
+        "require_any": ["21313", "ship in a bottle"],
+    },
+    {
+        "label": "LEGO Medieval Blacksmith (21325)",
+        "query": "lego 21325",
+        "max_price": 50,
+        "require_any": ["21325", "medieval blacksmith"],
+    },
+    {
+        "label": "LEGO Gingerbread House (10267)",
+        "query": "lego 10267",
+        "max_price": 50,
+        "require_any": ["10267", "gingerbread house"],
     },
 ]
 
@@ -117,6 +157,16 @@ def matches_required_words(title: str, require_words: list[str] | None) -> bool:
         return True
     title_lower = title.lower()
     return all(word.lower() in title_lower for word in require_words)
+
+
+def matches_any_words(title: str, require_any: list[str] | None) -> bool:
+    """At least one of these words/phrases must appear in the title -
+    used for "set number OR set name" style matching (e.g. a LEGO
+    listing counts if it mentions either "21319" or "central perk")."""
+    if not require_any:
+        return True
+    title_lower = title.lower()
+    return any(phrase.lower() in title_lower for phrase in require_any)
 
 
 def matches_excluded_words(title: str, exclude_words: list[str] | None) -> bool:
@@ -178,6 +228,9 @@ def run():
 
             title = listing.get("title", "")
             if not matches_required_words(title, item.get("require_words")):
+                continue
+
+            if not matches_any_words(title, item.get("require_any")):
                 continue
 
             if not matches_excluded_words(title, item.get("exclude_words")):
