@@ -116,6 +116,7 @@ ITEMS = [
         "label": "TI-Nspire CX",
         "query": "ti-nspire cx",
         "max_price": 30,
+        "require_words": ["cx"],  # must specifically say "CX" - plain TI-Nspire isn't as valuable
         "exclude_words": ["school"],
     },
 
@@ -185,6 +186,7 @@ ITEMS = [
         "query": "Snowboard Kids 2",
         "max_price": 95,
         "min_price": 39,
+        "require_any": ["snowboard kids 2"],  # must be the exact phrase, not scattered words (was matching snowboarding gear)
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
     },
     {
