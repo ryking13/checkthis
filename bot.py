@@ -60,6 +60,7 @@ LEGO_EXCLUDE_WORDS = [
     "light kit",
     "lighting kit",
     "incomplete",
+    "display",
 ]
 
 # Shared exclusion list applied to the retro N64/SNES game searches -
@@ -179,7 +180,7 @@ ITEMS = [
         "query": "pokemon stadium 2",
         "max_price": 75,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck"],
     },
     {
         "label": "Snowboard Kids 2",
