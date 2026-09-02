@@ -168,7 +168,7 @@ ITEMS = [
         "query": "Goemon's Great Adventure",
         "max_price": 125,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy"],
     },
     {
         "label": "Zelda Majora's Mask",
