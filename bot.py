@@ -161,7 +161,7 @@ ITEMS = [
         "query": "Snowboard Kids 2",
         "max_price": 95,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
     },
     {
         "label": "Goemon's Great Adventure",
