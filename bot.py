@@ -66,7 +66,7 @@ LEGO_EXCLUDE_WORDS = [
 # filters out Japanese imports (different region/cart) and suspicious
 # "untested" listings, which are common ways for bad-condition or
 # non-working carts to slip through.
-RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart"]
+RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot"]
 
 ITEMS = [
     {
@@ -153,6 +153,20 @@ ITEMS = [
         "label": "Pokemon Stadium 2",
         "query": "pokemon stadium 2",
         "max_price": 75,
+        "min_price": 39,
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Snowboard Kids 2",
+        "query": "Snowboard Kids 2",
+        "max_price": 95,
+        "min_price": 39,
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Goemon's Great Adventure",
+        "query": "Goemon's Great Adventure",
+        "max_price": 125,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
