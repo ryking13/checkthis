@@ -68,6 +68,30 @@ LEGO_EXCLUDE_WORDS = [
 # non-working carts to slip through.
 RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot"]
 
+# Shared exclusion list applied to baseball-card searches.
+# These are intended to keep the scanner focused on PSA-graded cards
+# and eliminate common non-card / non-original-card noise.
+BASEBALL_CARD_EXCLUDE_WORDS = [
+    "sgc",
+    "bccg",
+    "bgs",
+    "beckett",
+    "cgc",
+    "csg",
+    "hga",
+    "tag",
+    "reprint",
+    "replica",
+    "reproduction",
+    "custom",
+    "proxy",
+    "fake",
+    "counterfeit",
+    "digital",
+    "lot",
+    "lots",
+]
+
 ITEMS = [
     {
         "label": "AirPort Express A1392",
@@ -189,6 +213,27 @@ ITEMS = [
         "query": "secret of mana",
         "max_price": 45,
         "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4"],
+    },
+
+    # --- Baseball cards ---
+    # These searches intentionally require PSA + the exact grade/card
+    # identifiers to reduce noise from raw cards, other grading companies,
+    # lots, and unrelated listings.
+    {
+        "label": "Chipper Jones 1991 Topps #333 PSA 10",
+        "query": "Chipper Jones 1991 Topps 333 PSA 10",
+        "max_price": 125,
+        "min_price": 50,
+        "require_words": ["chipper", "jones", "333", "psa", "10"],
+        "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Nolan Ryan 1980 Topps #580 PSA 8",
+        "query": "Nolan Ryan 1980 Topps 580 PSA 8",
+        "max_price": 120,
+        "min_price": 50,
+        "require_words": ["nolan", "ryan", "580", "psa", "8"],
+        "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
 ]
 
