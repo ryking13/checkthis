@@ -36,6 +36,10 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 # Each item defines:
 #   query          - what to search eBay for
 #   max_price      - alert only if price is at or below this
+#   min_price      - (optional) alert only if price is at or above this -
+#                     useful for collectible/retro items where a
+#                     suspiciously low price often means broken,
+#                     incomplete, or a reproduction/bootleg
 #   require_words  - (optional) title must contain ALL of these words
 #                     (case-insensitive) in addition to matching the query
 #   require_any    - (optional) title must contain AT LEAST ONE of these
@@ -57,6 +61,12 @@ LEGO_EXCLUDE_WORDS = [
     "lighting kit",
     "incomplete",
 ]
+
+# Shared exclusion list applied to the retro N64/SNES game searches -
+# filters out Japanese imports (different region/cart) and suspicious
+# "untested" listings, which are common ways for bad-condition or
+# non-working carts to slip through.
+RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested"]
 
 ITEMS = [
     {
@@ -127,6 +137,45 @@ ITEMS = [
         "require_any": ["10267", "gingerbread house"],
         "exclude_words": LEGO_EXCLUDE_WORDS + ["40337"],
     },
+
+    # --- Retro N64/SNES games ---
+    # min_price filters out suspiciously-cheap listings, which for
+    # valuable carts like these are usually reproductions, loose
+    # carts with issues, or bait-and-switch listings.
+    {
+        "label": "Paper Mario (N64)",
+        "query": "paper mario n64",
+        "max_price": 60,
+        "min_price": 39,
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Pokemon Stadium 2",
+        "query": "pokemon stadium 2",
+        "max_price": 75,
+        "min_price": 39,
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Zelda Majora's Mask",
+        "query": "zelda majora's mask",
+        "max_price": 75,
+        "min_price": 39,
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Super Metroid",
+        "query": "super metroid",
+        "max_price": 85,
+        "min_price": 39,
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "Secret of Mana",
+        "query": "secret of mana",
+        "max_price": 45,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4"],
+    },
 ]
 
 
@@ -152,10 +201,13 @@ def search_item(token: str, item: dict) -> list[dict]:
     (fixed price) listings only - auctions are always excluded per the
     price thresholds being "buy it now" prices, not bid prices.
     """
+    min_price = item.get("min_price", "")
+    price_range = f"price:[{min_price}..{item['max_price']}]"
+
     params = {
         "q": item["query"],
         "limit": "30",
-        "filter": f"buyingOptions:{{FIXED_PRICE}},price:[..{item['max_price']}],priceCurrency:USD",
+        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
 
     response = requests.get(
@@ -219,9 +271,15 @@ def send_discord_alert(item: dict, listing: dict):
     price = listing.get("price", {}).get("value", "?")
     url = listing.get("itemWebUrl", "")
 
+    min_price = item.get("min_price")
+    if min_price is not None:
+        threshold_str = f"${min_price}-${item['max_price']}"
+    else:
+        threshold_str = f"≤ ${item['max_price']}"
+
     content = (
         f"**${price} - {title}**\n"
-        f"Matched: *{item['label']}* (threshold: ${item['max_price']})\n"
+        f"Matched: *{item['label']}* (threshold: {threshold_str})\n"
         f"<{url}>"
     )
 
