@@ -154,7 +154,7 @@ ITEMS = [
         "query": "pokemon stadium 2",
         "max_price": 75,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards"],
     },
     {
         "label": "Snowboard Kids 2",
@@ -168,7 +168,7 @@ ITEMS = [
         "query": "Goemon's Great Adventure",
         "max_price": 125,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy", "mystical"],
     },
     {
         "label": "Zelda Majora's Mask",
