@@ -66,7 +66,7 @@ LEGO_EXCLUDE_WORDS = [
 # filters out Japanese imports (different region/cart) and suspicious
 # "untested" listings, which are common ways for bad-condition or
 # non-working carts to slip through.
-RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested"]
+RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart"]
 
 ITEMS = [
     {
@@ -161,7 +161,7 @@ ITEMS = [
         "query": "zelda majora's mask",
         "max_price": 75,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds"],
     },
     {
         "label": "Super Metroid",
