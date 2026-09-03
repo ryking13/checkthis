@@ -98,7 +98,7 @@ ITEMS = [
         "label": "AirPort Express A1392",
         "query": "airport express a1392",
         "max_price": 20,
-        "exclude_words": ["a1264", "a1084", "a1143", "a1408"],
+        "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
     },
     {
         "label": "Codenames Deep Undercover",
@@ -140,7 +140,7 @@ ITEMS = [
         "query": "lego 21103",
         "max_price": 35,
         "require_any": ["21103", "delorean"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
+        "exclude_words": LEGO_EXCLUDE_WORDS + ["77256"],
     },
     {
         "label": "LEGO Ship in a Bottle (21313)",
@@ -180,7 +180,7 @@ ITEMS = [
         "query": "pokemon stadium 2",
         "max_price": 75,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
     },
     {
         "label": "Snowboard Kids 2",
@@ -202,7 +202,7 @@ ITEMS = [
         "query": "zelda majora's mask",
         "max_price": 75,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds", "hoodie", "wearable", "figures", "watch"],
     },
     {
         "label": "Super Metroid",
@@ -215,7 +215,7 @@ ITEMS = [
         "label": "Secret of Mana",
         "query": "secret of mana",
         "max_price": 45,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
     },
 
     # --- Baseball cards ---
