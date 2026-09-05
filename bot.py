@@ -273,6 +273,7 @@ def search_item(token: str, item: dict) -> list[dict]:
         "q": item["query"],
         "limit": "30",
         "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
+        "fieldgroups": "MATCHING_ITEMS,EXTENDED",  # EXTENDED includes shippingOptions
     }
 
     response = requests.get(
@@ -327,13 +328,35 @@ def save_seen(seen_ids: set[str]):
         json.dump(sorted(seen_ids), f, indent=2)
 
 
+def get_shipping_cost(listing: dict) -> float | None:
+    """
+    Returns the cheapest shipping cost for a listing, or 0.0 if free
+    shipping, or None if shipping info isn't available (e.g. local
+    pickup only, or the field wasn't returned for some reason).
+    """
+    shipping_options = listing.get("shippingOptions")
+    if not shipping_options:
+        return None
+
+    costs = []
+    for option in shipping_options:
+        cost = option.get("shippingCost", {}).get("value")
+        if cost is not None:
+            costs.append(float(cost))
+
+    if not costs:
+        return None
+
+    return min(costs)
+
+
 def send_discord_alert(item: dict, listing: dict):
     if not DISCORD_WEBHOOK_URL:
         print("No DISCORD_WEBHOOK_URL set - skipping notification.")
         return
 
     title = listing.get("title", "Untitled")
-    price = listing.get("price", {}).get("value", "?")
+    price_str = listing.get("price", {}).get("value", "?")
     url = listing.get("itemWebUrl", "")
 
     min_price = item.get("min_price")
@@ -342,8 +365,27 @@ def send_discord_alert(item: dict, listing: dict):
     else:
         threshold_str = f"≤ ${item['max_price']}"
 
+    shipping_cost = get_shipping_cost(listing)
+
+    try:
+        price = float(price_str)
+    except (TypeError, ValueError):
+        price = None
+
+    if shipping_cost is None:
+        # Shipping info unavailable (e.g. local pickup only) - don't
+        # claim a total we can't actually back up.
+        price_line = f"**${price_str} - {title}**\n(shipping cost unavailable)"
+    elif shipping_cost == 0:
+        price_line = f"**${price_str} (free shipping) - {title}**"
+    elif price is not None:
+        total = price + shipping_cost
+        price_line = f"**${price_str} + ${shipping_cost:.2f} shipping = ${total:.2f} total - {title}**"
+    else:
+        price_line = f"**${price_str} + ${shipping_cost:.2f} shipping - {title}**"
+
     content = (
-        f"**${price} - {title}**\n"
+        f"{price_line}\n"
         f"Matched: *{item['label']}* (threshold: {threshold_str})\n"
         f"<{url}>"
     )
