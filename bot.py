@@ -131,7 +131,7 @@ ITEMS = [
     {
         "label": "LEGO Central Perk (21319)",
         "query": "lego 21319",
-        "max_price": 40,
+        "max_price": 75,
         "require_any": ["21319", "central perk"],
         "exclude_words": LEGO_EXCLUDE_WORDS,
     },
@@ -145,7 +145,7 @@ ITEMS = [
     {
         "label": "LEGO Ship in a Bottle (21313)",
         "query": "lego 21313",
-        "max_price": 40,
+        "max_price": 60,
         "require_any": ["21313", "ship in a bottle"],
         "exclude_words": LEGO_EXCLUDE_WORDS,
     },
@@ -180,12 +180,13 @@ ITEMS = [
         "query": "pokemon stadium 2",
         "max_price": 75,
         "min_price": 39,
+        "require_any": ["pokemon stadium 2"],  # must be the exact phrase, not just "pokemon stadium" (was matching the original game)
         "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
     },
     {
         "label": "Snowboard Kids 2",
         "query": "Snowboard Kids 2",
-        "max_price": 95,
+        "max_price": 100,
         "min_price": 39,
         "require_any": ["snowboard kids 2"],  # must be the exact phrase, not scattered words (was matching snowboarding gear)
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
@@ -227,7 +228,8 @@ ITEMS = [
         "query": "Chipper Jones 1991 Topps 333 PSA 10",
         "max_price": 125,
         "min_price": 50,
-        "require_words": ["chipper", "jones", "333", "psa", "10"],
+        "require_words": ["chipper", "jones", "333"],
+        "require_any": ["psa 10", "psa10", "psa-10"],  # cover common spacing/formatting variants sellers use
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
     {
@@ -235,7 +237,8 @@ ITEMS = [
         "query": "Nolan Ryan 1980 Topps 580 PSA 8",
         "max_price": 120,
         "min_price": 50,
-        "require_words": ["nolan", "ryan", "580", "psa", "8"],
+        "require_words": ["nolan", "ryan", "580"],
+        "require_any": ["psa 8", "psa8", "psa-8"],  # cover common spacing/formatting variants sellers use
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
 ]
