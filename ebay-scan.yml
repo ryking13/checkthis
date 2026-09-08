@@ -30,6 +30,7 @@ jobs:
           EBAY_CLIENT_ID:      ${{ secrets.EBAY_CLIENT_ID }}
           EBAY_CLIENT_SECRET:  ${{ secrets.EBAY_CLIENT_SECRET }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          EBAY_ZIP:            ${{ secrets.EBAY_ZIP }}
         run: python bot.py
 
       - name: Save seen listings back to repo
