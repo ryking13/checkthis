@@ -30,6 +30,13 @@ CLIENT_ID = os.environ.get("EBAY_CLIENT_ID", "")
 CLIENT_SECRET = os.environ.get("EBAY_CLIENT_SECRET", "")
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 
+# US zip code used as the shipping destination when querying eBay, so
+# that calculated-shipping listings actually return a shippingOptions
+# array. Without this, eBay has no destination to estimate shipping to
+# and silently omits shipping info from search results (see
+# X-EBAY-C-ENDUSERCTX / contextualLocation in eBay's docs).
+EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
+
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 
 # --- Item config ---
@@ -203,7 +210,7 @@ ITEMS = [
         "query": "zelda majora's mask",
         "max_price": 75,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds", "hoodie", "wearable", "figures", "watch"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds", "hoodie", "wearable", "figures", "figure", "watch", "amiibo", "collection", "funko", "pin", "plush"],
     },
     {
         "label": "Super Metroid",
@@ -216,6 +223,7 @@ ITEMS = [
         "label": "Secret of Mana",
         "query": "secret of mana",
         "max_price": 45,
+        "require_any": ["secret of mana"],  # must be the exact phrase, not scattered words
         "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
     },
 
@@ -273,15 +281,23 @@ def search_item(token: str, item: dict) -> list[dict]:
         "q": item["query"],
         "limit": "30",
         "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
-        "fieldgroups": "MATCHING_ITEMS,EXTENDED",  # EXTENDED includes shippingOptions
     }
+
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
+    }
+
+    # Calculated-shipping listings only return a shippingOptions array
+    # if eBay knows a destination to estimate shipping to. Without this
+    # header, shipping info is silently omitted from results even
+    # though the listing itself has a real shipping cost.
+    if EBAY_ZIP:
+        headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
 
     response = requests.get(
         SEARCH_URL,
-        headers={
-            "Authorization": f"Bearer {token}",
-            "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
-        },
+        headers=headers,
         params=params,
     )
 
@@ -399,6 +415,12 @@ def run():
     if not CLIENT_ID or not CLIENT_SECRET:
         print("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set - aborting.")
         return
+
+    if not EBAY_ZIP:
+        print(
+            "WARNING: EBAY_ZIP not set - shipping costs will be unavailable "
+            "for calculated-shipping listings in Discord alerts."
+        )
 
     token = get_access_token()
     seen_ids = load_seen()
