@@ -59,6 +59,14 @@ QUIET_HOURS_TZ = ZoneInfo("America/Chicago")
 QUIET_HOURS_START = _time(22, 0)   # 10:00 PM
 QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
 
+# Applies to every item in ITEMS - listings with a known shipping cost
+# above this are skipped entirely (not even queued during quiet hours).
+# Listings where shipping cost couldn't be determined (e.g. local
+# pickup only, or eBay didn't return shippingOptions) are NOT excluded
+# by this filter, since we have no evidence they're actually expensive
+# to ship - they still go through the normal price/title filters.
+MAX_SHIPPING_COST = 15.00
+
 # --- Item config ---
 # Each item defines:
 #   query          - what to search eBay for
@@ -561,6 +569,10 @@ def run():
                 continue
 
             if not matches_excluded_words(title, item.get("exclude_words")):
+                continue
+
+            shipping_cost = get_shipping_cost(listing)
+            if shipping_cost is not None and shipping_cost > MAX_SHIPPING_COST:
                 continue
 
             content = build_alert_content(item, listing)
