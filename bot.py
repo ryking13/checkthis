@@ -38,6 +38,26 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
 
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
+PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
+
+# --- Quiet hours ---
+# No Discord notifications are sent between QUIET_HOURS_START and
+# QUIET_HOURS_END (in QUIET_HOURS_TZ). Matches found during that window
+# are still detected and saved to disk (see PENDING_FILE) - they're
+# just queued instead of posted immediately. As soon as a run happens
+# at or after QUIET_HOURS_END, any queued alerts are flushed as a
+# single batch dump before that run's own new alerts are sent.
+#
+# NOTE: GitHub Actions runs in UTC. QUIET_HOURS_TZ tells the bot what
+# "10pm" and "6:30am" mean in wall-clock time - update this if you
+# move to a different timezone. This does NOT auto-adjust in a way
+# that requires code changes for DST; zoneinfo handles that.
+from datetime import time as _time
+from zoneinfo import ZoneInfo
+
+QUIET_HOURS_TZ = ZoneInfo("America/Chicago")
+QUIET_HOURS_START = _time(22, 0)   # 10:00 PM
+QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
 
 # --- Item config ---
 # Each item defines:
@@ -249,6 +269,17 @@ ITEMS = [
         "require_any": ["psa 8", "psa8", "psa-8"],  # cover common spacing/formatting variants sellers use
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
+
+    # --- Basketball cards ---
+    {
+        "label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+        "query": "Luka Doncic 2018 Prizm 280 RC PSA 10",
+        "max_price": 180,
+        "min_price": 70,
+        "require_words": ["luka", "doncic", "280"],
+        "require_any": ["psa 10", "psa10", "psa-10"],  # cover common spacing/formatting variants sellers use
+        "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+    },
 ]
 
 
@@ -344,6 +375,47 @@ def save_seen(seen_ids: set[str]):
         json.dump(sorted(seen_ids), f, indent=2)
 
 
+def is_quiet_hours(now=None) -> bool:
+    """
+    Returns True if the current time (in QUIET_HOURS_TZ) falls within
+    the quiet-hours window. Handles the overnight wraparound (start
+    time is later in the day than end time).
+    """
+    from datetime import datetime
+
+    if now is None:
+        now = datetime.now(QUIET_HOURS_TZ)
+    else:
+        now = now.astimezone(QUIET_HOURS_TZ)
+
+    current_time = now.time()
+
+    if QUIET_HOURS_START <= QUIET_HOURS_END:
+        # Normal same-day window, e.g. 1pm-5pm
+        return QUIET_HOURS_START <= current_time < QUIET_HOURS_END
+    else:
+        # Overnight window, e.g. 10pm-6:30am - true if it's after
+        # start OR before end
+        return current_time >= QUIET_HOURS_START or current_time < QUIET_HOURS_END
+
+
+def load_pending() -> list[dict]:
+    if not PENDING_FILE.exists():
+        return []
+    with open(PENDING_FILE) as f:
+        return json.load(f)
+
+
+def save_pending(pending: list[dict]):
+    if pending:
+        with open(PENDING_FILE, "w") as f:
+            json.dump(pending, f, indent=2)
+    elif PENDING_FILE.exists():
+        # Nothing queued - remove the file rather than leave an empty
+        # array committed to the repo indefinitely.
+        PENDING_FILE.unlink()
+
+
 def get_shipping_cost(listing: dict) -> float | None:
     """
     Returns the cheapest shipping cost for a listing, or 0.0 if free
@@ -366,11 +438,7 @@ def get_shipping_cost(listing: dict) -> float | None:
     return min(costs)
 
 
-def send_discord_alert(item: dict, listing: dict):
-    if not DISCORD_WEBHOOK_URL:
-        print("No DISCORD_WEBHOOK_URL set - skipping notification.")
-        return
-
+def build_alert_content(item: dict, listing: dict) -> str:
     title = listing.get("title", "Untitled")
     price_str = listing.get("price", {}).get("value", "?")
     url = listing.get("itemWebUrl", "")
@@ -400,15 +468,54 @@ def send_discord_alert(item: dict, listing: dict):
     else:
         price_line = f"**${price_str} + ${shipping_cost:.2f} shipping - {title}**"
 
-    content = (
+    return (
         f"{price_line}\n"
         f"Matched: *{item['label']}* (threshold: {threshold_str})\n"
         f"<{url}>"
     )
 
+
+def post_to_discord(content: str):
+    if not DISCORD_WEBHOOK_URL:
+        print("No DISCORD_WEBHOOK_URL set - skipping notification.")
+        return
+
     response = requests.post(DISCORD_WEBHOOK_URL, json={"content": content})
     if response.status_code not in (200, 204):
         print(f"Discord post failed: {response.status_code} {response.text}")
+
+
+def send_discord_alert(item: dict, listing: dict):
+    post_to_discord(build_alert_content(item, listing))
+
+
+def flush_pending_alerts():
+    """
+    Posts all queued off-hours alerts as a single batch dump, then
+    clears the queue. Discord has a ~2000 character message limit, so
+    alerts are grouped into chunks rather than sent as one giant post.
+    """
+    pending = load_pending()
+    if not pending:
+        return
+
+    header = f"**Overnight digest - {len(pending)} listing(s) found during quiet hours:**\n\n"
+    chunks = []
+    current_chunk = header
+    for entry in pending:
+        block = entry["content"] + "\n\n"
+        if len(current_chunk) + len(block) > 1900:
+            chunks.append(current_chunk)
+            current_chunk = block
+        else:
+            current_chunk += block
+    chunks.append(current_chunk)
+
+    for chunk in chunks:
+        post_to_discord(chunk)
+
+    save_pending([])
+    print(f"Flushed {len(pending)} queued overnight alert(s).")
 
 
 def run():
@@ -422,9 +529,20 @@ def run():
             "for calculated-shipping listings in Discord alerts."
         )
 
+    quiet_now = is_quiet_hours()
+
+    # If we're no longer in quiet hours, flush anything queued from
+    # overnight before processing this run's own results. This means
+    # whichever run happens at/after QUIET_HOURS_END delivers the batch
+    # dump - typically the ~6:30am run, given the 5-minute cron cadence.
+    if not quiet_now:
+        flush_pending_alerts()
+
     token = get_access_token()
     seen_ids = load_seen()
+    pending = load_pending()
     new_alerts = 0
+    queued_alerts = 0
 
     for item in ITEMS:
         results = search_item(token, item)
@@ -445,12 +563,22 @@ def run():
             if not matches_excluded_words(title, item.get("exclude_words")):
                 continue
 
-            send_discord_alert(item, listing)
+            content = build_alert_content(item, listing)
+
+            if quiet_now:
+                pending.append({"content": content})
+                queued_alerts += 1
+            else:
+                post_to_discord(content)
+                new_alerts += 1
+
             seen_ids.add(item_id)
-            new_alerts += 1
 
     save_seen(seen_ids)
-    print(f"\nDone. {new_alerts} new alert(s) sent.")
+    if quiet_now:
+        save_pending(pending)
+
+    print(f"\nDone. {new_alerts} alert(s) sent, {queued_alerts} queued for the morning digest.")
 
 
 if __name__ == "__main__":
