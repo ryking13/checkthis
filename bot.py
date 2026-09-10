@@ -55,7 +55,7 @@ PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 SEARCH_RESULT_LIMIT = 100
 
 # Search for listings from the last N minutes (with 1-minute overlap)[cite: 1]
-SEARCH_WINDOW_MINUTES = 6
+SEARCH_WINDOW_MINUTES = 60
 SEARCH_WINDOW_OVERLAP_MINUTES = 1
 
 # --- Quiet hours ---
