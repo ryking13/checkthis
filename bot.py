@@ -1,25 +1,25 @@
 """
 eBay Alert Bot - runs on GitHub Actions every 5 minutes (via cron-job.org
 trigger), searches eBay for specific items, and posts a Discord alert
-when a Buy-It-Now listing is found under that item's price threshold.
+when a Buy-It-Now listing is found under that item's price threshold[cite: 1].
 
 This is a separate, independent project from the local Facebook
 Marketplace watcher - eBay's API is stateless (no login/session/device
 trust needed), so it's safe and appropriate to run in an ephemeral
-cloud environment like GitHub Actions, unlike the Facebook scraper.
+cloud environment like GitHub Actions, unlike the Facebook scraper[cite: 1].
 
 Dedup is handled with a simple seen_listings.json file, committed back
 to the repo after each run (see .github/workflows/ebay-scan.yml) -
 same underlying idea as the SQLite store in the Facebook project, just
-a format that's easy for a GitHub Actions job to read/write/commit.
+a format that's easy for a GitHub Actions job to read/write/commit[cite: 1].
 
 Incremental search uses item_search_metadata.json to track the timestamp
-of each item's last run. On every run (including the first), we search
+of each item's last run[cite: 1]. On every run (including the first), we search
 for listings from the last 6 minutes using eBay's actual itemCreationDate
-timestamp. This gives a precise, narrow window without massive scans.
+timestamp[cite: 1]. This gives a precise, narrow window without massive scans[cite: 1].
 
 The metadata is used for Discord deduplication only - we filter to only
-alert on listings that weren't present in the previous run.
+alert on listings that weren't present in the previous run[cite: 1].
 """
 
 import os
@@ -41,35 +41,35 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 
 # US zip code used as the shipping destination when querying eBay, so
 # that calculated-shipping listings actually return a shippingOptions
-# array. Without this, eBay has no destination to estimate shipping to
+# array[cite: 1]. Without this, eBay has no destination to estimate shipping to
 # and silently omits shipping info from search results (see
-# X-EBAY-C-ENDUSERCTX / contextualLocation in eBay's docs).
+# X-EBAY-C-ENDUSERCTX / contextualLocation in eBay's docs)[cite: 1].
 EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
 
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
-# Retrieve up to 100 items per API call (eBay's max per page).
-# With a tight 6-minute window, we'll rarely hit 100 results.
+# Retrieve up to 100 items per API call (eBay's max per page)[cite: 1].
+# With a tight 6-minute window, we'll rarely hit 100 results[cite: 1].
 SEARCH_RESULT_LIMIT = 100
 
-# Search for listings from the last N minutes (with 1-minute overlap)
+# Search for listings from the last N minutes (with 1-minute overlap)[cite: 1]
 SEARCH_WINDOW_MINUTES = 6
 SEARCH_WINDOW_OVERLAP_MINUTES = 1
 
 # --- Quiet hours ---
 # No Discord notifications are sent between QUIET_HOURS_START and
-# QUIET_HOURS_END (in QUIET_HOURS_TZ). Matches found during that window
+# QUIET_HOURS_END (in QUIET_HOURS_TZ)[cite: 1]. Matches found during that window
 # are still detected and saved to disk (see PENDING_FILE) - they're
-# just queued instead of posted immediately. As soon as a run happens
+# just queued instead of posted immediately[cite: 1]. As soon as a run happens
 # at or after QUIET_HOURS_END, any queued alerts are flushed as a
-# single batch dump before that run's own new alerts are sent.
+# single batch dump before that run's own new alerts are sent[cite: 1].
 #
-# NOTE: GitHub Actions runs in UTC. QUIET_HOURS_TZ tells the bot what
+# NOTE: GitHub Actions runs in UTC[cite: 1]. QUIET_HOURS_TZ tells the bot what
 # "10pm" and "6:30am" mean in wall-clock time - update this if you
-# move to a different timezone. This does NOT auto-adjust in a way
-# that requires code changes for DST; zoneinfo handles that.
+# move to a different timezone[cite: 1]. This does NOT auto-adjust in a way
+# that requires code changes for DST; zoneinfo handles that[cite: 1].
 from datetime import time as _time
 from zoneinfo import ZoneInfo
 
@@ -78,33 +78,16 @@ QUIET_HOURS_START = _time(22, 0)   # 10:00 PM
 QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
 
 # Applies to every item in ITEMS - listings with a known shipping cost
-# above this are skipped entirely (not even queued during quiet hours).
+# above this are skipped entirely (not even queued during quiet hours)[cite: 1].
 # Listings where shipping cost couldn't be determined (e.g. local
 # pickup only, or eBay didn't return shippingOptions) are NOT excluded
 # by this filter, since we have no evidence they're actually expensive
-# to ship - they still go through the normal price/title filters.
+# to ship - they still go through the normal price/title filters[cite: 1].
 MAX_SHIPPING_COST = 15.00
-
-# --- Item config ---
-# Each item defines:
-#   query          - what to search eBay for
-#   max_price      - alert only if price is at or below this
-#   min_price      - (optional) alert only if price is at or above this -
-#                     useful for collectible/retro items where a
-#                     suspiciously low price often means broken,
-#                     incomplete, or a reproduction/bootleg
-#   require_words  - (optional) title must contain ALL of these words
-#                     (case-insensitive) in addition to matching the query
-#   require_any    - (optional) title must contain AT LEAST ONE of these
-#                     words/phrases (case-insensitive) - used for "set
-#                     number OR set name" style matching
-#   exclude_words  - (optional) title must NOT contain any of these words
-#                     (case-insensitive)
-#   label          - friendly name shown in Discord alerts
 
 # Shared exclusion list applied to all LEGO set searches - filters out
 # standalone minifigures, box/bag/manual-only listings, parts lots,
-# incomplete sets, and third-party lighting kits (not the actual set).
+# incomplete sets, and third-party lighting kits (not the actual set)[cite: 1].
 LEGO_EXCLUDE_WORDS = [
     "minifigure",
     "minifigures",
@@ -119,12 +102,12 @@ LEGO_EXCLUDE_WORDS = [
 # Shared exclusion list applied to the retro N64/SNES game searches -
 # filters out Japanese imports (different region/cart) and suspicious
 # "untested" listings, which are common ways for bad-condition or
-# non-working carts to slip through.
+# non-working carts to slip through[cite: 1].
 RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot"]
 
-# Shared exclusion list applied to baseball-card searches.
+# Shared exclusion list applied to baseball-card searches[cite: 1].
 # These are intended to keep the scanner focused on PSA-graded cards
-# and eliminate common non-card / non-original-card noise.
+# and eliminate common non-card / non-original-card noise[cite: 1].
 BASEBALL_CARD_EXCLUDE_WORDS = [
     "sgc",
     "bccg",
@@ -175,12 +158,6 @@ ITEMS = [
     },
 
     # --- LEGO sets ---
-    # query uses the set number (most reliable - sellers almost always
-    # include it), require_any lets either the set number or set name
-    # count as a match, in case a listing only has one or the other.
-    # LEGO_EXCLUDE_WORDS filters out common junk matches: standalone
-    # minifigures, incomplete/parts-only listings, and third-party
-    # lighting kits that aren't the actual set.
     {
         "label": "LEGO Central Perk (21319)",
         "query": "lego 21319",
@@ -218,9 +195,6 @@ ITEMS = [
     },
 
     # --- Retro N64/SNES games ---
-    # min_price filters out suspiciously-cheap listings, which for
-    # valuable carts like these are usually reproductions, loose
-    # carts with issues, or bait-and-switch listings.
     {
         "label": "Paper Mario (N64)",
         "query": "paper mario n64",
@@ -233,7 +207,7 @@ ITEMS = [
         "query": "pokemon stadium 2",
         "max_price": 75,
         "min_price": 39,
-        "require_any": ["pokemon stadium 2"],  # must be the exact phrase, not just "pokemon stadium" (was matching the original game)
+        "require_any": ["pokemon stadium 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
     },
     {
@@ -241,7 +215,7 @@ ITEMS = [
         "query": "Snowboard Kids 2",
         "max_price": 100,
         "min_price": 39,
-        "require_any": ["snowboard kids 2"],  # must be the exact phrase, not scattered words (was matching snowboarding gear)
+        "require_any": ["snowboard kids 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
     },
     {
@@ -269,21 +243,18 @@ ITEMS = [
         "label": "Secret of Mana",
         "query": "secret of mana",
         "max_price": 45,
-        "require_any": ["secret of mana"],  # must be the exact phrase, not scattered words
+        "require_any": ["secret of mana"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
     },
 
     # --- Baseball cards ---
-    # These searches intentionally require PSA + the exact grade/card
-    # identifiers to reduce noise from raw cards, other grading companies,
-    # lots, and unrelated listings.
     {
         "label": "Chipper Jones 1991 Topps #333 PSA 10",
         "query": "Chipper Jones 1991 Topps 333 PSA 10",
         "max_price": 125,
         "min_price": 50,
         "require_words": ["chipper", "jones", "333"],
-        "require_any": ["psa 10", "psa10", "psa-10"],  # cover common spacing/formatting variants sellers use
+        "require_any": ["psa 10", "psa10", "psa-10"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
     {
@@ -292,7 +263,7 @@ ITEMS = [
         "max_price": 120,
         "min_price": 50,
         "require_words": ["nolan", "ryan", "580"],
-        "require_any": ["psa 8", "psa8", "psa-8"],  # cover common spacing/formatting variants sellers use
+        "require_any": ["psa 8", "psa8", "psa-8"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
 
@@ -303,7 +274,7 @@ ITEMS = [
         "max_price": 180,
         "min_price": 70,
         "require_words": ["luka", "doncic", "280"],
-        "require_any": ["psa 10", "psa10", "psa-10"],  # cover common spacing/formatting variants sellers use
+        "require_any": ["psa 10", "psa10", "psa-10"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
     },
 ]
@@ -326,11 +297,6 @@ def get_access_token() -> str:
 
 
 def load_search_metadata() -> dict:
-    """Load the last search run timestamp for each item.
-    
-    Returns a dict mapping item labels to ISO 8601 timestamps of when we
-    last fetched results for that item. Used for Discord deduplication only.
-    """
     if not METADATA_FILE.exists():
         return {}
     try:
@@ -341,7 +307,6 @@ def load_search_metadata() -> dict:
 
 
 def save_search_metadata(metadata: dict):
-    """Save search run metadata back to disk."""
     with open(METADATA_FILE, "w") as f:
         json.dump(metadata, f, indent=2)
 
@@ -349,35 +314,22 @@ def save_search_metadata(metadata: dict):
 def search_item(token: str, item: dict) -> list[dict]:
     """
     Searches eBay for one configured item, filtered to Buy It Now
-    (fixed price) listings only - auctions are always excluded per the
-    price thresholds being "buy it now" prices, not bid prices.
-
-    Every run (including the first) searches for listings from the last
-    SEARCH_WINDOW_MINUTES (default 6 min). Uses eBay's itemCreationDate
-    timestamp to filter results client-side, providing a precise time
-    window without needing historical state.
-
-    Results are sorted by newly listed and limited to 100 per API call.
-    With a 6-minute window, results should be small.
+    (fixed price) listings created within the search window[cite: 1].
     """
     min_price = item.get("min_price", "")
     price_range = f"price:[{min_price}..{item['max_price']}]"
 
-    # Calculate the cutoff time: look for listings from the last
-    # SEARCH_WINDOW_MINUTES, with 1-minute overlap to catch anything we
-    # might have missed due to clock skew or race conditions.
     now = datetime.now(timezone.utc)
     cutoff_time = now - timedelta(minutes=SEARCH_WINDOW_MINUTES + SEARCH_WINDOW_OVERLAP_MINUTES)
+    
+    # Format creation cutoff timestamp for eBay's filter (ISO 8601 UTC)
+    cutoff_iso = cutoff_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
     headers = {
         "Authorization": f"Bearer {token}",
         "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
     }
 
-    # Calculated-shipping listings only return a shippingOptions array
-    # if eBay knows a destination to estimate shipping to. Without this
-    # header, shipping info is silently omitted from results even
-    # though the listing itself has a real shipping cost.
     if EBAY_ZIP:
         headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
 
@@ -385,7 +337,8 @@ def search_item(token: str, item: dict) -> list[dict]:
         "q": item["query"],
         "limit": str(SEARCH_RESULT_LIMIT),
         "sort": "NEWLY_LISTED",
-        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
+        # Pass itemCreationDate directly to eBay API filter range
+        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD,itemCreationDate:[{cutoff_iso}..]",
     }
 
     response = requests.get(
@@ -400,20 +353,19 @@ def search_item(token: str, item: dict) -> list[dict]:
 
     results = response.json().get("itemSummaries", [])
 
-    # Filter by actual itemCreationDate to keep only listings from our
-    # search window. This is precise and doesn't rely on metadata state.
     filtered_results = []
     for listing in results:
         creation_str = listing.get("itemCreationDate")
-        if creation_str:
-            try:
-                # Parse ISO 8601 timestamp (eBay returns with 'Z' suffix)
-                creation_dt = datetime.fromisoformat(creation_str.replace('Z', '+00:00'))
-                if creation_dt >= cutoff_time:
-                    filtered_results.append(listing)
-            except (ValueError, TypeError):
-                # If we can't parse the timestamp, include it to be safe
+        if not creation_str:
+            continue
+
+        try:
+            creation_dt = datetime.fromisoformat(creation_str.replace('Z', '+00:00'))
+            if creation_dt >= cutoff_time:
                 filtered_results.append(listing)
+        except (ValueError, TypeError):
+            # Drop items with corrupted or unparseable timestamps
+            continue
 
     return filtered_results
 
@@ -426,9 +378,6 @@ def matches_required_words(title: str, require_words: list[str] | None) -> bool:
 
 
 def matches_any_words(title: str, require_any: list[str] | None) -> bool:
-    """At least one of these words/phrases must appear in the title -
-    used for "set number OR set name" style matching (e.g. a LEGO
-    listing counts if it mentions either "21319" or "central perk")."""
     if not require_any:
         return True
     title_lower = title.lower()
@@ -455,11 +404,6 @@ def save_seen(seen_ids: set[str]):
 
 
 def is_quiet_hours(now=None) -> bool:
-    """
-    Returns True if the current time (in QUIET_HOURS_TZ) falls within
-    the quiet-hours window. Handles the overnight wraparound (start
-    time is later in the day than end time).
-    """
     from datetime import datetime
 
     if now is None:
@@ -470,11 +414,8 @@ def is_quiet_hours(now=None) -> bool:
     current_time = now.time()
 
     if QUIET_HOURS_START <= QUIET_HOURS_END:
-        # Normal same-day window, e.g. 1pm-5pm
         return QUIET_HOURS_START <= current_time < QUIET_HOURS_END
     else:
-        # Overnight window, e.g. 10pm-6:30am - true if it's after
-        # start OR before end
         return current_time >= QUIET_HOURS_START or current_time < QUIET_HOURS_END
 
 
@@ -490,17 +431,10 @@ def save_pending(pending: list[dict]):
         with open(PENDING_FILE, "w") as f:
             json.dump(pending, f, indent=2)
     elif PENDING_FILE.exists():
-        # Nothing queued - remove the file rather than leave an empty
-        # array committed to the repo indefinitely.
         PENDING_FILE.unlink()
 
 
 def get_shipping_cost(listing: dict) -> float | None:
-    """
-    Returns the cheapest shipping cost for a listing, or 0.0 if free
-    shipping, or None if shipping info isn't available (e.g. local
-    pickup only, or the field wasn't returned for some reason).
-    """
     shipping_options = listing.get("shippingOptions")
     if not shipping_options:
         return None
@@ -536,8 +470,6 @@ def build_alert_content(item: dict, listing: dict) -> str:
         price = None
 
     if shipping_cost is None:
-        # Shipping info unavailable (e.g. local pickup only) - don't
-        # claim a total we can't actually back up.
         price_line = f"**${price_str} - {title}**\n(shipping cost unavailable)"
     elif shipping_cost == 0:
         price_line = f"**${price_str} (free shipping) - {title}**"
@@ -569,11 +501,6 @@ def send_discord_alert(item: dict, listing: dict):
 
 
 def flush_pending_alerts():
-    """
-    Posts all queued off-hours alerts as a single batch dump, then
-    clears the queue. Discord has a ~2000 character message limit, so
-    alerts are grouped into chunks rather than sent as one giant post.
-    """
     pending = load_pending()
     if not pending:
         return
@@ -610,10 +537,6 @@ def run():
 
     quiet_now = is_quiet_hours()
 
-    # If we're no longer in quiet hours, flush anything queued from
-    # overnight before processing this run's own results. This means
-    # whichever run happens at/after QUIET_HOURS_END delivers the batch
-    # dump - typically the ~6:30am run, given the 5-minute cron cadence.
     if not quiet_now:
         flush_pending_alerts()
 
@@ -698,8 +621,6 @@ def run():
 
             seen_ids.add(item_id)
 
-        # Update the search timestamp for this item. This is used for
-        # Discord deduplication to track what was seen in previous runs.
         metadata[item["label"]] = now_iso
 
     save_seen(seen_ids)
