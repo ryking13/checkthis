@@ -13,10 +13,13 @@ to the repo after each run (see .github/workflows/ebay-scan.yml) -
 same underlying idea as the SQLite store in the Facebook project, just
 a format that's easy for a GitHub Actions job to read/write/commit.
 
-Incremental search uses item_search_metadata.json to track the last
-search time for each item. On each run, we only fetch listings newer
-than the previous search by using eBay's daysOld filter with a narrow
-window (~5 minutes). This keeps results small and avoids massive scans.
+Incremental search uses item_search_metadata.json to track the timestamp
+of each item's last run. On every run (including the first), we search
+for listings from the last 6 minutes using eBay's actual itemCreationDate
+timestamp. This gives a precise, narrow window without massive scans.
+
+The metadata is used for Discord deduplication only - we filter to only
+alert on listings that weren't present in the previous run.
 """
 
 import os
@@ -48,8 +51,12 @@ METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
 # Retrieve up to 100 items per API call (eBay's max per page).
-# With a tight daysOld window (~5 min), we'll rarely hit 100 results.
+# With a tight 6-minute window, we'll rarely hit 100 results.
 SEARCH_RESULT_LIMIT = 100
+
+# Search for listings from the last N minutes (with 1-minute overlap)
+SEARCH_WINDOW_MINUTES = 6
+SEARCH_WINDOW_OVERLAP_MINUTES = 1
 
 # --- Quiet hours ---
 # No Discord notifications are sent between QUIET_HOURS_START and
@@ -319,10 +326,10 @@ def get_access_token() -> str:
 
 
 def load_search_metadata() -> dict:
-    """Load the last search timestamp for each item.
+    """Load the last search run timestamp for each item.
     
-    Returns a dict mapping item labels to ISO 8601 timestamps of the last
-    successful search. If a label is missing, we assume it's the first run.
+    Returns a dict mapping item labels to ISO 8601 timestamps of when we
+    last fetched results for that item. Used for Discord deduplication only.
     """
     if not METADATA_FILE.exists():
         return {}
@@ -334,50 +341,33 @@ def load_search_metadata() -> dict:
 
 
 def save_search_metadata(metadata: dict):
-    """Save search metadata back to disk."""
+    """Save search run metadata back to disk."""
     with open(METADATA_FILE, "w") as f:
         json.dump(metadata, f, indent=2)
 
 
-def search_item(token: str, item: dict, metadata: dict) -> list[dict]:
+def search_item(token: str, item: dict) -> list[dict]:
     """
     Searches eBay for one configured item, filtered to Buy It Now
     (fixed price) listings only - auctions are always excluded per the
     price thresholds being "buy it now" prices, not bid prices.
 
-    Uses daysOld filter with a tight window to only fetch listings from
-    the last search run (~5 minutes). On first run, starts with daysOld=0
-    (today only). On subsequent runs, uses exact time calculation to
-    minimize results to just the last search window.
+    Every run (including the first) searches for listings from the last
+    SEARCH_WINDOW_MINUTES (default 6 min). Uses eBay's itemCreationDate
+    timestamp to filter results client-side, providing a precise time
+    window without needing historical state.
 
-    Results are sorted by newly listed. We do NOT paginate because the
-    5-minute window is so tight that results should be minimal.
+    Results are sorted by newly listed and limited to 100 per API call.
+    With a 6-minute window, results should be small.
     """
     min_price = item.get("min_price", "")
     price_range = f"price:[{min_price}..{item['max_price']}]"
 
-    # Calculate daysOld filter based on time since last search.
-    # On first run, metadata is empty → daysOld=0 (today's listings only)
-    # On subsequent runs, we calculate exact elapsed time and use daysOld
-    # to narrow to just that window + a safety margin.
-    label = item["label"]
-    last_search = metadata.get(label)
-    
-    if last_search:
-        # Calculate how many days have passed since the last search.
-        # We use daysOld to get a narrow window. Example:
-        #   - Last search: 5 minutes ago
-        #   - Elapsed: ~0 days
-        #   - daysOld = 0 → "list from today"
-        #   - GitHub runs every 5 min, so we'll get ~0-5 new listings
-        last_search_dt = datetime.fromisoformat(last_search)
-        now = datetime.now(timezone.utc)
-        days_elapsed = (now - last_search_dt).total_seconds() / 86400
-        days_old = max(0, int(days_elapsed))
-        days_old_filter = f",daysOld:{days_old}"
-    else:
-        # First run - only get today's listings to avoid massive initial scan
-        days_old_filter = ",daysOld:0"
+    # Calculate the cutoff time: look for listings from the last
+    # SEARCH_WINDOW_MINUTES, with 1-minute overlap to catch anything we
+    # might have missed due to clock skew or race conditions.
+    now = datetime.now(timezone.utc)
+    cutoff_time = now - timedelta(minutes=SEARCH_WINDOW_MINUTES + SEARCH_WINDOW_OVERLAP_MINUTES)
 
     headers = {
         "Authorization": f"Bearer {token}",
@@ -395,7 +385,7 @@ def search_item(token: str, item: dict, metadata: dict) -> list[dict]:
         "q": item["query"],
         "limit": str(SEARCH_RESULT_LIMIT),
         "sort": "NEWLY_LISTED",
-        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD{days_old_filter}",
+        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
 
     response = requests.get(
@@ -405,10 +395,27 @@ def search_item(token: str, item: dict, metadata: dict) -> list[dict]:
     )
 
     if response.status_code != 200:
-        print(f"Search failed for {label!r}: {response.status_code} {response.text}")
+        print(f"Search failed for {item['label']!r}: {response.status_code} {response.text}")
         return []
 
-    return response.json().get("itemSummaries", [])
+    results = response.json().get("itemSummaries", [])
+
+    # Filter by actual itemCreationDate to keep only listings from our
+    # search window. This is precise and doesn't rely on metadata state.
+    filtered_results = []
+    for listing in results:
+        creation_str = listing.get("itemCreationDate")
+        if creation_str:
+            try:
+                # Parse ISO 8601 timestamp (eBay returns with 'Z' suffix)
+                creation_dt = datetime.fromisoformat(creation_str.replace('Z', '+00:00'))
+                if creation_dt >= cutoff_time:
+                    filtered_results.append(listing)
+            except (ValueError, TypeError):
+                # If we can't parse the timestamp, include it to be safe
+                filtered_results.append(listing)
+
+    return filtered_results
 
 
 def matches_required_words(title: str, require_words: list[str] | None) -> bool:
@@ -619,7 +626,7 @@ def run():
     queued_alerts = 0
 
     for item in ITEMS:
-        results = search_item(token, item, metadata)
+        results = search_item(token, item)
 
         stats = {
             "api_results": len(results),
@@ -691,8 +698,8 @@ def run():
 
             seen_ids.add(item_id)
 
-        # Update the search timestamp for this item regardless of results.
-        # This ensures we don't re-fetch the same time window next run.
+        # Update the search timestamp for this item. This is used for
+        # Discord deduplication to track what was seen in previous runs.
         metadata[item["label"]] = now_iso
 
     save_seen(seen_ids)
