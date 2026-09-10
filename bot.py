@@ -15,7 +15,7 @@ a format that's easy for a GitHub Actions job to read/write/commit[cite: 1].
 
 Incremental search uses item_search_metadata.json to track the timestamp
 of each item's last run[cite: 1]. On every run (including the first), we search
-for listings from the last 6 minutes using eBay's actual itemCreationDate
+for listings from the last 6 minutes using eBay's actual itemStartDate
 timestamp[cite: 1]. This gives a precise, narrow window without massive scans[cite: 1].
 
 The metadata is used for Discord deduplication only - we filter to only
@@ -322,8 +322,8 @@ def search_item(token: str, item: dict) -> list[dict]:
     now = datetime.now(timezone.utc)
     cutoff_time = now - timedelta(minutes=SEARCH_WINDOW_MINUTES + SEARCH_WINDOW_OVERLAP_MINUTES)
     
-    # Format creation cutoff timestamp for eBay's filter (ISO 8601 UTC)
-    cutoff_iso = cutoff_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    # Format creation cutoff timestamp for eBay's itemStartDate filter (ISO 8601 UTC)
+    cutoff_iso = cutoff_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     headers = {
         "Authorization": f"Bearer {token}",
@@ -337,8 +337,8 @@ def search_item(token: str, item: dict) -> list[dict]:
         "q": item["query"],
         "limit": str(SEARCH_RESULT_LIMIT),
         "sort": "NEWLY_LISTED",
-        # Pass itemCreationDate directly to eBay API filter range
-        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD,itemCreationDate:[{cutoff_iso}..]",
+        # Use itemStartDate:[<timestamp>..] for eBay's API filter
+        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD,itemStartDate:[{cutoff_iso}..]",
     }
 
     response = requests.get(
@@ -355,8 +355,10 @@ def search_item(token: str, item: dict) -> list[dict]:
 
     filtered_results = []
     for listing in results:
-        creation_str = listing.get("itemCreationDate")
+        creation_str = listing.get("itemCreationDate") or listing.get("itemOriginDate")
         if not creation_str:
+            # If eBay omitted the date from the summary payload, rely on itemStartDate filter
+            filtered_results.append(listing)
             continue
 
         try:
@@ -364,7 +366,6 @@ def search_item(token: str, item: dict) -> list[dict]:
             if creation_dt >= cutoff_time:
                 filtered_results.append(listing)
         except (ValueError, TypeError):
-            # Drop items with corrupted or unparseable timestamps
             continue
 
     return filtered_results
