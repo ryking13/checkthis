@@ -18,6 +18,7 @@ import os
 import json
 import base64
 import statistics
+import time
 import requests
 from pathlib import Path
 
@@ -38,9 +39,6 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
 
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
-
-# Retrieve more listings per search while keeping one API call per item.
-SEARCH_RESULT_LIMIT = 100
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
 # --- Quiet hours ---
@@ -69,6 +67,14 @@ QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
 # by this filter, since we have no evidence they're actually expensive
 # to ship - they still go through the normal price/title filters.
 MAX_SHIPPING_COST = 15.00
+
+# Discord webhook rate-limit handling.
+# Discord returns HTTP 429 with a retry_after value. We retry rather than
+# silently losing an alert, and a listing is only marked as "seen" after
+# Discord successfully accepts the message.
+DISCORD_MAX_RETRIES = 5
+DISCORD_RETRY_BUFFER = 0.25
+
 
 # --- Item config ---
 # Each item defines:
@@ -315,18 +321,13 @@ def search_item(token: str, item: dict) -> list[dict]:
     Searches eBay for one configured item, filtered to Buy It Now
     (fixed price) listings only - auctions are always excluded per the
     price thresholds being "buy it now" prices, not bid prices.
-
-    Results are sorted by newly listed and expanded to 100. We deliberately
-    keep this to ONE API request per item per run because the bot runs
-    frequently and API usage matters.
     """
     min_price = item.get("min_price", "")
     price_range = f"price:[{min_price}..{item['max_price']}]"
 
     params = {
         "q": item["query"],
-        "limit": str(SEARCH_RESULT_LIMIT),
-        "sort": "NEWLY_LISTED",
+        "limit": "30",
         "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
 
@@ -491,18 +492,61 @@ def build_alert_content(item: dict, listing: dict) -> str:
     )
 
 
-def post_to_discord(content: str):
+def post_to_discord(content: str) -> bool:
+    """
+    Post to Discord and retry rate-limited requests.
+
+    Returns True only when Discord accepts the message. This is important:
+    callers must NOT mark a listing as seen when Discord rejected the post.
+    """
     if not DISCORD_WEBHOOK_URL:
         print("No DISCORD_WEBHOOK_URL set - skipping notification.")
-        return
+        return False
 
-    response = requests.post(DISCORD_WEBHOOK_URL, json={"content": content})
-    if response.status_code not in (200, 204):
+    for attempt in range(1, DISCORD_MAX_RETRIES + 1):
+        try:
+            response = requests.post(
+                DISCORD_WEBHOOK_URL,
+                json={"content": content},
+                timeout=30,
+            )
+        except requests.RequestException as exc:
+            print(f"Discord request failed (attempt {attempt}/{DISCORD_MAX_RETRIES}): {exc}")
+            if attempt < DISCORD_MAX_RETRIES:
+                time.sleep(min(2 ** (attempt - 1), 10))
+                continue
+            return False
+
+        if response.status_code in (200, 204):
+            return True
+
+        if response.status_code == 429:
+            try:
+                retry_after = float(response.json().get("retry_after", 1))
+            except (ValueError, TypeError, AttributeError):
+                retry_after = 1.0
+
+            wait_time = retry_after + DISCORD_RETRY_BUFFER
+            print(
+                f"Discord rate limited (attempt {attempt}/{DISCORD_MAX_RETRIES}); "
+                f"waiting {wait_time:.2f}s before retrying."
+            )
+
+            if attempt < DISCORD_MAX_RETRIES:
+                time.sleep(wait_time)
+                continue
+
+            print("Discord rate-limit retries exhausted; listing will NOT be marked seen.")
+            return False
+
         print(f"Discord post failed: {response.status_code} {response.text}")
+        return False
+
+    return False
 
 
-def send_discord_alert(item: dict, listing: dict):
-    post_to_discord(build_alert_content(item, listing))
+def send_discord_alert(item: dict, listing: dict) -> bool:
+    return post_to_discord(build_alert_content(item, listing))
 
 
 def flush_pending_alerts():
@@ -562,76 +606,44 @@ def run():
 
     for item in ITEMS:
         results = search_item(token, item)
-
-        stats = {
-            "api_results": len(results),
-            "already_seen": 0,
-            "missing_id": 0,
-            "required_words": 0,
-            "required_any": 0,
-            "excluded_words": 0,
-            "shipping": 0,
-            "eligible": 0,
-        }
-
-        eligible_listings = []
+        print(f"{item['label']}: {len(results)} candidate listings under ${item['max_price']}")
 
         for listing in results:
             item_id = listing.get("itemId")
-
-            if not item_id:
-                stats["missing_id"] += 1
-                continue
-
-            if item_id in seen_ids:
-                stats["already_seen"] += 1
+            if not item_id or item_id in seen_ids:
                 continue
 
             title = listing.get("title", "")
-
             if not matches_required_words(title, item.get("require_words")):
-                stats["required_words"] += 1
                 continue
 
             if not matches_any_words(title, item.get("require_any")):
-                stats["required_any"] += 1
                 continue
 
             if not matches_excluded_words(title, item.get("exclude_words")):
-                stats["excluded_words"] += 1
                 continue
 
             shipping_cost = get_shipping_cost(listing)
             if shipping_cost is not None and shipping_cost > MAX_SHIPPING_COST:
-                stats["shipping"] += 1
                 continue
 
-            stats["eligible"] += 1
-            eligible_listings.append(listing)
-
-        print(
-            f"{item['label']}: "
-            f"{stats['api_results']} found | "
-            f"{stats['already_seen']} seen | "
-            f"{stats['required_words']} req-word rejects | "
-            f"{stats['required_any']} req-any rejects | "
-            f"{stats['excluded_words']} excluded | "
-            f"{stats['shipping']} shipping rejects | "
-            f"{stats['eligible']} NEW eligible"
-        )
-
-        for listing in eligible_listings:
-            item_id = listing["itemId"]
             content = build_alert_content(item, listing)
 
             if quiet_now:
                 pending.append({"content": content})
                 queued_alerts += 1
+                # Queued alerts are safely persisted below, so mark them seen.
+                seen_ids.add(item_id)
             else:
-                post_to_discord(content)
-                new_alerts += 1
-
-            seen_ids.add(item_id)
+                if post_to_discord(content):
+                    new_alerts += 1
+                    # Only mark as seen after Discord accepted the message.
+                    seen_ids.add(item_id)
+                else:
+                    print(
+                        f"NOT marking {item_id} as seen because Discord "
+                        f"did not accept the alert."
+                    )
 
     save_seen(seen_ids)
     if quiet_now:
