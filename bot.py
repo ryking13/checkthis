@@ -38,6 +38,9 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
 
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
+
+# Retrieve more listings per search while keeping one API call per item.
+SEARCH_RESULT_LIMIT = 100
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
 # --- Quiet hours ---
@@ -312,13 +315,18 @@ def search_item(token: str, item: dict) -> list[dict]:
     Searches eBay for one configured item, filtered to Buy It Now
     (fixed price) listings only - auctions are always excluded per the
     price thresholds being "buy it now" prices, not bid prices.
+
+    Results are sorted by newly listed and expanded to 100. We deliberately
+    keep this to ONE API request per item per run because the bot runs
+    frequently and API usage matters.
     """
     min_price = item.get("min_price", "")
     price_range = f"price:[{min_price}..{item['max_price']}]"
 
     params = {
         "q": item["query"],
-        "limit": "30",
+        "limit": str(SEARCH_RESULT_LIMIT),
+        "sort": "NEWLY_LISTED",
         "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
 
@@ -554,27 +562,66 @@ def run():
 
     for item in ITEMS:
         results = search_item(token, item)
-        print(f"{item['label']}: {len(results)} candidate listings under ${item['max_price']}")
+
+        stats = {
+            "api_results": len(results),
+            "already_seen": 0,
+            "missing_id": 0,
+            "required_words": 0,
+            "required_any": 0,
+            "excluded_words": 0,
+            "shipping": 0,
+            "eligible": 0,
+        }
+
+        eligible_listings = []
 
         for listing in results:
             item_id = listing.get("itemId")
-            if not item_id or item_id in seen_ids:
+
+            if not item_id:
+                stats["missing_id"] += 1
+                continue
+
+            if item_id in seen_ids:
+                stats["already_seen"] += 1
                 continue
 
             title = listing.get("title", "")
+
             if not matches_required_words(title, item.get("require_words")):
+                stats["required_words"] += 1
                 continue
 
             if not matches_any_words(title, item.get("require_any")):
+                stats["required_any"] += 1
                 continue
 
             if not matches_excluded_words(title, item.get("exclude_words")):
+                stats["excluded_words"] += 1
                 continue
 
             shipping_cost = get_shipping_cost(listing)
             if shipping_cost is not None and shipping_cost > MAX_SHIPPING_COST:
+                stats["shipping"] += 1
                 continue
 
+            stats["eligible"] += 1
+            eligible_listings.append(listing)
+
+        print(
+            f"{item['label']}: "
+            f"{stats['api_results']} found | "
+            f"{stats['already_seen']} seen | "
+            f"{stats['required_words']} req-word rejects | "
+            f"{stats['required_any']} req-any rejects | "
+            f"{stats['excluded_words']} excluded | "
+            f"{stats['shipping']} shipping rejects | "
+            f"{stats['eligible']} NEW eligible"
+        )
+
+        for listing in eligible_listings:
+            item_id = listing["itemId"]
             content = build_alert_content(item, listing)
 
             if quiet_now:
