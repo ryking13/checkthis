@@ -12,6 +12,11 @@ Dedup is handled with a simple seen_listings.json file, committed back
 to the repo after each run (see .github/workflows/ebay-scan.yml) -
 same underlying idea as the SQLite store in the Facebook project, just
 a format that's easy for a GitHub Actions job to read/write/commit.
+
+Incremental search uses item_search_metadata.json to track the last
+search time for each item. On each run, we only fetch listings newer
+than the previous search by using eBay's daysOld filter. This avoids
+the 100-item-per-API-call limit while keeping one request per item.
 """
 
 import os
@@ -20,6 +25,7 @@ import base64
 import statistics
 import requests
 from pathlib import Path
+from datetime import datetime, timezone, timedelta
 
 # --- eBay API config ---
 TOKEN_URL = "https://api.ebay.com/identity/v1/oauth2/token"
@@ -38,10 +44,11 @@ DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
 
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
-
-# Retrieve more listings per search while keeping one API call per item.
-SEARCH_RESULT_LIMIT = 100
+METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
+
+# Retrieve up to 100 items per API call (eBay's max per page).
+SEARCH_RESULT_LIMIT = 100
 
 # --- Quiet hours ---
 # No Discord notifications are sent between QUIET_HOURS_START and
@@ -310,15 +317,39 @@ def get_access_token() -> str:
     return response.json()["access_token"]
 
 
-def search_item(token: str, item: dict) -> list[dict]:
+def load_search_metadata() -> dict:
+    """Load the last search timestamp for each item.
+    
+    Returns a dict mapping item labels to ISO 8601 timestamps of the last
+    successful search. If a label is missing, we assume it's the first run.
+    """
+    if not METADATA_FILE.exists():
+        return {}
+    try:
+        with open(METADATA_FILE) as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+
+def save_search_metadata(metadata: dict):
+    """Save search metadata back to disk."""
+    with open(METADATA_FILE, "w") as f:
+        json.dump(metadata, f, indent=2)
+
+
+def search_item(token: str, item: dict, metadata: dict) -> list[dict]:
     """
     Searches eBay for one configured item, filtered to Buy It Now
     (fixed price) listings only - auctions are always excluded per the
     price thresholds being "buy it now" prices, not bid prices.
 
-    Results are sorted by newly listed and expanded to 100. We deliberately
-    keep this to ONE API request per item per run because the bot runs
-    frequently and API usage matters.
+    On the first run for an item (no metadata entry), searches all recent
+    listings. On subsequent runs, uses the daysOld filter to only fetch
+    listings newer than the previous search, avoiding the 100-item limit
+    while keeping to ONE API request per item per run.
+
+    Results are sorted by newly listed.
     """
     min_price = item.get("min_price", "")
     price_range = f"price:[{min_price}..{item['max_price']}]"
@@ -329,6 +360,22 @@ def search_item(token: str, item: dict) -> list[dict]:
         "sort": "NEWLY_LISTED",
         "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
+
+    # Use daysOld filter to only fetch newly listed items since the last
+    # search. On first run, this will be missing and eBay returns recent
+    # listings by default (typically last few days).
+    label = item["label"]
+    last_search = metadata.get(label)
+    if last_search:
+        # Calculate how many days have passed since the last search.
+        # daysOld=1 means "listed in the last 1 day", so we subtract 1
+        # from the actual elapsed time to catch listings added right
+        # around the previous search boundary.
+        last_search_dt = datetime.fromisoformat(last_search)
+        now = datetime.now(timezone.utc)
+        days_elapsed = (now - last_search_dt).total_seconds() / 86400
+        days_old = max(0, int(days_elapsed) - 1)
+        params["filter"] += f",daysOld:{days_old}"
 
     headers = {
         "Authorization": f"Bearer {token}",
@@ -349,7 +396,7 @@ def search_item(token: str, item: dict) -> list[dict]:
     )
 
     if response.status_code != 200:
-        print(f"Search failed for {item['label']!r}: {response.status_code} {response.text}")
+        print(f"Search failed for {label!r}: {response.status_code} {response.text}")
         return []
 
     return response.json().get("itemSummaries", [])
@@ -557,11 +604,13 @@ def run():
     token = get_access_token()
     seen_ids = load_seen()
     pending = load_pending()
+    metadata = load_search_metadata()
+    now_iso = datetime.now(timezone.utc).isoformat()
     new_alerts = 0
     queued_alerts = 0
 
     for item in ITEMS:
-        results = search_item(token, item)
+        results = search_item(token, item, metadata)
 
         stats = {
             "api_results": len(results),
@@ -633,7 +682,12 @@ def run():
 
             seen_ids.add(item_id)
 
+        # Update the search timestamp for this item regardless of results.
+        # This ensures we don't re-fetch the same time window next run.
+        metadata[item["label"]] = now_iso
+
     save_seen(seen_ids)
+    save_search_metadata(metadata)
     if quiet_now:
         save_pending(pending)
 
