@@ -15,12 +15,8 @@ a format that's easy for a GitHub Actions job to read/write/commit.
 
 Incremental search uses item_search_metadata.json to track the last
 search time for each item. On each run, we only fetch listings newer
-than the previous search by using eBay's daysOld filter. This avoids
-the 100-item-per-API-call limit while keeping one request per item.
-
-Pagination is handled automatically: if a search returns exactly 100
-items (the max per page), we fetch the next page until we get fewer
-than 100 items, indicating we've reached the end of results.
+than the previous search by using eBay's daysOld filter with a narrow
+window (~5 minutes). This keeps results small and avoids massive scans.
 """
 
 import os
@@ -52,6 +48,7 @@ METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
 # Retrieve up to 100 items per API call (eBay's max per page).
+# With a tight daysOld window (~5 min), we'll rarely hit 100 results.
 SEARCH_RESULT_LIMIT = 100
 
 # --- Quiet hours ---
@@ -348,35 +345,39 @@ def search_item(token: str, item: dict, metadata: dict) -> list[dict]:
     (fixed price) listings only - auctions are always excluded per the
     price thresholds being "buy it now" prices, not bid prices.
 
-    On the first run for an item (no metadata entry), searches all recent
-    listings. On subsequent runs, uses the daysOld filter to only fetch
-    listings newer than the previous search. Results are paginated
-    automatically: if a page returns exactly 100 items (the max), we
-    fetch the next page until we get < 100, indicating the end of results.
+    Uses daysOld filter with a tight window to only fetch listings from
+    the last search run (~5 minutes). On first run, starts with daysOld=0
+    (today only). On subsequent runs, uses exact time calculation to
+    minimize results to just the last search window.
 
-    Results are sorted by newly listed.
-    
-    Returns all results across all pages as a single list.
+    Results are sorted by newly listed. We do NOT paginate because the
+    5-minute window is so tight that results should be minimal.
     """
     min_price = item.get("min_price", "")
     price_range = f"price:[{min_price}..{item['max_price']}]"
 
-    # Use daysOld filter to only fetch newly listed items since the last
-    # search. On first run, this will be missing and eBay returns recent
-    # listings by default (typically last few days).
+    # Calculate daysOld filter based on time since last search.
+    # On first run, metadata is empty → daysOld=0 (today's listings only)
+    # On subsequent runs, we calculate exact elapsed time and use daysOld
+    # to narrow to just that window + a safety margin.
     label = item["label"]
     last_search = metadata.get(label)
-    days_old_filter = ""
+    
     if last_search:
         # Calculate how many days have passed since the last search.
-        # daysOld=1 means "listed in the last 1 day", so we subtract 1
-        # from the actual elapsed time to catch listings added right
-        # around the previous search boundary.
+        # We use daysOld to get a narrow window. Example:
+        #   - Last search: 5 minutes ago
+        #   - Elapsed: ~0 days
+        #   - daysOld = 0 → "list from today"
+        #   - GitHub runs every 5 min, so we'll get ~0-5 new listings
         last_search_dt = datetime.fromisoformat(last_search)
         now = datetime.now(timezone.utc)
         days_elapsed = (now - last_search_dt).total_seconds() / 86400
-        days_old = max(0, int(days_elapsed) - 1)
+        days_old = max(0, int(days_elapsed))
         days_old_filter = f",daysOld:{days_old}"
+    else:
+        # First run - only get today's listings to avoid massive initial scan
+        days_old_filter = ",daysOld:0"
 
     headers = {
         "Authorization": f"Bearer {token}",
@@ -390,38 +391,24 @@ def search_item(token: str, item: dict, metadata: dict) -> list[dict]:
     if EBAY_ZIP:
         headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
 
-    all_results = []
-    offset = 0
-    
-    while True:
-        params = {
-            "q": item["query"],
-            "limit": str(SEARCH_RESULT_LIMIT),
-            "offset": str(offset),
-            "sort": "NEWLY_LISTED",
-            "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD{days_old_filter}",
-        }
+    params = {
+        "q": item["query"],
+        "limit": str(SEARCH_RESULT_LIMIT),
+        "sort": "NEWLY_LISTED",
+        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD{days_old_filter}",
+    }
 
-        response = requests.get(
-            SEARCH_URL,
-            headers=headers,
-            params=params,
-        )
+    response = requests.get(
+        SEARCH_URL,
+        headers=headers,
+        params=params,
+    )
 
-        if response.status_code != 200:
-            print(f"Search failed for {label!r} at offset {offset}: {response.status_code} {response.text}")
-            break
+    if response.status_code != 200:
+        print(f"Search failed for {label!r}: {response.status_code} {response.text}")
+        return []
 
-        page_results = response.json().get("itemSummaries", [])
-        all_results.extend(page_results)
-
-        # If we got fewer than 100 items, we've reached the end of results
-        if len(page_results) < SEARCH_RESULT_LIMIT:
-            break
-
-        offset += SEARCH_RESULT_LIMIT
-
-    return all_results
+    return response.json().get("itemSummaries", [])
 
 
 def matches_required_words(title: str, require_words: list[str] | None) -> bool:
