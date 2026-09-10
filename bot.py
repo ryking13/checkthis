@@ -211,6 +211,22 @@ ITEMS = [
         "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
     },
     {
+        "label": "Pokemon Stadium 2 manual",
+        "query": "pokemon stadium 2 manual",
+        "max_price": 25,
+        "min_price": 1,
+        "require_any": ["pokemon stadium 2", "manual"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
+    },
+    {
+        "label": "Pokemon Stadium 2 box",
+        "query": "pokemon stadium 2 box",
+        "max_price": 155,
+        "min_price": 25,
+        "require_any": ["pokemon stadium 2", "box"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
+    },
+    {
         "label": "Snowboard Kids 2",
         "query": "Snowboard Kids 2",
         "max_price": 100,
