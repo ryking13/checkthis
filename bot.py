@@ -55,7 +55,7 @@ PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 SEARCH_RESULT_LIMIT = 100
 
 # Search for listings from the last N minutes (with 1-minute overlap)[cite: 1]
-SEARCH_WINDOW_MINUTES = 1000
+SEARCH_WINDOW_MINUTES = 10000
 SEARCH_WINDOW_OVERLAP_MINUTES = 1
 
 # --- Quiet hours ---
@@ -147,14 +147,14 @@ ITEMS = [
         "query": "ti-84 plus",
         "max_price": 20,
         "require_words": ["plus"],  # must specifically say "Plus", not just any TI-84
-        "exclude_words": ["school"],
+        "exclude_words": ["school", "case", "silicone"],
     },
     {
         "label": "TI-Nspire CX",
         "query": "ti-nspire cx",
         "max_price": 30,
         "require_words": ["cx"],  # must specifically say "CX" - plain TI-Nspire isn't as valuable
-        "exclude_words": ["school"],
+        "exclude_words": ["school", "case", "silicone"],
     },
 
     # --- LEGO sets ---
