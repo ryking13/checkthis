@@ -75,8 +75,23 @@ PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 SEARCH_RESULT_LIMIT = 100
 
 # Search for listings from the last N minutes (with 1-minute overlap)[cite: 1]
-SEARCH_WINDOW_MINUTES = 800
+SEARCH_WINDOW_MINUTES = 6
 SEARCH_WINDOW_OVERLAP_MINUTES = 1
+
+# One-time recovery mode:
+# Set RECOVERY_MODE=true in the GitHub Actions environment for a historical
+# catch-up run. Recovery mode paginates through multiple eBay result pages
+# instead of assuming the first 100 results contain the whole time window.
+RECOVERY_MODE = os.environ.get("RECOVERY_MODE", "").lower() in ("1", "true", "yes")
+RECOVERY_MAX_PAGES = int(os.environ.get("RECOVERY_MAX_PAGES", "10"))
+
+# In recovery mode, if the normal price-filtered search returns no raw results,
+# retry once without the price filter. The normal price check is still applied
+# locally later in run(), so this is a safety net against an overly restrictive
+# eBay search response rather than a change to alert criteria.
+RECOVERY_FALLBACK_NO_PRICE = os.environ.get(
+    "RECOVERY_FALLBACK_NO_PRICE", "true"
+).lower() in ("1", "true", "yes")
 
 # --- Quiet hours ---
 # No Discord notifications are sent between QUIET_HOURS_START and
@@ -377,16 +392,28 @@ def save_search_metadata(metadata: dict):
 
 def search_item(token: str, item: dict) -> list[dict]:
     """
-    Searches eBay for one configured item, filtered to Buy It Now
-    (fixed price) listings created within the search window[cite: 1].
+    Searches eBay for one configured item.
+
+    Normal mode:
+      - one page of newly-listed results
+      - locally keeps only listings inside the narrow time window
+
+    Recovery mode:
+      - paginates through multiple result pages
+      - continues until results are older than the cutoff or the configured
+        recovery page limit is reached
+      - prints detailed diagnostics so a zero-result run can be distinguished
+        from an eBay/API result, date-filter, or pagination problem
+      - optionally retries once without the eBay price filter if the first
+        request returns no raw results
     """
-    min_price = item.get("min_price", "")
+    min_price = item.get("min_price")
     price_range = f"price:[{min_price}..{item['max_price']}]"
 
     now = datetime.now(timezone.utc)
-    cutoff_time = now - timedelta(minutes=SEARCH_WINDOW_MINUTES + SEARCH_WINDOW_OVERLAP_MINUTES)
-    
-    # ISO 8601 UTC string version of the cutoff, kept for logging/debugging
+    cutoff_time = now - timedelta(
+        minutes=SEARCH_WINDOW_MINUTES + SEARCH_WINDOW_OVERLAP_MINUTES
+    )
     cutoff_iso = cutoff_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     headers = {
@@ -395,59 +422,194 @@ def search_item(token: str, item: dict) -> list[dict]:
     }
 
     if EBAY_ZIP:
-        headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
+        headers["X-EBAY-C-ENDUSERCTX"] = (
+            f"contextualLocation=country=US,zip={EBAY_ZIP}"
+        )
 
-    params = {
-        "q": item["query"],
-        "limit": str(SEARCH_RESULT_LIMIT),
-        "sort": "newlyListed",
-        # NOTE: itemStartDate is NOT a supported eBay Browse API filter key -
-        # it was removed from here because it caused eBay to silently return
-        # zero results. The narrow time window is instead enforced below by
-        # filtering the newlyListed results on itemCreationDate/itemOriginDate.
-        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
-    }
+    base_filter = "buyingOptions:{FIXED_PRICE},priceCurrency:USD"
+    price_filter = f",{price_range}"
+    normal_filter = base_filter + price_filter
 
-    response = requests.get(
-        SEARCH_URL,
-        headers=headers,
-        params=params,
-    )
+    def request_page(offset: int, filter_value: str):
+        params = {
+            "q": item["query"],
+            "limit": str(SEARCH_RESULT_LIMIT),
+            "offset": str(offset),
+            "sort": "newlyListed",
+            "filter": filter_value,
+        }
 
-    if response.status_code != 200:
-        print(f"Search failed for {item['label']!r}: {response.status_code} {response.text}")
-        return []
+        response = requests.get(
+            SEARCH_URL,
+            headers=headers,
+            params=params,
+            timeout=30,
+        )
 
-    payload = response.json()
-    results = payload.get("itemSummaries", [])
+        if response.status_code != 200:
+            print(
+                f"Search failed for {item['label']!r}: "
+                f"{response.status_code} {response.text}"
+            )
+            return None
 
-    # Visibility: eBay can return HTTP 200 along with a non-empty
-    # "warnings" array - this has been observed both when itemSummaries
-    # comes back empty AND when it comes back with results (eBay can
-    # apply a param, warn that another param was invalid, and still
-    # return whatever it could). Always surface warnings so a partial
-    # failure never looks identical to a clean, fully-honored request.
-    warnings = payload.get("warnings")
-    if warnings:
-        print(f"  eBay API warnings for {item['label']!r}: {warnings}")
+        payload = response.json()
+        warnings = payload.get("warnings")
+        if warnings:
+            print(f"  eBay API warnings for {item['label']!r}: {warnings}")
+
+        return payload
+
+    def collect_pages(filter_value: str):
+        all_results = []
+        page = 0
+        total_reported = None
+        hit_old_result = False
+        missing_dates = 0
+        invalid_dates = 0
+
+        while True:
+            offset = page * SEARCH_RESULT_LIMIT
+            payload = request_page(offset, filter_value)
+            if payload is None:
+                break
+
+            page_results = payload.get("itemSummaries", [])
+            all_results.extend(page_results)
+
+            if total_reported is None:
+                total_reported = payload.get("total")
+
+            for listing in page_results:
+                creation_str = (
+                    listing.get("itemCreationDate")
+                    or listing.get("itemOriginDate")
+                )
+                if not creation_str:
+                    missing_dates += 1
+                    continue
+                try:
+                    creation_dt = datetime.fromisoformat(
+                        creation_str.replace("Z", "+00:00")
+                    )
+                    if creation_dt < cutoff_time:
+                        hit_old_result = True
+                except (ValueError, TypeError):
+                    invalid_dates += 1
+
+            page += 1
+
+            if not page_results:
+                break
+
+            if not RECOVERY_MODE:
+                break
+
+            if hit_old_result:
+                break
+
+            if page >= RECOVERY_MAX_PAGES:
+                break
+
+            if (
+                total_reported is not None
+                and offset + len(page_results) >= total_reported
+            ):
+                break
+
+        return (
+            all_results,
+            total_reported,
+            page,
+            missing_dates,
+            invalid_dates,
+            hit_old_result,
+        )
+
+    (
+        raw_results,
+        total_reported,
+        pages,
+        missing_dates,
+        invalid_dates,
+        hit_old_result,
+    ) = collect_pages(normal_filter)
+
+    # Recovery-only safety net. If eBay returns no raw matches at all, retry
+    # without the price filter. run() enforces the configured price bounds
+    # locally before an alert is sent.
+    fallback_used = False
+    if RECOVERY_MODE and RECOVERY_FALLBACK_NO_PRICE and not raw_results:
+        fallback_used = True
+        print(
+            f"  Recovery fallback for {item['label']!r}: "
+            "retrying without eBay price filter."
+        )
+        (
+            raw_results,
+            total_reported,
+            pages,
+            missing_dates,
+            invalid_dates,
+            hit_old_result,
+        ) = collect_pages(base_filter)
 
     filtered_results = []
-    for listing in results:
-        creation_str = listing.get("itemCreationDate") or listing.get("itemOriginDate")
+    older_than_cutoff = 0
+
+    for listing in raw_results:
+        creation_str = (
+            listing.get("itemCreationDate")
+            or listing.get("itemOriginDate")
+        )
+
         if not creation_str:
-            # eBay omitted the date from the summary payload - we have no way
-            # to verify recency for this listing, so include it rather than
-            # silently dropping it (newlyListed sort + the sliding-window
-            # cadence of this bot mean it's very likely recent anyway).
             filtered_results.append(listing)
             continue
 
         try:
-            creation_dt = datetime.fromisoformat(creation_str.replace('Z', '+00:00'))
+            creation_dt = datetime.fromisoformat(
+                creation_str.replace("Z", "+00:00")
+            )
             if creation_dt >= cutoff_time:
                 filtered_results.append(listing)
+            else:
+                older_than_cutoff += 1
         except (ValueError, TypeError):
-            continue
+            # Keep malformed-date results visible rather than silently losing
+            # a potentially valid listing.
+            filtered_results.append(listing)
+
+    print(
+        f"  Search diagnostics [{item['label']}]: "
+        f"window={SEARCH_WINDOW_MINUTES}m + overlap="
+        f"{SEARCH_WINDOW_OVERLAP_MINUTES}m | "
+        f"cutoff={cutoff_iso} | "
+        f"raw={len(raw_results)} | "
+        f"eBay_total={total_reported} | "
+        f"pages={pages} | "
+        f"date_filtered={len(filtered_results)} | "
+        f"older={older_than_cutoff} | "
+        f"missing_date={missing_dates} | "
+        f"invalid_date={invalid_dates} | "
+        f"hit_old={hit_old_result} | "
+        f"fallback_no_price={fallback_used}"
+    )
+
+    dated = []
+    for listing in raw_results:
+        creation_str = (
+            listing.get("itemCreationDate")
+            or listing.get("itemOriginDate")
+        )
+        if creation_str:
+            dated.append(creation_str)
+
+    if dated:
+        print(
+            f"  Date range returned [{item['label']}]: "
+            f"newest={max(dated)} | oldest={min(dated)}"
+        )
 
     return filtered_results
 
@@ -568,18 +730,81 @@ def build_alert_content(item: dict, listing: dict) -> str:
     )
 
 
-def post_to_discord(content: str):
+def post_to_discord(content: str, max_retries: int = 4) -> bool:
+    """
+    Post to Discord and retry rate limits/transient failures.
+
+    Returns True only when Discord accepted the message. Listings are only
+    marked as seen after successful delivery (or safe persistence to pending).
+    """
     if not DISCORD_WEBHOOK_URL:
         print("No DISCORD_WEBHOOK_URL set - skipping notification.")
-        return
+        return False
 
-    response = requests.post(DISCORD_WEBHOOK_URL, json={"content": content})
-    if response.status_code not in (200, 204):
+    import time
+
+    for attempt in range(max_retries + 1):
+        try:
+            response = requests.post(
+                DISCORD_WEBHOOK_URL,
+                json={"content": content},
+                timeout=30,
+            )
+        except requests.RequestException as exc:
+            if attempt >= max_retries:
+                print(f"Discord post failed after retries: {exc}")
+                return False
+            wait_seconds = 2 ** attempt
+            print(
+                f"Discord request error; retrying in {wait_seconds}s: {exc}"
+            )
+            time.sleep(wait_seconds)
+            continue
+
+        if response.status_code in (200, 204):
+            return True
+
+        if response.status_code == 429:
+            retry_after = 2.0
+            try:
+                retry_after = float(
+                    response.json().get("retry_after", retry_after)
+                )
+            except (ValueError, TypeError, json.JSONDecodeError):
+                pass
+
+            if attempt >= max_retries:
+                print(
+                    f"Discord post failed after {max_retries + 1} attempts: "
+                    f"429 {response.text}"
+                )
+                return False
+
+            print(
+                f"Discord rate limited (429); retrying in "
+                f"{retry_after:.2f}s "
+                f"(attempt {attempt + 1}/{max_retries + 1})"
+            )
+            time.sleep(max(0.1, retry_after))
+            continue
+
+        if response.status_code >= 500 and attempt < max_retries:
+            wait_seconds = 2 ** attempt
+            print(
+                f"Discord server error {response.status_code}; "
+                f"retrying in {wait_seconds}s"
+            )
+            time.sleep(wait_seconds)
+            continue
+
         print(f"Discord post failed: {response.status_code} {response.text}")
+        return False
+
+    return False
 
 
-def send_discord_alert(item: dict, listing: dict):
-    post_to_discord(build_alert_content(item, listing))
+def send_discord_alert(item: dict, listing: dict) -> bool:
+    return post_to_discord(build_alert_content(item, listing))
 
 
 def flush_pending_alerts():
@@ -619,6 +844,17 @@ def run():
 
     quiet_now = is_quiet_hours()
 
+    print(
+        f"Scan mode: {'RECOVERY' if RECOVERY_MODE else 'NORMAL'} | "
+        f"window={SEARCH_WINDOW_MINUTES}m | "
+        f"overlap={SEARCH_WINDOW_OVERLAP_MINUTES}m"
+    )
+    if RECOVERY_MODE:
+        print(
+            f"Recovery pagination: up to {RECOVERY_MAX_PAGES} pages "
+            f"({SEARCH_RESULT_LIMIT} results/page)"
+        )
+
     if not quiet_now:
         flush_pending_alerts()
 
@@ -637,6 +873,7 @@ def run():
             "api_results": len(results),
             "already_seen": 0,
             "missing_id": 0,
+            "price": 0,
             "required_words": 0,
             "required_any": 0,
             "excluded_words": 0,
@@ -658,6 +895,28 @@ def run():
                 continue
 
             title = listing.get("title", "")
+
+            # Recovery fallback searches without the eBay price filter, so
+            # enforce the configured price bounds locally for every listing.
+            try:
+                listing_price = float(
+                    listing.get("price", {}).get("value")
+                )
+            except (TypeError, ValueError):
+                listing_price = None
+
+            max_price = float(item["max_price"])
+            min_price = item.get("min_price")
+
+            if listing_price is None:
+                stats["price"] += 1
+                continue
+
+            if listing_price > max_price or (
+                min_price is not None and listing_price < float(min_price)
+            ):
+                stats["price"] += 1
+                continue
 
             if not matches_required_words(title, item.get("require_words")):
                 stats["required_words"] += 1
@@ -683,6 +942,7 @@ def run():
             f"{item['label']}: "
             f"{stats['api_results']} found | "
             f"{stats['already_seen']} seen | "
+            f"{stats['price']} price rejects | "
             f"{stats['required_words']} req-word rejects | "
             f"{stats['required_any']} req-any rejects | "
             f"{stats['excluded_words']} excluded | "
@@ -695,13 +955,21 @@ def run():
             content = build_alert_content(item, listing)
 
             if quiet_now:
-                pending.append({"content": content})
+                pending.append({"item_id": item_id, "content": content})
                 queued_alerts += 1
+                # The alert is durably persisted, so it is safe to mark it
+                # seen and avoid queueing it repeatedly.
+                seen_ids.add(item_id)
             else:
-                post_to_discord(content)
-                new_alerts += 1
-
-            seen_ids.add(item_id)
+                delivered = post_to_discord(content)
+                if delivered:
+                    new_alerts += 1
+                    seen_ids.add(item_id)
+                else:
+                    print(
+                        f"  NOT marking {item_id} as seen because Discord "
+                        "delivery failed."
+                    )
 
         metadata[item["label"]] = now_iso
 
