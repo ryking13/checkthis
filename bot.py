@@ -26,7 +26,7 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
-SEARCH_RESULT_LIMIT = 1000
+SEARCH_RESULT_LIMIT = 200
 MAX_PAGES_PER_ITEM = 5  # Fetch up to 500 items if a high-volume search has backlogged
 MAX_SHIPPING_COST = 15.00
 
