@@ -1,6 +1,7 @@
 """
-eBay Alert Bot - Runs on GitHub Actions every 5 minutes.
-Paginates newly listed items dynamically using item_search_metadata.json timestamps.
+eBay Alert Bot - Scans eBay for configured items and posts alerts to Discord.
+Paginates through up to 1,000 items per search term (200 limit x 5 pages)
+with a 24-hour maximum lookback window.
 """
 
 import os
@@ -26,8 +27,9 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
-SEARCH_RESULT_LIMIT = 200
-MAX_PAGES_PER_ITEM = 5  # Fetch up to 500 items if a high-volume search has backlogged
+SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
+MAX_PAGES_PER_ITEM = 5      # 200 x 5 = Up to 1,000 listings checked per search term
+LOOKBACK_HOURS = 24         # Scan up to 24 hours back into history
 MAX_SHIPPING_COST = 15.00
 
 # Quiet Hours
@@ -55,7 +57,7 @@ ITEMS = [
     },
     {
         "label": "TI-84 Plus",
-        "query": "ti-parser plus",
+        "query": "ti-84 plus",
         "max_price": 20,
         "require_words": ["plus"],
         "exclude_words": ["school", "case", "silicone"],
@@ -199,8 +201,7 @@ ITEMS = [
         "require_any": ["secret of mana"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
     },
-
-    # --- Baseball / Basketball cards ---
+    # --- Sports Cards ---
     {
         "label": "Chipper Jones 1991 Topps #333 PSA 10",
         "query": "Chipper Jones 1991 Topps 333 PSA 10",
@@ -261,11 +262,7 @@ def save_search_metadata(metadata: dict):
         json.dump(metadata, f, indent=2)
 
 
-def search_item(token: str, item: dict, last_run_iso: str | None, seen_ids: set[str]) -> list[dict]:
-    """
-    Paginates through eBay results sorted by newlyListed until we cross
-    listings older than the last run time OR encounter seen items.
-    """
+def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
     headers = {
         "Authorization": f"Bearer {token}",
         "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
@@ -273,23 +270,17 @@ def search_item(token: str, item: dict, last_run_iso: str | None, seen_ids: set[
     if EBAY_ZIP:
         headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
 
-    # Build valid eBay API filter format (without 'None')
     min_p = item.get("min_price", "")
     max_p = item["max_price"]
     price_clause = f"price:[{min_p}..{max_p}]"
     filter_value = f"buyingOptions:{{FIXED_PRICE}},{price_clause},priceCurrency:USD"
 
-    # Calculate cutoff time (1-minute overlap buffer)
     now = datetime.now(timezone.utc)
-    if last_run_iso:
-        try:
-            cutoff_time = datetime.fromisoformat(last_run_iso) - timedelta(minutes=1)
-        except ValueError:
-            cutoff_time = now - timedelta(minutes=10)
-    else:
-        cutoff_time = now - timedelta(minutes=10)
+    cutoff_time = now - timedelta(hours=LOOKBACK_HOURS)
 
-    unseen_new_results = []
+    all_raw_results = []
+    filtered_results = []
+    older_count = 0
     stop_paginating = False
 
     for page in range(MAX_PAGES_PER_ITEM):
@@ -316,31 +307,42 @@ def search_item(token: str, item: dict, last_run_iso: str | None, seen_ids: set[
         if not page_results:
             break
 
+        all_raw_results.extend(page_results)
+
         for listing in page_results:
-            item_id = listing.get("itemId")
-            
-            # If we hit an item we've already processed, we've caught up
-            if item_id in seen_ids:
-                stop_paginating = True
-                break
-
             creation_str = listing.get("itemCreationDate") or listing.get("itemOriginDate")
-            if creation_str:
-                try:
-                    creation_dt = datetime.fromisoformat(creation_str.replace("Z", "+00:00"))
-                    if creation_dt < cutoff_time:
-                        stop_paginating = True
-                        break
-                except (ValueError, TypeError):
-                    pass
+            if not creation_str:
+                filtered_results.append(listing)
+                continue
 
-            unseen_new_results.append(listing)
+            try:
+                creation_dt = datetime.fromisoformat(creation_str.replace("Z", "+00:00"))
+                if creation_dt >= cutoff_time:
+                    filtered_results.append(listing)
+                else:
+                    older_count += 1
+                    stop_paginating = True
+            except (ValueError, TypeError):
+                filtered_results.append(listing)
 
         if stop_paginating:
             break
 
-    print(f"  Search [{item['label']}]: collected {len(unseen_new_results)} new candidate listings across {page + 1} page(s).")
-    return unseen_new_results
+    stats = {
+        "raw": len(all_raw_results),
+        "cutoff": cutoff_time.isoformat(),
+        "date_filtered": len(filtered_results),
+        "older": older_count,
+        "pages": page + 1
+    }
+
+    print(
+        f"Search diagnostics [{item['label']}]: "
+        f"raw={stats['raw']} | cutoff={stats['cutoff']} | "
+        f"date_filtered={stats['date_filtered']} | older={stats['older']} (pages: {stats['pages']})"
+    )
+
+    return filtered_results, stats
 
 
 def matches_required_words(title: str, require_words: list[str] | None) -> bool:
@@ -498,41 +500,53 @@ def run():
     queued_alerts = 0
 
     for item in ITEMS:
-        last_run = metadata.get(item["label"])
-        results = search_item(token, item, last_run, seen_ids)
+        results, stats = search_item(token, item)
+
+        already_seen_count = 0
+        price_rejected_count = 0
+        keyword_rejected_count = 0
+        shipping_rejected_count = 0
 
         eligible_listings = []
         for listing in results:
             item_id = listing.get("itemId")
             if not item_id or item_id in seen_ids:
+                already_seen_count += 1
                 continue
 
             title = listing.get("title", "")
             try:
                 listing_price = float(listing.get("price", {}).get("value"))
             except (TypeError, ValueError):
+                price_rejected_count += 1
                 continue
 
             max_price = float(item["max_price"])
             min_price = item.get("min_price")
 
             if listing_price > max_price or (min_price is not None and listing_price < float(min_price)):
+                price_rejected_count += 1
                 continue
 
-            if not matches_required_words(title, item.get("require_words")):
-                continue
-            if not matches_any_words(title, item.get("require_any")):
-                continue
-            if not matches_excluded_words(title, item.get("exclude_words")):
+            if (not matches_required_words(title, item.get("require_words"))) or \
+               (not matches_any_words(title, item.get("require_any"))) or \
+               (not matches_excluded_words(title, item.get("exclude_words"))):
+                keyword_rejected_count += 1
                 continue
 
             shipping_cost = get_shipping_cost(listing)
             if shipping_cost is not None and shipping_cost > MAX_SHIPPING_COST:
+                shipping_rejected_count += 1
                 continue
 
             eligible_listings.append(listing)
 
-        print(f"{item['label']}: {len(results)} candidate(s) | {len(eligible_listings)} NEW eligible")
+        print(
+            f"Filtering breakdown [{item['label']}]: "
+            f"total_date_valid={len(results)} | already_seen={already_seen_count} | "
+            f"price_rejected={price_rejected_count} | keyword_rejected={keyword_rejected_count} | "
+            f"shipping_rejected={shipping_rejected_count} | NEW_ELIGIBLE={len(eligible_listings)}"
+        )
 
         for listing in eligible_listings:
             item_id = listing["itemId"]
