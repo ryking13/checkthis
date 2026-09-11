@@ -281,9 +281,10 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
     all_raw_results = []
     filtered_results = []
     older_count = 0
-    stop_paginating = False
+    pages_scanned = 0
 
     for page in range(MAX_PAGES_PER_ITEM):
+        pages_scanned = page + 1
         offset = page * SEARCH_RESULT_LIMIT
         params = {
             "q": item["query"],
@@ -308,24 +309,28 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
             break
 
         all_raw_results.extend(page_results)
+        page_valid_count = 0
 
         for listing in page_results:
             creation_str = listing.get("itemCreationDate") or listing.get("itemOriginDate")
             if not creation_str:
                 filtered_results.append(listing)
+                page_valid_count += 1
                 continue
 
             try:
                 creation_dt = datetime.fromisoformat(creation_str.replace("Z", "+00:00"))
                 if creation_dt >= cutoff_time:
                     filtered_results.append(listing)
+                    page_valid_count += 1
                 else:
                     older_count += 1
-                    stop_paginating = True
             except (ValueError, TypeError):
                 filtered_results.append(listing)
+                page_valid_count += 1
 
-        if stop_paginating:
+        # If every item on this page was older than the cutoff (or if page is partially full), stop requesting more pages
+        if page_valid_count == 0 or len(page_results) < SEARCH_RESULT_LIMIT:
             break
 
     stats = {
@@ -333,7 +338,7 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
         "cutoff": cutoff_time.isoformat(),
         "date_filtered": len(filtered_results),
         "older": older_count,
-        "pages": page + 1
+        "pages": pages_scanned
     }
 
     print(
