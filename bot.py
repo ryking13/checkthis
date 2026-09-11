@@ -15,8 +15,18 @@ a format that's easy for a GitHub Actions job to read/write/commit[cite: 1].
 
 Incremental search uses item_search_metadata.json to track the timestamp
 of each item's last run[cite: 1]. On every run (including the first), we search
-for listings from the last 6 minutes using eBay's actual itemStartDate
-timestamp[cite: 1]. This gives a precise, narrow window without massive scans[cite: 1].
+for listings from the last 6 minutes[cite: 1]. This gives a precise, narrow window
+without massive scans[cite: 1].
+
+NOTE: eBay's Browse API item_summary/search endpoint does NOT support an
+itemStartDate filter clause - it isn't in eBay's documented list of
+supported `filter` values. An earlier version of this bot sent
+`itemStartDate:[<cutoff>..]` as part of the `filter` param, which eBay's
+API silently failed to honor (or rejected), causing zero results across
+every single item for hours at a time. Sorting by NEWLY_LISTED and then
+manually filtering the returned page by itemCreationDate / itemOriginDate
+(see search_item()) achieves the same narrow-window effect without relying
+on a filter key eBay doesn't actually support.
 
 The metadata is used for Discord deduplication only - we filter to only
 alert on listings that weren't present in the previous run[cite: 1].
@@ -366,7 +376,7 @@ def search_item(token: str, item: dict) -> list[dict]:
     now = datetime.now(timezone.utc)
     cutoff_time = now - timedelta(minutes=SEARCH_WINDOW_MINUTES + SEARCH_WINDOW_OVERLAP_MINUTES)
     
-    # Format creation cutoff timestamp for eBay's itemStartDate filter (ISO 8601 UTC)
+    # ISO 8601 UTC string version of the cutoff, kept for logging/debugging
     cutoff_iso = cutoff_time.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     headers = {
@@ -381,8 +391,11 @@ def search_item(token: str, item: dict) -> list[dict]:
         "q": item["query"],
         "limit": str(SEARCH_RESULT_LIMIT),
         "sort": "NEWLY_LISTED",
-        # Use itemStartDate:[<timestamp>..] for eBay's API filter
-        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD,itemStartDate:[{cutoff_iso}..]",
+        # NOTE: itemStartDate is NOT a supported eBay Browse API filter key -
+        # it was removed from here because it caused eBay to silently return
+        # zero results. The narrow time window is instead enforced below by
+        # filtering the NEWLY_LISTED results on itemCreationDate/itemOriginDate.
+        "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
 
     response = requests.get(
@@ -395,13 +408,27 @@ def search_item(token: str, item: dict) -> list[dict]:
         print(f"Search failed for {item['label']!r}: {response.status_code} {response.text}")
         return []
 
-    results = response.json().get("itemSummaries", [])
+    payload = response.json()
+    results = payload.get("itemSummaries", [])
+
+    # Visibility: eBay can return 200 with zero itemSummaries for reasons
+    # other than "no new listings" (bad filter syntax, bad query, rate
+    # limiting, etc). Log the raw response once in that case so a silent
+    # zero-results streak is easy to diagnose from the Actions log instead
+    # of looking like normal "nothing new" behavior.
+    if not results:
+        warnings = payload.get("warnings")
+        if warnings:
+            print(f"  eBay API warnings for {item['label']!r}: {warnings}")
 
     filtered_results = []
     for listing in results:
         creation_str = listing.get("itemCreationDate") or listing.get("itemOriginDate")
         if not creation_str:
-            # If eBay omitted the date from the summary payload, rely on itemStartDate filter
+            # eBay omitted the date from the summary payload - we have no way
+            # to verify recency for this listing, so include it rather than
+            # silently dropping it (NEWLY_LISTED sort + the sliding-window
+            # cadence of this bot mean it's very likely recent anyway).
             filtered_results.append(listing)
             continue
 
