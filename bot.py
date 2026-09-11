@@ -23,10 +23,20 @@ itemStartDate filter clause - it isn't in eBay's documented list of
 supported `filter` values. An earlier version of this bot sent
 `itemStartDate:[<cutoff>..]` as part of the `filter` param, which eBay's
 API silently failed to honor (or rejected), causing zero results across
-every single item for hours at a time. Sorting by NEWLY_LISTED and then
+every single item for hours at a time. Sorting by newlyListed and then
 manually filtering the returned page by itemCreationDate / itemOriginDate
 (see search_item()) achieves the same narrow-window effect without relying
 on a filter key eBay doesn't actually support.
+
+NOTE: the `sort` parameter is case-sensitive - eBay's documented value is
+`newlyListed`, not `NEWLY_LISTED`. An earlier version of this bot used the
+wrong case, which eBay rejected outright (with an explicit `warnings`
+entry, errorId 12008) for some category-restricted searches (e.g. the
+PSA-graded trading card items) but was tolerated silently for others. If
+result counts look thin for a specific item without any visible eBay
+warning in the log, that's a sign eBay may be applying different sort
+validation per category - check the raw response, don't assume silence
+means the param was accepted cleanly.
 
 The metadata is used for Discord deduplication only - we filter to only
 alert on listings that weren't present in the previous run[cite: 1].
@@ -65,7 +75,7 @@ PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 SEARCH_RESULT_LIMIT = 100
 
 # Search for listings from the last N minutes (with 1-minute overlap)[cite: 1]
-SEARCH_WINDOW_MINUTES = 800
+SEARCH_WINDOW_MINUTES = 6
 SEARCH_WINDOW_OVERLAP_MINUTES = 1
 
 # --- Quiet hours ---
@@ -390,11 +400,11 @@ def search_item(token: str, item: dict) -> list[dict]:
     params = {
         "q": item["query"],
         "limit": str(SEARCH_RESULT_LIMIT),
-        "sort": "NEWLY_LISTED",
+        "sort": "newlyListed",
         # NOTE: itemStartDate is NOT a supported eBay Browse API filter key -
         # it was removed from here because it caused eBay to silently return
         # zero results. The narrow time window is instead enforced below by
-        # filtering the NEWLY_LISTED results on itemCreationDate/itemOriginDate.
+        # filtering the newlyListed results on itemCreationDate/itemOriginDate.
         "filter": f"buyingOptions:{{FIXED_PRICE}},{price_range},priceCurrency:USD",
     }
 
@@ -411,15 +421,15 @@ def search_item(token: str, item: dict) -> list[dict]:
     payload = response.json()
     results = payload.get("itemSummaries", [])
 
-    # Visibility: eBay can return 200 with zero itemSummaries for reasons
-    # other than "no new listings" (bad filter syntax, bad query, rate
-    # limiting, etc). Log the raw response once in that case so a silent
-    # zero-results streak is easy to diagnose from the Actions log instead
-    # of looking like normal "nothing new" behavior.
-    if not results:
-        warnings = payload.get("warnings")
-        if warnings:
-            print(f"  eBay API warnings for {item['label']!r}: {warnings}")
+    # Visibility: eBay can return HTTP 200 along with a non-empty
+    # "warnings" array - this has been observed both when itemSummaries
+    # comes back empty AND when it comes back with results (eBay can
+    # apply a param, warn that another param was invalid, and still
+    # return whatever it could). Always surface warnings so a partial
+    # failure never looks identical to a clean, fully-honored request.
+    warnings = payload.get("warnings")
+    if warnings:
+        print(f"  eBay API warnings for {item['label']!r}: {warnings}")
 
     filtered_results = []
     for listing in results:
@@ -427,7 +437,7 @@ def search_item(token: str, item: dict) -> list[dict]:
         if not creation_str:
             # eBay omitted the date from the summary payload - we have no way
             # to verify recency for this listing, so include it rather than
-            # silently dropping it (NEWLY_LISTED sort + the sliding-window
+            # silently dropping it (newlyListed sort + the sliding-window
             # cadence of this bot mean it's very likely recent anyway).
             filtered_results.append(listing)
             continue
