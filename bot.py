@@ -153,6 +153,7 @@ ITEMS = [
         "query": "Mega Man 64",
         "max_price": 85,
         "min_price": 39,
+        "require_any": ["mega man"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
