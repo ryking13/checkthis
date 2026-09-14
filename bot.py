@@ -18,6 +18,7 @@ one-alert-per-new-listing behavior.
 import os
 import json
 import base64
+import time
 import requests
 from pathlib import Path
 from datetime import datetime, timezone
@@ -432,31 +433,73 @@ def post_to_discord(content: str) -> bool:
         return False
     try:
         response = requests.post(DISCORD_WEBHOOK_URL, json={"content": content}, timeout=30)
+        if response.status_code == 429:
+            # Rate limited - Discord tells us how long to wait (seconds,
+            # sometimes fractional) via the response body/header. Sleep
+            # and retry once rather than silently dropping the message.
+            try:
+                retry_after = float(response.json().get("retry_after", 1.0))
+            except (ValueError, TypeError, json.JSONDecodeError):
+                retry_after = 1.0
+            print(f"Discord rate limited - waiting {retry_after:.2f}s and retrying once.")
+            time.sleep(retry_after + 0.25)
+            response = requests.post(DISCORD_WEBHOOK_URL, json={"content": content}, timeout=30)
+        if response.status_code not in (200, 204):
+            print(f"Discord post failed: {response.status_code} {response.text}")
         return response.status_code in (200, 204)
     except requests.RequestException as exc:
         print(f"Discord post error: {exc}")
         return False
 
 
-def send_chunked_alerts(contents: list[str], header: str):
+def send_chunked_alerts(entries: list[tuple[str, str]], header: str) -> set[str]:
     """
-    Posts a list of pre-built alert message bodies as one or more Discord
+    Posts a list of (item_id, content) alert entries as one or more Discord
     messages, staying under Discord's ~2000 character limit per message by
     starting a new chunk whenever the next entry would overflow it.
-    """
-    current_chunk = header
-    chunks = []
-    for content in contents:
-        block = content + "\n\n"
-        if len(current_chunk) + len(block) > 1900:
-            chunks.append(current_chunk)
-            current_chunk = block
-        else:
-            current_chunk += block
-    chunks.append(current_chunk)
 
-    for chunk in chunks:
-        post_to_discord(chunk)
+    A small delay is added between sends and each result is checked -
+    Discord webhooks are rate-limited (roughly 5 requests / 2 seconds), and
+    firing chunks back-to-back with no pacing or failure check can cause
+    later chunks to be silently dropped, which is exactly what happened
+    without this: some items partway through a big bootstrap batch never
+    made it to Discord even though they were correctly identified as
+    eligible.
+
+    Returns the set of item_ids whose chunk was successfully delivered, so
+    the caller only marks those as seen - a failed chunk's items stay
+    un-seen and will be retried on the next run.
+    """
+    current_chunk_text = header
+    current_chunk_ids: list[str] = []
+    chunks: list[tuple[str, list[str]]] = []
+
+    for item_id, content in entries:
+        block = content + "\n\n"
+        if len(current_chunk_text) + len(block) > 1900:
+            chunks.append((current_chunk_text, current_chunk_ids))
+            current_chunk_text = block
+            current_chunk_ids = [item_id]
+        else:
+            current_chunk_text += block
+            current_chunk_ids.append(item_id)
+    chunks.append((current_chunk_text, current_chunk_ids))
+
+    delivered_ids: set[str] = set()
+    failed = 0
+    for i, (chunk_text, chunk_ids) in enumerate(chunks):
+        if post_to_discord(chunk_text):
+            delivered_ids.update(chunk_ids)
+        else:
+            failed += 1
+            print(f"  Chunk {i + 1}/{len(chunks)} failed to send ({len(chunk_ids)} listing(s) will be retried next run).")
+        if i < len(chunks) - 1:
+            time.sleep(0.5)  # stay comfortably under Discord's rate limit
+
+    if failed:
+        print(f"WARNING: {failed}/{len(chunks)} alert chunk(s) failed to send to Discord.")
+
+    return delivered_ids
 
 
 def flush_pending_alerts():
@@ -465,10 +508,12 @@ def flush_pending_alerts():
         return
 
     header = f"**Overnight digest - {len(pending)} listing(s) found during quiet hours:**\n\n"
-    send_chunked_alerts([entry["content"] for entry in pending], header)
+    entries = [(entry["item_id"], entry["content"]) for entry in pending]
+    delivered_ids = send_chunked_alerts(entries, header)
 
-    save_pending([])
-    print(f"Flushed {len(pending)} queued overnight alert(s).")
+    failed_entries = [entry for entry in pending if entry["item_id"] not in delivered_ids]
+    save_pending(failed_entries)
+    print(f"Flushed {len(pending) - len(failed_entries)}/{len(pending)} queued overnight alert(s).")
 
 
 def run():
@@ -482,7 +527,7 @@ def run():
     # seen_ids so we can route that first big batch through chunked
     # messages instead of firing one Discord alert per listing.
     is_bootstrap_run = not SEEN_FILE.exists()
-    bootstrap_batch: list[str] = []
+    bootstrap_batch: list[tuple[str, str]] = []  # (item_id, content) pairs
     if is_bootstrap_run:
         print("No seen_listings.json found - treating this as a bootstrap run (results will be batched).")
 
@@ -555,8 +600,10 @@ def run():
                 # First-ever run: every current match counts as "new" at
                 # once, so don't fire off one Discord message per listing.
                 # Queue them all and send as chunked batch messages below.
-                bootstrap_batch.append(content)
-                seen_ids.add(item_id)
+                # Don't mark as seen yet - only do that for chunks that
+                # actually succeed (see below), so a failed send doesn't
+                # get silently treated as "already alerted."
+                bootstrap_batch.append((item_id, content))
             elif quiet_now:
                 pending.append({"item_id": item_id, "content": content})
                 queued_alerts += 1
@@ -570,12 +617,13 @@ def run():
         metadata[item["label"]] = now_iso
 
     if is_bootstrap_run and bootstrap_batch:
-        send_chunked_alerts(
+        delivered_ids = send_chunked_alerts(
             bootstrap_batch,
             header=f"**Initial scan - {len(bootstrap_batch)} matching listing(s) found:**\n\n",
         )
-        new_alerts += len(bootstrap_batch)
-        print(f"Bootstrap run: sent {len(bootstrap_batch)} listing(s) in chunked messages.")
+        seen_ids.update(delivered_ids)
+        new_alerts += len(delivered_ids)
+        print(f"Bootstrap run: sent {len(delivered_ids)}/{len(bootstrap_batch)} listing(s) in chunked messages.")
 
     save_seen(seen_ids)
     save_search_metadata(metadata)
