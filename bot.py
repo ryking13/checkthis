@@ -71,14 +71,14 @@ ITEMS = [
         "query": "ti-84 plus",
         "max_price": 20,
         "require_words": ["plus"],
-        "exclude_words": ["school", "case", "silicone"],
+        "exclude_words": ["school", "case", "silicone", "yellow", "parts"],
     },
     {
         "label": "TI-Nspire CX",
         "query": "ti-nspire cx",
         "max_price": 30,
         "require_words": ["cx"],
-        "exclude_words": ["school", "case", "silicone"],
+        "exclude_words": ["school", "case", "silicone", "yellow", "parts"],
     },
     # --- Retro N64/SNES games ---
     {
@@ -168,13 +168,6 @@ ITEMS = [
         "max_price": 110,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
-    {
-        "label": "Secret of Mana",
-        "query": "secret of mana",
-        "max_price": 45,
-        "require_any": ["secret of mana"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
     },
     # --- Sports Cards ---
     {
