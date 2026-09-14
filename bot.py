@@ -329,8 +329,12 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
                 filtered_results.append(listing)
                 page_valid_count += 1
 
-        # If every item on this page was older than the cutoff (or if page is partially full), stop requesting more pages
-        if page_valid_count == 0 or len(page_results) < SEARCH_RESULT_LIMIT:
+        # Only stop early once we've hit the natural end of results (a
+        # partially-full page). Do NOT stop just because this page had 0
+        # items under the cutoff - sponsored/promoted listings can push
+        # older items ahead of newer ones even under newlyListed sort, so
+        # a "gap" page doesn't mean there's nothing fresher further down.
+        if len(page_results) < SEARCH_RESULT_LIMIT:
             break
 
     stats = {
