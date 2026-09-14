@@ -71,14 +71,50 @@ ITEMS = [
         "query": "ti-84 plus",
         "max_price": 20,
         "require_words": ["plus"],
-        "exclude_words": ["school", "case", "silicone", "yellow", "parts", "battery"],
+        "exclude_words": ["school", "case", "silicone"],
     },
     {
         "label": "TI-Nspire CX",
         "query": "ti-nspire cx",
         "max_price": 30,
         "require_words": ["cx"],
-        "exclude_words": ["school", "case", "silicone", "yellow", "parts", "battery"],
+        "exclude_words": ["school", "case", "silicone"],
+    },
+    # --- LEGO sets ---
+    {
+        "label": "LEGO Central Perk (21319)",
+        "query": "lego 21319",
+        "max_price": 75,
+        "require_any": ["21319", "central perk"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO DeLorean Time Machine (21103)",
+        "query": "lego 21103",
+        "max_price": 35,
+        "require_any": ["21103", "delorean"],
+        "exclude_words": LEGO_EXCLUDE_WORDS + ["77256"],
+    },
+    {
+        "label": "LEGO Ship in a Bottle (21313)",
+        "query": "lego 21313",
+        "max_price": 60,
+        "require_any": ["21313", "ship in a bottle"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO Medieval Blacksmith (21325)",
+        "query": "lego 21325",
+        "max_price": 50,
+        "require_any": ["21325", "medieval blacksmith"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO Gingerbread House (10267)",
+        "query": "lego 10267",
+        "max_price": 50,
+        "require_any": ["10267", "gingerbread house"],
+        "exclude_words": LEGO_EXCLUDE_WORDS + ["40337"],
     },
     # --- Retro N64/SNES games ---
     {
@@ -153,7 +189,6 @@ ITEMS = [
         "query": "Mega Man 64",
         "max_price": 85,
         "min_price": 39,
-        "require_any": ["mega man"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
@@ -170,33 +205,43 @@ ITEMS = [
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
+    {
+        "label": "Secret of Mana",
+        "query": "secret of mana",
+        "max_price": 45,
+        "require_any": ["secret of mana"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
+    },
     # --- Sports Cards ---
     {
         "label": "Chipper Jones 1991 Topps #333 PSA 10",
-        "query": "Chipper Jones 1991 Topps 333 PSA 10",
+        "query": "Chipper Jones 1991 Topps 333",
         "max_price": 125,
         "min_price": 50,
         "require_words": ["chipper", "jones", "333"],
         "require_any": ["psa 10", "psa10", "psa-10"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+        "include_auctions": True,
     },
     {
         "label": "Nolan Ryan 1980 Topps #580 PSA 8",
-        "query": "Nolan Ryan 1980 Topps 580 PSA 8",
+        "query": "Nolan Ryan 1980 Topps 580",
         "max_price": 120,
         "min_price": 50,
         "require_words": ["nolan", "ryan", "580"],
         "require_any": ["psa 8", "psa8", "psa-8"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+        "include_auctions": True,
     },
     {
         "label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
-        "query": "Luka Doncic 2018 Prizm 280 RC PSA 10",
+        "query": "Luka Doncic 2018 Prizm 280",
         "max_price": 180,
         "min_price": 70,
         "require_words": ["luka", "doncic", "280"],
         "require_any": ["psa 10", "psa10", "psa-10"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+        "include_auctions": True,
     },
 ]
 
@@ -242,7 +287,12 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
     min_p = item.get("min_price", "")
     max_p = item["max_price"]
     price_clause = f"price:[{min_p}..{max_p}]"
-    filter_value = f"buyingOptions:{{FIXED_PRICE}},{price_clause},priceCurrency:USD"
+    # Most items only care about Buy-It-Now listings, but some (e.g. graded
+    # sports cards) are commonly sold at auction too - let an item opt in
+    # via "include_auctions": True instead of hardcoding fixed-price-only
+    # for everything.
+    buying_options = "FIXED_PRICE|AUCTION" if item.get("include_auctions") else "FIXED_PRICE"
+    filter_value = f"buyingOptions:{{{buying_options}}},{price_clause},priceCurrency:USD"
 
     all_results = []
     pages_scanned = 0
