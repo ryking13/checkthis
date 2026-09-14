@@ -71,14 +71,14 @@ ITEMS = [
         "query": "ti-84 plus",
         "max_price": 20,
         "require_words": ["plus"],
-        "exclude_words": ["school", "case", "silicone", "yellow", "parts"],
+        "exclude_words": ["school", "case", "silicone", "yellow", "parts", "battery"],
     },
     {
         "label": "TI-Nspire CX",
         "query": "ti-nspire cx",
         "max_price": 30,
         "require_words": ["cx"],
-        "exclude_words": ["school", "case", "silicone", "yellow", "parts"],
+        "exclude_words": ["school", "case", "silicone", "yellow", "parts", "battery"],
     },
     # --- Retro N64/SNES games ---
     {
