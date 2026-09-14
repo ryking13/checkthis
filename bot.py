@@ -1,7 +1,18 @@
 """
 eBay Alert Bot - Scans eBay for configured items and posts alerts to Discord.
-Paginates through up to 1,000 items per search term (200 limit x 5 pages)
-with a 24-hour maximum lookback window.
+Paginates through up to 1,000 items per search term (200 limit x 5 pages).
+
+No date/lookback filtering is applied - any currently active listing that
+matches an item's price/keyword rules is eligible. Dedup against repeat
+alerts is handled entirely via seen_listings.json (an item is only ever
+alerted once, the first time it's seen).
+
+On the very first run (no seen_listings.json yet), every currently active
+matching listing across all items counts as "new" at once, which can be a
+large batch. That initial batch is sent as chunked Discord messages (same
+mechanism as the quiet-hours digest) instead of one alert per listing, to
+avoid spamming the channel. Every run after that returns to normal
+one-alert-per-new-listing behavior.
 """
 
 import os
@@ -9,7 +20,7 @@ import json
 import base64
 import requests
 from pathlib import Path
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 from datetime import time as _time
 
@@ -29,7 +40,6 @@ PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 
 SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
 MAX_PAGES_PER_ITEM = 5      # 200 x 5 = Up to 1,000 listings checked per search term
-LOOKBACK_HOURS = 24         # Scan up to 24 hours back into history
 MAX_SHIPPING_COST = 15.00
 
 # Quiet Hours
@@ -68,6 +78,42 @@ ITEMS = [
         "max_price": 30,
         "require_words": ["cx"],
         "exclude_words": ["school", "case", "silicone"],
+    },
+    # --- LEGO sets ---
+    {
+        "label": "LEGO Central Perk (21319)",
+        "query": "lego 21319",
+        "max_price": 75,
+        "require_any": ["21319", "central perk"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO DeLorean Time Machine (21103)",
+        "query": "lego 21103",
+        "max_price": 35,
+        "require_any": ["21103", "delorean"],
+        "exclude_words": LEGO_EXCLUDE_WORDS + ["77256"],
+    },
+    {
+        "label": "LEGO Ship in a Bottle (21313)",
+        "query": "lego 21313",
+        "max_price": 60,
+        "require_any": ["21313", "ship in a bottle"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO Medieval Blacksmith (21325)",
+        "query": "lego 21325",
+        "max_price": 50,
+        "require_any": ["21325", "medieval blacksmith"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO Gingerbread House (10267)",
+        "query": "lego 10267",
+        "max_price": 50,
+        "require_any": ["10267", "gingerbread house"],
+        "exclude_words": LEGO_EXCLUDE_WORDS + ["40337"],
     },
     # --- Retro N64/SNES games ---
     {
@@ -239,12 +285,7 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
     price_clause = f"price:[{min_p}..{max_p}]"
     filter_value = f"buyingOptions:{{FIXED_PRICE}},{price_clause},priceCurrency:USD"
 
-    now = datetime.now(timezone.utc)
-    cutoff_time = now - timedelta(hours=LOOKBACK_HOURS)
-
-    all_raw_results = []
-    filtered_results = []
-    older_count = 0
+    all_results = []
     pages_scanned = 0
 
     for page in range(MAX_PAGES_PER_ITEM):
@@ -254,7 +295,6 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
             "q": item["query"],
             "limit": str(SEARCH_RESULT_LIMIT),
             "offset": str(offset),
-            "sort": "newlyListed",
             "filter": filter_value,
         }
 
@@ -272,50 +312,17 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
         if not page_results:
             break
 
-        all_raw_results.extend(page_results)
-        page_valid_count = 0
-
-        for listing in page_results:
-            creation_str = listing.get("itemCreationDate") or listing.get("itemOriginDate")
-            if not creation_str:
-                filtered_results.append(listing)
-                page_valid_count += 1
-                continue
-
-            try:
-                creation_dt = datetime.fromisoformat(creation_str.replace("Z", "+00:00"))
-                if creation_dt >= cutoff_time:
-                    filtered_results.append(listing)
-                    page_valid_count += 1
-                else:
-                    older_count += 1
-            except (ValueError, TypeError):
-                filtered_results.append(listing)
-                page_valid_count += 1
+        all_results.extend(page_results)
 
         # Only stop early once we've hit the natural end of results (a
-        # partially-full page). Do NOT stop just because this page had 0
-        # items under the cutoff - sponsored/promoted listings can push
-        # older items ahead of newer ones even under newlyListed sort, so
-        # a "gap" page doesn't mean there's nothing fresher further down.
+        # partially-full page means there's nothing more to fetch).
         if len(page_results) < SEARCH_RESULT_LIMIT:
             break
 
-    stats = {
-        "raw": len(all_raw_results),
-        "cutoff": cutoff_time.isoformat(),
-        "date_filtered": len(filtered_results),
-        "older": older_count,
-        "pages": pages_scanned
-    }
+    stats = {"raw": len(all_results), "pages": pages_scanned}
+    print(f"Search diagnostics [{item['label']}]: raw={stats['raw']} (pages: {stats['pages']})")
 
-    print(
-        f"Search diagnostics [{item['label']}]: "
-        f"raw={stats['raw']} | cutoff={stats['cutoff']} | "
-        f"date_filtered={stats['date_filtered']} | older={stats['older']} (pages: {stats['pages']})"
-    )
-
-    return filtered_results, stats
+    return all_results, stats
 
 
 def matches_required_words(title: str, require_words: list[str] | None) -> bool:
@@ -431,16 +438,16 @@ def post_to_discord(content: str) -> bool:
         return False
 
 
-def flush_pending_alerts():
-    pending = load_pending()
-    if not pending:
-        return
-
-    header = f"**Overnight digest - {len(pending)} listing(s) found during quiet hours:**\n\n"
+def send_chunked_alerts(contents: list[str], header: str):
+    """
+    Posts a list of pre-built alert message bodies as one or more Discord
+    messages, staying under Discord's ~2000 character limit per message by
+    starting a new chunk whenever the next entry would overflow it.
+    """
     current_chunk = header
     chunks = []
-    for entry in pending:
-        block = entry["content"] + "\n\n"
+    for content in contents:
+        block = content + "\n\n"
         if len(current_chunk) + len(block) > 1900:
             chunks.append(current_chunk)
             current_chunk = block
@@ -451,6 +458,15 @@ def flush_pending_alerts():
     for chunk in chunks:
         post_to_discord(chunk)
 
+
+def flush_pending_alerts():
+    pending = load_pending()
+    if not pending:
+        return
+
+    header = f"**Overnight digest - {len(pending)} listing(s) found during quiet hours:**\n\n"
+    send_chunked_alerts([entry["content"] for entry in pending], header)
+
     save_pending([])
     print(f"Flushed {len(pending)} queued overnight alert(s).")
 
@@ -459,6 +475,16 @@ def run():
     if not CLIENT_ID or not CLIENT_SECRET:
         print("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set - aborting.")
         return
+
+    # Bootstrap run: no seen_listings.json yet means this is the first time
+    # the bot has ever run (or it was reset), so every currently active
+    # matching listing will look "new" at once. Detect this before loading
+    # seen_ids so we can route that first big batch through chunked
+    # messages instead of firing one Discord alert per listing.
+    is_bootstrap_run = not SEEN_FILE.exists()
+    bootstrap_batch: list[str] = []
+    if is_bootstrap_run:
+        print("No seen_listings.json found - treating this as a bootstrap run (results will be batched).")
 
     quiet_now = is_quiet_hours()
     if not quiet_now:
@@ -516,7 +542,7 @@ def run():
 
         print(
             f"Filtering breakdown [{item['label']}]: "
-            f"total_date_valid={len(results)} | already_seen={already_seen_count} | "
+            f"raw_results={len(results)} | already_seen={already_seen_count} | "
             f"price_rejected={price_rejected_count} | keyword_rejected={keyword_rejected_count} | "
             f"shipping_rejected={shipping_rejected_count} | NEW_ELIGIBLE={len(eligible_listings)}"
         )
@@ -525,7 +551,13 @@ def run():
             item_id = listing["itemId"]
             content = build_alert_content(item, listing)
 
-            if quiet_now:
+            if is_bootstrap_run:
+                # First-ever run: every current match counts as "new" at
+                # once, so don't fire off one Discord message per listing.
+                # Queue them all and send as chunked batch messages below.
+                bootstrap_batch.append(content)
+                seen_ids.add(item_id)
+            elif quiet_now:
                 pending.append({"item_id": item_id, "content": content})
                 queued_alerts += 1
                 seen_ids.add(item_id)
@@ -537,9 +569,17 @@ def run():
 
         metadata[item["label"]] = now_iso
 
+    if is_bootstrap_run and bootstrap_batch:
+        send_chunked_alerts(
+            bootstrap_batch,
+            header=f"**Initial scan - {len(bootstrap_batch)} matching listing(s) found:**\n\n",
+        )
+        new_alerts += len(bootstrap_batch)
+        print(f"Bootstrap run: sent {len(bootstrap_batch)} listing(s) in chunked messages.")
+
     save_seen(seen_ids)
     save_search_metadata(metadata)
-    if quiet_now:
+    if quiet_now and not is_bootstrap_run:
         save_pending(pending)
 
     print(f"\nDone. {new_alerts} alert(s) sent, {queued_alerts} queued for digest.")
