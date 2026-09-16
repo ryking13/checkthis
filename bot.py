@@ -90,20 +90,20 @@ ITEMS = [
         "max_price": 20,
         "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
     },
-    {
-        "label": "TI-84 Plus",
-        "query": "ti-84 plus",
-        "max_price": 20,
-        "require_words": ["plus"],
-        "exclude_words": ["school", "case", "silicone"],
-    },
-    {
-        "label": "TI-Nspire CX",
-        "query": "ti-nspire cx",
-        "max_price": 30,
-        "require_words": ["cx"],
-        "exclude_words": ["school", "case", "silicone"],
-    },
+    #{
+    #    "label": "TI-84 Plus",
+    #    "query": "ti-84 plus",
+    #    "max_price": 20,
+    #    "require_words": ["plus"],
+    #    "exclude_words": ["school", "case", "silicone"],
+    #},
+    #{
+    #    "label": "TI-Nspire CX",
+    #    "query": "ti-nspire cx",
+    #    "max_price": 30,
+    #    "require_words": ["cx"],
+    #    "exclude_words": ["school", "case", "silicone"],
+    #},
     # --- Retro N64/SNES games ---
     {
         "label": "Paper Mario (N64)",
@@ -192,13 +192,6 @@ ITEMS = [
         "max_price": 110,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
-    {
-        "label": "Secret of Mana",
-        "query": "secret of mana",
-        "max_price": 45,
-        "require_any": ["secret of mana"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["playstation", "ps4", "vinyl", "record", "records", "figure"],
     },
     # --- Sports Cards ---
     {
