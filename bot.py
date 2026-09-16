@@ -38,10 +38,40 @@ EBAY_ZIP = os.environ.get("EBAY_ZIP", "")
 SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
+TOKEN_CACHE_FILE = Path(__file__).parent / "ebay_token_cache.json"
 
 SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
-MAX_PAGES_PER_ITEM = 5      # 200 x 5 = Up to 1,000 listings checked per search term
+MAX_PAGES_PER_ITEM = 2      # 200 x 2 = Up to 400 listings checked per search term
 MAX_SHIPPING_COST = 15.00
+
+# --- Rate limiting ---
+# eBay's Browse API is capped per application per day (5,000 calls/day on the
+# default Buy plan, resetting at midnight Pacific). Every item costs at least
+# one call per run, so total daily usage is roughly:
+#     runs_per_day x len(ITEMS) x pages_actually_fetched
+# Blowing past that cap returns HTTP 429 / errorId 2001 for the rest of the
+# day, which is what makes every search come back with raw=0.
+REQUEST_DELAY = 0.35        # seconds to pause between Browse API calls
+MAX_RETRIES = 3             # attempts per page before giving up on it
+BACKOFF_BASE = 2.0          # seconds; doubled each retry
+TOKEN_REFRESH_MARGIN = 300  # refresh the cached token this many seconds early
+
+# During quiet hours nothing is alerted immediately - matches just go into the
+# overnight digest - so scanning every 5 minutes then buys nothing and costs
+# ~40% of the daily quota. Only run when the minute-of-day is divisible by
+# this, i.e. 15 => :00/:15/:30/:45 instead of all twelve 5-minute slots.
+QUIET_HOURS_SCAN_INTERVAL_MIN = 15
+
+# Soft ceiling, deliberately below eBay's hard 5,000/day so retries and second
+# pages can't push us over. Usage resets at midnight Pacific, matching eBay.
+DAILY_CALL_BUDGET = 4600
+USAGE_FILE = Path(__file__).parent / "api_usage.json"
+USAGE_TZ = ZoneInfo("America/Los_Angeles")
+
+# Set once a 429 survives all retries. eBay's 2001 error is an app-wide quota
+# error, not a per-search one, so once it sticks there is no point burning
+# another ~18 calls proving the same thing for every remaining item.
+_quota_exhausted = False
 
 # Quiet Hours
 QUIET_HOURS_TZ = ZoneInfo("America/Chicago")
@@ -205,6 +235,16 @@ ITEMS = [
 
 
 def get_access_token() -> str:
+    """
+    Returns an application access token, reusing a cached one when it is still
+    valid. Client-credentials tokens last ~2 hours, so minting a fresh one on
+    every run wastes calls against the identity endpoint's own rate limit for
+    no benefit.
+    """
+    cached = _load_cached_token()
+    if cached:
+        return cached
+
     credentials = f"{CLIENT_ID}:{CLIENT_SECRET}"
     encoded = base64.b64encode(credentials.encode()).decode()
     response = requests.post(
@@ -214,9 +254,110 @@ def get_access_token() -> str:
             "Authorization": f"Basic {encoded}",
         },
         data={"grant_type": "client_credentials", "scope": OAUTH_SCOPE},
+        timeout=30,
     )
     response.raise_for_status()
-    return response.json()["access_token"]
+    payload = response.json()
+    token = payload["access_token"]
+    _save_cached_token(token, int(payload.get("expires_in", 7200)))
+    return token
+
+
+def _load_cached_token() -> str | None:
+    if not TOKEN_CACHE_FILE.exists():
+        return None
+    try:
+        with open(TOKEN_CACHE_FILE) as f:
+            data = json.load(f)
+        if time.time() < float(data["expires_at"]) - TOKEN_REFRESH_MARGIN:
+            return data["access_token"]
+    except (json.JSONDecodeError, IOError, KeyError, TypeError, ValueError):
+        pass
+    return None
+
+
+def _save_cached_token(token: str, expires_in: int):
+    try:
+        with open(TOKEN_CACHE_FILE, "w") as f:
+            json.dump({"access_token": token, "expires_at": time.time() + expires_in}, f)
+    except IOError as exc:
+        print(f"Could not cache eBay token (non-fatal): {exc}")
+
+
+def _usage_today() -> dict:
+    today = datetime.now(USAGE_TZ).strftime("%Y-%m-%d")
+    if USAGE_FILE.exists():
+        try:
+            with open(USAGE_FILE) as f:
+                data = json.load(f)
+            if data.get("date") == today:
+                return data
+        except (json.JSONDecodeError, IOError):
+            pass
+    return {"date": today, "calls": 0}
+
+
+def calls_used_today() -> int:
+    return _usage_today().get("calls", 0)
+
+
+def record_call(n: int = 1):
+    data = _usage_today()
+    data["calls"] = data.get("calls", 0) + n
+    try:
+        with open(USAGE_FILE, "w") as f:
+            json.dump(data, f)
+    except IOError as exc:
+        print(f"Could not record API usage (non-fatal): {exc}")
+
+
+def ebay_get(url: str, headers: dict, params: dict) -> requests.Response | None:
+    """
+    GETs an eBay API URL, retrying on 429 and 5xx with exponential backoff and
+    honoring a Retry-After header when eBay sends one.
+
+    Returns the successful Response, or None if the request could not be
+    completed. On a 429 that survives every retry, sets the module-level
+    _quota_exhausted flag so the caller can abandon the rest of the run
+    instead of generating one more 429 per remaining search term.
+    """
+    global _quota_exhausted
+
+    for attempt in range(MAX_RETRIES):
+        try:
+            record_call()
+            response = requests.get(url, headers=headers, params=params, timeout=30)
+        except requests.RequestException as exc:
+            print(f"  Request error (attempt {attempt + 1}/{MAX_RETRIES}): {exc}")
+            if attempt == MAX_RETRIES - 1:
+                return None
+            time.sleep(BACKOFF_BASE * (2 ** attempt))
+            continue
+
+        if response.status_code == 200:
+            return response
+
+        if response.status_code == 429 or response.status_code >= 500:
+            if attempt == MAX_RETRIES - 1:
+                if response.status_code == 429:
+                    _quota_exhausted = True
+                return response
+
+            retry_after = response.headers.get("Retry-After")
+            try:
+                wait = float(retry_after) if retry_after else BACKOFF_BASE * (2 ** attempt)
+            except ValueError:
+                wait = BACKOFF_BASE * (2 ** attempt)
+            wait = min(wait, 30.0)
+            print(f"  HTTP {response.status_code} - retrying in {wait:.1f}s "
+                  f"(attempt {attempt + 1}/{MAX_RETRIES}).")
+            time.sleep(wait)
+            continue
+
+        # 4xx other than 429: retrying will not help.
+        return response
+
+    return None
 
 
 def load_search_metadata() -> dict:
@@ -254,6 +395,7 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
 
     all_results = []
     pages_scanned = 0
+    ok = True
 
     for page in range(MAX_PAGES_PER_ITEM):
         pages_scanned = page + 1
@@ -265,9 +407,15 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
             "filter": filter_value,
         }
 
-        response = requests.get(SEARCH_URL, headers=headers, params=params, timeout=30)
-        if response.status_code != 200:
-            print(f"Search failed for {item['label']!r}: {response.status_code} {response.text}")
+        if page > 0:
+            time.sleep(REQUEST_DELAY)
+
+        response = ebay_get(SEARCH_URL, headers, params)
+        if response is None or response.status_code != 200:
+            status = response.status_code if response is not None else "no response"
+            body = response.text[:300] if response is not None else ""
+            print(f"Search failed for {item['label']!r}: {status} {body}")
+            ok = False
             break
 
         payload = response.json()
@@ -286,8 +434,10 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
         if len(page_results) < SEARCH_RESULT_LIMIT:
             break
 
-    stats = {"raw": len(all_results), "pages": pages_scanned}
-    print(f"Search diagnostics [{item['label']}]: raw={stats['raw']} (pages: {stats['pages']})")
+    stats = {"raw": len(all_results), "pages": pages_scanned, "ok": ok}
+    status_note = "" if ok else "  <-- SEARCH ERRORED, results are incomplete"
+    print(f"Search diagnostics [{item['label']}]: raw={stats['raw']} "
+          f"(pages: {stats['pages']}){status_note}")
 
     return all_results, stats
 
@@ -482,20 +632,52 @@ def flush_pending_alerts():
     print(f"Flushed {len(pending) - len(failed_entries)}/{len(pending)} queued overnight alert(s).")
 
 
+def should_scan_now() -> bool:
+    """
+    The cron fires every 5 minutes. During quiet hours nothing goes out
+    immediately anyway (matches are queued for the morning digest), so most of
+    those slots are skipped to stay inside eBay's 5,000 calls/day cap while
+    keeping full 5-minute cadence during waking hours.
+    """
+    if not is_quiet_hours():
+        return True
+    now = datetime.now(QUIET_HOURS_TZ)
+    minute_of_day = now.hour * 60 + now.minute
+    return minute_of_day % QUIET_HOURS_SCAN_INTERVAL_MIN == 0
+
+
 def run():
     if not CLIENT_ID or not CLIENT_SECRET:
         print("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set - aborting.")
         return
+
+    if not should_scan_now():
+        print(f"Quiet hours - skipping this slot (scanning every "
+              f"{QUIET_HOURS_SCAN_INTERVAL_MIN} min until {QUIET_HOURS_END.strftime('%H:%M')}).")
+        return
+
+    used = calls_used_today()
+    if used >= DAILY_CALL_BUDGET:
+        print(f"Daily API budget spent ({used}/{DAILY_CALL_BUDGET}) - skipping this run. "
+              f"Usage resets at midnight Pacific.")
+        return
+    print(f"eBay API calls used today: {used}/{DAILY_CALL_BUDGET}")
 
     # Bootstrap run: no seen_listings.json yet means this is the first time
     # the bot has ever run (or it was reset), so every currently active
     # matching listing will look "new" at once. Detect this before loading
     # seen_ids so we can route that first big batch through chunked
     # messages instead of firing one Discord alert per listing.
-    is_bootstrap_run = not SEEN_FILE.exists()
+    #
+    # A bootstrap run that gets cut short by rate limiting is still a bootstrap
+    # run: it creates seen_listings.json having only scanned a few items, so
+    # without this flag the next run would look "normal" and fire one Discord
+    # message per listing for every item it never got to.
+    metadata = load_search_metadata()
+    is_bootstrap_run = not SEEN_FILE.exists() or not metadata.get("_bootstrap_complete")
     bootstrap_batch: list[tuple[str, str]] = []  # (item_id, content) pairs
     if is_bootstrap_run:
-        print("No seen_listings.json found - treating this as a bootstrap run (results will be batched).")
+        print("Bootstrap run in progress (results will be batched).")
 
     quiet_now = is_quiet_hours()
     if not quiet_now:
@@ -504,12 +686,18 @@ def run():
     token = get_access_token()
     seen_ids = load_seen()
     pending = load_pending()
-    metadata = load_search_metadata()
     now_iso = datetime.now(timezone.utc).isoformat()
     new_alerts = 0
     queued_alerts = 0
 
-    for item in ITEMS:
+    for index, item in enumerate(ITEMS):
+        if _quota_exhausted:
+            print(f"Skipping {item['label']!r} and all remaining items - eBay request quota exhausted.")
+            continue
+
+        if index > 0:
+            time.sleep(REQUEST_DELAY)
+
         results, stats = search_item(token, item)
 
         already_seen_count = 0
@@ -580,7 +768,8 @@ def run():
                     new_alerts += 1
                     seen_ids.add(item_id)
 
-        metadata[item["label"]] = now_iso
+        if stats.get("ok"):
+            metadata[item["label"]] = now_iso
 
     if is_bootstrap_run and bootstrap_batch:
         delivered_ids = send_chunked_alerts(
@@ -591,12 +780,23 @@ def run():
         new_alerts += len(delivered_ids)
         print(f"Bootstrap run: sent {len(delivered_ids)}/{len(bootstrap_batch)} listing(s) in chunked messages.")
 
+    if not _quota_exhausted:
+        metadata["_bootstrap_complete"] = True
+
     save_seen(seen_ids)
     save_search_metadata(metadata)
     if quiet_now and not is_bootstrap_run:
         save_pending(pending)
 
-    print(f"\nDone. {new_alerts} alert(s) sent, {queued_alerts} queued for digest.")
+    print(f"\nDone. {new_alerts} alert(s) sent, {queued_alerts} queued for digest. "
+          f"API calls used today: {calls_used_today()}/{DAILY_CALL_BUDGET}")
+    if _quota_exhausted:
+        print(
+            "WARNING: this run stopped early because eBay returned 429 (errorId 2001, "
+            "request limit reached). That is an application-wide quota, so it will not "
+            "clear by retrying sooner - reduce how often this bot runs, or check your "
+            "remaining quota with the Developer Analytics getRateLimits API."
+        )
 
 
 if __name__ == "__main__":
