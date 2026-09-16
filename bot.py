@@ -61,12 +61,6 @@ ITEMS = [
         "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
     },
     {
-        "label": "Codenames Deep Undercover",
-        "query": "codenames deep undercover",
-        "max_price": 20,
-        "exclude_words": ["man", "woman", "pieces"],
-    },
-    {
         "label": "TI-84 Plus",
         "query": "ti-84 plus",
         "max_price": 20,
@@ -79,42 +73,6 @@ ITEMS = [
         "max_price": 30,
         "require_words": ["cx"],
         "exclude_words": ["school", "case", "silicone"],
-    },
-    # --- LEGO sets ---
-    {
-        "label": "LEGO Central Perk (21319)",
-        "query": "lego 21319",
-        "max_price": 75,
-        "require_any": ["21319", "central perk"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
-    },
-    {
-        "label": "LEGO DeLorean Time Machine (21103)",
-        "query": "lego 21103",
-        "max_price": 35,
-        "require_any": ["21103", "delorean"],
-        "exclude_words": LEGO_EXCLUDE_WORDS + ["77256"],
-    },
-    {
-        "label": "LEGO Ship in a Bottle (21313)",
-        "query": "lego 21313",
-        "max_price": 60,
-        "require_any": ["21313", "ship in a bottle"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
-    },
-    {
-        "label": "LEGO Medieval Blacksmith (21325)",
-        "query": "lego 21325",
-        "max_price": 50,
-        "require_any": ["21325", "medieval blacksmith"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
-    },
-    {
-        "label": "LEGO Gingerbread House (10267)",
-        "query": "lego 10267",
-        "max_price": 50,
-        "require_any": ["10267", "gingerbread house"],
-        "exclude_words": LEGO_EXCLUDE_WORDS + ["40337"],
     },
     # --- Retro N64/SNES games ---
     {
