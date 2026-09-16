@@ -151,13 +151,13 @@ ITEMS = [
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy", "mystical"],
     },
-    {
-        "label": "Zelda Majora's Mask",
-        "query": "zelda majora's mask",
-        "max_price": 75,
-        "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds", "hoodie", "wearable", "figures", "figure", "watch", "amiibo", "collection", "funko", "pin", "plush"],
-    },
+    #{
+    #    "label": "Zelda Majora's Mask",
+    #    "query": "zelda majora's mask",
+    #    "max_price": 75,
+    #    "min_price": 39,
+    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds", "hoodie", "wearable", "figures", "figure", "watch", "amiibo", "collection", "funko", "pin", "plush"],
+    #},
     {
         "label": "Super Metroid",
         "query": "super metroid",
