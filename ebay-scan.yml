@@ -5,6 +5,12 @@ on:
     - cron: '*/30 * * * *'   # GitHub's own schedule is unreliable for 5-min precision - cron-job.org triggers this more precisely via workflow_dispatch below
   workflow_dispatch:          # allows manual runs from the Actions tab, and external triggers via the GitHub API (used by cron-job.org)
 
+# Prevent overlapping runs (scheduled + cron-job.org dispatch) from racing
+# each other's git state and causing push conflicts.
+concurrency:
+  group: ebay-alert-scan
+  cancel-in-progress: false
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -33,11 +39,17 @@ jobs:
           EBAY_ZIP:            ${{ secrets.EBAY_ZIP }}
         run: python bot.py
 
-      - name: Save seen listings back to repo
+      - name: Save bot state back to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add seen_listings.json
+          git add seen_listings.json item_search_metadata.json
           git add -A -- pending_alerts.json
-          git diff --staged --quiet || git commit -m "Update seen listings / pending alerts"
-          git push
+          if git diff --staged --quiet; then
+            echo "No state changes to commit"
+          else
+            git commit -m "Update seen listings / search metadata / pending alerts"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
