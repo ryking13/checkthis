@@ -1,6 +1,9 @@
 """
 eBay Alert Bot - Scans eBay for configured items and posts alerts to Discord.
-Paginates through up to 1,000 items per search term (200 limit x 5 pages).
+Uses a hybrid discovery strategy: scans two pages of the normal eBay result set on
+one run, then two pages sorted by newlyListed on the next run. This preserves the
+existing per-run API-call budget while alternating broad/deep discovery with
+new-list discovery.
 
 No date/lookback filtering is applied - any currently active listing that
 matches an item's price/keyword rules is eligible. Dedup against repeat
@@ -41,8 +44,24 @@ PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 TOKEN_CACHE_FILE = Path(__file__).parent / "ebay_token_cache.json"
 
 SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
-MAX_PAGES_PER_ITEM = 2      # 200 x 2 = Up to 400 listings checked per search term
+MAX_PAGES_PER_ITEM = 2      # 200 x 2 = Up to 400 listings checked per discovery mode
 MAX_SHIPPING_COST = 15.00
+
+# --- Discovery strategy ---
+# We alternate between the normal/default eBay ordering and newlyListed.
+# This avoids doubling API usage while ensuring that newly listed bargains are
+# checked regularly. Each mode still gets two pages (up to 400 results).
+#
+# "newlyListed" is supported by the Browse API, but keeping the default search
+# as the alternating companion protects against cases where the newly-listed
+# result set is incomplete or behaves differently from normal search relevance.
+DISCOVERY_MODES = ("default", "newlyListed")
+DISCOVERY_MODE_FILE_KEY = "_next_discovery_mode"
+
+# When diagnostics are enabled, print a sample of titles rejected by the local
+# keyword filter. This is intentionally sampled rather than printing every
+# rejection, so Discord/eBay logs don't become enormous.
+FILTER_DIAGNOSTIC_SAMPLE_SIZE = 12
 
 # --- Rate limiting ---
 # eBay's Browse API is capped per application per day (5,000 calls/day on the
@@ -368,7 +387,7 @@ def save_search_metadata(metadata: dict):
         json.dump(metadata, f, indent=2)
 
 
-def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
+def search_item(token: str, item: dict, discovery_mode: str) -> tuple[list[dict], dict]:
     headers = {
         "Authorization": f"Bearer {token}",
         "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
@@ -389,6 +408,7 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
     all_results = []
     pages_scanned = 0
     ok = True
+    mode_label = discovery_mode
 
     for page in range(MAX_PAGES_PER_ITEM):
         pages_scanned = page + 1
@@ -399,6 +419,8 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
             "offset": str(offset),
             "filter": filter_value,
         }
+        if discovery_mode != "default":
+            params["sort"] = discovery_mode
 
         if page > 0:
             time.sleep(REQUEST_DELAY)
@@ -407,14 +429,14 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
         if response is None or response.status_code != 200:
             status = response.status_code if response is not None else "no response"
             body = response.text[:300] if response is not None else ""
-            print(f"Search failed for {item['label']!r}: {status} {body}")
+            print(f"Search failed for {item['label']!r} [{mode_label}]: {status} {body}")
             ok = False
             break
 
         payload = response.json()
         warnings = payload.get("warnings")
         if warnings:
-            print(f"  eBay API warnings for {item['label']!r}: {warnings}")
+            print(f"  eBay API warnings for {item['label']!r} [{mode_label}]: {warnings}")
 
         page_results = payload.get("itemSummaries", [])
         if not page_results:
@@ -427,9 +449,14 @@ def search_item(token: str, item: dict) -> tuple[list[dict], dict]:
         if len(page_results) < SEARCH_RESULT_LIMIT:
             break
 
-    stats = {"raw": len(all_results), "pages": pages_scanned, "ok": ok}
+    stats = {
+        "raw": len(all_results),
+        "pages": pages_scanned,
+        "ok": ok,
+        "mode": discovery_mode,
+    }
     status_note = "" if ok else "  <-- SEARCH ERRORED, results are incomplete"
-    print(f"Search diagnostics [{item['label']}]: raw={stats['raw']} "
+    print(f"Search diagnostics [{item['label']}] [{mode_label}]: raw={stats['raw']} "
           f"(pages: {stats['pages']}){status_note}")
 
     return all_results, stats
@@ -639,6 +666,17 @@ def should_scan_now() -> bool:
     return minute_of_day % QUIET_HOURS_SCAN_INTERVAL_MIN == 0
 
 
+def get_next_discovery_mode(metadata: dict) -> str:
+    """Return the mode for this run and persist the opposite mode for next run."""
+    current = metadata.get(DISCOVERY_MODE_FILE_KEY, "default")
+    if current not in DISCOVERY_MODES:
+        current = "default"
+
+    next_mode = "newlyListed" if current == "default" else "default"
+    metadata[DISCOVERY_MODE_FILE_KEY] = next_mode
+    return current
+
+
 def run():
     if not CLIENT_ID or not CLIENT_SECRET:
         print("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set - aborting.")
@@ -667,6 +705,10 @@ def run():
     # without this flag the next run would look "normal" and fire one Discord
     # message per listing for every item it never got to.
     metadata = load_search_metadata()
+    discovery_mode = get_next_discovery_mode(metadata)
+    print(f"Discovery strategy this run: {discovery_mode} "
+          f"(next run: {metadata[DISCOVERY_MODE_FILE_KEY]})")
+
     is_bootstrap_run = not SEEN_FILE.exists() or not metadata.get("_bootstrap_complete")
     bootstrap_batch: list[tuple[str, str]] = []  # (item_id, content) pairs
     if is_bootstrap_run:
@@ -691,7 +733,7 @@ def run():
         if index > 0:
             time.sleep(REQUEST_DELAY)
 
-        results, stats = search_item(token, item)
+        results, stats = search_item(token, item, discovery_mode)
 
         already_seen_count = 0
         price_rejected_count = 0
@@ -699,6 +741,13 @@ def run():
         shipping_rejected_count = 0
 
         eligible_listings = []
+        keyword_rejected_samples = []
+        keyword_rejected_by_reason = {
+            "required_words": 0,
+            "require_any": 0,
+            "exclude_words": 0,
+        }
+
         for listing in results:
             item_id = listing.get("itemId")
             if not item_id or item_id in seen_ids:
@@ -719,10 +768,34 @@ def run():
                 price_rejected_count += 1
                 continue
 
-            if (not matches_required_words(title, item.get("require_words"))) or \
-               (not matches_any_words(title, item.get("require_any"))) or \
-               (not matches_excluded_words(title, item.get("exclude_words"))):
+            required_ok = matches_required_words(title, item.get("require_words"))
+            any_ok = matches_any_words(title, item.get("require_any"))
+            excluded_ok = matches_excluded_words(title, item.get("exclude_words"))
+
+            if not required_ok or not any_ok or not excluded_ok:
                 keyword_rejected_count += 1
+
+                # Break the rejection down so we can tell whether a search is
+                # being filtered mostly by required terms, require_any, or
+                # explicit exclusions. Keep a small title sample for inspection.
+                if not required_ok:
+                    keyword_rejected_by_reason["required_words"] += 1
+                if not any_ok:
+                    keyword_rejected_by_reason["require_any"] += 1
+                if not excluded_ok:
+                    keyword_rejected_by_reason["exclude_words"] += 1
+
+                if len(keyword_rejected_samples) < FILTER_DIAGNOSTIC_SAMPLE_SIZE:
+                    reasons = []
+                    if not required_ok:
+                        reasons.append("required")
+                    if not any_ok:
+                        reasons.append("require_any")
+                    if not excluded_ok:
+                        reasons.append("excluded")
+                    keyword_rejected_samples.append(
+                        f"    [{', '.join(reasons)}] {title}"
+                    )
                 continue
 
             shipping_cost = get_shipping_cost(listing)
@@ -738,6 +811,18 @@ def run():
             f"price_rejected={price_rejected_count} | keyword_rejected={keyword_rejected_count} | "
             f"shipping_rejected={shipping_rejected_count} | NEW_ELIGIBLE={len(eligible_listings)}"
         )
+
+        if keyword_rejected_count:
+            print(
+                f"  Keyword rejection reasons [{item['label']}]: "
+                f"required={keyword_rejected_by_reason['required_words']} | "
+                f"require_any={keyword_rejected_by_reason['require_any']} | "
+                f"excluded={keyword_rejected_by_reason['exclude_words']}"
+            )
+            if keyword_rejected_samples:
+                print("  Keyword rejection sample:")
+                for sample in keyword_rejected_samples:
+                    print(sample)
 
         for listing in eligible_listings:
             item_id = listing["itemId"]
