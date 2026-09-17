@@ -706,6 +706,9 @@ def run():
     # message per listing for every item it never got to.
     metadata = load_search_metadata()
     discovery_mode = get_next_discovery_mode(metadata)
+    # Persist the discovery rotation immediately. GitHub Actions should commit
+    # item_search_metadata.json along with seen_listings.json.
+    save_search_metadata(metadata)
     print(f"Discovery strategy this run: {discovery_mode} "
           f"(next run: {metadata[DISCOVERY_MODE_FILE_KEY]})")
 
