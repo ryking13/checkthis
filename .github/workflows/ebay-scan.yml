@@ -5,6 +5,12 @@ on:
     - cron: '*/30 * * * *'   # GitHub's own schedule is unreliable for 5-min precision - cron-job.org triggers this more precisely via workflow_dispatch below
   workflow_dispatch:          # allows manual runs from the Actions tab, and external triggers via the GitHub API (used by cron-job.org)
 
+# Prevent overlapping runs (scheduled + cron-job.org dispatch) from racing
+# each other's git state and causing push conflicts.
+concurrency:
+  group: ebay-alert-scan
+  cancel-in-progress: false
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -30,12 +36,37 @@ jobs:
           EBAY_CLIENT_ID:      ${{ secrets.EBAY_CLIENT_ID }}
           EBAY_CLIENT_SECRET:  ${{ secrets.EBAY_CLIENT_SECRET }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          EBAY_ZIP:            ${{ secrets.EBAY_ZIP }}
         run: python bot.py
 
-      - name: Save seen listings back to repo
+      - name: Save bot state back to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add seen_listings.json
-          git diff --staged --quiet || git commit -m "Update seen listings"
-          git push
+
+          # Stash the state files bot.py just wrote, in memory, before touching refs.
+          mkdir -p /tmp/bot-state
+          cp -p seen_listings.json /tmp/bot-state/ 2>/dev/null || true
+          cp -p item_search_metadata.json /tmp/bot-state/ 2>/dev/null || true
+          cp -p pending_alerts.json /tmp/bot-state/ 2>/dev/null || true
+
+          # Sync the working tree HARD onto the true latest main - do not
+          # trust whatever this job's checkout started with, since a fetch
+          # alone does not update the working directory's other files.
+          git fetch origin main
+          git reset --hard origin/main
+
+          # Now reapply just the bot's fresh state files onto that clean,
+          # up-to-date tree.
+          cp -p /tmp/bot-state/seen_listings.json . 2>/dev/null || true
+          cp -p /tmp/bot-state/item_search_metadata.json . 2>/dev/null || true
+          cp -p /tmp/bot-state/pending_alerts.json . 2>/dev/null || true
+
+          git add seen_listings.json item_search_metadata.json
+          git add -A -- pending_alerts.json
+          if git diff --staged --quiet; then
+            echo "No state changes to commit"
+          else
+            git commit -m "Update seen listings / search metadata / pending alerts"
+            git push origin HEAD:main
+          fi
