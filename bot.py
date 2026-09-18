@@ -22,6 +22,8 @@ import os
 import json
 import base64
 import time
+import re
+import unicodedata
 import requests
 from pathlib import Path
 from datetime import datetime, timezone
@@ -464,25 +466,37 @@ def search_item(token: str, item: dict, discovery_mode: str) -> tuple[list[dict]
     return all_results, stats
 
 
+def _normalize_text(text: str) -> str:
+    """Lowercase and strip accents so e.g. 'Pokémon' matches 'pokemon'."""
+    nfkd = unicodedata.normalize("NFKD", text)
+    without_accents = "".join(ch for ch in nfkd if not unicodedata.combining(ch))
+    return without_accents.lower()
+
+
 def matches_required_words(title: str, require_words: list[str] | None) -> bool:
     if not require_words:
         return True
-    title_lower = title.lower()
-    return all(word.lower() in title_lower for word in require_words)
+    title_norm = _normalize_text(title)
+    return all(_normalize_text(word) in title_norm for word in require_words)
 
 
 def matches_any_words(title: str, require_any: list[str] | None) -> bool:
     if not require_any:
         return True
-    title_lower = title.lower()
-    return any(phrase.lower() in title_lower for phrase in require_any)
+    title_norm = _normalize_text(title)
+    return any(_normalize_text(phrase) in title_norm for phrase in require_any)
 
 
 def matches_excluded_words(title: str, exclude_words: list[str] | None) -> bool:
     if not exclude_words:
         return True
-    title_lower = title.lower()
-    return not any(word.lower() in title_lower for word in exclude_words)
+    title_norm = _normalize_text(title)
+    for word in exclude_words:
+        word_norm = _normalize_text(word)
+        # Word-boundary match so e.g. "art" doesn't match inside "cartridge".
+        if re.search(r"\b" + re.escape(word_norm) + r"\b", title_norm):
+            return False
+    return True
 
 
 def load_seen() -> set[str]:
