@@ -196,6 +196,7 @@ ITEMS = [
         "query": "Mega Man 64",
         "max_price": 85,
         "min_price": 39,
+        "require_any": ["mega man 64", "megaman 64", "megaman64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
@@ -210,6 +211,7 @@ ITEMS = [
         "query": "StarCraft 64",
         "max_price": 110,
         "min_price": 39,
+        "require_any": ["starcraft 64", "starcraft64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     # --- Sports Cards ---
