@@ -63,7 +63,9 @@ jobs:
           cp -p /tmp/bot-state/pending_alerts.json . 2>/dev/null || true
 
           git add seen_listings.json item_search_metadata.json
-          git add -A -- pending_alerts.json
+          if [ -f pending_alerts.json ]; then
+            git add pending_alerts.json
+          fi
           if git diff --staged --quiet; then
             echo "No state changes to commit"
           else
