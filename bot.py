@@ -527,15 +527,40 @@ def is_quiet_hours(now=None) -> bool:
 def load_pending() -> list[dict]:
     if not PENDING_FILE.exists():
         return []
-    with open(PENDING_FILE) as f:
-        return json.load(f)
+    try:
+        with open(PENDING_FILE) as f:
+            pending = json.load(f)
+    except (json.JSONDecodeError, IOError, TypeError):
+        print("WARNING: pending_alerts.json could not be read; starting with an empty queue.")
+        return []
+
+    # Defensive de-duplication protects against repeated/overlapping workflow runs.
+    deduped = []
+    seen_ids = set()
+    for entry in pending if isinstance(pending, list) else []:
+        item_id = entry.get("item_id")
+        if item_id and item_id not in seen_ids:
+            seen_ids.add(item_id)
+            deduped.append(entry)
+    return deduped
 
 
 def save_pending(pending: list[dict]):
-    if pending:
+    """Persist a de-duplicated pending queue, or remove it when empty."""
+    deduped = []
+    seen_ids = set()
+    for entry in pending:
+        item_id = entry.get("item_id")
+        if not item_id or item_id in seen_ids:
+            continue
+        seen_ids.add(item_id)
+        deduped.append(entry)
+
+    if deduped:
         with open(PENDING_FILE, "w") as f:
-            json.dump(pending, f, indent=2)
+            json.dump(deduped, f, indent=2)
     elif PENDING_FILE.exists():
+        # Remove the actual file, not just its git index entry.
         PENDING_FILE.unlink()
 
 
@@ -740,6 +765,7 @@ def run():
     token = get_access_token()
     seen_ids = load_seen()
     pending = load_pending()
+    pending_ids = {entry.get("item_id") for entry in pending if entry.get("item_id")}
     now_iso = datetime.now(timezone.utc).isoformat()
     new_alerts = 0
     queued_alerts = 0
@@ -856,8 +882,12 @@ def run():
                 # get silently treated as "already alerted."
                 bootstrap_batch.append((item_id, content))
             elif quiet_now:
-                pending.append({"item_id": item_id, "content": content})
-                queued_alerts += 1
+                # Do not append the same listing repeatedly if workflow runs
+                # overlap or replay a stale checkout.
+                if item_id not in pending_ids:
+                    pending.append({"item_id": item_id, "content": content})
+                    pending_ids.add(item_id)
+                    queued_alerts += 1
                 seen_ids.add(item_id)
             else:
                 delivered = post_to_discord(content)
