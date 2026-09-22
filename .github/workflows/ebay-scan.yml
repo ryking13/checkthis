@@ -71,7 +71,18 @@ jobs:
           done
 
           # Stage additions, modifications, and deletions.
-          git add -A -- seen_listings.json item_search_metadata.json pending_alerts.json
+          # Only pass paths git actually knows about (tracked in HEAD or
+          # present in the working tree) so a removed state file doesn't
+          # cause `git add` to fail with "pathspec did not match any files".
+          add_paths=()
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
+            if [ -f "$f" ] || git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+              add_paths+=("$f")
+            fi
+          done
+          if [ "${#add_paths[@]}" -gt 0 ]; then
+            git add -A -- "${add_paths[@]}"
+          fi
 
           if git diff --staged --quiet; then
             echo "No state changes to commit"
