@@ -45,37 +45,37 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Stash the state files bot.py just wrote, in memory, before touching refs.
-              # Preserve the bot's state before syncing with the repository.
-       mkdir -p /tmp/bot-state
+          # Preserve the bot's state before syncing with the repository.
+          mkdir -p /tmp/bot-state
 
-       for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
-        if [ -f "$f" ]; then
-          cp -p "$f" "/tmp/bot-state/$f"
-        else
-          rm -f "/tmp/bot-state/$f"
-        fi
-       done
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
+            if [ -f "$f" ]; then
+              cp -p "$f" "/tmp/bot-state/$f"
+            else
+              rm -f "/tmp/bot-state/$f"
+            fi
+          done
 
-      # Sync with the latest repository version.
-       git fetch origin main
-       git reset --hard origin/main
+          # Sync with the latest repository version.
+          git fetch origin main
+          git reset --hard origin/main
 
-      # Restore state files.
-      # Explicitly remove files that no longer exist locally.
-       for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
-        if [ -f "/tmp/bot-state/$f" ]; then
-          cp -p "/tmp/bot-state/$f" "$f"
-        else
-          rm -f "$f"
-        fi
-       done
+          # Restore state files.
+          # Explicitly remove files that no longer exist locally.
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
+            if [ -f "/tmp/bot-state/$f" ]; then
+              cp -p "/tmp/bot-state/$f" "$f"
+            else
+              rm -f "$f"
+            fi
+          done
 
-      # Stage additions, modifications, and deletions.
-       git add -A -- seen_listings.json item_search_metadata.json pending_alerts.json
+          # Stage additions, modifications, and deletions.
+          git add -A -- seen_listings.json item_search_metadata.json pending_alerts.json
 
-       if git diff --staged --quiet; then
-         echo "No state changes to commit"
-       else
-         git commit -m "Update bot state"
-         git push origin HEAD:main
-       fi
+          if git diff --staged --quiet; then
+            echo "No state changes to commit"
+          else
+            git commit -m "Update bot state"
+            git push origin HEAD:main
+          fi
