@@ -62,15 +62,9 @@ jobs:
           cp -p /tmp/bot-state/item_search_metadata.json . 2>/dev/null || true
           cp -p /tmp/bot-state/pending_alerts.json . 2>/dev/null || true
 
-          git add seen_listings.json item_search_metadata.json
-          if [ -f pending_alerts.json ]; then
-            git add pending_alerts.json
-          elif git ls-files --error-unmatch pending_alerts.json > /dev/null 2>&1; then
-            # File was deleted locally (e.g. digest fully flushed) but is
-            # still tracked in the repo - stage the deletion so it doesn't
-            # come back on the next run's git reset --hard.
-            git rm -f pending_alerts.json
-          fi
+          # Stage state files, including deletion of pending_alerts.json
+          # when the overnight digest has been successfully flushed.
+          git add -A -- seen_listings.json item_search_metadata.json pending_alerts.json
           if git diff --staged --quiet; then
             echo "No state changes to commit"
           else
