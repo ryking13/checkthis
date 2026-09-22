@@ -1,8 +1,6 @@
 name: eBay Alert Scan
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'   # GitHub's own schedule is unreliable for 5-min precision - cron-job.org triggers this more precisely via workflow_dispatch below
   workflow_dispatch:          # allows manual runs from the Actions tab, and external triggers via the GitHub API (used by cron-job.org)
 
 # Prevent overlapping runs (scheduled + cron-job.org dispatch) from racing
