@@ -101,7 +101,7 @@ QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
 
 # Shared Exclusions
 LEGO_EXCLUDE_WORDS = ["minifigure", "minifigures", "only", "pieces", "light kit", "lighting kit", "incomplete", "display"]
-RETRO_EXCLUDE_WORDS = ["japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot"]
+RETRO_EXCLUDE_WORDS = ["software","japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot"]
 BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "hga", "tag", "reprint", "replica", "reproduction", "custom", "proxy", "fake", "counterfeit", "digital", "lot", "lots"]
 
 ITEMS = [
