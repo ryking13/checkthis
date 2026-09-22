@@ -9,7 +9,9 @@ on:
 # each other's git state and causing push conflicts.
 concurrency:
   group: ebay-alert-scan
-  cancel-in-progress: false
+  # Prevent a backlog of frequent dispatches from running later in sequence.
+  # A newer run supersedes an older queued run.
+  cancel-in-progress: true
 
 jobs:
   scan:
@@ -69,7 +71,7 @@ jobs:
             # File was deleted locally (e.g. digest fully flushed) but is
             # still tracked in the repo - stage the deletion so it doesn't
             # come back on the next run's git reset --hard.
-            git rm --cached pending_alerts.json
+            git rm -f pending_alerts.json
           fi
           if git diff --staged --quiet; then
             echo "No state changes to commit"
