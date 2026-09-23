@@ -242,7 +242,8 @@ ITEMS = [
         "query": "Lufia II Rise of Sinistrals",
         "max_price": 150,
         "min_price": 51,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box"],
+        "require_any": ["lufia"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
     },
     {
         "label": "Axelay SNES",
