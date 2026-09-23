@@ -101,7 +101,7 @@ QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
 
 # Shared Exclusions
 LEGO_EXCLUDE_WORDS = ["minifigure", "minifigures", "only", "pieces", "light kit", "lighting kit", "incomplete", "display"]
-RETRO_EXCLUDE_WORDS = ["software","japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot"]
+RETRO_EXCLUDE_WORDS = ["software","japan", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot", "comic", "guidebook", "guides"]
 BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "hga", "tag", "reprint", "replica", "reproduction", "custom", "proxy", "fake", "counterfeit", "digital", "lot", "lots"]
 
 ITEMS = [
@@ -143,31 +143,31 @@ ITEMS = [
     #},
     {
         "label": "PGA European Tour n64",
-        "query": "PGA European Tour",
+        "query": "PGA European Tour n64",
         "max_price": 100,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["super", "SNES", "sega","photo","lost","boy","gameboy","playstation"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["super", "SNES", "sega","photo","lost","boy","gameboy","playstation", "box", "card", "manual"],
     },
     {
         "label": "Castlevania Legacy of Darkness n64",
         "query": "Castlevania Legacy of Darkness",
         "max_price": 150,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["box", "manual", ,
     },
     {
         "label": "Ogre Battle 64",
         "query": "Ogre Battle 64",
         "max_price": 155,
         "min_price": 40,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "booklet", "book", "guidebook", "guides"],
     },
     {
         "label": "Carmageddon n64",
         "query": "Carmageddon",
         "max_price": 125,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["boy", "gameboy", "playstation", "PC"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["boy", "gameboy", "playstation", "PC","manual", "booklet", "box", "max", "xbox", "ps4"],
     },
     {
         "label": "Pokemon Stadium 2",
