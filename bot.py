@@ -154,7 +154,7 @@ ITEMS = [
         "query": "Castlevania Legacy of Darkness",
         "max_price": 150,
         "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["box", "manual", ,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["box", "manual"],
     },
     {
         "label": "Ogre Battle 64",
