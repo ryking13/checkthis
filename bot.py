@@ -133,13 +133,13 @@ ITEMS = [
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
-    {
-        "label": "Big Mountain 2000",
-        "query": "Big Mountain 2000",
-        "max_price": 100,
-        "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
+    #{
+    #   "label": "Big Mountain 2000",
+    #    "query": "Big Mountain 2000",
+    #    "max_price": 100,
+    #    "min_price": 39,
+    #    "exclude_words": RETRO_EXCLUDE_WORDS,
+    #},
     {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour",
