@@ -135,9 +135,10 @@ ITEMS = [
     },
     #{
     #   "label": "Big Mountain 2000",
-    #    "query": "Big Mountain 2000",
+    #    "query": "Big Mountain 2000 n64",
     #    "max_price": 100,
     #    "min_price": 39,
+    #    "require_words": ["big mountain 2000"],
     #    "exclude_words": RETRO_EXCLUDE_WORDS,
     #},
     {
