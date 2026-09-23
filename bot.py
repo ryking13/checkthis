@@ -146,6 +146,7 @@ ITEMS = [
         "query": "PGA European Tour n64",
         "max_price": 100,
         "min_price": 39,
+        "require_any": ["PGA European Tour"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["super", "SNES", "sega","photo","lost","boy","gameboy","playstation", "box", "card", "manual"],
     },
     {
