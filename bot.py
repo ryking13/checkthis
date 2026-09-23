@@ -197,7 +197,7 @@ ITEMS = [
     {
         "label": "Snowboard Kids 2",
         "query": "Snowboard Kids 2",
-        "max_price": 100,
+        "max_price": 95,
         "min_price": 39,
         "require_any": ["snowboard kids 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
