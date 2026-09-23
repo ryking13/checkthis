@@ -220,7 +220,7 @@ ITEMS = [
     {
         "label": "Chipper Jones 1991 Topps #333 PSA 10",
         "query": "Chipper Jones 1991 Topps 333",
-        "max_price": 125,
+        "max_price": 135,
         "min_price": 50,
         "require_words": ["chipper", "jones", "333"],
         "require_any": ["psa 10", "psa10", "psa-10"],
@@ -230,7 +230,7 @@ ITEMS = [
     {
         "label": "Nolan Ryan 1980 Topps #580 PSA 8",
         "query": "Nolan Ryan 1980 Topps 580",
-        "max_price": 120,
+        "max_price": 130,
         "min_price": 50,
         "require_words": ["nolan", "ryan", "580"],
         "require_any": ["psa 8", "psa8", "psa-8"],
