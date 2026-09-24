@@ -111,22 +111,22 @@ ITEMS = [
         "max_price": 20,
         "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
     },
-    {
-        "label": "TI-84 Plus ce",
-        "query": "ti-84 plus ce",
-        "max_price": 40,
-        "min_price": 10,
-        "require_words": ["plus", "ce"],
-        "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
-    },
-    {
-        "label": "TI-Nspire CX II CAS",
-        "query": "ti-nspire cx ii cas",
-        "max_price": 60,
-        "min_price": 20,
-        "require_any": ["ti-nspire cx ii", "nspire cx ii", "cx ii"],
-        "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
-    },
+    #{
+    #    "label": "TI-84 Plus ce",
+    #    "query": "ti-84 plus ce",
+    #    "max_price": 40,
+    #    "min_price": 10,
+    #    "require_words": ["plus", "ce"],
+    #    "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
+    #},
+    #{
+    #    "label": "TI-Nspire CX II CAS",
+    #    "query": "ti-nspire cx ii cas",
+    #    "max_price": 60,
+    #    "min_price": 20,
+    #    "require_any": ["ti-nspire cx ii", "nspire cx ii", "cx ii"],
+    #    "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
+    #},
     # --- Retro N64/SNES games ---
     {
         "label": "Paper Mario (N64)",
