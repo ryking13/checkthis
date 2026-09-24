@@ -133,6 +133,7 @@ ITEMS = [
         "query": "paper mario n64",
         "max_price": 60,
         "min_price": 39,
+        "require_words": ["paper mario"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     #{
@@ -148,7 +149,7 @@ ITEMS = [
         "query": "PGA European Tour n64",
         "max_price": 100,
         "min_price": 39,
-        "require_any": ["PGA European Tour"],
+        "require_words": ["PGA European Tour"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["super", "SNES", "sega","photo","lost","boy","gameboy","playstation", "box", "card", "manual"],
     },
     {
@@ -163,6 +164,7 @@ ITEMS = [
         "query": "Ogre Battle 64",
         "max_price": 155,
         "min_price": 40,
+        "require_words": ["Ogre Battle"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "booklet", "book", "guidebook", "guides"],
     },
     {
@@ -170,6 +172,7 @@ ITEMS = [
         "query": "Carmageddon",
         "max_price": 125,
         "min_price": 39,
+        "require_words": ["Carmageddon"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boy", "gameboy", "playstation", "PC","manual", "booklet", "box", "max", "xbox", "ps4"],
     },
     {
@@ -230,6 +233,7 @@ ITEMS = [
         "query": "Indiana Jones Infernal Machine n64",
         "max_price": 85,
         "min_price": 39,
+        "require_words": ["indiana", "jones", "infernal"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     #{
@@ -252,6 +256,7 @@ ITEMS = [
         "query": "Axelay",
         "max_price": 75,
         "min_price": 51,
+        "require_any": ["Axelay"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["famicom", "manual"],
     },
     {
