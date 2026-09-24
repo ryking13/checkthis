@@ -119,14 +119,14 @@ ITEMS = [
     #    "require_words": ["plus", "ce"],
     #    "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
     #},
-    #{
-    #    "label": "TI-Nspire CX II CAS",
-    #    "query": "ti-nspire cx ii cas",
-    #    "max_price": 60,
-    #    "min_price": 20,
-    #    "require_any": ["ti-nspire cx ii", "nspire cx ii", "cx ii"],
-    #    "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
-    #},
+    {
+        "label": "TI-Nspire CX II CAS",
+        "query": "ti-nspire cx ii cas",
+        "max_price": 80,
+        "min_price": 45,
+        "require_words": ["cx", "ii", "cas"],
+        "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
+    },
     # --- Retro N64/SNES games ---
     {
         "label": "Paper Mario (N64)",
