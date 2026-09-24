@@ -125,7 +125,7 @@ ITEMS = [
         "max_price": 80,
         "min_price": 45,
         "require_words": ["cx", "ii", "cas"],
-        "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
+        "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
     # --- Retro N64/SNES games ---
     {
