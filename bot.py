@@ -105,12 +105,12 @@ RETRO_EXCLUDE_WORDS = ["software", "japan", "famicom", "japanese", "thousand", "
 BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "hga", "tag", "reprint", "replica", "reproduction", "custom", "proxy", "fake", "counterfeit", "digital", "lot", "lots"]
 
 ITEMS = [
-    {
-        "label": "AirPort Express A1392",
-        "query": "airport express a1392",
-        "max_price": 20,
-        "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
-    },
+    #{
+    #    "label": "AirPort Express A1392",
+    #    "query": "airport express a1392",
+    #    "max_price": 20,
+    #    "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
+    #},
     #{
     #    "label": "TI-84 Plus ce",
     #    "query": "ti-84 plus ce",
@@ -181,22 +181,6 @@ ITEMS = [
         "max_price": 75,
         "min_price": 39,
         "require_any": ["pokemon stadium 2"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
-    },
-    {
-        "label": "Pokemon Stadium 2 manual",
-        "query": "pokemon stadium 2 manual",
-        "max_price": 25,
-        "min_price": 1,
-        "require_any": ["pokemon stadium 2", "manual"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
-    },
-    {
-        "label": "Pokemon Stadium 2 box",
-        "query": "pokemon stadium 2 box",
-        "max_price": 155,
-        "min_price": 25,
-        "require_any": ["pokemon stadium 2", "box"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
     },
     {
