@@ -81,7 +81,7 @@ TOKEN_REFRESH_MARGIN = 300  # refresh the cached token this many seconds early
 # overnight digest - so scanning every 5 minutes then buys nothing and costs
 # ~40% of the daily quota. Only run when the minute-of-day is divisible by
 # this, i.e. 15 => :00/:15/:30/:45 instead of all twelve 5-minute slots.
-QUIET_HOURS_SCAN_INTERVAL_MIN = 15
+QUIET_HOURS_SCAN_INTERVAL_MIN = 60
 
 # Soft ceiling, deliberately below eBay's hard 5,000/day so retries and second
 # pages can't push us over. Usage resets at midnight Pacific, matching eBay.
@@ -97,7 +97,7 @@ _quota_exhausted = False
 # Quiet Hours
 QUIET_HOURS_TZ = ZoneInfo("America/Chicago")
 QUIET_HOURS_START = _time(22, 0)   # 10:00 PM
-QUIET_HOURS_END = _time(6, 30)     # 6:30 AM
+QUIET_HOURS_END = _time(7, 00)     # 6:30 AM
 
 # Shared Exclusions
 LEGO_EXCLUDE_WORDS = ["minifigure", "minifigures", "only", "pieces", "light kit", "lighting kit", "incomplete", "display"]
