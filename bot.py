@@ -147,7 +147,7 @@ ITEMS = [
     {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour n64",
-        "max_price": 100,
+        "max_price": 95,
         "min_price": 39,
         "require_words": ["PGA European Tour"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["super", "SNES", "sega","photo","lost","boy","gameboy","playstation", "box", "card", "manual"],
@@ -155,14 +155,14 @@ ITEMS = [
     {
         "label": "Castlevania Legacy of Darkness n64",
         "query": "Castlevania Legacy of Darkness",
-        "max_price": 150,
+        "max_price": 135,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS + ["box", "manual"],
     },
     {
         "label": "Ogre Battle 64",
         "query": "Ogre Battle 64",
-        "max_price": 155,
+        "max_price": 140,
         "min_price": 40,
         "require_words": ["Ogre Battle"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "booklet", "book", "guidebook", "guides"],
@@ -170,7 +170,7 @@ ITEMS = [
     {
         "label": "Carmageddon n64",
         "query": "Carmageddon",
-        "max_price": 125,
+        "max_price": 105,
         "min_price": 39,
         "require_words": ["Carmageddon"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boy", "gameboy", "playstation", "PC","manual", "booklet", "box", "max", "xbox", "ps4"],
@@ -178,7 +178,7 @@ ITEMS = [
     {
         "label": "Pokemon Stadium 2",
         "query": "pokemon stadium 2",
-        "max_price": 75,
+        "max_price": 60,
         "min_price": 39,
         "require_any": ["pokemon stadium 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
@@ -186,7 +186,7 @@ ITEMS = [
     {
         "label": "Snowboard Kids 2",
         "query": "Snowboard Kids 2",
-        "max_price": 95,
+        "max_price": 90,
         "min_price": 39,
         "require_any": ["snowboard kids 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
@@ -194,7 +194,7 @@ ITEMS = [
     {
         "label": "Goemon's Great Adventure",
         "query": "Goemon's Great Adventure",
-        "max_price": 125,
+        "max_price": 115,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy", "mystical"],
     },
@@ -208,14 +208,14 @@ ITEMS = [
     {
         "label": "Super Metroid",
         "query": "super metroid",
-        "max_price": 85,
+        "max_price": 70,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
         "label": "Indiana Jones Infernal Machine",
         "query": "Indiana Jones Infernal Machine n64",
-        "max_price": 85,
+        "max_price": 80,
         "min_price": 39,
         "require_words": ["indiana", "jones", "infernal"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -230,7 +230,7 @@ ITEMS = [
     {
         "label": "Lufia II Rise of Sinistrals SNES",
         "query": "Lufia II Rise of Sinistrals",
-        "max_price": 150,
+        "max_price": 145,
         "min_price": 51,
         "require_any": ["lufia"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
@@ -238,7 +238,7 @@ ITEMS = [
     {
         "label": "Axelay SNES",
         "query": "Axelay",
-        "max_price": 75,
+        "max_price": 70,
         "min_price": 51,
         "require_any": ["Axelay"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["famicom", "manual"],
@@ -246,7 +246,7 @@ ITEMS = [
     {
         "label": "Sunset Riders SNES",
         "query": "Sunset Riders",
-        "max_price": 90,
+        "max_price": 85,
         "min_price": 51,
         "require_any": ["Sunset Riders"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["sega", "genesis", "manual"],
@@ -254,7 +254,7 @@ ITEMS = [
     {
         "label": "Run Saber SNES",
         "query": "Run Saber",
-        "max_price": 80,
+        "max_price": 75,
         "min_price": 51,
         "require_any": ["Run Saber"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
@@ -262,7 +262,7 @@ ITEMS = [
     {
         "label": "Robotrek SNES",
         "query": "Robotrek",
-        "max_price": 115,
+        "max_price": 105,
         "min_price": 51,
         "require_any": ["Robotrek"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
@@ -278,7 +278,7 @@ ITEMS = [
     {
         "label": "Mega Man Soccer",
         "query": "Mega Man soccer",
-        "max_price": 75,
+        "max_price": 60,
         "min_price": 39,
         "require_any": ["mega man soccer"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -286,7 +286,7 @@ ITEMS = [
     {
         "label": "Mega Man 64",
         "query": "Mega Man 64",
-        "max_price": 85,
+        "max_price": 65,
         "min_price": 39,
         "require_any": ["mega man 64", "megaman 64", "megaman64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -294,14 +294,14 @@ ITEMS = [
     {
         "label": "Space Station Silicon Valley",
         "query": "Space Station Silicon Valley n64",
-        "max_price": 66,
+        "max_price": 60,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
         "label": "StarCraft 64",
         "query": "StarCraft 64",
-        "max_price": 110,
+        "max_price": 105,
         "min_price": 39,
         "require_any": ["starcraft 64", "starcraft64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -320,7 +320,7 @@ ITEMS = [
     {
         "label": "Nolan Ryan 1980 Topps #580 PSA 8",
         "query": "Nolan Ryan 1980 Topps 580",
-        "max_price": 130,
+        "max_price": 125,
         "min_price": 50,
         "require_words": ["nolan", "ryan", "580"],
         "require_any": ["psa 8", "psa8", "psa-8"],
@@ -330,7 +330,7 @@ ITEMS = [
     {
         "label": "Steve Nash 1996 Topps #182 PSA 10",
         "query": "Steve Nash 1996 Topps 182",
-        "max_price": 90,
+        "max_price": 95,
         "min_price": 50,
         "require_words": ["steve", "nash", "182"],
         "require_any": ["psa 10", "psa10", "psa-10"],
@@ -340,7 +340,7 @@ ITEMS = [
     {
         "label": "Kevin Durant 2007 Fleer RS-2 PSA 10",
         "query": "Kevin Durant 2007 Fleer",
-        "max_price": 130,
+        "max_price": 180,
         "min_price": 50,
         "require_words": ["kevin", "durant", "fleer", "2007"],
         "require_any": ["psa 10", "psa10", "psa-10"],
@@ -348,7 +348,7 @@ ITEMS = [
         "include_auctions": True,
     },
     {
-        "label": "2003-04 Upper Deck LeBron James #201",
+        "label": "2003-04 Upper Deck LeBron James #201 PSA 8",
         "query": "Upper Deck LeBron James 201",
         "max_price": 130,
         "min_price": 50,
@@ -360,7 +360,7 @@ ITEMS = [
     {
         "label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
         "query": "Luka Doncic 2018 Prizm 280",
-        "max_price": 180,
+        "max_price": 170,
         "min_price": 70,
         "require_words": ["luka", "doncic", "280"],
         "require_any": ["psa 10", "psa10", "psa-10"],
