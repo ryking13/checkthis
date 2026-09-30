@@ -122,20 +122,20 @@ ITEMS = [
     {
         "label": "TI-Nspire CX II CAS",
         "query": "ti-nspire cx ii cas",
-        "max_price": 80,
+        "max_price": 75,
         "min_price": 45,
         "require_words": ["cx", "ii", "cas"],
         "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
     # --- Retro N64/SNES games ---
-    {
-        "label": "Paper Mario (N64)",
-        "query": "paper mario n64",
-        "max_price": 60,
-        "min_price": 39,
-        "require_words": ["paper mario"],
-        "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
+    #{
+    #    "label": "Paper Mario (N64)",
+    #    "query": "paper mario n64",
+    #    "max_price": ,
+    #    "min_price": 39,
+    #    "require_words": ["paper mario"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS,
+    #},
     #{
     #   "label": "Big Mountain 2000",
     #    "query": "Big Mountain 2000 n64",
@@ -147,7 +147,7 @@ ITEMS = [
     {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour n64",
-        "max_price": 95,
+        "max_price": 80,
         "min_price": 39,
         "require_words": ["PGA European Tour"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["super", "SNES", "sega","photo","lost","boy","gameboy","playstation", "box", "card", "manual"],
@@ -162,7 +162,7 @@ ITEMS = [
     {
         "label": "Ogre Battle 64",
         "query": "Ogre Battle 64",
-        "max_price": 140,
+        "max_price": 145,
         "min_price": 40,
         "require_words": ["Ogre Battle"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "booklet", "book", "guidebook", "guides"],
@@ -186,7 +186,7 @@ ITEMS = [
     {
         "label": "Snowboard Kids 2",
         "query": "Snowboard Kids 2",
-        "max_price": 90,
+        "max_price": 70,
         "min_price": 39,
         "require_any": ["snowboard kids 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
@@ -208,14 +208,14 @@ ITEMS = [
     {
         "label": "Super Metroid",
         "query": "super metroid",
-        "max_price": 70,
+        "max_price": 65,
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
         "label": "Indiana Jones Infernal Machine",
         "query": "Indiana Jones Infernal Machine n64",
-        "max_price": 80,
+        "max_price": 100,
         "min_price": 39,
         "require_words": ["indiana", "jones", "infernal"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -230,7 +230,7 @@ ITEMS = [
     {
         "label": "Lufia II Rise of Sinistrals SNES",
         "query": "Lufia II Rise of Sinistrals",
-        "max_price": 145,
+        "max_price": 115,
         "min_price": 51,
         "require_any": ["lufia"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
