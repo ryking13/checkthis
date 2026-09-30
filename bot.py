@@ -358,6 +358,16 @@ ITEMS = [
         "include_auctions": True,
     },
     {
+        "label": "LeBron James #15 2016 Panini Donruss Optic PSA 10",
+        "query": "LeBron James #15 2016 Panini Donruss Optic",
+        "max_price": 200,
+        "min_price": 75,
+        "require_words": ["lebron", "james", "15"],
+        "require_any": ["psa 10", "psa10", "psa-10"],
+        "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+        "include_auctions": True,
+    },
+    {
         "label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
         "query": "Luka Doncic 2018 Prizm 280",
         "max_price": 170,
