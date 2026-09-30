@@ -246,7 +246,7 @@ ITEMS = [
     {
         "label": "Sunset Riders SNES",
         "query": "Sunset Riders",
-        "max_price": 85,
+        "max_price": 90,
         "min_price": 51,
         "require_any": ["Sunset Riders"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["sega", "genesis", "manual"],
@@ -254,7 +254,7 @@ ITEMS = [
     {
         "label": "Run Saber SNES",
         "query": "Run Saber",
-        "max_price": 75,
+        "max_price": 65,
         "min_price": 51,
         "require_any": ["Run Saber"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
@@ -262,7 +262,7 @@ ITEMS = [
     {
         "label": "Robotrek SNES",
         "query": "Robotrek",
-        "max_price": 105,
+        "max_price": 100,
         "min_price": 51,
         "require_any": ["Robotrek"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
@@ -278,7 +278,7 @@ ITEMS = [
     {
         "label": "Mega Man Soccer",
         "query": "Mega Man soccer",
-        "max_price": 60,
+        "max_price": 70,
         "min_price": 39,
         "require_any": ["mega man soccer"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -286,22 +286,22 @@ ITEMS = [
     {
         "label": "Mega Man 64",
         "query": "Mega Man 64",
-        "max_price": 65,
+        "max_price": 70,
         "min_price": 39,
         "require_any": ["mega man 64", "megaman 64", "megaman64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
-    {
-        "label": "Space Station Silicon Valley",
-        "query": "Space Station Silicon Valley n64",
-        "max_price": 60,
-        "min_price": 39,
-        "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
+    #{
+    #    "label": "Space Station Silicon Valley",
+    #    "query": "Space Station Silicon Valley n64",
+    #    "max_price": 60,
+    #    "min_price": 39,
+    #    "exclude_words": RETRO_EXCLUDE_WORDS,
+    #},
     {
         "label": "StarCraft 64",
         "query": "StarCraft 64",
-        "max_price": 105,
+        "max_price": 100,
         "min_price": 39,
         "require_any": ["starcraft 64", "starcraft64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
@@ -320,7 +320,7 @@ ITEMS = [
     {
         "label": "Nolan Ryan 1980 Topps #580 PSA 8",
         "query": "Nolan Ryan 1980 Topps 580",
-        "max_price": 125,
+        "max_price": 120,
         "min_price": 50,
         "require_words": ["nolan", "ryan", "580"],
         "require_any": ["psa 8", "psa8", "psa-8"],
@@ -330,7 +330,7 @@ ITEMS = [
     {
         "label": "Steve Nash 1996 Topps #182 PSA 10",
         "query": "Steve Nash 1996 Topps 182",
-        "max_price": 95,
+        "max_price": 100,
         "min_price": 50,
         "require_words": ["steve", "nash", "182"],
         "require_any": ["psa 10", "psa10", "psa-10"],
