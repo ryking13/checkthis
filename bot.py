@@ -344,7 +344,7 @@ ITEMS = [
         "min_price": 50,
         "require_words": ["kevin", "durant", "fleer", "2007"],
         "require_any": ["psa 10", "psa10", "psa-10"],
-        "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
+        "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS + ["newcomers"],
         "include_auctions": True,
     },
     {
