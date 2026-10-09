@@ -210,6 +210,7 @@ ITEMS = [
         "query": "super metroid",
         "max_price": 65,
         "min_price": 39,
+        "require_any": ["super"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
