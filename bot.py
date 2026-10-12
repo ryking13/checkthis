@@ -49,6 +49,19 @@ SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
 MAX_PAGES_PER_ITEM = 2      # 200 x 2 = Up to 400 listings checked per discovery mode
 MAX_SHIPPING_COST = 15.00
 
+# Temporary pricing diagnostic — selected sports cards only.
+# Search above the normal max price, but NEVER alert above max_price.
+PRICE_DIAGNOSTIC_ENABLED = True
+PRICE_DIAGNOSTIC_EXTRA = 100.00
+PRICE_DIAGNOSTIC_LABELS = {
+    "Nolan Ryan 1980 Topps #580 PSA 8",
+    "Steve Nash 1996 Topps #182 PSA 10",
+    "Kevin Durant 2007 Fleer RS-2 PSA 10",
+    "2003-04 Upper Deck LeBron James #201 PSA 8",
+    "LeBron James #15 2016 Panini Donruss Optic PSA 10",
+    "Luka Doncic 2018 Prizm #280 RC PSA 10",
+}
+
 # --- Discovery strategy ---
 # We alternate between the normal/default eBay ordering and newlyListed.
 # This avoids doubling API usage while ensuring that newly listed bargains are
@@ -531,8 +544,18 @@ def search_item(token: str, item: dict, discovery_mode: str) -> tuple[list[dict]
         headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
 
     min_p = item.get("min_price", "")
-    max_p = item["max_price"]
-    price_clause = f"price:[{min_p}..{max_p}]"
+    max_p = float(item["max_price"])
+
+    diagnostic = (
+        PRICE_DIAGNOSTIC_ENABLED
+        and item["label"] in PRICE_DIAGNOSTIC_LABELS
+    )
+
+    search_max_price = (
+        max_p + PRICE_DIAGNOSTIC_EXTRA if diagnostic else max_p
+    )
+
+    price_clause = f"price:[{min_p}..{search_max_price}]"
     # Most items only care about Buy-It-Now listings, but some (e.g. graded
     # sports cards) are commonly sold at auction too - let an item opt in
     # via "include_auctions": True instead of hardcoding fixed-price-only
@@ -940,7 +963,43 @@ def run():
             max_price = float(item["max_price"])
             min_price = item.get("min_price")
 
-            if listing_price > max_price or (min_price is not None and listing_price < float(min_price)):
+            if listing_price > max_price:
+                # Diagnostic only: log over-ceiling listings that match the target
+                # card/grade keywords. These listings are NEVER eligible for alerts.
+                if (
+                    PRICE_DIAGNOSTIC_ENABLED
+                    and item["label"] in PRICE_DIAGNOSTIC_LABELS
+                ):
+                    required_ok = matches_required_words(
+                        title, item.get("require_words")
+                    )
+                    any_ok = matches_any_words(
+                        title, item.get("require_any")
+                    )
+                    excluded_ok = matches_excluded_words(
+                        title, item.get("exclude_words")
+                    )
+
+                    if required_ok and any_ok and excluded_ok:
+                        shipping_cost = get_shipping_cost(listing)
+                        shipping_text = (
+                            f"${shipping_cost:.2f}"
+                            if shipping_cost is not None
+                            else "unknown"
+                        )
+                        print(
+                            f"PRICE_DIAGNOSTIC [{item['label']}]: "
+                            f"price=${listing_price:.2f} "
+                            f"max=${max_price:.2f} "
+                            f"shipping={shipping_text} "
+                            f"title={title!r} "
+                            f"url={listing.get('itemWebUrl', '')}"
+                        )
+
+                price_rejected_count += 1
+                continue
+
+            if min_price is not None and listing_price < float(min_price):
                 price_rejected_count += 1
                 continue
 
