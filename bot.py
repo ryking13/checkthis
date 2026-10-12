@@ -114,7 +114,7 @@ QUIET_HOURS_END = _time(7, 00)     # 6:30 AM
 
 # Shared Exclusions
 LEGO_EXCLUDE_WORDS = ["minifigure", "minifigures", "only", "pieces", "light kit", "lighting kit", "incomplete", "display"]
-RETRO_EXCLUDE_WORDS = ["arcade", "software", "japan", "famicom", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot", "comic", "guidebook", "guides", "remastered"]
+RETRO_EXCLUDE_WORDS = ["poster", "posters", "arcade", "software", "japan", "famicom", "japanese", "thousand", "untested", "guide", "circular", "poster", "art", "promotion", "promotional", "soundtrack", "fanart", "import", "lot", "comic", "guidebook", "guides", "remastered"]
 BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "hga", "tag", "reprint", "replica", "reproduction", "custom", "proxy", "fake", "counterfeit", "digital", "lot", "lots"]
 
 ITEMS = [
@@ -303,7 +303,7 @@ ITEMS = [
         "max_price": 150,
         "min_price": 39,
         "require_any": ["mega man x2", "megaman x2", "megamanx2"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet", "card", "figure", "Bandai"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet", "card", "figure", "Bandai", "zero"],
     },
     {
         "label": "Mega Man 64",
