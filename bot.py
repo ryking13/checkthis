@@ -310,7 +310,7 @@ ITEMS = [
     # --- Sports Cards ---
     {
         "label": "Chipper Jones 1991 Topps #333 PSA 10",
-        "query": "Chipper Jones 1991 Topps 333",
+        "query": "Chipper Jones 1991 Topps 333 psa 10",
         "max_price": 135,
         "min_price": 50,
         "require_words": ["chipper", "jones", "333"],
@@ -320,7 +320,7 @@ ITEMS = [
     },
     {
         "label": "Nolan Ryan 1980 Topps #580 PSA 8",
-        "query": "Nolan Ryan 1980 Topps 580",
+        "query": "Nolan Ryan 1980 Topps 580 psa 8",
         "max_price": 120,
         "min_price": 50,
         "require_words": ["nolan", "ryan", "580"],
@@ -330,7 +330,7 @@ ITEMS = [
     },
     {
         "label": "Steve Nash 1996 Topps #182 PSA 10",
-        "query": "Steve Nash 1996 Topps 182",
+        "query": "Steve Nash 1996 Topps 182 psa 10",
         "max_price": 100,
         "min_price": 50,
         "require_words": ["steve", "nash", "182"],
@@ -340,7 +340,7 @@ ITEMS = [
     },
     {
         "label": "Kevin Durant 2007 Fleer RS-2 PSA 10",
-        "query": "Kevin Durant 2007 Fleer",
+        "query": "Kevin Durant 2007 Fleer psa 10",
         "max_price": 180,
         "min_price": 50,
         "require_words": ["kevin", "durant", "fleer", "2007"],
@@ -350,7 +350,7 @@ ITEMS = [
     },
     {
         "label": "2003-04 Upper Deck LeBron James #201 PSA 8",
-        "query": "Upper Deck LeBron James 201",
+        "query": "Upper Deck LeBron James 201 psa 8",
         "max_price": 130,
         "min_price": 50,
         "require_words": ["lebron", "james", "201"],
@@ -360,7 +360,7 @@ ITEMS = [
     },
     {
         "label": "LeBron James #15 2016 Panini Donruss Optic PSA 10",
-        "query": "LeBron James #15 2016 Panini Donruss Optic",
+        "query": "LeBron James #15 2016 Panini Donruss Optic psa 10",
         "max_price": 200,
         "min_price": 75,
         "require_words": ["lebron", "james", "15"],
@@ -370,7 +370,7 @@ ITEMS = [
     },
     {
         "label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
-        "query": "Luka Doncic 2018 Prizm 280",
+        "query": "Luka Doncic 2018 Prizm 280 psa 10",
         "max_price": 170,
         "min_price": 70,
         "require_words": ["luka", "doncic", "280"],
