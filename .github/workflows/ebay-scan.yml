@@ -48,7 +48,7 @@ jobs:
           # Preserve the bot's state before syncing with the repository.
           mkdir -p /tmp/bot-state
 
-          for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json api_usage.json; do
             if [ -f "$f" ]; then
               cp -p "$f" "/tmp/bot-state/$f"
             else
