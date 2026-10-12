@@ -303,7 +303,7 @@ ITEMS = [
         "max_price": 150,
         "min_price": 39,
         "require_any": ["mega man x2", "megaman x2", "megamanx2"],
-        "exclude_words": RETRO_EXCLUDE_WORDS,
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet", "card", "figure", "Bandai"],
     },
     {
         "label": "Mega Man 64",
