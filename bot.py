@@ -298,6 +298,14 @@ ITEMS = [
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
     {
+        "label": "Mega Man X2",
+        "query": "Mega Man X2",
+        "max_price": 150,
+        "min_price": 39,
+        "require_any": ["mega man x2", "megaman x2", "megamanx2"],
+        "exclude_words": RETRO_EXCLUDE_WORDS,
+    },
+    {
         "label": "Mega Man 64",
         "query": "Mega Man 64",
         "max_price": 70,
