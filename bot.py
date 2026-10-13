@@ -119,22 +119,22 @@ BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "h
 
 ITEMS = [
     {
-        "label": "George Costanza Nap Bobble Head",
-        "query": "Yankees Seinfeld George Costanza Nap Bobble Head",
-        "max_price": 140,
+        "label": "Yankees Seinfeld George Costanza Nap Bobble Head",
+        "query": "George Costanza Nap Bobble Head",
+        "max_price": 120,
         "require_any": ["nap", "sleep", "sleeping"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "coat", "calzone", "biologist"],
     },
     {
         "label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
-        "query": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+        "query": "George Costanza Calzone Bobble Head",
         "max_price": 40,
         "require_any": ["calzone"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "coat", "nap", "sleep", "sleeping", "biologist"],
     },
     {
         "label": "Yankees Seinfeld George Costanza Traveling Secretary Bobble Head",
-        "query": "Yankees Seinfeld George Costanza Traveling Secretary Bobble Head",
+        "query": "George Costanza Traveling Secretary Bobble Head",
         "max_price": 100,
         "require_any": ["traveling", "secretary"],
         "exclude_words": ["schaumburg", "boomers", "coat", "nap", "sleep", "sleeping", "biologist", "calzone"],
@@ -148,7 +148,7 @@ ITEMS = [
     },
     {
         "label": "Seinfeld George Costanza marine biologist Bobble Head",
-        "query": "cyclones Seinfeld George Costanza marine biologist Bobble Head",
+        "query": "George Costanza marine biologist Bobble Head",
         "max_price": 70,
         "require_any": ["marine", "biologist"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "nap", "sleep", "sleeping", "calzone"],
