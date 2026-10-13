@@ -118,12 +118,12 @@ RETRO_EXCLUDE_WORDS = ["poster", "posters", "arcade", "software", "japan", "fami
 BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "hga", "tag", "reprint", "replica", "reproduction", "custom", "proxy", "fake", "counterfeit", "digital", "lot", "lots"]
 
 ITEMS = [
-    #{
-    #    "label": "AirPort Express A1392",
-    #    "query": "airport express a1392",
-    #    "max_price": 20,
-    #    "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
-    #},
+    {
+        "label": "AirPort Express A1392",
+        "query": "airport express a1392",
+        "max_price": 20,
+        "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
+    },
     #{
     #    "label": "TI-84 Plus ce",
     #    "query": "ti-84 plus ce",
