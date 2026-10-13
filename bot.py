@@ -119,7 +119,7 @@ BASEBALL_CARD_EXCLUDE_WORDS = ["sgc", "bccg", "bgs", "beckett", "cgc", "csg", "h
 
 ITEMS = [
     {
-        "label": "Yankees Seinfeld George Costanza Nap Bobble Head",
+        "label": "George Costanza Nap Bobble Head",
         "query": "Yankees Seinfeld George Costanza Nap Bobble Head",
         "max_price": 140,
         "require_any": ["nap", "sleep", "sleeping"],
