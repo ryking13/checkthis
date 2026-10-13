@@ -124,6 +124,15 @@ ITEMS = [
         "max_price": 20,
         "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
     },
+    {
+        "label": "apple tv 4k 3rd gen",
+        "query": "apple tv 4k 3rd",
+        "max_price": 130,
+        "min_price": 69,    
+        "require_words": ["4k"],
+        "require_any": ["3rd", "MN893LL/A", "A2843"],
+        "exclude_words": ["mount", "siri", "case", "A1469", "A1218", "A1378", "A1427", "A1469", "A1625", "A1842", "A2169", "A2737", "MA711LL/A", "MB180LL/A", "MC572LL/A", "MD199LL/A", "MGY52LL/A", "MLNC2LL/A", "MQD22LL/A", "MP7P2LL/A", "MXGY2LL/A", "MXH02LL/A", "MN873LL/A"]
+    },
     #{
     #    "label": "TI-84 Plus ce",
     #    "query": "ti-84 plus ce",
