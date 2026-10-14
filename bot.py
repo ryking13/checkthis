@@ -461,14 +461,6 @@ ITEMS = [
         "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
-        "label": "LEGO 76407 Harry Potter The Shrieking Shack & Whomping Willow",
-        "query": "LEGO 76407 Harry Potter The Shrieking Shack Whomping Willow",
-        "max_price": 95,
-        "min_price": 30,
-        "require_words": ["76407"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
-    },
-    {
         "label": "LEGO Creator Expert 10254 Winter Holiday Train",
         "query": "LEGO 10254 Winter Holiday Train",
         "max_price": 110,
