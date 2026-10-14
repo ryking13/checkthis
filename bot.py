@@ -52,6 +52,7 @@ SEEN_FILE = Path(__file__).parent / "seen_listings.json"
 METADATA_FILE = Path(__file__).parent / "item_search_metadata.json"
 PENDING_FILE = Path(__file__).parent / "pending_alerts.json"
 TOKEN_CACHE_FILE = Path(__file__).parent / "ebay_token_cache.json"
+PRICE_REJECTED_FILE = Path(__file__).parent / "price_rejected_listings.json"
 
 SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
 MAX_PAGES_PER_ITEM = 2      # 200 x 2 = Up to 400 listings checked per discovery mode
@@ -182,14 +183,6 @@ ITEMS = [
         "require_any": ["3rd", "MN893LL/A", "A2843"],
         "exclude_words": ["mount", "siri", "case", "A1469", "A1218", "A1378", "A1427", "A1469", "A1625", "A1842", "A2169", "A2737", "MA711LL/A", "MB180LL/A", "MC572LL/A", "MD199LL/A", "MGY52LL/A", "MLNC2LL/A", "MQD22LL/A", "MP7P2LL/A", "MXGY2LL/A", "MXH02LL/A", "MN873LL/A"]
     },
-    #{
-    #    "label": "TI-84 Plus ce",
-    #    "query": "ti-84 plus ce",
-    #    "max_price": 40,
-    #    "min_price": 10,
-    #    "require_words": ["plus", "ce"],
-    #    "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken"],
-    #},
     {
         "label": "TI-Nspire CX II CAS",
         "query": "ti-nspire cx ii cas",
@@ -198,23 +191,6 @@ ITEMS = [
         "require_words": ["cx", "ii", "cas"],
         "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
-    # --- Retro N64/SNES games ---
-    #{
-    #    "label": "Paper Mario (N64)",
-    #    "query": "paper mario n64",
-    #    "max_price": ,
-    #    "min_price": 39,
-    #    "require_words": ["paper mario"],
-    #    "exclude_words": RETRO_EXCLUDE_WORDS,
-    #},
-    #{
-    #   "label": "Big Mountain 2000",
-    #    "query": "Big Mountain 2000 n64",
-    #    "max_price": 100,
-    #    "min_price": 39,
-    #    "require_words": ["big mountain 2000"],
-    #    "exclude_words": RETRO_EXCLUDE_WORDS,
-    #},
     {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour n64",
@@ -270,13 +246,6 @@ ITEMS = [
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy", "mystical"],
     },
-    #{
-    #    "label": "Zelda Majora's Mask",
-    #    "query": "zelda majora's mask",
-    #    "max_price": 75,
-    #    "min_price": 39,
-    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["3ds", "hoodie", "wearable", "figures", "figure", "watch", "amiibo", "collection", "funko", "pin", "plush"],
-    #},
     {
         "label": "Super Metroid",
         "query": "super metroid",
@@ -293,13 +262,6 @@ ITEMS = [
         "require_words": ["indiana", "jones", "infernal"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
-    #{
-    #    "label": "Soul Blazer SNES",
-    #    "query": "Soul Blazer",
-    #    "max_price": 130,
-    #    "min_price": 51,
-    #    "exclude_words": RETRO_EXCLUDE_WORDS,
-    #},
     {
         "label": "Lufia II Rise of Sinistrals SNES",
         "query": "Lufia II Rise of Sinistrals",
@@ -308,14 +270,6 @@ ITEMS = [
         "require_any": ["lufia"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
     },
-    #{
-    #    "label": "Axelay SNES",
-    #    "query": "Axelay",
-    #    "max_price": 70,
-    #    "min_price": 51,
-    #    "require_any": ["Axelay"],
-    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["famicom", "manual"],
-    #},
     {
         "label": "Sunset Riders SNES",
         "query": "Sunset Riders",
@@ -340,22 +294,6 @@ ITEMS = [
         "require_any": ["Robotrek"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
     },
-    #{
-    #    "label": "Knights of the Round SNES",
-    #    "query": "Knights of the Round",
-    #    "max_price": 85,
-    #    "min_price": 51,
-    #    "require_any": ["Knights of the Round"],
-    #    "exclude_words": RETRO_EXCLUDE_WORDS,
-    #},
-    #{
-    #    "label": "Mega Man Soccer",
-    #    "query": "Mega Man soccer",
-    #    "max_price": 70,
-    #    "min_price": 39,
-    #    "require_any": ["mega man soccer"],
-    #    "exclude_words": RETRO_EXCLUDE_WORDS,
-    #},
     {
         "label": "Mega Man X2 SNES",
         "query": "Mega Man X2",
@@ -372,13 +310,6 @@ ITEMS = [
         "require_any": ["mega man 64", "megaman 64", "megaman64"],
         "exclude_words": RETRO_EXCLUDE_WORDS,
     },
-    #{
-    #    "label": "Space Station Silicon Valley",
-    #    "query": "Space Station Silicon Valley n64",
-    #    "max_price": 60,
-    #    "min_price": 39,
-    #    "exclude_words": RETRO_EXCLUDE_WORDS,
-    #},
     {
         "label": "StarCraft 64",
         "query": "StarCraft 64",
@@ -772,6 +703,72 @@ def save_seen(seen_ids: set[str]):
         json.dump(sorted(seen_ids), f, indent=2)
 
 
+def load_price_rejected() -> dict[str, dict]:
+    """
+    Load archived price-rejected listings keyed by eBay itemId.
+    A missing file is normal: it will be created when the first qualifying
+    listing is saved.
+    """
+    if not PRICE_REJECTED_FILE.exists():
+        return {}
+
+    try:
+        with open(PRICE_REJECTED_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            return data
+        print("WARNING: price_rejected_listings.json is not a JSON object; starting empty.")
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"WARNING: Could not read price_rejected_listings.json: {exc}")
+
+    return {}
+
+
+def archive_price_rejected(
+    archive: dict[str, dict],
+    item: dict,
+    listing: dict,
+    listing_price: float,
+    rejection: str,
+    recorded_at: str,
+) -> bool:
+    """
+    Save a qualifying price-rejected listing once, keyed by eBay itemId.
+    Returns True only when a new unique listing was added.
+    """
+    item_id = listing.get("itemId")
+    if not item_id or item_id in archive:
+        return False
+
+    price_data = listing.get("price") or {}
+    min_price = item.get("min_price")
+    max_price = float(item["max_price"])
+
+    archive[item_id] = {
+        "item_id": item_id,
+        "title": listing.get("title", ""),
+        "price": listing_price,
+        "currency": price_data.get("currency", "USD"),
+        "url": listing.get("itemWebUrl", ""),
+        "search_label": item.get("label", ""),
+        "search_query": item.get("query", ""),
+        "rejection": rejection,  # "above_max" or "below_min"
+        "min_price": float(min_price) if min_price is not None else None,
+        "max_price": max_price,
+        "first_recorded_at": recorded_at,
+    }
+    return True
+
+
+def save_price_rejected(archive: dict[str, dict]):
+    """Persist the unique price-rejected listing archive."""
+    try:
+        with open(PRICE_REJECTED_FILE, "w", encoding="utf-8") as f:
+            json.dump(archive, f, indent=2, ensure_ascii=False)
+    except OSError as exc:
+        print(f"WARNING: Could not save price_rejected_listings.json: {exc}")
+
+
 def is_quiet_hours(now=None) -> bool:
     if now is None:
         now = datetime.now(QUIET_HOURS_TZ)
@@ -1072,6 +1069,8 @@ def run():
 
     token = get_access_token()
     seen_ids = load_seen()
+    price_rejected_archive = load_price_rejected()
+    price_rejected_added = 0
     pending = load_pending()
     pending_ids = {entry.get("item_id") for entry in pending if entry.get("item_id")}
     now_iso = datetime.now(timezone.utc).isoformat()
@@ -1125,46 +1124,8 @@ def run():
             max_price = float(item["max_price"])
             min_price = item.get("min_price")
 
-            if listing_price > max_price:
-                # Diagnostic only: log over-ceiling listings that match the target
-                # card/grade keywords. These listings are NEVER eligible for alerts.
-                if (
-                    PRICE_DIAGNOSTIC_ENABLED
-                    and item["label"] in PRICE_DIAGNOSTIC_LABELS
-                ):
-                    required_ok = matches_required_words(
-                        title, item.get("require_words")
-                    )
-                    any_ok = matches_any_words(
-                        title, item.get("require_any")
-                    )
-                    excluded_ok = matches_excluded_words(
-                        title, item.get("exclude_words")
-                    )
-
-                    if required_ok and any_ok and excluded_ok:
-                        shipping_cost = get_shipping_cost(listing)
-                        shipping_text = (
-                            f"${shipping_cost:.2f}"
-                            if shipping_cost is not None
-                            else "unknown"
-                        )
-                        print(
-                            f"PRICE_DIAGNOSTIC [{item['label']}]: "
-                            f"price=${listing_price:.2f} "
-                            f"max=${max_price:.2f} "
-                            f"shipping={shipping_text} "
-                            f"title={title!r} "
-                            f"url={listing.get('itemWebUrl', '')}"
-                        )
-
-                price_rejected_count += 1
-                continue
-
-            if min_price is not None and listing_price < float(min_price):
-                price_rejected_count += 1
-                continue
-
+            # Check title filters before archiving price rejects. This lets the
+            # archive contain only plausible matches, not unrelated search hits.
             required_ok = matches_required_words(title, item.get("require_words"))
             any_ok = matches_any_words(title, item.get("require_any"))
             excluded_ok = matches_excluded_words(title, item.get("exclude_words"))
@@ -1172,9 +1133,6 @@ def run():
             if not required_ok or not any_ok or not excluded_ok:
                 keyword_rejected_count += 1
 
-                # Break the rejection down so we can tell whether a search is
-                # being filtered mostly by required terms, require_any, or
-                # explicit exclusions. Keep a small title sample for inspection.
                 if not required_ok:
                     keyword_rejected_by_reason["required_words"] += 1
                 if not any_ok:
@@ -1193,6 +1151,60 @@ def run():
                     keyword_rejected_samples.append(
                         f"    [{', '.join(reasons)}] {title}"
                     )
+                continue
+
+            if listing_price > max_price:
+                # Preserve the existing temporary diagnostic output.
+                if (
+                    PRICE_DIAGNOSTIC_ENABLED
+                    and item["label"] in PRICE_DIAGNOSTIC_LABELS
+                ):
+                    shipping_cost = get_shipping_cost(listing)
+                    shipping_text = (
+                        f"${shipping_cost:.2f}"
+                        if shipping_cost is not None
+                        else "unknown"
+                    )
+                    print(
+                        f"PRICE_DIAGNOSTIC [{item['label']}]: "
+                        f"price=${listing_price:.2f} "
+                        f"max=${max_price:.2f} "
+                        f"shipping={shipping_text} "
+                        f"title={title!r} "
+                        f"url={listing.get('itemWebUrl', '')}"
+                    )
+
+                # Save only listings that pass the other local filters. Keep
+                # the existing shipping-cost exclusion in effect as well.
+                shipping_cost = get_shipping_cost(listing)
+                if shipping_cost is None or shipping_cost <= MAX_SHIPPING_COST:
+                    if archive_price_rejected(
+                        price_rejected_archive,
+                        item,
+                        listing,
+                        listing_price,
+                        "above_max",
+                        now_iso,
+                    ):
+                        price_rejected_added += 1
+
+                price_rejected_count += 1
+                continue
+
+            if min_price is not None and listing_price < float(min_price):
+                shipping_cost = get_shipping_cost(listing)
+                if shipping_cost is None or shipping_cost <= MAX_SHIPPING_COST:
+                    if archive_price_rejected(
+                        price_rejected_archive,
+                        item,
+                        listing,
+                        listing_price,
+                        "below_min",
+                        now_iso,
+                    ):
+                        price_rejected_added += 1
+
+                price_rejected_count += 1
                 continue
 
             shipping_cost = get_shipping_cost(listing)
@@ -1264,6 +1276,11 @@ def run():
 
     save_seen(seen_ids)
     save_search_metadata(metadata)
+    save_price_rejected(price_rejected_archive)
+    print(
+        f"Price-rejected archive: {len(price_rejected_archive)} unique listing(s) "
+        f"total; {price_rejected_added} new this run."
+    )
     if quiet_now and not is_bootstrap_run:
         save_pending(pending)
 
