@@ -1,0 +1,92 @@
+name: eBay Alert Scan
+
+on:
+  workflow_dispatch:          # allows manual runs from the Actions tab, and external triggers via the GitHub API (used by cron-job.org)
+
+# Prevent overlapping runs (scheduled + cron-job.org dispatch) from racing
+# each other's git state and causing push conflicts.
+concurrency:
+  group: ebay-alert-scan
+  # Prevent a backlog of frequent dispatches from running later in sequence.
+  # A newer run supersedes an older queued run.
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run eBay scan
+        env:
+          EBAY_CLIENT_ID:      ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET:  ${{ secrets.EBAY_CLIENT_SECRET }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          EBAY_ZIP:            ${{ secrets.EBAY_ZIP }}
+        run: python bot.py
+
+      - name: Save bot state back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stash the state files bot.py just wrote, in memory, before touching refs.
+          # Preserve the bot's state before syncing with the repository.
+          mkdir -p /tmp/bot-state
+
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json api_usage.json price_rejected_listings.json; do
+            if [ -f "$f" ]; then
+              cp -p "$f" "/tmp/bot-state/$f"
+            else
+              rm -f "/tmp/bot-state/$f"
+            fi
+          done
+
+          # Sync with the latest repository version.
+          git fetch origin main
+          git reset --hard origin/main
+
+          # Restore state files.
+          # Explicitly remove files that no longer exist locally.
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json price_rejected_listings.json; do
+            if [ -f "/tmp/bot-state/$f" ]; then
+              cp -p "/tmp/bot-state/$f" "$f"
+            else
+              rm -f "$f"
+            fi
+          done
+
+          # Stage additions, modifications, and deletions.
+          # Only pass paths git actually knows about (tracked in HEAD or
+          # present in the working tree) so a removed state file doesn't
+          # cause `git add` to fail with "pathspec did not match any files".
+          add_paths=()
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json price_rejected_listings.json; do
+            if [ -f "$f" ] || git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+              add_paths+=("$f")
+            fi
+          done
+          if [ "${#add_paths[@]}" -gt 0 ]; then
+            git add -A -- "${add_paths[@]}"
+          fi
+
+          if git diff --staged --quiet; then
+            echo "No state changes to commit"
+          else
+            git commit -m "Update bot state and price rejection archive"
+            git push origin HEAD:main
+          fi
