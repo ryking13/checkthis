@@ -765,5 +765,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-14T15:55:20.204342+00:00"
+  },
+  "v1|880017505516|0": {
+    "item_id": "v1|880017505516|0",
+    "title": "2003-04 Upper Deck MVP - Rookie LeBron James #201 Silver (RC) PSA 8",
+    "price": 218.5,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880017505516?_skw=Upper+Deck+LeBron+James+201+psa+8&hash=itemcce5217cec:g:YqYAAeSwWaNqz90q",
+    "search_label": "2003-04 Upper Deck LeBron James #201 PSA 8",
+    "search_query": "Upper Deck LeBron James 201 psa 8",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-14T20:00:20.413262+00:00"
   }
 }
