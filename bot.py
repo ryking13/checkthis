@@ -133,6 +133,7 @@ ITEMS = [
         "max_price": 120,
         "require_any": ["nap", "sleep", "sleeping"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "coat", "calzone", "biologist"],
+        "mode_only": "default", "every_n_runs": 2
     },
     {
         "label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
@@ -140,6 +141,7 @@ ITEMS = [
         "max_price": 40,
         "require_any": ["calzone"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "coat", "nap", "sleep", "sleeping", "biologist"],
+        "mode_only": "default", "every_n_runs": 2
     },
     {
         "label": "Yankees Seinfeld George Costanza Traveling Secretary Bobble Head",
@@ -147,6 +149,7 @@ ITEMS = [
         "max_price": 100,
         "require_any": ["traveling", "secretary"],
         "exclude_words": ["schaumburg", "boomers", "coat", "nap", "sleep", "sleeping", "biologist", "calzone"],
+        "mode_only": "default", "every_n_runs": 2
     },
     {
         "label": "Seinfeld George Costanza coat Bobble Head",
@@ -154,6 +157,7 @@ ITEMS = [
         "max_price": 55,
         "require_any": ["coat"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "nap", "sleep", "sleeping", "biologist", "calzone"],
+        "mode_only": "default", "every_n_runs": 2
     },
     {
         "label": "Seinfeld George Costanza marine biologist Bobble Head",
@@ -161,6 +165,7 @@ ITEMS = [
         "max_price": 70,
         "require_any": ["marine", "biologist"],
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "nap", "sleep", "sleeping", "calzone"],
+        "mode_only": "default", "every_n_runs": 2
     },
     {
         "label": "AirPort Express A1392",
@@ -467,14 +472,6 @@ ITEMS = [
         "max_price": 115,
         "min_price": 30,   
         "require_words": ["10245"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
-    },
-    {
-        "label": "LEGO 76407 Harry Potter The Shrieking Shack & Whomping Willow",
-        "query": "LEGO 76407 Harry Potter The Shrieking Shack Whomping Willow",
-        "max_price": 95,
-        "min_price": 30,
-        "require_words": ["76407"],
         "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
