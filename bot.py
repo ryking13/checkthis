@@ -5,6 +5,13 @@ one run, then two pages sorted by newlyListed on the next run. This preserves th
 existing per-run API-call budget while alternating broad/deep discovery with
 new-list discovery.
 
+Optional per-item scheduling keys (all optional; items without them are
+searched every run in the global discovery mode, exactly as before):
+    "mode_only":    "default" | "newlyListed" - only search on runs of that mode
+    "every_n_runs": int - only search once every N (eligible) runs
+    "run_offset":   int - which slot within the N-run cycle (defaults to a
+                    stable per-label offset so items are staggered)
+
 No date/lookback filtering is applied - any currently active listing that
 matches an item's price/keyword rules is eligible. Dedup against repeat
 alerts is handled entirely via seen_listings.json (an item is only ever
@@ -24,6 +31,7 @@ import base64
 import time
 import re
 import unicodedata
+import zlib
 import requests
 from pathlib import Path
 from datetime import datetime, timezone
@@ -72,6 +80,7 @@ PRICE_DIAGNOSTIC_LABELS = {
 # result set is incomplete or behaves differently from normal search relevance.
 DISCOVERY_MODES = ("default", "newlyListed")
 DISCOVERY_MODE_FILE_KEY = "_next_discovery_mode"
+RUN_COUNTER_KEY = "_run_counter"
 
 # When diagnostics are enabled, print a sample of titles rejected by the local
 # keyword filter. This is intentionally sampled rather than printing every
@@ -458,6 +467,14 @@ ITEMS = [
         "max_price": 115,
         "min_price": 30,   
         "require_words": ["10245"],
+        "exclude_words": LEGO_EXCLUDE_WORDS,
+    },
+    {
+        "label": "LEGO 76407 Harry Potter The Shrieking Shack & Whomping Willow",
+        "query": "LEGO 76407 Harry Potter The Shrieking Shack Whomping Willow",
+        "max_price": 95,
+        "min_price": 30,
+        "require_words": ["76407"],
         "exclude_words": LEGO_EXCLUDE_WORDS,
     },
     {
@@ -965,6 +982,50 @@ def get_next_discovery_mode(metadata: dict) -> str:
     return current
 
 
+def pick_item_mode(item: dict, global_mode: str, run_number: int, is_bootstrap: bool) -> str | None:
+    """
+    Decide whether `item` is searched this run, and in which discovery mode.
+    Returns the mode to use, or None to skip the item this run.
+
+    Optional item keys:
+      mode_only:    "default" | "newlyListed" - only search on runs of that mode
+      every_n_runs: int - only search once every N (eligible) runs
+      run_offset:   int - which slot within the N-run cycle (defaults to a
+                    stable per-label offset so items are staggered)
+    """
+    forced = item.get("mode_only")
+    if forced is not None and forced not in DISCOVERY_MODES:
+        print(f"  WARNING: {item['label']!r} has invalid mode_only={forced!r}; ignoring it.")
+        forced = None
+
+    every = max(int(item.get("every_n_runs", 1)), 1)
+
+    # The very first run scans everything so the bootstrap batch is complete.
+    if is_bootstrap:
+        return forced or global_mode
+
+    offset = item.get("run_offset")
+    if offset is None:
+        offset = zlib.crc32(item["label"].encode()) % every
+    offset = int(offset) % every
+
+    if forced:
+        if global_mode != forced:
+            return None
+        # Runs of a given mode occur every other run, so halve the counter
+        # to count only the runs this item is actually eligible for.
+        return forced if (run_number // 2) % every == offset else None
+
+    if every == 1:
+        return global_mode
+
+    if run_number % every != offset:
+        return None
+    # Alternate modes per scan of this item (not per global run), so the
+    # item still sees both default and newlyListed over time.
+    return DISCOVERY_MODES[(run_number // every) % len(DISCOVERY_MODES)]
+
+
 def run():
     if not CLIENT_ID or not CLIENT_SECRET:
         print("EBAY_CLIENT_ID / EBAY_CLIENT_SECRET not set - aborting.")
@@ -994,11 +1055,14 @@ def run():
     # message per listing for every item it never got to.
     metadata = load_search_metadata()
     discovery_mode = get_next_discovery_mode(metadata)
-    # Persist the discovery rotation immediately. GitHub Actions should commit
-    # item_search_metadata.json along with seen_listings.json.
+    run_number = int(metadata.get(RUN_COUNTER_KEY, 0)) + 1
+    metadata[RUN_COUNTER_KEY] = run_number
+    # Persist the discovery rotation and run counter immediately. GitHub
+    # Actions should commit item_search_metadata.json along with
+    # seen_listings.json.
     save_search_metadata(metadata)
     print(f"Discovery strategy this run: {discovery_mode} "
-          f"(next run: {metadata[DISCOVERY_MODE_FILE_KEY]})")
+          f"(next run: {metadata[DISCOVERY_MODE_FILE_KEY]}) | run #{run_number}")
 
     is_bootstrap_run = not SEEN_FILE.exists() or not metadata.get("_bootstrap_complete")
     bootstrap_batch: list[tuple[str, str]] = []  # (item_id, content) pairs
@@ -1016,16 +1080,24 @@ def run():
     now_iso = datetime.now(timezone.utc).isoformat()
     new_alerts = 0
     queued_alerts = 0
+    searched_any = False
+    skipped_by_schedule = 0
 
-    for index, item in enumerate(ITEMS):
+    for item in ITEMS:
         if _quota_exhausted:
             print(f"Skipping {item['label']!r} and all remaining items - eBay request quota exhausted.")
             continue
 
-        if index > 0:
-            time.sleep(REQUEST_DELAY)
+        item_mode = pick_item_mode(item, discovery_mode, run_number, is_bootstrap_run)
+        if item_mode is None:
+            skipped_by_schedule += 1
+            continue
 
-        results, stats = search_item(token, item, discovery_mode)
+        if searched_any:
+            time.sleep(REQUEST_DELAY)
+        searched_any = True
+
+        results, stats = search_item(token, item, item_mode)
 
         already_seen_count = 0
         price_rejected_count = 0
@@ -1200,6 +1272,7 @@ def run():
 
     print(f"\nDone. {new_alerts} alert(s) sent, {queued_alerts} queued for digest. "
           f"API calls used today: {calls_used_today()}/{DAILY_CALL_BUDGET}")
+    print(f"Items skipped by schedule this run: {skipped_by_schedule}")
     if _quota_exhausted:
         print(
             "WARNING: this run stopped early because eBay returned 429 (errorId 2001, "
