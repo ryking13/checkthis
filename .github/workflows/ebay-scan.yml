@@ -48,7 +48,7 @@ jobs:
           # Preserve the bot's state before syncing with the repository.
           mkdir -p /tmp/bot-state
 
-          for f in seen_listings.json item_search_metadata.json pending_alerts.json api_usage.json; do
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json api_usage.json price_rejected_listings.json; do
             if [ -f "$f" ]; then
               cp -p "$f" "/tmp/bot-state/$f"
             else
@@ -62,7 +62,7 @@ jobs:
 
           # Restore state files.
           # Explicitly remove files that no longer exist locally.
-          for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json price_rejected_listings.json; do
             if [ -f "/tmp/bot-state/$f" ]; then
               cp -p "/tmp/bot-state/$f" "$f"
             else
@@ -75,7 +75,7 @@ jobs:
           # present in the working tree) so a removed state file doesn't
           # cause `git add` to fail with "pathspec did not match any files".
           add_paths=()
-          for f in seen_listings.json item_search_metadata.json pending_alerts.json; do
+          for f in seen_listings.json item_search_metadata.json pending_alerts.json price_rejected_listings.json; do
             if [ -f "$f" ] || git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
               add_paths+=("$f")
             fi
@@ -87,6 +87,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No state changes to commit"
           else
-            git commit -m "Update bot state"
+            git commit -m "Update bot state and price rejection archive"
             git push origin HEAD:main
           fi
