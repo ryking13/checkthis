@@ -817,5 +817,44 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-15T08:00:15.781594+00:00"
+  },
+  "v1|900015762899|0": {
+    "item_id": "v1|900015762899|0",
+    "title": "2007 FLEER ROOKIE SENSATIONS #RS-2 KEVIN DURANT ROOKIE RC PSA 10",
+    "price": 202.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900015762899?_skw=Kevin+Durant+2007+Fleer+psa+10&hash=itemd18d1eadd3:g:wCoAAeSwrMBq0Sv4",
+    "search_label": "Kevin Durant 2007 Fleer RS-2 PSA 10",
+    "search_query": "Kevin Durant 2007 Fleer psa 10",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 180.0,
+    "first_recorded_at": "2026-10-15T19:45:15.000722+00:00"
+  },
+  "v1|900015763916|0": {
+    "item_id": "v1|900015763916|0",
+    "title": "2018 PANINI PRIZM #280 LUKA DONCIC ROOKIE RC PSA 10",
+    "price": 209.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900015763916?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemd18d1eb1cc:g:1dcAAeSwLthq0Sxo",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-15T19:45:15.000722+00:00"
+  },
+  "v1|307233202970|0": {
+    "item_id": "v1|307233202970|0",
+    "title": "2018 PANINI PRIZM #280 LUKA DONCIC ROOKIE RC PSA 10",
+    "price": 218.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307233202970?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=item478886a31a:g:sZEAAeSwLZVq0SxL",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-15T19:45:15.000722+00:00"
   }
 }
