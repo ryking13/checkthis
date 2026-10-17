@@ -882,5 +882,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-17T16:10:12.870464+00:00"
+  },
+  "v1|117471755082|0": {
+    "item_id": "v1|117471755082|0",
+    "title": "2018 PANINI PRIZM #280 LUKA DONCIC ROOKIE RC PSA 10",
+    "price": 230.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/117471755082?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=item1b59dcbb4a:g:IoMAAeSw4r5q0-OO",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-17T21:25:10.660965+00:00"
   }
 }
