@@ -895,5 +895,31 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-17T21:25:10.660965+00:00"
+  },
+  "v1|206634463223|0": {
+    "item_id": "v1|206634463223|0",
+    "title": "2016-17 Panini Donruss Optic #15 LeBron James w/ Kobe Looking PSA 10 GEM MT Cavs",
+    "price": 275.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206634463223?_skw=LeBron+James+%2315+2016+Panini+Donruss+Optic+psa+10&hash=item301c5faff7:g:ooQAAeSwmIVq1AO0",
+    "search_label": "LeBron James #15 2016 Panini Donruss Optic PSA 10",
+    "search_query": "LeBron James #15 2016 Panini Donruss Optic psa 10",
+    "rejection": "above_max",
+    "min_price": 75.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-10-18T08:00:17.397285+00:00"
+  },
+  "v1|407297770851|0": {
+    "item_id": "v1|407297770851|0",
+    "title": "2016-17 Panini Donruss Optic LeBron James #15 PSA 10 Kobe Bryant GEM MINT",
+    "price": 270.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407297770851?_skw=LeBron+James+%2315+2016+Panini+Donruss+Optic+psa+10&hash=item5ed4d6c563:g:mzwAAeSwsm5q1AmO",
+    "search_label": "LeBron James #15 2016 Panini Donruss Optic PSA 10",
+    "search_query": "LeBron James #15 2016 Panini Donruss Optic psa 10",
+    "rejection": "above_max",
+    "min_price": 75.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-10-18T08:00:17.397285+00:00"
   }
 }
