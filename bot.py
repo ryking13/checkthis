@@ -184,6 +184,14 @@ ITEMS = [
         "exclude_words": ["mount", "siri", "case", "A1469", "A1218", "A1378", "A1427", "A1469", "A1625", "A1842", "A2169", "A2737", "MA711LL/A", "MB180LL/A", "MC572LL/A", "MD199LL/A", "MGY52LL/A", "MLNC2LL/A", "MQD22LL/A", "MP7P2LL/A", "MXGY2LL/A", "MXH02LL/A", "MN873LL/A"]
     },
     {
+        "label": "ipod classic 7th gen",
+        "query": "ipod classic 7th gen",
+        "max_price": 120,
+        "min_price": 85,
+        "require_words": ["ipod"],
+        "exclude_words": ["nano", "parts", "flawed", "touch", "housing", "headphone", "adapter", "6th", "5th", "4th", "3rd", "2nd", "1st", "broken", "repair", "silicone", "kit", "button", "lot", "ssd", "drive", "socks", "sock", "6", "5", "4", "3", "2", "1"],
+    },
+    {
         "label": "TI-Nspire CX II CAS",
         "query": "ti-nspire cx ii cas",
         "max_price": 75,
