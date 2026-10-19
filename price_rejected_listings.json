@@ -8747,5 +8747,18 @@
     "min_price": 45.0,
     "max_price": 75.0,
     "first_recorded_at": "2026-10-19T21:55:12.076768+00:00"
+  },
+  "v1|820256837782|0": {
+    "item_id": "v1|820256837782|0",
+    "title": "Super Metroid SNES Game Cartridge TESTED WORKING CLEAN. ",
+    "price": 90.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820256837782?_skw=super+metroid&hash=itembefb1e1096:g:CgIAAeSwpOJq1pRe",
+    "search_label": "Super Metroid",
+    "search_query": "super metroid",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-10-19T22:15:14.467520+00:00"
   }
 }
