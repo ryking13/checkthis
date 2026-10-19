@@ -201,6 +201,23 @@ ITEMS = [
         "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
     {
+        "label": "Sony WM-FS111 Sport Walkman FM Radio",
+        "query": "Sony WM-FS111 Walkman",
+        "max_price": 65,
+        "min_price": 20,
+        "require_words": ["sony", "walkman"],
+        "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
+        "exclude_words": ["parts", "repair", "broken", "non-working", "not working", "not work"],
+    },
+    {
+        "label": "Sony WM-FS111 Sport Walkman FM Radio",
+        "query": "Sony WM-FS111 Walkman",
+        "max_price": 30,
+        "min_price": 9,
+        "require_words": ["sony", "walkman"],
+        "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
+    },
+    {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour n64",
         "max_price": 85,
