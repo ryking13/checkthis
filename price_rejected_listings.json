@@ -8539,5 +8539,18 @@
     "min_price": 85.0,
     "max_price": 120.0,
     "first_recorded_at": "2026-10-19T18:15:13.198941+00:00"
+  },
+  "v1|336852680582|0": {
+    "item_id": "v1|336852680582|0",
+    "title": "LEGO Ideas Ghostbusters Ecto-1 (21108)",
+    "price": 90.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336852680582?_skw=LEGO+Ghostbusters+Ecto-1+%2321108&hash=item4e6dfbff86:g:8QUAAeSwTGxq1l5T",
+    "search_label": "LEGO Ghostbusters Ecto-1 #21108",
+    "search_query": "LEGO Ghostbusters Ecto-1 #21108",
+    "rejection": "above_max",
+    "min_price": 40.0,
+    "max_price": 75.0,
+    "first_recorded_at": "2026-10-19T18:30:16.295400+00:00"
   }
 }
