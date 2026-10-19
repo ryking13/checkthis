@@ -189,6 +189,7 @@ ITEMS = [
         "max_price": 120,
         "min_price": 85,
         "require_words": ["ipod"],
+        "require_any": ["160gb", "160", "160 gb"],
         "exclude_words": ["nano", "parts", "flawed", "touch", "housing", "headphone", "adapter", "6th", "5th", "4th", "3rd", "2nd", "1st", "broken", "repair", "silicone", "kit", "button", "lot", "ssd", "drive", "socks", "sock", "6", "5", "4", "3", "2", "1"],
     },
     {
