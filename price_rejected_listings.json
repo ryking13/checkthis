@@ -8552,5 +8552,18 @@
     "min_price": 40.0,
     "max_price": 75.0,
     "first_recorded_at": "2026-10-19T18:30:16.295400+00:00"
+  },
+  "v1|257806936301|0": {
+    "item_id": "v1|257806936301|0",
+    "title": "Authentic Nintendo 64-N64 PGA European Tour game cartridge",
+    "price": 100.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/257806936301?_skw=PGA+European+Tour+n64&hash=item3c067da8ed:g:QlUAAeSw~Qhq1mUT",
+    "search_label": "PGA European Tour n64",
+    "search_query": "PGA European Tour n64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 85.0,
+    "first_recorded_at": "2026-10-19T18:50:14.749698+00:00"
   }
 }
