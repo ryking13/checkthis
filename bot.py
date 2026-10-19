@@ -58,18 +58,9 @@ SEARCH_RESULT_LIMIT = 200   # Maximum allowed by eBay API per request
 MAX_PAGES_PER_ITEM = 2      # 200 x 2 = Up to 400 listings checked per discovery mode
 MAX_SHIPPING_COST = 15.00
 
-# Temporary pricing diagnostic — selected sports cards only.
-# Search above the normal max price, but NEVER alert above max_price.
-PRICE_DIAGNOSTIC_ENABLED = True
-PRICE_DIAGNOSTIC_EXTRA = 100.00
-PRICE_DIAGNOSTIC_LABELS = {
-    "Nolan Ryan 1980 Topps #580 PSA 8",
-    "Steve Nash 1996 Topps #182 PSA 10",
-    "Kevin Durant 2007 Fleer RS-2 PSA 10",
-    "2003-04 Upper Deck LeBron James #201 PSA 8",
-    "LeBron James #15 2016 Panini Donruss Optic PSA 10",
-    "Luka Doncic 2018 Prizm #280 RC PSA 10",
-}
+# Search a wider price band than the alert range so out-of-range listings can be
+# archived locally. Alerts still obey min_price/max_price in run().
+PRICE_ARCHIVE_MARGIN = 0.5   # archive up to 50% outside the price range
 
 # --- Discovery strategy ---
 # We alternate between the normal/default eBay ordering and newlyListed.
@@ -607,19 +598,13 @@ def search_item(token: str, item: dict, discovery_mode: str) -> tuple[list[dict]
     if EBAY_ZIP:
         headers["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country=US,zip={EBAY_ZIP}"
 
-    min_p = item.get("min_price", "")
+    min_p = item.get("min_price")
     max_p = float(item["max_price"])
 
-    diagnostic = (
-        PRICE_DIAGNOSTIC_ENABLED
-        and item["label"] in PRICE_DIAGNOSTIC_LABELS
-    )
+    search_min = 0.0 if min_p in (None, "") else max(0.0, float(min_p) * (1 - PRICE_ARCHIVE_MARGIN))
+    search_max = max_p * (1 + PRICE_ARCHIVE_MARGIN)
 
-    search_max_price = (
-        max_p + PRICE_DIAGNOSTIC_EXTRA if diagnostic else max_p
-    )
-
-    price_clause = f"price:[{min_p}..{search_max_price}]"
+    price_clause = f"price:[{search_min:.2f}..{search_max:.2f}]"
     # Most items only care about Buy-It-Now listings, but some (e.g. graded
     # sports cards) are commonly sold at auction too - let an item opt in
     # via "include_auctions": True instead of hardcoding fixed-price-only
@@ -1180,26 +1165,6 @@ def run():
                 continue
 
             if listing_price > max_price:
-                # Preserve the existing temporary diagnostic output.
-                if (
-                    PRICE_DIAGNOSTIC_ENABLED
-                    and item["label"] in PRICE_DIAGNOSTIC_LABELS
-                ):
-                    shipping_cost = get_shipping_cost(listing)
-                    shipping_text = (
-                        f"${shipping_cost:.2f}"
-                        if shipping_cost is not None
-                        else "unknown"
-                    )
-                    print(
-                        f"PRICE_DIAGNOSTIC [{item['label']}]: "
-                        f"price=${listing_price:.2f} "
-                        f"max=${max_price:.2f} "
-                        f"shipping={shipping_text} "
-                        f"title={title!r} "
-                        f"url={listing.get('itemWebUrl', '')}"
-                    )
-
                 # Save only listings that pass the other local filters. Keep
                 # the existing shipping-cost exclusion in effect as well.
                 shipping_cost = get_shipping_cost(listing)
