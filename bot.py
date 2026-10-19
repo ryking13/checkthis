@@ -207,7 +207,7 @@ ITEMS = [
         "min_price": 20,
         "require_words": ["sony", "walkman"],
         "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
-        "exclude_words": ["parts", "repair", "broken", "non-working", "not working", "not work"],
+        "exclude_words": ["parts", "repair", "broken", "non-working", "not working", "not work", "read"],
     },
     {
         "label": "Sony WM-FS111 Sport Walkman FM Radio",
