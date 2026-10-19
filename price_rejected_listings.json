@@ -8591,5 +8591,31 @@
     "min_price": 85.0,
     "max_price": 120.0,
     "first_recorded_at": "2026-10-19T19:50:13.053595+00:00"
+  },
+  "v1|377568039688|0": {
+    "item_id": "v1|377568039688|0",
+    "title": "George Costanza Calzone Bobblehead New York Yankee Stadium 2026",
+    "price": 59.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377568039688?_skw=George+Costanza+Calzone+Bobble+Head&hash=item57e8cf1308:g:Kv4AAeSwPXdqlXiZ&amdata=enc%3AAQALAAABAOf5zIIojhOf%2BkQK%2Bxzjn7nYlMLomlQafREDyA6%2FQl%2BFXd7Pf3%2Fvu1m%2F1EoZSr1SbcWaCjr4vPt09Own6XLPDxN7rStTouLrAzJk2tAZoFgJEjs22u6%2Be01fxp8ecfQSXjA%2Fh%2FI2LAweFD%2BxciWMsX5D5gWV0qqTzeen0Tk0FlE9S03aMYIqVbUqVrQWG0I2yWKEMwVwU2w6AJjbN65VJQWg%2Bvhs45kkB3hAj4KouFIoDBf1TI5WRuV5Qm6zbyR%2BONiVm%2FzeKFVV18UfNyqAEZ1jm3ABfcLK8Iemto8O2KlXgULS4CdXyV4URdI3mCEYRsfSxnCAnbs97IOUx1fmUQc%3D",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-10-19T20:00:18.070489+00:00"
+  },
+  "v1|287653202649|589536259240": {
+    "item_id": "v1|287653202649|589536259240",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 169.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287653202649?_skw=ipod+classic+7th+gen&hash=item42f9778ad9:g:uxkAAeSw5V9pU4an",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-19T20:00:18.070489+00:00"
   }
 }
