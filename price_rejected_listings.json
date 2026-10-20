@@ -11633,5 +11633,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-20T19:50:14.111433+00:00"
+  },
+  "v1|327414968463|0": {
+    "item_id": "v1|327414968463|0",
+    "title": "Indiana Jones and the Infernal Machine Nintendo 64 N64 2000 Authentic",
+    "price": 134.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327414968463?_skw=Indiana+Jones+Infernal+Machine+n64&hash=item4c3b73f08f:g:avIAAeSwfUZq06WB",
+    "search_label": "Indiana Jones Infernal Machine",
+    "search_query": "Indiana Jones Infernal Machine n64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-20T20:00:16.595854+00:00"
   }
 }
