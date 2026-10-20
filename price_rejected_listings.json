@@ -11711,5 +11711,18 @@
     "min_price": 39.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-10-20T21:30:15.717623+00:00"
+  },
+  "v1|407304636868|0": {
+    "item_id": "v1|407304636868|0",
+    "title": "AMD Ryzen 5 5600X Processor CPU With Heatsink And Fan",
+    "price": 120.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407304636868?_skw=ryzen+5+5600&hash=item5ed53f89c4:g:0~AAAeSwyMBq19g4",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-20T21:40:13.080546+00:00"
   }
 }
