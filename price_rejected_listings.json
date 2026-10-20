@@ -9033,5 +9033,18 @@
     "min_price": 39.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-10-20T12:05:12.294360+00:00"
+  },
+  "v1|267818750681|0": {
+    "item_id": "v1|267818750681|0",
+    "title": "Run Saber - Super Nintendo SNES - Atlus - authentic - tested",
+    "price": 85.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267818750681?_skw=Run+Saber&hash=item3e5b3dd2d9:g:O3MAAeSwTsdq11bt",
+    "search_label": "Run Saber SNES",
+    "search_query": "Run Saber",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 70.0,
+    "first_recorded_at": "2026-10-20T12:10:13.801495+00:00"
   }
 }
