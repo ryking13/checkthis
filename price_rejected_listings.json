@@ -11763,5 +11763,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-20T22:00:17.063995+00:00"
+  },
+  "v1|137861013303|0": {
+    "item_id": "v1|137861013303|0",
+    "title": "Pokémon Stadium 2 (JPN) Nintendo 64 (Region Locked)",
+    "price": 26.69,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137861013303?_skw=pokemon+stadium+2&hash=item2019281f37:g:rJgAAeSwQqFqKbzu",
+    "search_label": "Pokemon Stadium 2",
+    "search_query": "pokemon stadium 2",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 55.0,
+    "first_recorded_at": "2026-10-20T22:10:13.326891+00:00"
   }
 }
