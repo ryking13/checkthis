@@ -9072,5 +9072,18 @@
     "min_price": 40.0,
     "max_price": 150.0,
     "first_recorded_at": "2026-10-20T12:25:11.592873+00:00"
+  },
+  "v1|282959734231|589532697370": {
+    "item_id": "v1|282959734231|589532697370",
+    "title": "Super Metroid Game Intro Snes Retro Video Game T Shirt ",
+    "price": 21.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/282959734231?_skw=super+metroid&hash=item41e1b6e5d7:g:S04AAOSwNSJa896Z",
+    "search_label": "Super Metroid",
+    "search_query": "super metroid",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-10-20T12:35:13.514907+00:00"
   }
 }
