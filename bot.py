@@ -209,6 +209,15 @@ ITEMS = [
         "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
     },
     {
+        "label": "ryzen 5 5600",
+        "query": "ryzen 5 5600",
+        "max_price": 110,
+        "min_price": 60,
+        "require_words": ["ryzen"],
+        "require_any": ["5600", "5600x"],
+        "exclude_words": ["defective", "lot", "5600m", "5600h", "parts", "repair", "broken", "non-working", "not working", "not work", "5600g", "5600u", "3500", "3600", "3600x", "3700", "3700x", "3800", "3800x", "3900", "3900x", "3950", "3950x", "4100", "4300g", "4350g", "4400g", "4500g", "4600g", "4650g", "4700g", "4750g", "4800g", "4900g"],
+    },
+    {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour n64",
         "max_price": 85,
