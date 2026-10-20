@@ -97,9 +97,6 @@ TOKEN_REFRESH_MARGIN = 300  # refresh the cached token this many seconds early
 # this, i.e. 15 => :00/:15/:30/:45 instead of all twelve 5-minute slots.
 QUIET_HOURS_SCAN_INTERVAL_MIN = 60
 
-# Informational reference only. This is NOT a stop condition; allow eBay to
-# enforce its own application quota. Usage resets at midnight Pacific.
-DAILY_CALL_BUDGET = 4600
 USAGE_FILE = Path(__file__).parent / "api_usage.json"
 USAGE_TZ = ZoneInfo("America/Los_Angeles")
 
@@ -565,6 +562,17 @@ def ebay_get(url: str, headers: dict, params: dict) -> requests.Response | None:
             if attempt == MAX_RETRIES - 1:
                 if response.status_code == 429:
                     _quota_exhausted = True
+                    print(
+                        f"eBay returned HTTP 429 after {MAX_RETRIES} attempts; "
+                        "stopping additional eBay searches for this run. "
+                        f"Response body: {response.text[:1000]}"
+                    )
+                else:
+                    print(
+                        f"eBay returned HTTP {response.status_code} after "
+                        f"{MAX_RETRIES} attempts; this request failed. "
+                        f"Response body: {response.text[:1000]}"
+                    )
                 return response
 
             retry_after = response.headers.get("Retry-After")
@@ -1051,8 +1059,11 @@ def run():
         return
 
     used = calls_used_today()
-    print(f"eBay API calls used today: {used} "
-          f"(self-imposed {DAILY_CALL_BUDGET}-call stop disabled)")
+    print(
+        f"Local API usage counter: {used} request(s) since midnight Pacific. "
+        "No self-imposed daily call limit is enforced; eBay HTTP 429 responses "
+        "are retried and may stop the remaining searches for this run."
+    )
 
     # Bootstrap run: no seen_listings.json yet means this is the first time
     # the bot has ever run (or it was reset), so every currently active
@@ -1286,10 +1297,10 @@ def run():
     print(f"Items skipped by schedule this run: {skipped_by_schedule}")
     if _quota_exhausted:
         print(
-            "WARNING: this run stopped early because eBay returned 429 (errorId 2001, "
-            "request limit reached). That is an application-wide quota, so it will not "
-            "clear by retrying sooner - reduce how often this bot runs, or check your "
-            "remaining quota with the Developer Analytics getRateLimits API."
+            "WARNING: eBay returned HTTP 429 after retries. No local daily-call cutoff "
+            "stopped this run; eBay rejected a request, so the bot skipped the remaining "
+            "searches for this run. Check the 429 response body above to distinguish a "
+            "daily application quota from a temporary rate limit."
         )
 
 
