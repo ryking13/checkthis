@@ -9202,5 +9202,31 @@
     "min_price": 45.0,
     "max_price": 75.0,
     "first_recorded_at": "2026-10-20T16:50:13.506198+00:00"
+  },
+  "v1|940028471880|0": {
+    "item_id": "v1|940028471880|0",
+    "title": "Super Metroid SNES Super Nintendo 1994 Nintendo Original Game Cartridge",
+    "price": 89.88,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940028471880?_skw=super+metroid&hash=itemdade102a48:g:b~8AAeSwl-Bq15zb&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7nR1jFfHfbqp6s5YRPMK43M7AWOBvCJMGxsKnGQPX%2FcUc3f2XFWVtg%2FbH7v0fnkBpfo1T5rgY%2B1f%2BOr4uiFh2EC0SYrFPmjrrXghtaxNQx2VIjXYtysOzL9kH7x58B1Rshx4JRhP5ReIpPj77yey17B1SFJO4GmrMAnMkWwAGmjYZNx2UUHS1WTY5h8fZNOQaWE93etPNf5mIuvLUOfn7jrqfmmzo2sI2Gp1s3YAOLpmtCQilbzZEhNvrSoyZJ%2BDcgjN3cVeXzZYchajgTSrgzO40RfGO1PWahYDBizGgqy0g%3D%3D",
+    "search_label": "Super Metroid",
+    "search_query": "super metroid",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-10-20T17:15:22.793898+00:00"
+  },
+  "v1|128146832581|0": {
+    "item_id": "v1|128146832581|0",
+    "title": "StarCraft 64 Nintendo 64 Game Cartridge, Blizzard, T-Teen, NTSC-U/C",
+    "price": 105.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128146832581?_skw=StarCraft+64&hash=item1dd6257cc5:g:AYAAAeSwRshq16A-",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-10-20T17:15:22.793898+00:00"
   }
 }
