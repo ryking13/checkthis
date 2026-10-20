@@ -21,6 +21,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
@@ -37,7 +38,13 @@ jobs:
           EBAY_CLIENT_SECRET:  ${{ secrets.EBAY_CLIENT_SECRET }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           EBAY_ZIP:            ${{ secrets.EBAY_ZIP }}
-        run: python bot.py
+        run: |
+          echo "Running bot.py from commit $(git rev-parse --short HEAD) on branch $(git branch --show-current)"
+          if grep -q "Daily API budget spent" bot.py; then
+            echo "ERROR: Checked-out bot.py still contains the obsolete 4,600-call stop condition."
+            exit 1
+          fi
+          python bot.py
 
       - name: Save bot state back to repo
         run: |
