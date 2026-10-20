@@ -9020,5 +9020,18 @@
     "min_price": 45.0,
     "max_price": 75.0,
     "first_recorded_at": "2026-10-20T12:00:16.315372+00:00"
+  },
+  "v1|198423043270|497475602858": {
+    "item_id": "v1|198423043270|497475602858",
+    "title": "Super Metroid Samus NES Classic Game T-Shirt – Retro Nintendo Graphic Tee",
+    "price": 21.58,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/198423043270?_skw=super+metroid&hash=item2e32ef5cc6:g:CC8AAeSwonJqLRKN",
+    "search_label": "Super Metroid",
+    "search_query": "super metroid",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-10-20T12:05:12.294360+00:00"
   }
 }
