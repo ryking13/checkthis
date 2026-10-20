@@ -11594,5 +11594,18 @@
     "min_price": 39.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-10-20T19:00:18.015003+00:00"
+  },
+  "v1|336854364114|0": {
+    "item_id": "v1|336854364114|0",
+    "title": "AMD RYZEN 5600 7000 Series Processor, Opened Box But Never Used",
+    "price": 125.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336854364114?_skw=ryzen+5+5600&hash=item4e6e15afd2:g:UjYAAeSwcnJq0sGy",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-20T19:20:16.545417+00:00"
   }
 }
