@@ -9007,5 +9007,18 @@
     "min_price": 39.0,
     "max_price": 55.0,
     "first_recorded_at": "2026-10-20T09:00:15.536830+00:00"
+  },
+  "v1|800816863888|0": {
+    "item_id": "v1|800816863888|0",
+    "title": "Texas Instruments TI-Nspire CX II CAS Graphing Calculator USB Rechargeable Large",
+    "price": 100.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800816863888?_skw=ti-nspire+cx+ii+cas&hash=itemba74679a90:g:VRMAAeSwvJJq11IX",
+    "search_label": "TI-Nspire CX II CAS",
+    "search_query": "ti-nspire cx ii cas",
+    "rejection": "above_max",
+    "min_price": 45.0,
+    "max_price": 75.0,
+    "first_recorded_at": "2026-10-20T12:00:16.315372+00:00"
   }
 }
