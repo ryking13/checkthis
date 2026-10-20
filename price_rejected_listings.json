@@ -9150,5 +9150,18 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-10-20T14:05:14.361690+00:00"
+  },
+  "v1|267818838310|0": {
+    "item_id": "v1|267818838310|0",
+    "title": "Mega Man X2 Super Nintendo SNES Cartridge Capcom 1994 Action Platformer Retro",
+    "price": 169.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267818838310?_skw=Mega+Man+X2&hash=item3e5b3f2926:g:c9IAAeSwqM1qs98u",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-20T14:25:13.314913+00:00"
   }
 }
