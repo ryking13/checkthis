@@ -8942,5 +8942,70 @@
     "min_price": 30.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-10-20T08:00:17.722173+00:00"
+  },
+  "v1|168804864883|0": {
+    "item_id": "v1|168804864883|0",
+    "title": "Apple iPod Classic 7th Gen 160gb Black Space Grey ",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/168804864883?_skw=ipod+classic+7th+gen&hash=item274d8dd373:g:CSwAAeSwbM1q1yq9",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-20T09:00:15.536830+00:00"
+  },
+  "v1|168804852353|0": {
+    "item_id": "v1|168804852353|0",
+    "title": "Apple iPod Classic 7th Gen 160gb Black Space Grey  15525 songs ",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/168804852353?_skw=ipod+classic+7th+gen&hash=item274d8da281:g:AE0AAeSw1C1q1yg7",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-20T09:00:15.536830+00:00"
+  },
+  "v1|327393798964|0": {
+    "item_id": "v1|327393798964|0",
+    "title": "Apple iPod Classic Silver 160 GB",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327393798964?_skw=ipod+classic+7th+gen&hash=item4c3a30eb34:g:-k8AAeSwzJpqxrbv&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7lKDhcxeWefjGalvthjUj%2FEnVYvVhpr%2BRKPtVz1cV0VooR9QEYbq%2BLgPEv%2Fzf41RX%2FWnoG3VxFKQpRpVcRbp4LAK4wOBdcwFu%2B7g1VyDRIJ9MP3zq6TeUrd76bPpOLhMcSOHNiNyQK7k1IUOqz10E%2B6ec1qYMhKPa7YV9IPLhb3VIvkQgr6RcQYyZ4l%2FWWBHJfom0RzhYDViK9GNmnGNCrKSFt7VGsMFVyxXq5YlviY1%2FNOL19nPBW%2FZxOVegEEVeD%2BATcFZHGjLOytkgMRYsAcsJs2zLSyoFko5TKqNC%2F3aQ%3D%3D",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-20T09:00:15.536830+00:00"
+  },
+  "v1|227011339910|0": {
+    "item_id": "v1|227011339910|0",
+    "title": "Apple iPod Classic 7th Generation 160GB MC297LL",
+    "price": 179.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227011339910?_skw=ipod+classic+7th+gen&hash=item34daee2686:g:h3gAAeSwShxo4~NX",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-20T09:00:15.536830+00:00"
+  },
+  "v1|168704384121|0": {
+    "item_id": "v1|168704384121|0",
+    "title": "Pokémon Stadium 2 Compatible N64 Cartridge – Tested, Cartridge Only",
+    "price": 35.98,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/168704384121?_skw=pokemon+stadium+2&hash=item2747909c79:g:VDsAAeSwqR1qsOsd",
+    "search_label": "Pokemon Stadium 2",
+    "search_query": "pokemon stadium 2",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 55.0,
+    "first_recorded_at": "2026-10-20T09:00:15.536830+00:00"
   }
 }
