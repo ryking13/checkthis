@@ -97,8 +97,8 @@ TOKEN_REFRESH_MARGIN = 300  # refresh the cached token this many seconds early
 # this, i.e. 15 => :00/:15/:30/:45 instead of all twelve 5-minute slots.
 QUIET_HOURS_SCAN_INTERVAL_MIN = 60
 
-# Soft ceiling, deliberately below eBay's hard 5,000/day so retries and second
-# pages can't push us over. Usage resets at midnight Pacific, matching eBay.
+# Informational reference only. This is NOT a stop condition; allow eBay to
+# enforce its own application quota. Usage resets at midnight Pacific.
 DAILY_CALL_BUDGET = 4600
 USAGE_FILE = Path(__file__).parent / "api_usage.json"
 USAGE_TZ = ZoneInfo("America/Los_Angeles")
@@ -1051,11 +1051,8 @@ def run():
         return
 
     used = calls_used_today()
-    if used >= DAILY_CALL_BUDGET:
-        print(f"Daily API budget spent ({used}/{DAILY_CALL_BUDGET}) - skipping this run. "
-              f"Usage resets at midnight Pacific.")
-        return
-    print(f"eBay API calls used today: {used}/{DAILY_CALL_BUDGET}")
+    print(f"eBay API calls used today: {used} "
+          f"(self-imposed {DAILY_CALL_BUDGET}-call stop disabled)")
 
     # Bootstrap run: no seen_listings.json yet means this is the first time
     # the bot has ever run (or it was reset), so every currently active
@@ -1285,7 +1282,7 @@ def run():
         save_pending(pending)
 
     print(f"\nDone. {new_alerts} alert(s) sent, {queued_alerts} queued for digest. "
-          f"API calls used today: {calls_used_today()}/{DAILY_CALL_BUDGET}")
+          f"API calls used today: {calls_used_today()}")
     print(f"Items skipped by schedule this run: {skipped_by_schedule}")
     if _quota_exhausted:
         print(
