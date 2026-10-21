@@ -12062,5 +12062,18 @@
     "min_price": 69.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-21T14:30:15.439779+00:00"
+  },
+  "v1|173339253569|0": {
+    "item_id": "v1|173339253569|0",
+    "title": "iPod Classic 7th Gn Main Logic Board Motherboard 820-2437-A 160GB Reburbished",
+    "price": 134.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/173339253569?_skw=ipod+classic+7th+gen&hash=item285bd31b41:g:VCEAAOSw4CFYogHr&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7n77BAftc9%2F5Cg0T%2B9hAfOSGTRUrHjo5Cm0Ilmvc7D1rfzGxFMbBh0cOxc9c1PO24Ahw8Z%2B7TUy5RR7ZQs3ulmyyH5XHczc4a4XHZASbEJIVK8VLDhGW6m0a3RF5u0UbkjU2wMf3%2B2P453BlrNJoVcS4UATmCLup8B7M2mCsvPJflQvIY3Rz3pZKjGOLtqv3XoimJ7vnwRBh3FHjFtB9FyQ%2B2Q5SFNpqFx%2Flp%2BZINxLYxaXIi0TKfe8krfobn%2FiXuznAFz5TMxKREDDM0Om3cRnrdGvkIdK9ba3526B2WyetQ%3D%3D",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-21T14:50:12.638780+00:00"
   }
 }
