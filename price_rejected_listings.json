@@ -12335,5 +12335,18 @@
     "min_price": 69.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-21T22:15:14.671056+00:00"
+  },
+  "v1|267820165001|0": {
+    "item_id": "v1|267820165001|0",
+    "title": "Mega Man X2 Super Nintendo SNES Authentic Genuine X-2 Capcom Great Condition",
+    "price": 210.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267820165001?_skw=Mega+Man+X2&hash=item3e5b536789:g:FdYAAeSw0epq2R19",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-21T22:25:16.211614+00:00"
   }
 }
