@@ -12010,5 +12010,18 @@
     "min_price": 39.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-21T10:00:19.450329+00:00"
+  },
+  "v1|366749753491|0": {
+    "item_id": "v1|366749753491|0",
+    "title": "Snowboard Kids 2 Nintendo N64 Authentic Game",
+    "price": 90.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366749753491?_skw=Snowboard+Kids+2&hash=item5563fd2093:g:UewAAeSw8hNq2JOs",
+    "search_label": "Snowboard Kids 2",
+    "search_query": "Snowboard Kids 2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-10-21T11:00:16.468571+00:00"
   }
 }
