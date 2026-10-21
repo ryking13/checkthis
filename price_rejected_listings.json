@@ -12244,5 +12244,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-10-21T20:25:13.774981+00:00"
+  },
+  "v1|307213626455|0": {
+    "item_id": "v1|307213626455|0",
+    "title": "Apple IPod Classic 7th Gen Silver 160GB - A1238 MC297LL - Tested Some Dubstep",
+    "price": 139.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307213626455?_skw=ipod+classic+7th+gen&hash=item47875bec57:g:wRgAAeSw~fxqwleC",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-21T21:05:12.886513+00:00"
   }
 }
