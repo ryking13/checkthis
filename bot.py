@@ -196,6 +196,7 @@ ITEMS = [
         "require_words": ["sony", "walkman"],
         "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
         "exclude_words": ["parts", "repair", "broken", "non-working", "not working", "not work", "read"],
+        "mode_only": "default", "every_n_runs": 8
     },
     {
         "label": "Sony WM-FS111 Sport Walkman FM Radio",
@@ -204,6 +205,7 @@ ITEMS = [
         "min_price": 9,
         "require_words": ["sony", "walkman"],
         "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
+        "mode_only": "default", "every_n_runs": 8
     },
     {
         "label": "ryzen 5 5600",
@@ -246,22 +248,22 @@ ITEMS = [
         "require_any": ["64", "n64"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["boy", "gameboy", "playstation", "PC","manual", "booklet", "box", "max", "xbox", "ps4"],
     },
-    {
-        "label": "Pokemon Stadium 2",
-        "query": "pokemon stadium 2",
-        "max_price": 55,
-        "min_price": 39,
-        "require_any": ["pokemon stadium 2"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
-    },
-    {
-        "label": "Snowboard Kids 2",
-        "query": "Snowboard Kids 2",
-        "max_price": 65,
-        "min_price": 39,
-        "require_any": ["snowboard kids 2"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
-    },
+    #{
+    #    "label": "Pokemon Stadium 2",
+    #    "query": "pokemon stadium 2",
+    #    "max_price": 55,
+    #    "min_price": 39,
+    #    "require_any": ["pokemon stadium 2"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
+    #},
+    #{
+    #    "label": "Snowboard Kids 2",
+    #    "query": "Snowboard Kids 2",
+    #    "max_price": 65,
+    #    "min_price": 39,
+    #    "require_any": ["snowboard kids 2"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["boots"],
+    #},
     {
         "label": "Goemon's Great Adventure",
         "query": "Goemon's Great Adventure",
@@ -269,14 +271,14 @@ ITEMS = [
         "min_price": 39,
         "exclude_words": RETRO_EXCLUDE_WORDS + ["ganbare", "ps5", "gameboy", "boy", "mystical"],
     },
-    {
-        "label": "Super Metroid",
-        "query": "super metroid",
-        "max_price": 60,
-        "min_price": 39,
-        "require_any": ["super"],
-        "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
+    #{
+    #    "label": "Super Metroid",
+    #    "query": "super metroid",
+    #    "max_price": 60,
+    #    "min_price": 39,
+    #    "require_any": ["super"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS,
+    #},
     {
         "label": "Indiana Jones Infernal Machine",
         "query": "Indiana Jones Infernal Machine n64",
@@ -301,14 +303,14 @@ ITEMS = [
         "require_any": ["Sunset Riders"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["sega", "genesis", "manual"],
     },
-    {
-        "label": "Run Saber SNES",
-        "query": "Run Saber",
-        "max_price": 70,
-        "min_price": 51,
-        "require_any": ["Run Saber"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
-    },
+    #{
+    #    "label": "Run Saber SNES",
+    #    "query": "Run Saber",
+    #    "max_price": 70,
+    #    "min_price": 51,
+    #    "require_any": ["Run Saber"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
+    #},
     {
         "label": "Robotrek SNES",
         "query": "Robotrek",
@@ -325,14 +327,14 @@ ITEMS = [
         "require_any": ["mega man x2", "megaman x2", "megamanx2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet", "card", "figure", "Bandai", "zero"],
     },
-    {
-        "label": "Mega Man 64",
-        "query": "Mega Man 64",
-        "max_price": 70,
-        "min_price": 39,
-        "require_any": ["mega man 64", "megaman 64", "megaman64"],
-        "exclude_words": RETRO_EXCLUDE_WORDS,
-    },
+    #{
+    #    "label": "Mega Man 64",
+    #    "query": "Mega Man 64",
+    #    "max_price": 70,
+    #    "min_price": 39,
+    #    "require_any": ["mega man 64", "megaman 64", "megaman64"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS,
+    #},
     {
         "label": "StarCraft 64",
         "query": "StarCraft 64",
@@ -351,6 +353,7 @@ ITEMS = [
         "require_any": ["psa 10", "psa10", "psa-10"],
         "exclude_words": BASEBALL_CARD_EXCLUDE_WORDS,
         "include_auctions": True,
+        "mode_only": "default", "every_n_runs": 8
     },
     {
         "label": "Nolan Ryan 1980 Topps #580 PSA 8",
