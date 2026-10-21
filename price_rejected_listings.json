@@ -12166,5 +12166,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-21T17:05:13.560772+00:00"
+  },
+  "v1|860069686833|0": {
+    "item_id": "v1|860069686833|0",
+    "title": "LEGO Harry Potter: The Shrieking Shack & Whomping Willow (76407) Used Complete",
+    "price": 115.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860069686833?_skw=LEGO+76407+Harry+Potter+The+Shrieking+Shack+Whomping+Willow&hash=itemc84025ee31:g:LlYAAeSwkblq2Pl2",
+    "search_label": "LEGO 76407 Harry Potter The Shrieking Shack & Whomping Willow",
+    "search_query": "LEGO 76407 Harry Potter The Shrieking Shack Whomping Willow",
+    "rejection": "above_max",
+    "min_price": 20.0,
+    "max_price": 95.0,
+    "first_recorded_at": "2026-10-21T17:50:12.813705+00:00"
   }
 }
