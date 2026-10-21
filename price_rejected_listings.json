@@ -11984,5 +11984,31 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-21T09:00:16.753438+00:00"
+  },
+  "v1|820261925012|0": {
+    "item_id": "v1|820261925012|0",
+    "title": "Ogre Battle 64: Person of Lordly Caliber - Nintendo 64 (N64) Factory sealed",
+    "price": 30.38,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820261925012?_skw=Ogre+Battle+64&hash=itembefb6bb094:g:fjYAAeSwmOBqhpco",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 150.0,
+    "first_recorded_at": "2026-10-21T10:00:19.450329+00:00"
+  },
+  "v1|820261925056|0": {
+    "item_id": "v1|820261925056|0",
+    "title": "Indiana Jones and the Infernal Machine - Nintendo 64 (N64)",
+    "price": 29.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820261925056?_skw=Indiana+Jones+Infernal+Machine+n64&hash=itembefb6bb0c0:g:ek8AAeSw5rdqhpcl",
+    "search_label": "Indiana Jones Infernal Machine",
+    "search_query": "Indiana Jones Infernal Machine n64",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-21T10:00:19.450329+00:00"
   }
 }
