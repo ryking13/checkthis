@@ -12348,5 +12348,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-10-21T22:25:16.211614+00:00"
+  },
+  "v1|900030884247|0": {
+    "item_id": "v1|900030884247|0",
+    "title": "LEGO Creator Expert 10254 Winter Holiday Train Christmas Train Set Power Wheels",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900030884247?_skw=LEGO+10254+Winter+Holiday+Train&hash=itemd18e056997:g:wDAAAeSwKsRq2Trv",
+    "search_label": "LEGO Creator Expert 10254 Winter Holiday Train",
+    "search_query": "LEGO 10254 Winter Holiday Train",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-21T22:30:17.689770+00:00"
   }
 }
