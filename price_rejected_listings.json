@@ -12270,5 +12270,18 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-10-21T21:30:15.457901+00:00"
+  },
+  "v1|900030800129|0": {
+    "item_id": "v1|900030800129|0",
+    "title": "AMD Ryzen 5 5600GT 6-Core 12-thread 3.6GHz 16 MB Socket AM4 65W Processor",
+    "price": 119.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900030800129?_skw=ryzen+5+5600&hash=itemd18e042101:g:vNgAAeSw6xRq2S-d",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-21T21:40:13.943912+00:00"
   }
 }
