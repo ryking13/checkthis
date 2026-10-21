@@ -12192,5 +12192,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-21T18:05:15.082609+00:00"
+  },
+  "v1|366750496421|0": {
+    "item_id": "v1|366750496421|0",
+    "title": "Lego 10254 Winter Village Holiday Train NOT Complete Parts Christmas Creator",
+    "price": 149.36,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366750496421?_skw=LEGO+10254+Winter+Holiday+Train&hash=item55640876a5:g:jZ8AAeSwe0ZpOes8",
+    "search_label": "LEGO Creator Expert 10254 Winter Holiday Train",
+    "search_query": "LEGO 10254 Winter Holiday Train",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-21T18:30:20.848515+00:00"
   }
 }
