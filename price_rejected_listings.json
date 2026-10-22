@@ -12491,5 +12491,31 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-22T09:00:15.219716+00:00"
+  },
+  "v1|206644648371|0": {
+    "item_id": "v1|206644648371|0",
+    "title": "Seinfeld George Costanza Nap Bobblehead Yankees Boxed Unopened",
+    "price": 140.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206644648371?_skw=George+Costanza+Nap+Bobble+Head&hash=item301cfb19b3:g:X6wAAeSwkHBq2W~3",
+    "search_label": "Yankees Seinfeld George Costanza Nap Bobble Head",
+    "search_query": "George Costanza Nap Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-22T11:00:17.590489+00:00"
+  },
+  "v1|206644531508|0": {
+    "item_id": "v1|206644531508|0",
+    "title": "George Costanza Calzone Bobblehead - New York Yankees - Seinfeld - 8/27/2026",
+    "price": 60.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206644531508?_skw=George+Costanza+Calzone+Bobble+Head&hash=item301cf95134:g:3YAAAeSwwJVq2WR6",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-10-22T11:00:17.590489+00:00"
   }
 }
