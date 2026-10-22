@@ -12764,5 +12764,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-10-22T19:55:14.207705+00:00"
+  },
+  "v1|880041673964|0": {
+    "item_id": "v1|880041673964|0",
+    "title": "AMD Ryzen 5 5600X 3.7GHz 6-Core 12-Thread Desktop Processor – OEM/Tray Version",
+    "price": 122.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880041673964?_skw=ryzen+5+5600&hash=itemcce69244ec:g:wGgAAeSw6Qtq1-gS",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-22T20:50:13.496188+00:00"
   }
 }
