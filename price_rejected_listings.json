@@ -12855,5 +12855,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-22T22:25:11.468023+00:00"
+  },
+  "v1|137866997626|0": {
+    "item_id": "v1|137866997626|0",
+    "title": "MSI MAG B550M MORTAR MAX WIFI MicroATX AM4 + Ryzen 5 5600x",
+    "price": 145.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137866997626?_skw=ryzen+5+5600&hash=item2019836f7a:g:DbQAAeSw4g1q2pQ3&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7l%2Fo%2BqZn5CNQstZirCqtpx7csTTkVafPdzxKKJ99ZNiNrvwlwZaY4iuVaE2z51J%2FojK9lKAtWwExNYOetkz%2FpUkYYbZdvBnA1gUAuXzXPOWTc%2BjtaByChQ3zw7F7fC%2B%2Fnbtjog%2FUm8Gp9NRx%2FgAoT0Q%2BsV2HY3nbpIZvlaW29JMP3brMjnGzBdxAAO0LsCfXsHur%2BZTOvrNzq1HhWksKyUlZiNcfaqfxbDJaI6hmGNiFU2G3qEr7G9BGzfit39skr11Ar69YcfS22hJbwwpzJpUoYwASOFhiHcenQrGKTpOmQ%3D%3D",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-22T23:05:12.115676+00:00"
   }
 }
