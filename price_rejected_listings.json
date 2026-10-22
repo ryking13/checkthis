@@ -12712,5 +12712,31 @@
     "min_price": 20.0,
     "max_price": 95.0,
     "first_recorded_at": "2026-10-22T19:10:13.129205+00:00"
+  },
+  "v1|287518142926|589422990883": {
+    "item_id": "v1|287518142926|589422990883",
+    "title": "Ogre Battle 64 Person of Lordly Caliber Unisex Jersey Short Sleeve Graphic Tee",
+    "price": 22.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287518142926?_skw=Ogre+Battle+64&hash=item42f16ab1ce:g:ZOEAAeSwWQxqes5C",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 150.0,
+    "first_recorded_at": "2026-10-22T19:35:26.354875+00:00"
+  },
+  "v1|227337613270|526540195577": {
+    "item_id": "v1|227337613270|526540195577",
+    "title": "Retro N64 Goemon's Great Adventure Video Game T Shirt",
+    "price": 22.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227337613270?_skw=Goemon%27s+Great+Adventure&hash=item34ee60afd6:g:CMYAAeSwhjZp~~8L",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-22T19:35:26.354875+00:00"
   }
 }
