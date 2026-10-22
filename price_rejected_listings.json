@@ -12751,5 +12751,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-22T19:40:24.203205+00:00"
+  },
+  "v1|267821023488|0": {
+    "item_id": "v1|267821023488|0",
+    "title": "Super Nintendo SNES Mega Man X2, Game, Verified Working",
+    "price": 229.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267821023488?_skw=Mega+Man+X2&hash=item3e5b608100:g:txgAAeSwV0Vq2mcv&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7lus%2F346ewhicv8SQY44ivtlxYlQMRX4TQoHFPBPpC%2FQ5fnpqudwYQFHzbC1oXZm%2FXcO6gKlwubGv6tmrGBtzJ2IIS3DQz0jA6KcO%2BtUlIxCURqIFgXgtKPeYyCvjNze6mwJ0m3rOBiN3elX%2BzR%2FCmrmPfKvB9lQJnji4pLs2GHmYvfhB%2FIkclvVN3bo2aED2MEjY0kxbyjp9FRC0CLDvn2%2F5xxKZpE8%2FZhy5n7yJDjO7NW8u8%2BsWKR8bp%2BCGH%2Bk4sR0UpN73qThjgloD0hD7B8LfTkgq3C7AjZha7qOxBFog%3D%3D",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-22T19:55:14.207705+00:00"
   }
 }
