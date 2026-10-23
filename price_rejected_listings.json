@@ -13713,5 +13713,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-23T20:00:21.389148+00:00"
+  },
+  "v1|860076988856|0": {
+    "item_id": "v1|860076988856|0",
+    "title": "Carmageddon 64 Nintendo 64 N64 Cartridge NTSC-U/C M Mature",
+    "price": 110.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860076988856?_skw=Carmageddon+64&hash=itemc8409559b8:g:IDsAAeSwfGxq28g~",
+    "search_label": "Carmageddon 64",
+    "search_query": "Carmageddon 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 95.0,
+    "first_recorded_at": "2026-10-23T21:00:18.296094+00:00"
   }
 }
