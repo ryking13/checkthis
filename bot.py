@@ -165,7 +165,7 @@ ITEMS = [
     {
         "label": "apple tv 4k 3rd gen",
         "query": "apple tv 4k 3rd",
-        "max_price": 130,
+        "max_price": 140,
         "min_price": 69,    
         "require_words": ["4k"],
         "require_any": ["3rd", "MN893LL/A", "A2843"],
