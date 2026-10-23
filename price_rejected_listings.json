@@ -13739,5 +13739,18 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-23T21:45:13.439191+00:00"
+  },
+  "v1|900036055361|0": {
+    "item_id": "v1|900036055361|0",
+    "title": "Konami Castlevania: Legacy of Darkness Nintendo 64 N64 1999",
+    "price": 185.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900036055361?_skw=Castlevania+Legacy+of+Darkness&hash=itemd18e545141:g:gmUAAeSwHYBqpKWS",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-23T23:40:11.993378+00:00"
   }
 }
