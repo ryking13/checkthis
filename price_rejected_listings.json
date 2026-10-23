@@ -13024,5 +13024,18 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-10-23T14:25:15.631957+00:00"
+  },
+  "v1|307245787418|0": {
+    "item_id": "v1|307245787418|0",
+    "title": "Apple TV 4K 3rd Gen 128GB Wi-Fi + Ethernet A2843 - Works Great - No Remote",
+    "price": 140.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307245787418?_skw=apple+tv+4k+3rd&hash=item478946a91a:g:CiMAAeSwWx95c",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-23T14:30:18.761256+00:00"
   }
 }
