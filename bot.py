@@ -174,7 +174,7 @@ ITEMS = [
     {
         "label": "ipod classic 7th gen",
         "query": "ipod classic 7th gen",
-        "max_price": 120,
+        "max_price": 135,
         "min_price": 85,
         "require_words": ["ipod"],
         "require_any": ["160gb", "160", "160 gb"],
@@ -183,7 +183,7 @@ ITEMS = [
     {
         "label": "TI-Nspire CX II CAS",
         "query": "ti-nspire cx ii cas",
-        "max_price": 75,
+        "max_price": 65,
         "min_price": 45,
         "require_words": ["cx", "ii", "cas"],
         "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
@@ -234,7 +234,7 @@ ITEMS = [
     {
         "label": "Ogre Battle 64",
         "query": "Ogre Battle 64",
-        "max_price": 150,
+        "max_price": 145,
         "min_price": 40,
         "require_words": ["Ogre Battle"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "booklet", "book", "guidebook", "guides"],
@@ -447,14 +447,14 @@ ITEMS = [
         "require_words": ["10222"],
         "exclude_words": LEGO_EXCLUDE_WORDS + ["sheet"],
     },
-    {
-        "label": "LEGO Ghostbusters Ecto-1 #21108",
-        "query": "LEGO Ghostbusters Ecto-1 #21108",
-        "max_price": 75,
-        "min_price": 40,   
-        "require_words": ["21108"],
-        "exclude_words": LEGO_EXCLUDE_WORDS,
-    },
+    #{
+    #    "label": "LEGO Ghostbusters Ecto-1 #21108",
+    #    "query": "LEGO Ghostbusters Ecto-1 #21108",
+    #    "max_price": 75,
+    #    "min_price": 40,   
+    #    "require_words": ["21108"],
+    #    "exclude_words": LEGO_EXCLUDE_WORDS,
+    #},
 ]
 
 
