@@ -12998,5 +12998,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-23T08:00:15.761035+00:00"
+  },
+  "v1|336859039148|0": {
+    "item_id": "v1|336859039148|0",
+    "title": "APPLE ipod classic 160gb black 7th generation, Used, W Box, bundled",
+    "price": 157.48,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336859039148?_skw=ipod+classic+7th+gen&hash=item4e6e5d05ac:g:dp4AAeSw9tNq205O",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-23T12:25:11.992535+00:00"
   }
 }
