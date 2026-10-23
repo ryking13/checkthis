@@ -13141,5 +13141,18 @@
     "min_price": 69.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-23T18:35:14.955936+00:00"
+  },
+  "v1|366756830560|0": {
+    "item_id": "v1|366756830560|0",
+    "title": "Mega Man X2 SNES Super Nintendo Authentic Tested Working CX4 PCB Photo",
+    "price": 214.13,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366756830560?_skw=Mega+Man+X2&hash=item5564691d60:g:tvcAAeSwVmtq26-H",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-23T19:10:17.980528+00:00"
   }
 }
