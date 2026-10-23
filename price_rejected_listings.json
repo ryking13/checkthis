@@ -13011,5 +13011,18 @@
     "min_price": 85.0,
     "max_price": 120.0,
     "first_recorded_at": "2026-10-23T12:25:11.992535+00:00"
+  },
+  "v1|880043923060|0": {
+    "item_id": "v1|880043923060|0",
+    "title": "Banjo to Kazooie no Daibouken Banjo-Kazooie Nintendo 64 N64 Boxed NTSC-J",
+    "price": 116.63,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880043923060?_skw=Goemon%27s+Great+Adventure&hash=itemcce6b49674:g:9tgAAeSwe2dq220m",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-23T14:25:15.631957+00:00"
   }
 }
