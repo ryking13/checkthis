@@ -14272,5 +14272,18 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-10-24T23:35:14.298638+00:00"
+  },
+  "v1|237142609576|0": {
+    "item_id": "v1|237142609576|0",
+    "title": "2007-08 Fleer - Rookie Sensations Kevin Durant #RS-2 (RC) PSA 10",
+    "price": 225.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237142609576?_skw=Kevin+Durant+2007+Fleer+psa+10&hash=item3736cd0ea8:g:krQAAeSwO3Rq3T~7",
+    "search_label": "Kevin Durant 2007 Fleer RS-2 PSA 10",
+    "search_query": "Kevin Durant 2007 Fleer psa 10",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 180.0,
+    "first_recorded_at": "2026-10-24T23:40:12.667731+00:00"
   }
 }
