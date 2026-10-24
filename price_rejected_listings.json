@@ -14025,5 +14025,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-24T16:35:12.016335+00:00"
+  },
+  "v1|227581846496|0": {
+    "item_id": "v1|227581846496|0",
+    "title": "AMD Ryzen 5 5600X Desktop Processor 4.7GHz 6-Core AM5 CPU",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227581846496?_skw=ryzen+5+5600&hash=item34fcef63e0:g:Kr0AAeSwgC9q3OUe",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T17:15:12.043468+00:00"
   }
 }
