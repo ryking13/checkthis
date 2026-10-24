@@ -14220,5 +14220,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-10-24T21:10:16.272293+00:00"
+  },
+  "v1|377595114325|0": {
+    "item_id": "v1|377595114325|0",
+    "title": "AMD Ryzen 5 5600XT 4.7GHz Boost 6-Core 12-Thread AM4 PC CPU Processor",
+    "price": 134.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377595114325?_skw=ryzen+5+5600&hash=item57ea6c3355:g:dxUAAeSwiiJqplJi",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T21:25:13.612265+00:00"
   }
 }
