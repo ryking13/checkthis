@@ -14038,5 +14038,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T17:15:12.043468+00:00"
+  },
+  "v1|137871724204|0": {
+    "item_id": "v1|137871724204|0",
+    "title": "LEGO #10245 ~CREATOR ~ SANTA'S WORKSHOP & #40106 toy workshop",
+    "price": 160.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137871724204?_skw=LEGO+10245+Santa%27s+Workshop&hash=item2019cb8eac:g:GfgAAeSwS6hq1N4r",
+    "search_label": "LEGO Set 10245 Creator Expert Santa's Workshop",
+    "search_query": "LEGO 10245 Santa's Workshop",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-24T17:25:10.318694+00:00"
   }
 }
