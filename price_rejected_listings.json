@@ -13908,5 +13908,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T10:00:16.169421+00:00"
+  },
+  "v1|407313111112|0": {
+    "item_id": "v1|407313111112|0",
+    "title": "AMD Ryzen 5 5600 3.5GHz 6-core 12-threaded 32MB Cache Socket AM4 OEM Tray CPU",
+    "price": 161.25,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407313111112?_skw=ryzen+5+5600&hash=item5ed5c0d848:g:f7gAAeSwIr1q3IOv",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T11:00:18.360889+00:00"
   }
 }
