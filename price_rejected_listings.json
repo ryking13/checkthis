@@ -13921,5 +13921,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T11:00:18.360889+00:00"
+  },
+  "v1|198741974046|0": {
+    "item_id": "v1|198741974046|0",
+    "title": "LEGO 10254 and 10173 Holiday Train Car Lot Tender Passenger Tree Cars",
+    "price": 119.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/198741974046?_skw=LEGO+10254+Winter+Holiday+Train&hash=item2e45f1dc1e:g:2scAAeSwNw1p93BM",
+    "search_label": "LEGO Creator Expert 10254 Winter Holiday Train",
+    "search_query": "LEGO 10254 Winter Holiday Train",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T13:25:13.354148+00:00"
   }
 }
