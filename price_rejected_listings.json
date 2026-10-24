@@ -14142,5 +14142,31 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T20:00:16.571419+00:00"
+  },
+  "v1|366758996299|0": {
+    "item_id": "v1|366758996299|0",
+    "title": "Nintendo 64 Ogre Battle 64 New Unused Deadstock Boxed",
+    "price": 145.26,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366758996299?_skw=Ogre+Battle+64&hash=item55648a294b:g:6SAAAeSw~l9q3Q8o",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "above_max",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-10-24T20:10:13.031492+00:00"
+  },
+  "v1|366758996300|0": {
+    "item_id": "v1|366758996300|0",
+    "title": "Nintendo 64 Ogre Battle 64 New Unused Sealed",
+    "price": 145.26,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366758996300?_skw=Ogre+Battle+64&hash=item55648a294c:g:B~QAAeSwoP9q3Q8n",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "above_max",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-10-24T20:10:13.031492+00:00"
   }
 }
