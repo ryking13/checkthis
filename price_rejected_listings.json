@@ -14246,5 +14246,18 @@
     "min_price": 39.0,
     "max_price": 100.0,
     "first_recorded_at": "2026-10-24T22:25:12.176495+00:00"
+  },
+  "v1|117485502780|0": {
+    "item_id": "v1|117485502780|0",
+    "title": "Fleer 2007 Rookie Sensations Kevin Durant RC Insert #RS-2 PSA 10 NBA Card",
+    "price": 250.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/117485502780?_skw=Kevin+Durant+2007+Fleer+psa+10&hash=item1b5aae813c:g:b8kAAeSwYSZq3Tf-",
+    "search_label": "Kevin Durant 2007 Fleer RS-2 PSA 10",
+    "search_query": "Kevin Durant 2007 Fleer psa 10",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 180.0,
+    "first_recorded_at": "2026-10-24T23:05:12.806550+00:00"
   }
 }
