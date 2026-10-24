@@ -14194,5 +14194,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-24T20:25:12.706716+00:00"
+  },
+  "v1|900038192909|0": {
+    "item_id": "v1|900038192909|0",
+    "title": "TI-Nspire CX II CAS Texas Instruments Color Graphing Calculator Cover Tested",
+    "price": 84.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900038192909?_skw=ti-nspire+cx+ii+cas&hash=itemd18e74ef0d:g:iJQAAeSw6wJq3Rsk",
+    "search_label": "TI-Nspire CX II CAS",
+    "search_query": "ti-nspire cx ii cas",
+    "rejection": "above_max",
+    "min_price": 45.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-10-24T21:00:16.404557+00:00"
   }
 }
