@@ -14116,5 +14116,18 @@
     "min_price": 30.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T19:40:13.176817+00:00"
+  },
+  "v1|880047519740|0": {
+    "item_id": "v1|880047519740|0",
+    "title": "LEGO Creator Expert 10254 Winter Holiday Train – 100% Complete – Adult Owned",
+    "price": 159.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880047519740?_skw=LEGO+10254+Winter+Holiday+Train&hash=itemcce6eb77fc:g:VsAAAeSw2hFq3QDI",
+    "search_label": "LEGO Creator Expert 10254 Winter Holiday Train",
+    "search_query": "LEGO 10254 Winter Holiday Train",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T19:50:12.188354+00:00"
   }
 }
