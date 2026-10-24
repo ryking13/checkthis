@@ -14103,5 +14103,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T19:10:12.554726+00:00"
+  },
+  "v1|800834108456|0": {
+    "item_id": "v1|800834108456|0",
+    "title": "LEGO Creator Expert Winter Holiday Train 10254 734 pcs Power Functions",
+    "price": 135.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800834108456?_skw=LEGO+10254+Winter+Holiday+Train&hash=itemba756ebc28:g:g00AAeSwFBtq3QfE",
+    "search_label": "LEGO Creator Expert 10254 Winter Holiday Train",
+    "search_query": "LEGO 10254 Winter Holiday Train",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T19:40:13.176817+00:00"
   }
 }
