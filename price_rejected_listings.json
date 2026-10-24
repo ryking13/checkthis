@@ -13895,5 +13895,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-24T09:00:17.601290+00:00"
+  },
+  "v1|880046350836|0": {
+    "item_id": "v1|880046350836|0",
+    "title": "AMD Ryzen 5 5600X Ryzen Processor CPU",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880046350836?_skw=ryzen+5+5600&hash=itemcce6d9a1f4:g:z-4AAeSwzzpq3Hdf",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T10:00:16.169421+00:00"
   }
 }
