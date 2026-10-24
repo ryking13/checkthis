@@ -14064,5 +14064,31 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-10-24T17:45:12.609195+00:00"
+  },
+  "v1|860079796750|0": {
+    "item_id": "v1|860079796750|0",
+    "title": "AMD Ryzen 5 5600X 3.7 GHz 6 Cores  (FREE SHIPPING)",
+    "price": 165.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860079796750?_skw=ryzen+5+5600&hash=itemc840c0320e:g:dm8AAeSwUcpqeTgf",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-24T18:00:14.294420+00:00"
+  },
+  "v1|307247550506|0": {
+    "item_id": "v1|307247550506|0",
+    "title": "Castlevania: Legacy of Darkness (Nintendo 64 N64, 1999) Authentic Tested/Working",
+    "price": 170.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307247550506?_skw=Castlevania+Legacy+of+Darkness&hash=item478961902a:g:n-kAAeSwYAJq3PCh",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-24T18:00:14.294420+00:00"
   }
 }
