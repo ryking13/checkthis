@@ -14493,5 +14493,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-25T19:00:16.753375+00:00"
+  },
+  "v1|940041210021|0": {
+    "item_id": "v1|940041210021|0",
+    "title": "Apple iPod Classic 7th Generation 160GB Dark Gray A1238 EMC 2173 Tested Working",
+    "price": 199.87,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940041210021?_skw=ipod+classic+7th+gen&hash=itemdaded288a5:g:FiUAAeSw8oNq3mCH",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-25T20:10:14.398661+00:00"
   }
 }
