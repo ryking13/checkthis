@@ -14480,5 +14480,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-25T18:25:12.408899+00:00"
+  },
+  "v1|377597021665|0": {
+    "item_id": "v1|377597021665|0",
+    "title": "AMD Ryzen 5 5600X 6-Core Socket AM4 3.7GHz PCIe 4.0 100-100000065BOX",
+    "price": 125.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377597021665?_skw=ryzen+5+5600&hash=item57ea894de1:g:Zh8AAeSwjFJq3lCX",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-25T19:00:16.753375+00:00"
   }
 }
