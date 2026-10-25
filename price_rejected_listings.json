@@ -14389,5 +14389,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-25T13:55:19.547563+00:00"
+  },
+  "v1|880050085769|0": {
+    "item_id": "v1|880050085769|0",
+    "title": "CAPCOM HVC-P-ARXJ Mega Man X2",
+    "price": 156.73,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880050085769?_skw=Mega+Man+X2&hash=itemcce7129f89:g:PmoAAeSwoVlq3hVV",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-25T14:45:16.326338+00:00"
   }
 }
