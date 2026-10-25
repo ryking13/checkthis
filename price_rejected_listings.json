@@ -14311,5 +14311,57 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-10-25T00:00:16.609415+00:00"
+  },
+  "v1|178480264378|0": {
+    "item_id": "v1|178480264378|0",
+    "title": "Apple iPod Classic A1238 160GB SIlver Black Teated Working W/Accessories & Box",
+    "price": 179.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/178480264378?_skw=ipod+classic+7th+gen&hash=item298e40b4ba:g:GtUAAeSwsHhqoIHV",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-25T08:00:18.601657+00:00"
+  },
+  "v1|960111927074|0": {
+    "item_id": "v1|960111927074|0",
+    "title": "AMD Ryzen 5 5600 Processor (4.4 GHz, 6 Cores, Socket AM4)",
+    "price": 120.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960111927074?_skw=ryzen+5+5600&hash=itemdf8b215f22:g:dcAAAeSwULNq3XHY",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-25T08:00:18.601657+00:00"
+  },
+  "v1|840057156801|0": {
+    "item_id": "v1|840057156801|0",
+    "title": "Carmageddon 64 - Authentic (Nintendo 64, N64 2000) Game Cartridge Only - Tested",
+    "price": 99.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840057156801?_skw=Carmageddon+64&hash=itemc3974ef4c1:g:StQAAeSwYNlq3Xqt",
+    "search_label": "Carmageddon 64",
+    "search_query": "Carmageddon 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 95.0,
+    "first_recorded_at": "2026-10-25T08:00:18.601657+00:00"
+  },
+  "v1|900038966329|0": {
+    "item_id": "v1|900038966329|0",
+    "title": "Panini 2018 Prizm Luka Doncic Rookie #280 PSA 10 Dallas Mavericks",
+    "price": 215.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900038966329?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemd18e80bc39:g:Qg4AAeSwXX1q3ZPy",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-25T08:00:18.601657+00:00"
   }
 }
