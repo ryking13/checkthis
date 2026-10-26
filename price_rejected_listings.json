@@ -14792,5 +14792,18 @@
     "min_price": 39.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-26T15:00:16.756050+00:00"
+  },
+  "v1|298590863665|0": {
+    "item_id": "v1|298590863665|0",
+    "title": "GAMEPRO Magazine January 1995 Earthworm Jim Final Fantasy 3 Doom Mega Man X2 VTG",
+    "price": 29.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/298590863665?_skw=Mega+Man+X2&hash=item4585670131:g:tpcAAeSwaJdqgK06",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-26T15:45:15.291424+00:00"
   }
 }
