@@ -14714,5 +14714,44 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-26T08:00:16.257734+00:00"
+  },
+  "v1|206654783937|0": {
+    "item_id": "v1|206654783937|0",
+    "title": "Apple iPod Classic 7th Generation Black/Dark Grey (160 GB) A1238 w/ Songs !",
+    "price": 149.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206654783937?_skw=ipod+classic+7th+gen&hash=item301d95c1c1:g:Sb8AAeSwvjpq3whz",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-26T09:00:16.084768+00:00"
+  },
+  "v1|860084900768|0": {
+    "item_id": "v1|860084900768|0",
+    "title": "AMD Ryzen 5 5600 6-Core Socket AM4 CPU Processor 100-000000927",
+    "price": 147.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860084900768?_skw=ryzen+5+5600&hash=itemc8410e13a0:g:2xQAAeSw9tNq3w~0",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-26T09:00:16.084768+00:00"
+  },
+  "v1|287680760316|0": {
+    "item_id": "v1|287680760316|0",
+    "title": "PGA European Tour Nintendo 64 N64 Game Cartridge Infogrames USA NUS-006 rare",
+    "price": 110.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287680760316?_skw=PGA+European+Tour+n64&hash=item42fb1c09fc:g:VooAAeSwA2Zq3xKU",
+    "search_label": "PGA European Tour n64",
+    "search_query": "PGA European Tour n64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 85.0,
+    "first_recorded_at": "2026-10-26T09:00:16.084768+00:00"
   }
 }
