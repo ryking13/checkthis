@@ -15104,5 +15104,18 @@
     "min_price": 40.0,
     "max_price": 145.0,
     "first_recorded_at": "2026-10-26T22:50:14.206919+00:00"
+  },
+  "v1|336864659953|0": {
+    "item_id": "v1|336864659953|0",
+    "title": "LEGO Creator Expert: Santa's Workshop (10245) - Retired & Complete w/Box, Manual",
+    "price": 159.5,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336864659953?_skw=LEGO+10245+Santa%27s+Workshop&hash=item4e6eb2c9f1:g:HEQAAeSwRepq396M",
+    "search_label": "LEGO Set 10245 Creator Expert Santa's Workshop",
+    "search_query": "LEGO 10245 Santa's Workshop",
+    "rejection": "above_max",
+    "min_price": 30.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-26T23:30:14.569640+00:00"
   }
 }
