@@ -14753,5 +14753,18 @@
     "min_price": 39.0,
     "max_price": 85.0,
     "first_recorded_at": "2026-10-26T09:00:16.084768+00:00"
+  },
+  "v1|157986493033|0": {
+    "item_id": "v1|157986493033|0",
+    "title": "AMD Ryzen 5 R5 5600 3.5GHz 6-Core CPU Desktop Processor 100-000000927 Socket AM4",
+    "price": 156.87,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/157986493033?_skw=ryzen+5+5600&hash=item24c8ba9269:g:HuMAAeSwYDhqKRQq",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-26T12:05:12.557017+00:00"
   }
 }
