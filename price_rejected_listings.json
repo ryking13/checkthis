@@ -14974,5 +14974,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-10-26T19:50:14.314616+00:00"
+  },
+  "v1|920074085801|0": {
+    "item_id": "v1|920074085801|0",
+    "title": "Apple TV 4K 3rd Gen 64GB/Wi-Fi Only, Great condition and works perfectly",
+    "price": 210.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920074085801?_skw=apple+tv+4k+3rd&hash=itemd638b065a9:g:KvkAAeSwYNlq3l2T",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-10-26T20:00:17.707696+00:00"
+  },
+  "v1|287653202649|589536112158": {
+    "item_id": "v1|287653202649|589536112158",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 182.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287653202649?_skw=ipod+classic+7th+gen&hash=item42f9778ad9:g:uxkAAeSw5V9pU4an",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-26T20:00:17.707696+00:00"
   }
 }
