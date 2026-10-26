@@ -14857,5 +14857,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-10-26T17:30:17.683559+00:00"
+  },
+  "v1|880053877997|0": {
+    "item_id": "v1|880053877997|0",
+    "title": "AMD Ryzen 5 5600X 3.70GHz 6 Core 100-000000065 12 Thread AM4",
+    "price": 139.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880053877997?_skw=ryzen+5+5600&hash=itemcce74c7ced:g:1T0AAeSw3E1q345c",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-26T17:35:16.969468+00:00"
   }
 }
