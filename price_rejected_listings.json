@@ -15442,5 +15442,18 @@
     "min_price": null,
     "max_price": 40.0,
     "first_recorded_at": "2026-10-27T14:35:17.654848+00:00"
+  },
+  "v1|195945866484|0": {
+    "item_id": "v1|195945866484|0",
+    "title": "Apple TV 4K MN893LL/A 3rd Gen Digital Media Streamer 128GB HDR10+ NO Remote Incl",
+    "price": 179.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/195945866484?_skw=apple+tv+4k+3rd&hash=item2d9f48a4f4:g:sS0AAOSwX6BjreVZ",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-10-27T15:00:16.778993+00:00"
   }
 }
