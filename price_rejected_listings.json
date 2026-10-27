@@ -15598,5 +15598,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-27T16:45:14.046837+00:00"
+  },
+  "v1|336865877263|0": {
+    "item_id": "v1|336865877263|0",
+    "title": "Apple iPod Classic 7th Generation 160GB Gray MP3 Player",
+    "price": 155.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336865877263?_skw=ipod+classic+7th+gen&hash=item4e6ec55d0f:g:fP4AAeSw4OJq4Nr2",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-27T17:15:13.232246+00:00"
   }
 }
