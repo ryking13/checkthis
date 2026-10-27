@@ -15572,5 +15572,31 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-27T16:30:16.079286+00:00"
+  },
+  "v1|267825360702|0": {
+    "item_id": "v1|267825360702|0",
+    "title": "Texas Instruments TI-Nspire CX II CAS Graphing Calculator Blue  ",
+    "price": 85.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267825360702?_skw=ti-nspire+cx+ii+cas&hash=item3e5ba2af3e:g:Rg0AAeSwaR9q4NMH",
+    "search_label": "TI-Nspire CX II CAS",
+    "search_query": "ti-nspire cx ii cas",
+    "rejection": "above_max",
+    "min_price": 45.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-10-27T16:45:14.046837+00:00"
+  },
+  "v1|117490381590|0": {
+    "item_id": "v1|117490381590|0",
+    "title": "2018 PANINI PRIZM #280 LUKA DONCIC ROOKIE RC PSA 10",
+    "price": 220.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/117490381590?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=item1b5af8f316:i:117490381590",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-27T16:45:14.046837+00:00"
   }
 }
