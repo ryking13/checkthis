@@ -15728,5 +15728,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-10-27T20:05:26.418806+00:00"
+  },
+  "v1|800805987658|0": {
+    "item_id": "v1|800805987658|0",
+    "title": "Apple iPod classic 7th Generation Silver (160GB) Excellent A1238",
+    "price": 199.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800805987658?_skw=ipod+classic+7th+gen&hash=itemba73c1a54a:g:IDgAAeSw-~9q2mWz",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-27T20:35:13.207563+00:00"
   }
 }
