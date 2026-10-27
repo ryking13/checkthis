@@ -186,7 +186,7 @@ ITEMS = [
         "max_price": 65,
         "min_price": 45,
         "require_words": ["cx", "ii", "cas"],
-        "exclude_words": ["school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
+        "exclude_words": ["Treatise", "guide", "school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
     {
         "label": "Sony WM-FS111 Sport Walkman FM Radio",
