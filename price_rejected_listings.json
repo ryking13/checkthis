@@ -15871,5 +15871,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-10-27T23:25:13.928600+00:00"
+  },
+  "v1|267802228469|0": {
+    "item_id": "v1|267802228469|0",
+    "title": "Banjo Kazooie (JP Nintendo 64, 1999) CIB",
+    "price": 31.25,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267802228469?_skw=Goemon%27s+Great+Adventure&hash=item3e5a41b6f5:g:MbUAAeSwoDtqwLfj",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-27T23:40:14.459040+00:00"
   }
 }
