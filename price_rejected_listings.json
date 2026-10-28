@@ -16079,5 +16079,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-28T12:10:13.580322+00:00"
+  },
+  "v1|198725735226|497647267215": {
+    "item_id": "v1|198725735226|497647267215",
+    "title": "TI-84 Plus CE Battery 1600mAh Replacement for TI Nspire CX CX II CAS",
+    "price": 41.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/198725735226?_skw=ti-nspire+cx+ii+cas&hash=item2e44fa133a:g:WCcAAeSwkx5q1RLv",
+    "search_label": "TI-Nspire CX II CAS",
+    "search_query": "ti-nspire cx ii cas",
+    "rejection": "below_min",
+    "min_price": 45.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-10-28T12:50:13.565371+00:00"
   }
 }
