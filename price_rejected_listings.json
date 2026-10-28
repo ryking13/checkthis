@@ -16469,5 +16469,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-28T21:45:12.540674+00:00"
+  },
+  "v1|960127048488|0": {
+    "item_id": "v1|960127048488|0",
+    "title": "1991 Topps Chipper Jones RC #333 PSA 10 GEM MINT HOF 💎",
+    "price": 200.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960127048488?_skw=Chipper+Jones+1991+Topps+333+psa+10&hash=itemdf8c081b28:g:ydIAAeSw9bRq4l3k",
+    "search_label": "Chipper Jones 1991 Topps #333 PSA 10",
+    "search_query": "Chipper Jones 1991 Topps 333 psa 10",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-28T22:00:18.049803+00:00"
   }
 }
