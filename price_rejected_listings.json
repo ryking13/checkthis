@@ -16014,5 +16014,44 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-10-28T09:00:17.801879+00:00"
+  },
+  "v1|117486707258|0": {
+    "item_id": "v1|117486707258|0",
+    "title": "Apple AirPort Express 2nd Gen (A1392) AirPlay 2 Audio Receiver / Router",
+    "price": 30.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/117486707258?_skw=airport+express+a1392&hash=item1b5ac0e23a:g:7pYAAeSwBVtq3ihO",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-10-28T12:00:19.664854+00:00"
+  },
+  "v1|287653202649|589536112126": {
+    "item_id": "v1|287653202649|589536112126",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 159.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287653202649?_skw=ipod+classic+7th+gen&hash=item42f9778ad9:g:uxkAAeSw5V9pU4an",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-28T12:00:19.664854+00:00"
+  },
+  "v1|287518142926|589422990860": {
+    "item_id": "v1|287518142926|589422990860",
+    "title": "Ogre Battle 64 Person of Lordly Caliber Unisex Jersey Short Sleeve Graphic Tee",
+    "price": 22.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287518142926?_skw=Ogre+Battle+64&hash=item42f16ab1ce:g:ZOEAAeSwWQxqes5C",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-10-28T12:00:19.664854+00:00"
   }
 }
