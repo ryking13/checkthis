@@ -16482,5 +16482,18 @@
     "min_price": 50.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-28T22:00:18.049803+00:00"
+  },
+  "v1|940048534843|0": {
+    "item_id": "v1|940048534843|0",
+    "title": "Game Informer Video Game Magazine #8 Jan/Feb 1993 Mega Man Sonic Sunset Riders",
+    "price": 30.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940048534843?_skw=Sunset+Riders&hash=itemdadf424d3b:g:2pUAAeSwNkdq4oHm",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "below_min",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-28T23:25:13.021586+00:00"
   }
 }
