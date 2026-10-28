@@ -161,6 +161,7 @@ ITEMS = [
         "query": "airport express a1392",
         "max_price": 20,
         "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
+        "mode_only": "default", "every_n_runs": 4
     },
     {
         "label": "apple tv 4k 3rd gen",
@@ -238,6 +239,7 @@ ITEMS = [
         "min_price": 40,
         "require_words": ["Ogre Battle"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "booklet", "book", "guidebook", "guides"],
+        "mode_only": "default", "every_n_runs": 4
     },
     {
         "label": "Carmageddon 64",
