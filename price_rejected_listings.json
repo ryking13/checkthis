@@ -16053,5 +16053,31 @@
     "min_price": 40.0,
     "max_price": 145.0,
     "first_recorded_at": "2026-10-28T12:00:19.664854+00:00"
+  },
+  "v1|287518142926|589422990829": {
+    "item_id": "v1|287518142926|589422990829",
+    "title": "Ogre Battle 64 Person of Lordly Caliber Unisex Jersey Short Sleeve Graphic Tee",
+    "price": 34.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287518142926?_skw=Ogre+Battle+64&hash=item42f16ab1ce:g:ZOEAAeSwWQxqes5C",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-10-28T12:10:13.580322+00:00"
+  },
+  "v1|960126203648|0": {
+    "item_id": "v1|960126203648|0",
+    "title": "2018 Prizm Luka Doncic 280 PSA 10 Gem Mint Rookie RC Dallas Mavericks",
+    "price": 210.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960126203648?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemdf8bfb3700:g:iH4AAeSwcuJq4eRl",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-28T12:10:13.580322+00:00"
   }
 }
