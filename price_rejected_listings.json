@@ -16313,5 +16313,44 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-28T19:50:13.356230+00:00"
+  },
+  "v1|880059777157|0": {
+    "item_id": "v1|880059777157|0",
+    "title": "Apple TV 4K (3rd Gen), 128GB, A2843 Black",
+    "price": 180.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880059777157?_skw=apple+tv+4k+3rd&hash=itemcce7a68085:g:MZsAAeSwqR5q4iX5",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-10-28T20:00:15.918624+00:00"
+  },
+  "v1|860092885245|0": {
+    "item_id": "v1|860092885245|0",
+    "title": "Remote Control Apple TV4K(3rd generation) Model A2843 ",
+    "price": 45.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860092885245?_skw=apple+tv+4k+3rd&hash=itemc84187e8fd:g:5E4AAeSwtgxq4kk4",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "below_min",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-10-28T20:00:15.918624+00:00"
+  },
+  "v1|287624189948|589512912713": {
+    "item_id": "v1|287624189948|589512912713",
+    "title": "💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB 2TB Best Gift Freeshipping🎶",
+    "price": 159.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287624189948?_skw=ipod+classic+7th+gen&hash=item42f7bcd7fc:g:t3wAAeSwRaFpfFPs",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-28T20:00:15.918624+00:00"
   }
 }
