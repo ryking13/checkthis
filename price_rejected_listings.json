@@ -16872,5 +16872,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-29T13:25:13.649441+00:00"
+  },
+  "v1|198754605364|0": {
+    "item_id": "v1|198754605364|0",
+    "title": "iPod Classic Gen 7 160GB A1238 Gray Tested and Working Factory Restored",
+    "price": 140.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/198754605364?_skw=ipod+classic+7th+gen&hash=item2e46b29934:g:iGoAAeSwrBhq40jy",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-29T13:30:16.746982+00:00"
   }
 }
