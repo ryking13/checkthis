@@ -16768,5 +16768,31 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-29T02:50:14.262101+00:00"
+  },
+  "v1|227587988418|0": {
+    "item_id": "v1|227587988418|0",
+    "title": "AMD Ryzen 5 5600 Processor (Zen 3) 6-Core 3.5GHz AM4 65W CPU 100-100000927BOX",
+    "price": 120.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227587988418?_skw=ryzen+5+5600&hash=item34fd4d1bc2:g:VfkAAeSwqqFq4rgQ",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-29T04:00:18.002891+00:00"
+  },
+  "v1|377604888280|0": {
+    "item_id": "v1|377604888280|0",
+    "title": "Konami Sunset Riders Super Nintendo Entertainment System SNES Game Cartridge",
+    "price": 98.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377604888280?_skw=Sunset+Riders&hash=item57eb0156d8:g:YdUAAeSwSwpq4sD4",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-29T04:00:18.002891+00:00"
   }
 }
