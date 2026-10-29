@@ -17366,5 +17366,18 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-29T22:55:11.313098+00:00"
+  },
+  "v1|147657336314|0": {
+    "item_id": "v1|147657336314|0",
+    "title": "Apple A1392 AirPort Express Wireless Router/Base Station White w/ Cable",
+    "price": 29.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/147657336314?_skw=airport+express+a1392&hash=item22611025fa:g:gZgAAeSwW7tq1pdg",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-10-29T23:35:12.235820+00:00"
   }
 }
