@@ -17132,5 +17132,31 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-10-29T17:40:15.234595+00:00"
+  },
+  "v1|267827296098|0": {
+    "item_id": "v1|267827296098|0",
+    "title": "Lufia II Rise of Sinistrals for Super Nintendo",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267827296098?_skw=Lufia+II+Rise+of+Sinistrals&hash=item3e5bc03762:g:LkAAAeSw2l1q44QH",
+    "search_label": "Lufia II Rise of Sinistrals SNES",
+    "search_query": "Lufia II Rise of Sinistrals",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-29T18:00:17.348507+00:00"
+  },
+  "v1|267827296077|0": {
+    "item_id": "v1|267827296077|0",
+    "title": "Sunset Riders for Super Nintendo",
+    "price": 100.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267827296077?_skw=Sunset+Riders&hash=item3e5bc0374d:g:7TMAAeSw2lxq431x",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-29T18:00:17.348507+00:00"
   }
 }
