@@ -16638,5 +16638,83 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-29T01:40:14.047733+00:00"
+  },
+  "v1|287628460800|589515423140": {
+    "item_id": "v1|287628460800|589515423140",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 182.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287628460800?_skw=ipod+classic+7th+gen&hash=item42f7fe0300:g:rnAAAeSwAzJpU4ao",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-29T01:50:15.187519+00:00"
+  },
+  "v1|287616108067|589507970297": {
+    "item_id": "v1|287616108067|589507970297",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 169.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287616108067?_skw=ipod+classic+7th+gen&hash=item42f7418623:g:t3wAAeSwRaFpfFPs",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-29T01:50:15.187519+00:00"
+  },
+  "v1|287628460807|589515423695": {
+    "item_id": "v1|287628460807|589515423695",
+    "title": "💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB 2TB Best Gift Freeshipping🎶",
+    "price": 182.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287628460807?_skw=ipod+classic+7th+gen&hash=item42f7fe0307:g:fg8AAeSwOJppU4aj",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-29T01:50:15.187519+00:00"
+  },
+  "v1|287624189948|589512912715": {
+    "item_id": "v1|287624189948|589512912715",
+    "title": "💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB 2TB Best Gift Freeshipping🎶",
+    "price": 182.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287624189948?_skw=ipod+classic+7th+gen&hash=item42f7bcd7fc:g:t3wAAeSwRaFpfFPs",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-29T01:50:15.187519+00:00"
+  },
+  "v1|820289645055|0": {
+    "item_id": "v1|820289645055|0",
+    "title": "Castlevania: Legacy of Darkness - Nintendo 64 (N64) Best price Limited release",
+    "price": 30.11,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820289645055?_skw=Castlevania+Legacy+of+Darkness&hash=itembefd12a9ff:g:f2QAAeSw8vxqfacp",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-29T01:50:15.187519+00:00"
+  },
+  "v1|820289645091|0": {
+    "item_id": "v1|820289645091|0",
+    "title": "Goemon's Great Adventure N64 Game Cartridge for Nintendo 64 Retro Action Game",
+    "price": 29.15,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820289645091?_skw=Goemon%27s+Great+Adventure&hash=itembefd12aa23:g:TlMAAeSwxahqCssb",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-29T01:50:15.187519+00:00"
   }
 }
