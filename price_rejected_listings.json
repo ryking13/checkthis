@@ -16898,5 +16898,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-29T14:10:13.557338+00:00"
+  },
+  "v1|227588722721|0": {
+    "item_id": "v1|227588722721|0",
+    "title": "(New) AMD Ryzen 5 5600X 6-Core 12-Thread AM4 CPU Processor OEM Tray",
+    "price": 139.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227588722721?_skw=ryzen+5+5600&hash=item34fd585021:g:vSEAAeSw2hFq41OR",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-29T14:15:14.726836+00:00"
   }
 }
