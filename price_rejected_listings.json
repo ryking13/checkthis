@@ -16794,5 +16794,31 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-29T04:00:18.002891+00:00"
+  },
+  "v1|900048025753|0": {
+    "item_id": "v1|900048025753|0",
+    "title": "AMD Ryzen 5 5600GT 6-Core 12-thread 3.6GHz 16 MB Socket AM4 65W Processor",
+    "price": 119.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900048025753?_skw=ryzen+5+5600&hash=itemd18f0af899:g:vNgAAeSw6xRq2S-d",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-29T08:00:16.548578+00:00"
+  },
+  "v1|860093861097|0": {
+    "item_id": "v1|860093861097|0",
+    "title": "Goemon's Great Adventure N64 Game Cartridge US NTSC, 2 Player Co-op Fully Tested",
+    "price": 23.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860093861097?_skw=Goemon%27s+Great+Adventure&hash=itemc84196cce9:g:iUcAAeSwbo5q4t0W",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-29T08:00:16.548578+00:00"
   }
 }
