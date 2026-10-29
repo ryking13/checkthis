@@ -16924,5 +16924,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-29T14:40:14.632591+00:00"
+  },
+  "v1|840071723442|0": {
+    "item_id": "v1|840071723442|0",
+    "title": "Shotgun Mario 64 - Nintendo 64 (N64) Classic adventure Hard to find High demand",
+    "price": 35.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840071723442?_skw=Goemon%27s+Great+Adventure&hash=itemc3982d39b2:g:vKgAAeSwMc9q417A",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-29T15:00:18.407455+00:00"
   }
 }
