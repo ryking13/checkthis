@@ -17353,5 +17353,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-10-29T21:50:12.488628+00:00"
+  },
+  "v1|287688022175|0": {
+    "item_id": "v1|287688022175|0",
+    "title": "Konami Castlevania: Legacy of Darkness Nintendo 64 N64 NTSC-U/C T Teen",
+    "price": 190.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287688022175?_skw=Castlevania+Legacy+of+Darkness&hash=item42fb8ad89f:g:L9YAAeSwr0dq4nsz",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-29T22:55:11.313098+00:00"
   }
 }
