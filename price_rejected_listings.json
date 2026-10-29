@@ -17171,5 +17171,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-29T18:15:14.063701+00:00"
+  },
+  "v1|377606408996|0": {
+    "item_id": "v1|377606408996|0",
+    "title": "ASUS TUF Gaming X570-PLUS (Wi-Fi) Ryzen 5 5600X 3.7GHz 8GB AM4 Motherboard READ",
+    "price": 159.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377606408996?_skw=ryzen+5+5600&hash=item57eb188b24:g:aJsAAeSwsp9q45Oh",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-29T18:50:14.404030+00:00"
   }
 }
