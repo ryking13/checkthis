@@ -16885,5 +16885,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-29T13:30:16.746982+00:00"
+  },
+  "v1|237150865011|0": {
+    "item_id": "v1|237150865011|0",
+    "title": "AMD Ryzen 5 5600",
+    "price": 120.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237150865011?_skw=ryzen+5+5600&hash=item37374b0673:g:R80AAeSw9vVqoNym",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-29T14:10:13.557338+00:00"
   }
 }
