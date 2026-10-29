@@ -17236,5 +17236,31 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-10-29T19:35:11.722461+00:00"
+  },
+  "v1|137884789616|0": {
+    "item_id": "v1|137884789616|0",
+    "title": "Sunset Riders (Super Nintendo SNES 1993) Konami Authentic - TESTED ",
+    "price": 124.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137884789616?_skw=Sunset+Riders&hash=item201a92eb70:g:QYsAAeSw6glq46Bz",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-29T19:45:13.172930+00:00"
+  },
+  "v1|377606499962|0": {
+    "item_id": "v1|377606499962|0",
+    "title": "Sunset Riders (Super Nintendo SNES, 1993) Cartridge Only - Tested/ Working.",
+    "price": 118.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377606499962?_skw=Sunset+Riders&hash=item57eb19ee7a:g:maIAAeSw-vNq46Cp",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-29T19:45:13.172930+00:00"
   }
 }
