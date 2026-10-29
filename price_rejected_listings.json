@@ -17106,5 +17106,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-29T17:00:17.568722+00:00"
+  },
+  "v1|960129530038|0": {
+    "item_id": "v1|960129530038|0",
+    "title": "1980 Topps - Nolan Ryan HOF Angels #580 1980 PSA 8 (OC)",
+    "price": 125.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960129530038?_skw=Nolan+Ryan+1980+Topps+580+psa+8&hash=itemdf8c2df8b6:g:qJ4AAeSwRHhq43jE",
+    "search_label": "Nolan Ryan 1980 Topps #580 PSA 8",
+    "search_query": "Nolan Ryan 1980 Topps 580 psa 8",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-10-29T17:05:13.781440+00:00"
   }
 }
