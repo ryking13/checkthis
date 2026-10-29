@@ -17288,5 +17288,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-29T20:10:14.475971+00:00"
+  },
+  "v1|136804887894|435748468629": {
+    "item_id": "v1|136804887894|435748468629",
+    "title": "Phone Ink • iPhone Galaxy Pixel Case • Sunset Riders Cowboys Golden Range",
+    "price": 49.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/136804887894?_skw=Sunset+Riders&hash=item1fda34ed56:g:CHYAAeSwDfRpAfNf",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "below_min",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-10-29T20:35:13.282783+00:00"
   }
 }
