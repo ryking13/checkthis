@@ -17223,5 +17223,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-10-29T19:30:17.724228+00:00"
+  },
+  "v1|267827481331|0": {
+    "item_id": "v1|267827481331|0",
+    "title": "Apple AirPort Express  Wi-Fi Router A1392 FAST - FREE SHIPPING.",
+    "price": 30.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267827481331?_skw=airport+express+a1392&hash=item3e5bc30af3:g:f7oAAeSw3rRq4qrX",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-10-29T19:35:11.722461+00:00"
   }
 }
