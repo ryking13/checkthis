@@ -17574,5 +17574,70 @@
     "min_price": 40.0,
     "max_price": 145.0,
     "first_recorded_at": "2026-10-30T08:00:17.984963+00:00"
+  },
+  "v1|389453287844|0": {
+    "item_id": "v1|389453287844|0",
+    "title": "AMD Ryzen 5 5600X Desktop CPU Processor 3.7-4.6GHz 6-Core Socket AM4",
+    "price": 145.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/389453287844?_skw=ryzen+5+5600&hash=item5aad3991a4:g:VekAAeSw3zlpWm3Z",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T09:00:16.326239+00:00"
+  },
+  "v1|389438032547|0": {
+    "item_id": "v1|389438032547|0",
+    "title": "AMD Ryzen 5 5600 R5 5600 AM4 3.5GHz six-core 12-thread 65W-CPU processor",
+    "price": 135.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/389438032547?_skw=ryzen+5+5600&hash=item5aac50caa3:g:hCUAAeSwztNpVTa7",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T09:00:16.326239+00:00"
+  },
+  "v1|357416617284|0": {
+    "item_id": "v1|357416617284|0",
+    "title": "AMD Ryzen 5 5600 AM4 CPU Processor R5 5600 3.5 GHz Six-Core 12 Thread 65W",
+    "price": 140.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/357416617284?_skw=ryzen+5+5600&hash=item5337b0c544:g:Qm4AAeSw80NorwU6",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T09:00:16.326239+00:00"
+  },
+  "v1|357257592556|0": {
+    "item_id": "v1|357257592556|0",
+    "title": "AMD Ryzen 5 5600X Desktop CPU Processor 3.7-4.6GHz 6-Core Socket AM4",
+    "price": 161.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/357257592556?_skw=ryzen+5+5600&hash=item532e363eec:g:j-YAAeSwJflobnDM",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T09:00:16.326239+00:00"
+  },
+  "v1|327430160894|0": {
+    "item_id": "v1|327430160894|0",
+    "title": "Mega Man X2 Super Nintendo SNES Authentic Cartridge Only Tested Game",
+    "price": 200.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327430160894?_skw=Mega+Man+X2&hash=item4c3c5bc1fe:g:-pYAAeSwi2Vq5FnH",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-30T09:00:16.326239+00:00"
   }
 }
