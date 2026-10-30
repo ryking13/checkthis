@@ -17470,5 +17470,44 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-30T05:00:16.073625+00:00"
+  },
+  "v1|206662893602|0": {
+    "item_id": "v1|206662893602|0",
+    "title": "AMD Ryzen 5 5600GT 6-Core, 12-Thread Desktop Processor 100-000001488",
+    "price": 139.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206662893602?_skw=ryzen+5+5600&hash=item301e118022:g:UzEAAeSwCHlq5Dnz",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T07:00:16.891138+00:00"
+  },
+  "v1|800854501259|0": {
+    "item_id": "v1|800854501259|0",
+    "title": "Nintendo 64 Castlevania Legacy of Darkness",
+    "price": 167.08,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800854501259?_skw=Castlevania+Legacy+of+Darkness&hash=itemba76a5e78b:g:AjQAAeSwA6hq5DnQ",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-30T07:00:16.891138+00:00"
+  },
+  "v1|800854500140|0": {
+    "item_id": "v1|800854500140|0",
+    "title": "N64 Castlevania Legacy of Darkness",
+    "price": 169.68,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800854500140?_skw=Castlevania+Legacy+of+Darkness&hash=itemba76a5e32c:g:fp0AAeSwUS9q5DoC",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-10-30T07:00:16.891138+00:00"
   }
 }
