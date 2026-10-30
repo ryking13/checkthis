@@ -17782,5 +17782,31 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-30T17:10:14.332624+00:00"
+  },
+  "v1|377608582486|0": {
+    "item_id": "v1|377608582486|0",
+    "title": "2015 Apple Airport Express Wi-Fi 4 A1392",
+    "price": 29.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377608582486?_skw=airport+express+a1392&hash=item57eb39b556:g:QyYAAeSwhRJq5Mvz&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7mOlQ0vcirHP8IxBiqmeKIjpfjV%2FEKb%2BZthf0cNNHZgiqGMthNE%2BeECUnrPBhT09tH8iDmuPobfoyuqoQpXizHFDb0NHjOcauJpcK6zSvziYs8HXO7GWdd00zMxhmy2vfzqDM%2FjCflHckGQjTsB%2Fox4G0QPTXU4k3FNSfG3DP9lfoayLPmkYnk%2BnCkHigRRfY40r6rBli4jJrQUrcNNS3rRjVwukt3jVlI%2FyhjDOee0mcMMMvOb%2BFaJUa5AgkRErAeo55RKHQKdUSiiWzl0pyC1h%2FB%2FFEQEiTsT5MC%2FCmR4wg%3D%3D",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-10-30T17:15:13.041434+00:00"
+  },
+  "v1|307257321826|0": {
+    "item_id": "v1|307257321826|0",
+    "title": "AMD Ryzen 5 5600X Processor - Tested / US Seller / AM4",
+    "price": 124.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307257321826?_skw=ryzen+5+5600&hash=item4789f6a962:g:Z2cAAeSw6glq5M51",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T17:15:13.041434+00:00"
   }
 }
