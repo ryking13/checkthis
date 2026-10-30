@@ -18042,5 +18042,31 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-30T23:00:19.640926+00:00"
+  },
+  "v1|920089195174|0": {
+    "item_id": "v1|920089195174|0",
+    "title": "Goemon’s Great Adventure Nintendo 64 Cart Only Authentic N64",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920089195174?_skw=Goemon%27s+Great+Adventure&hash=itemd63996f2a6:g:Sl0AAeSwoMtq5SoR",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-30T23:45:13.856332+00:00"
+  },
+  "v1|800857365320|0": {
+    "item_id": "v1|800857365320|0",
+    "title": "2018 Panini Prizm #280 Luka Doncic Rookie RC PSA 10 GEM MINT Mavericks",
+    "price": 239.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800857365320?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemba76d19b48:g:YeEAAeSwWwZq5So4",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-30T23:45:13.856332+00:00"
   }
 }
