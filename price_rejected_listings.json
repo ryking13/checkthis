@@ -17730,5 +17730,31 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-10-30T16:25:13.260229+00:00"
+  },
+  "v1|880065565810|0": {
+    "item_id": "v1|880065565810|0",
+    "title": "Apple TV 4K 3rd Gen. 128GB Wi-Fi + Ethernet",
+    "price": 170.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880065565810?_skw=apple+tv+4k+3rd&hash=itemcce7fed472:g:hH4AAeSwVnJq363L",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-10-30T16:45:15.779232+00:00"
+  },
+  "v1|237152980971|0": {
+    "item_id": "v1|237152980971|0",
+    "title": "AMD Ryzen 5 5600X 3.70GHz 6-Core CPU 100-000000065 Socket AM4 - CPU726A",
+    "price": 129.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237152980971?_skw=ryzen+5+5600&hash=item37376b4feb:g:1cEAAeSw7wxq5Mi5",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T16:45:15.779232+00:00"
   }
 }
