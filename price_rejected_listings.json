@@ -17951,5 +17951,44 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-10-30T21:55:12.149709+00:00"
+  },
+  "v1|287690623311|0": {
+    "item_id": "v1|287690623311|0",
+    "title": "Apple iPod Classic 160GB Black 7th Gen Digital Music Player - Model MC297LL",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287690623311?_skw=ipod+classic+7th+gen&hash=item42fbb2894f:g:rCEAAeSwSwpq47-D",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-30T22:05:12.098337+00:00"
+  },
+  "v1|287616108067|589507970306": {
+    "item_id": "v1|287616108067|589507970306",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 182.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287616108067?_skw=ipod+classic+7th+gen&hash=item42f7418623:g:t3wAAeSwRaFpfFPs",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-30T22:05:12.098337+00:00"
+  },
+  "v1|920088972933|0": {
+    "item_id": "v1|920088972933|0",
+    "title": "Starcraft 64 Nintendo 64 N64 Game Cartridge Tested Working",
+    "price": 120.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920088972933?_skw=StarCraft+64&hash=itemd639938e85:g:FW0AAeSwjIRq5RLn",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-10-30T22:05:12.098337+00:00"
   }
 }
