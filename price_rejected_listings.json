@@ -17678,5 +17678,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-10-30T12:50:12.422604+00:00"
+  },
+  "v1|820296165683|0": {
+    "item_id": "v1|820296165683|0",
+    "title": "AMD Ryzen 5 5600X 6-Core Socket AM4 CPU Processor 3.7GHz 32MB L3",
+    "price": 138.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820296165683?_skw=ryzen+5+5600&hash=itembefd762933:g:xGcAAeSw9Yxq5JR8",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T13:05:11.420435+00:00"
   }
 }
