@@ -18003,5 +18003,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-30T22:35:11.688572+00:00"
+  },
+  "v1|287692965720|0": {
+    "item_id": "v1|287692965720|0",
+    "title": "AMD Ryzen 5 5600 Desktop Processor, 6-Core, 12-Thread, Unlocked | AM4",
+    "price": 134.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287692965720?_skw=ryzen+5+5600&hash=item42fbd64758:g:gEEAAeSw5J9q5RV7",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-10-30T22:50:12.720488+00:00"
   }
 }
