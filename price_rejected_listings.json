@@ -18380,5 +18380,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-10-31T19:05:11.233844+00:00"
+  },
+  "v1|860101188624|0": {
+    "item_id": "v1|860101188624|0",
+    "title": "Apple 160GB iPod Classic (7th Generation) MC293LL - Tested on Oct 31 2026",
+    "price": 190.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860101188624?_skw=ipod+classic+7th+gen&hash=itemc842069c10:g:C8IAAeSwc8Nq5ju~",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-10-31T19:15:12.955905+00:00"
   }
 }
