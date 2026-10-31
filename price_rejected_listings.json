@@ -18289,5 +18289,31 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-31T17:25:11.103704+00:00"
+  },
+  "v1|366774049251|0": {
+    "item_id": "v1|366774049251|0",
+    "title": "Apple A1392 AirPort Express Base Station WiFi Router",
+    "price": 29.88,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366774049251?_skw=airport+express+a1392&hash=item55656fd9e3:g:lyMAAeSwP1pq4VQh&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7kJbpRN9IaJCk82V9Hszx9izktIPbgP0UpR7vkTmq5DPZUdUci5UaZ8RZ9z2YLHLmc6U81TuvN43cCKkuIhSsqDts9FZbjTXu6edsR0CDz7lFjU5pxP47Ii3kkdlV%2FYMaYVXUjm38KAdza%2Bs67MOnXq1vYiqQ4W3Rx2wLRjl4ImNb%2FA3i%2BARM98K84r4Kt8JdFR4QMMw2ux0EPKHW4dAsii0zY9aGuv4%2F7A69jF8LU1D1iEeCszZgV5JoyR1nPFMDhQe9KbPaaFvs0XRD%2BWWQiZvh64X5eYHzg%2ByzELlAfRzQ%3D%3D",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-10-31T17:30:15.757978+00:00"
+  },
+  "v1|128166534669|0": {
+    "item_id": "v1|128166534669|0",
+    "title": "Apple AirPort Express Base Station MB321LL/A Wi-Fi Router AirPlay White",
+    "price": 23.87,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128166534669?_skw=airport+express+a1392&hash=item1dd7521e0d:g:ECIAAOSwrBloUdQ~",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-10-31T17:30:15.757978+00:00"
   }
 }
