@@ -18354,5 +18354,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-10-31T18:20:12.985546+00:00"
+  },
+  "v1|920091550292|0": {
+    "item_id": "v1|920091550292|0",
+    "title": "Panini 2018-19 Prizm Luka Doncic Rookie Card #280 PSA 10 Mavericks",
+    "price": 250.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920091550292?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemd639bae254:g:Sm4AAeSwzjFq5jLZ",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 170.0,
+    "first_recorded_at": "2026-10-31T18:35:11.935937+00:00"
   }
 }
