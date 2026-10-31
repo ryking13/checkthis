@@ -18250,5 +18250,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-31T15:20:15.256521+00:00"
+  },
+  "v1|860100814885|0": {
+    "item_id": "v1|860100814885|0",
+    "title": "Capcom Mega Man X2 (SNES) NTSC-U/C Action & Adventure Cartridge Only",
+    "price": 170.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860100814885?_skw=Mega+Man+X2&hash=itemc84200e825:g:h88AAeSwyMVq5gxZ",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-31T15:55:11.418842+00:00"
   }
 }
