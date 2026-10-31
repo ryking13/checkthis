@@ -18120,5 +18120,31 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-10-31T02:50:17.780758+00:00"
+  },
+  "v1|128165140681|0": {
+    "item_id": "v1|128165140681|0",
+    "title": "2026 New York Yankees Seinfeld George Costanza Calzone Bobblehead 8/27 ",
+    "price": 59.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128165140681?_skw=George+Costanza+Calzone+Bobble+Head&hash=item1dd73cd8c9:g:SbAAAeSwJFBq5Rtf",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-10-31T04:00:17.682300+00:00"
+  },
+  "v1|377609659973|0": {
+    "item_id": "v1|377609659973|0",
+    "title": "Banjo-Kazooie, NINTENDO 64, N64, NTSC-J, 1998, CARTRIDGE ONLY",
+    "price": 20.8,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377609659973?_skw=Goemon%27s+Great+Adventure&hash=item57eb4a2645:g:wF0AAeSwChBq0uHx",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-10-31T04:00:17.682300+00:00"
   }
 }
