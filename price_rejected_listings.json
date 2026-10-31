@@ -18107,5 +18107,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-10-31T02:45:16.031935+00:00"
+  },
+  "v1|267828646392|0": {
+    "item_id": "v1|267828646392|0",
+    "title": "SNES Mega Man X2 ~1995 Super Nintendo Game Cartridge ~Authentic Tested & Working",
+    "price": 199.5,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267828646392?_skw=Mega+Man+X2&hash=item3e5bd4d1f8:g:bvcAAeSw5Wlq5VQR",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-10-31T02:50:17.780758+00:00"
   }
 }
