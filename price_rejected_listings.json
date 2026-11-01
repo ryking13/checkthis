@@ -18666,5 +18666,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-11-01T13:00:17.218434+00:00"
+  },
+  "v1|287297187923|0": {
+    "item_id": "v1|287297187923|0",
+    "title": "2000 Ogre Battle 64 N64 Original Advertisement / Retro Promo vr1",
+    "price": 23.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287297187923?_skw=Ogre+Battle+64&hash=item42e43f3053:g:ZDQAAeSwY5xp74Lf",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-01T13:10:12.668178+00:00"
   }
 }
