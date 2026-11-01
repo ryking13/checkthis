@@ -18874,5 +18874,31 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-11-01T18:15:14.022977+00:00"
+  },
+  "v1|287697413780|0": {
+    "item_id": "v1|287697413780|0",
+    "title": "AMD Ryzen 5 5600X 6-Core 3.7GHz Desktop CPU Processor Socket AM4",
+    "price": 115.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287697413780?_skw=ryzen+5+5600&hash=item42fc1a2694:g:-UQAAeSwZXxq54DT",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-01T18:20:16.505126+00:00"
+  },
+  "v1|287697416524|0": {
+    "item_id": "v1|287697416524|0",
+    "title": "Lufia II 2 Rise of the Sinistrals (Super Nintendo SNES 1996) Authentic & Tested",
+    "price": 165.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287697416524?_skw=Lufia+II+Rise+of+Sinistrals&hash=item42fc1a314c:g:9fQAAeSwGkdq54GS",
+    "search_label": "Lufia II Rise of Sinistrals SNES",
+    "search_query": "Lufia II Rise of Sinistrals",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-01T18:20:16.505126+00:00"
   }
 }
