@@ -18588,5 +18588,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-11-01T00:40:12.520466+00:00"
+  },
+  "v1|800861022794|0": {
+    "item_id": "v1|800861022794|0",
+    "title": "AMD Ryzen 5 5600X AM4 CPU Brand New Factory Sealed Wraith Cooler Included",
+    "price": 157.43,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800861022794?_skw=ryzen+5+5600&hash=itemba77096a4a:g:Tp8AAeSwRt9q5o2k",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-01T01:10:13.317895+00:00"
   }
 }
