@@ -18991,5 +18991,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-01T22:55:11.026796+00:00"
+  },
+  "v1|227593321840|0": {
+    "item_id": "v1|227593321840|0",
+    "title": "StarCraft 64 Nintendo 64 N64 Blizzard Entertainment NUS-NSQE-USA Cartridge",
+    "price": 134.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227593321840?_skw=StarCraft+64&hash=item34fd9e7d70:g:3sgAAeSwODFq58kt",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-01T23:25:11.873257+00:00"
   }
 }
