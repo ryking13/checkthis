@@ -18926,5 +18926,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-01T20:20:12.496377+00:00"
+  },
+  "v1|800864301087|0": {
+    "item_id": "v1|800864301087|0",
+    "title": "Texas Instruments Nspire CX II CAS Graphing Calculator - Black Cord Included",
+    "price": 90.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800864301087?_skw=ti-nspire+cx+ii+cas&hash=itemba773b701f:g:9C0AAeSwNkdq557Z&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7kK0OY6xLw3els5xOww4SfDgMUbK2qrKY09hBG5fUih5LEMbbwoZptoWBgRMUg3GpKIHnlG2bn1%2FTQlH5%2BUD2AibO3O1DQLbIoYemCzBrddS7qHWPBdYasSqbKgVI0KqivwVDZoyh035b9yYKg6bVgw79bZkT%2Bp6o5CYSzP%2BF7f48z7n2QjIfuLs4wmxOhXGCFjnVjB6Env0XflGvMcrXhVV8WiyU%2FOtisYsgbRnjVn7ZOeMzjxPe35shryQGAP%2BvVz%2BtcrbtmVTn5RlP7%2FtV%2F1Wmnt2KSTiQw%2BJiMSrnyhyQ%3D%3D",
+    "search_label": "TI-Nspire CX II CAS",
+    "search_query": "ti-nspire cx ii cas",
+    "rejection": "above_max",
+    "min_price": 45.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-11-01T20:30:15.130941+00:00"
   }
 }
