@@ -18952,5 +18952,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-01T21:05:13.747472+00:00"
+  },
+  "v1|820298400021|0": {
+    "item_id": "v1|820298400021|0",
+    "title": "AMD Ryzen 5 5600 Processor (4.4 GHz, 6 Cores, Socket AM4) Тray - 100-000000927",
+    "price": 118.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820298400021?_skw=ryzen+5+5600&hash=itembefd984115:g:AlEAAeSwJjJq5Vwk",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-01T21:35:13.032632+00:00"
   }
 }
