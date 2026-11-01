@@ -18783,5 +18783,18 @@
     "min_price": 39.0,
     "max_price": 100.0,
     "first_recorded_at": "2026-11-01T15:50:13.694795+00:00"
+  },
+  "v1|307260507745|0": {
+    "item_id": "v1|307260507745|0",
+    "title": "STARR Seinfeld George Costanza Calzone Plastic Bobblehead TV Shows Theme",
+    "price": 50.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307260507745?_skw=George+Costanza+Calzone+Bobble+Head&hash=item478a274661:g:zWMAAeSwlWdq3141",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-11-01T16:10:13.043829+00:00"
   }
 }
