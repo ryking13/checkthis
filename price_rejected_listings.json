@@ -18770,5 +18770,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-01T15:40:15.443201+00:00"
+  },
+  "v1|237152743527|0": {
+    "item_id": "v1|237152743527|0",
+    "title": "Blizzard StarCraft 64 Nintendo 64 N64 T NTSC-U/C 1999 Cartridge blockbuster",
+    "price": 125.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237152743527?_skw=StarCraft+64&hash=item373767b067:g:pb8AAeSwi1tq5J76&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7k7dBN6tbPupL54tvTFK%2Fg3GIEjjtJ3OLfjIyQB5AMpQSWeczfOuQHfb5hYqI5N1ogPIbLg9rkt5pmn7%2B7n%2FOztAUSj7cPQNHCLnc4BKsj8V6%2FgOeMir4wYQ1i%2BC3YCvEZgxJUTiuOSQbVvBxkCZav%2FNWiE3E6X%2F66zBSfNUlAi5Iep383aGbS%2Bp%2BONiyC6o6V5VlABU9%2BxtYQzXXKaOTyZLEjq2NdxRsisOdLq2TrXsa%2B%2FzqDZNNnT%2Fo7HprRvvmBbaYaMSA3Ko0MWFAmdkPS5pBUFLO09VL87lRRT7AGf7Q%3D%3D",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-01T15:50:13.694795+00:00"
   }
 }
