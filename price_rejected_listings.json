@@ -18978,5 +18978,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-01T22:35:12.923695+00:00"
+  },
+  "v1|227593295545|0": {
+    "item_id": "v1|227593295545|0",
+    "title": "Sunset Riders Wallet Official Konami Product Made by Fangamer 2018 OOP RARE",
+    "price": 129.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227593295545?_skw=Sunset+Riders&hash=item34fd9e16b9:g:kKoAAeSwcGlqahhT",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-01T22:55:11.026796+00:00"
   }
 }
