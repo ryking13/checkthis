@@ -218,6 +218,15 @@ ITEMS = [
         "every_n_runs": 3
     },
     {
+        "label": "sony wm-EX110 Walkman",
+        "query": "sony wm-EX110",
+        "max_price": 75,
+        "min_price": 9,
+        "require_words": ["sony", "walkman"],
+        "require_any": ["wm-EX110", "wm EX110", "wmEX110"],
+        "every_n_runs": 3
+    },
+    {
         "label": "Sennheiser HD 600 headphones",
         "query": "Sennheiser HD 600",
         "max_price": 175,
