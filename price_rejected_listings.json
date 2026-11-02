@@ -21136,5 +21136,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-02T19:50:14.131583+00:00"
+  },
+  "v1|237154167253|0": {
+    "item_id": "v1|237154167253|0",
+    "title": "2024 NY Yankees Seinfeld Day George Costanza Traveling Secretary Bobblehead",
+    "price": 149.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237154167253?_skw=George+Costanza+Traveling+Secretary+Bobble+Head&hash=item37377d69d5:g:6OsAAeSwSiVq5c5F",
+    "search_label": "Yankees Seinfeld George Costanza Traveling Secretary Bobble Head",
+    "search_query": "George Costanza Traveling Secretary Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-02T20:25:13.200763+00:00"
   }
 }
