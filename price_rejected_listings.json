@@ -21279,5 +21279,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-02T22:55:11.000523+00:00"
+  },
+  "v1|800868855781|0": {
+    "item_id": "v1|800868855781|0",
+    "title": "Apple Airport Express A1392 - 2nd generation with Power Cable Works",
+    "price": 30.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800868855781?_skw=airport+express+a1392&hash=itemba7780efe5:g:bekAAeSwbjZq6Rlk",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-11-02T23:35:11.406215+00:00"
   }
 }
