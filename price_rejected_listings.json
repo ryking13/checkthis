@@ -19199,5 +19199,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-02T13:00:17.940937+00:00"
+  },
+  "v1|287653202649|589536112134": {
+    "item_id": "v1|287653202649|589536112134",
+    "title": "🔥💁Brand New Apple iPod Classic 7th 160GB 256GB 1TB Best Gift Freeshipping🎶",
+    "price": 182.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287653202649?_skw=ipod+classic+7th+gen&hash=item42f9778ad9:g:uxkAAeSw5V9pU4an",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-02T13:05:14.602605+00:00"
   }
 }
