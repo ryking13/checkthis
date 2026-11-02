@@ -224,6 +224,7 @@ ITEMS = [
         "min_price": 95,
         "require_words": ["Sennheiser"],
         "require_any": ["HD 600", "HD600", "HD-600"],
+        "exclude_words": ["cable", "pads", "cord"],
     },
     {
         "label": "ryzen 5 5600x",
