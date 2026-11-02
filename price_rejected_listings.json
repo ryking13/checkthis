@@ -19160,5 +19160,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-11-02T08:00:17.628539+00:00"
+  },
+  "v1|820305353237|0": {
+    "item_id": "v1|820305353237|0",
+    "title": "Ogre Battle 64 Person of Lordly Caliber N64 Cartridge ATLUS Nintendo Authentic",
+    "price": 165.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820305353237?_skw=Ogre+Battle+64&hash=itembefe025a15:g:YbkAAeSwGERq6AlV",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "above_max",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-02T10:00:18.734125+00:00"
   }
 }
