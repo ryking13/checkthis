@@ -21214,5 +21214,18 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-11-02T21:25:11.465368+00:00"
+  },
+  "v1|227594637571|0": {
+    "item_id": "v1|227594637571|0",
+    "title": "AMD Ryzen 5 5600X 3.7 GHz 6 Cores (100-000000065) Processor & AMD Wraith Stealth",
+    "price": 129.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227594637571?_skw=ryzen+5+5600x&hash=item34fdb29103:g:n~MAAeSw8XFq6QFz",
+    "search_label": "ryzen 5 5600x",
+    "search_query": "ryzen 5 5600x",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-02T21:45:23.341733+00:00"
   }
 }
