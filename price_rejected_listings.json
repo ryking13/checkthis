@@ -21201,5 +21201,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-02T21:20:12.152011+00:00"
+  },
+  "v1|227337613270|526540195579": {
+    "item_id": "v1|227337613270|526540195579",
+    "title": "Retro N64 Goemon's Great Adventure Video Game T Shirt",
+    "price": 22.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227337613270?_skw=Goemon%27s+Great+Adventure&hash=item34ee60afd6:g:CMYAAeSwhjZp~~8L",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-02T21:25:11.465368+00:00"
   }
 }
