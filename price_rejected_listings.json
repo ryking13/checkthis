@@ -19121,5 +19121,31 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-11-02T04:00:17.265097+00:00"
+  },
+  "v1|227593661149|0": {
+    "item_id": "v1|227593661149|0",
+    "title": "Apple iPod classic 7th Generation (160GB) A1238 Black TESTED Excellent Condition",
+    "price": 190.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227593661149?_skw=ipod+classic+7th+gen&hash=item34fda3aadd:g:0hgAAeSwBElq6CyM",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-02T07:00:18.797173+00:00"
+  },
+  "v1|820305940600|0": {
+    "item_id": "v1|820305940600|0",
+    "title": "Castlevania Legacy of Darkness Game Cartridge For N64 Console, US Version",
+    "price": 22.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820305940600?_skw=Castlevania+Legacy+of+Darkness&hash=itembefe0b5078:g:KIAAAeSwa9Jq6C1G",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-02T07:00:18.797173+00:00"
   }
 }
