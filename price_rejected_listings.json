@@ -19056,5 +19056,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-02T01:45:13.788997+00:00"
+  },
+  "v1|920095394964|0": {
+    "item_id": "v1|920095394964|0",
+    "title": "Apple A1392 AirPort Express Base Station - MC414LL/A - Working",
+    "price": 30.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920095394964?_skw=airport+express+a1392&hash=itemd639f58c94:g:e-YAAeSw3rRq5-dj",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-11-02T02:00:16.876724+00:00"
   }
 }
