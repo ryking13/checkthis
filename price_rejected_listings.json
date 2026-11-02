@@ -21110,5 +21110,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-02T19:35:16.831764+00:00"
+  },
+  "v1|800868169659|0": {
+    "item_id": "v1|800868169659|0",
+    "title": "Lufia II: Rise of the Sinistrals (Super Nintendo SNES) Cartridge Only",
+    "price": 173.56,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800868169659?_skw=Lufia+II+Rise+of+Sinistrals&hash=itemba777677bb:g:aKoAAeSwKYJqqCjO&amdata=enc%3AAQALAAABAOf5zIIojhOf%2BkQK%2Bxzjn7mEDAIIuX7N6lx6gIT0eaKAZQlajJGdChVUxFee8fQF0ZBSv8ThEnLySdoqRRmDE5fpg5mSkfO71oOnGleDWwzZk7qJc1%2B8dgnnaMhlhBIPVDdZ4lj1ZIp7UzNDwo32SmjFP0E6hm1%2FIFdtG1qqevPKq0UTJ%2B2sEFZDh7DWXrmLtHz5N4IViop8Wap2TI5yrJaoRWmtM1WN2SNLGZE0Jd4Tdd0xaIYd%2B%2F5h9BNe31jR%2BBndXa%2BvcCybpRn%2B%2BDeXRZM9G77g%2FDS1zevQ4xORqSDj5d4SeFVOPd4zr0niJQGUeDiTQbV4VYq5uReBrKMRXWI%3D",
+    "search_label": "Lufia II Rise of Sinistrals SNES",
+    "search_query": "Lufia II Rise of Sinistrals",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-02T19:45:14.203466+00:00"
   }
 }
