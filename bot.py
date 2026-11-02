@@ -138,7 +138,7 @@ ITEMS = [
         "max_price": 100,
         "require_any": ["traveling", "secretary"],
         "exclude_words": ["schaumburg", "boomers", "coat", "nap", "sleep", "sleeping", "biologist", "calzone"],
-        "mode_only": "default", "every_n_runs": 2
+        "mode_only": "default", "every_n_runs": 8
     },
     {
         "label": "Seinfeld George Costanza coat Bobble Head",
@@ -197,7 +197,7 @@ ITEMS = [
         "require_words": ["sony", "walkman"],
         "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
         "exclude_words": ["parts", "repair", "broken", "non-working", "not working", "not work", "read"],
-        "mode_only": "default", "every_n_runs": 8
+        "every_n_runs": 3
     },
     {
         "label": "Sony WM-FS111 Sport Walkman FM Radio",
@@ -206,15 +206,31 @@ ITEMS = [
         "min_price": 9,
         "require_words": ["sony", "walkman"],
         "require_any": ["wm-fs111", "wm fs111", "wmfs111"],
-        "mode_only": "default", "every_n_runs": 8
+        "every_n_runs": 3
     },
     {
-        "label": "ryzen 5 5600",
-        "query": "ryzen 5 5600",
+        "label": "sony wm-FX195 Walkman",
+        "query": "sony wm-FX195",
+        "max_price": 30,
+        "min_price": 9,
+        "require_words": ["sony", "walkman"],
+        "require_any": ["wm-fx195", "wm fx195", "wmfx195"],
+        "every_n_runs": 3
+    },
+    {
+        "label": "Sennheiser HD 600 headphones",
+        "query": "Sennheiser HD 600",
+        "max_price": 175,
+        "min_price": 95,
+        "require_words": ["Sennheiser"],
+        "require_any": ["HD 600", "HD600", "HD-600"],
+    },
+    {
+        "label": "ryzen 5 5600x",
+        "query": "ryzen 5 5600x",
         "max_price": 110,
         "min_price": 60,
-        "require_words": ["ryzen"],
-        "require_any": ["5600", "5600x"],
+        "require_words": ["ryzen", "5600x"],
         "exclude_words": ["defective", "lot", "5600m", "5600h", "parts", "repair", "broken", "non-working", "not working", "not work", "5600g", "5600u", "3500", "3600", "3600x", "3700", "3700x", "3800", "3800x", "3900", "3900x", "3950", "3950x", "4100", "4300g", "4350g", "4400g", "4500g", "4600g", "4650g", "4700g", "4750g", "4800g", "4900g"],
     },
     {
