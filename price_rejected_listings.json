@@ -19095,5 +19095,18 @@
     "min_price": 85.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-11-02T02:45:13.994867+00:00"
+  },
+  "v1|168831757590|0": {
+    "item_id": "v1|168831757590|0",
+    "title": "AMD Ryzen 5 5600X3D Vermeer AM4 3.3GHz 6-Core Boxed Processor - Heatsink Not Inc",
+    "price": 149.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/168831757590?_skw=ryzen+5+5600&hash=item274f282d16:g:HRMAAeSwLlJq5~zu",
+    "search_label": "ryzen 5 5600",
+    "search_query": "ryzen 5 5600",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-02T03:10:13.255477+00:00"
   }
 }
