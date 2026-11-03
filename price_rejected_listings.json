@@ -22202,5 +22202,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-03T19:35:40.485279+00:00"
+  },
+  "v1|227534685149|0": {
+    "item_id": "v1|227534685149|0",
+    "title": "AMD Ryzen 5 5600X 6-core, 12-thread unlocked desktop processor",
+    "price": 143.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227534685149?_skw=ryzen+5+5600x&hash=item34fa1fc3dd:g:0ZcAAeSwC3RqsuLn",
+    "search_label": "ryzen 5 5600x",
+    "search_query": "ryzen 5 5600x",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-03T20:15:16.176023+00:00"
   }
 }
