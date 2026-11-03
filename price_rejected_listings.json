@@ -22267,5 +22267,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-03T21:35:22.922336+00:00"
+  },
+  "v1|318777556427|0": {
+    "item_id": "v1|318777556427|0",
+    "title": "Broken Sony Walkman Cassette Tape Portable Cassette Player WM-FS111 Bad Motor",
+    "price": 35.74,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/318777556427?_skw=Sony+WM-FS111+Walkman&hash=item4a389f7dcb:g:KTsAAeSwHO1qjaIu",
+    "search_label": "Sony WM-FS111 Sport Walkman FM Radio",
+    "search_query": "Sony WM-FS111 Walkman",
+    "rejection": "above_max",
+    "min_price": 9.0,
+    "max_price": 30.0,
+    "first_recorded_at": "2026-11-03T21:40:19.027425+00:00"
   }
 }
