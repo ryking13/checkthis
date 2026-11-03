@@ -21318,5 +21318,18 @@
     "min_price": 70.0,
     "max_price": 170.0,
     "first_recorded_at": "2026-11-03T01:35:12.666832+00:00"
+  },
+  "v1|820308912147|0": {
+    "item_id": "v1|820308912147|0",
+    "title": "Ogre Battle Nintendo 64",
+    "price": 39.58,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820308912147?_skw=Ogre+Battle+64&hash=itembefe38a813:g:tJgAAeSwi7Vq6T8r",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-03T02:05:11.083555+00:00"
   }
 }
