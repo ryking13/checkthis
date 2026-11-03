@@ -21396,5 +21396,18 @@
     "min_price": null,
     "max_price": 20.0,
     "first_recorded_at": "2026-11-03T03:35:22.531381+00:00"
+  },
+  "v1|940061406485|0": {
+    "item_id": "v1|940061406485|0",
+    "title": "Mega Man X2 (SNES, 1995) Authentic Tested And Working With Clamshell Case",
+    "price": 225.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940061406485?_skw=Mega+Man+X2&hash=itemdae006b515:g:b5oAAeSw~BVq6Vij",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-03T03:50:12.915627+00:00"
   }
 }
