@@ -22228,5 +22228,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-03T20:25:25.387710+00:00"
+  },
+  "v1|147664783133|0": {
+    "item_id": "v1|147664783133|0",
+    "title": "Mega Man X2 (Super Nintendo SNES) Authentic - Game Only - Tested",
+    "price": 200.18,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/147664783133?_skw=Mega+Man+X2&hash=item226181c71d:g:wfEAAeSwamJq6kVQ",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-03T20:45:21.904287+00:00"
   }
 }
