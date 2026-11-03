@@ -190,15 +190,6 @@ ITEMS = [
         "exclude_words": ["Treatise", "guide", "school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
     {
-        "label": "HP 48gx calculator",
-        "query": "hp 48gx calculator",
-        "max_price": 150,
-        "min_price": 45,
-        "require_words": ["hp", "calculator"],
-        "require_any": ["48gx", "48 gx", "48-gx"],
-        "exclude_words": ["Treatise", "guide", "school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
-    },
-    {
         "label": "Sony WM-FS111 Sport Walkman FM Radio",
         "query": "Sony WM-FS111 Walkman",
         "max_price": 65,
