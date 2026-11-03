@@ -172,21 +172,30 @@ ITEMS = [
         "require_any": ["3rd", "MN893LL/A", "A2843"],
         "exclude_words": ["mount", "siri", "case", "A1469", "A1218", "A1378", "A1427", "A1469", "A1625", "A1842", "A2169", "A2737", "MA711LL/A", "MB180LL/A", "MC572LL/A", "MD199LL/A", "MGY52LL/A", "MLNC2LL/A", "MQD22LL/A", "MP7P2LL/A", "MXGY2LL/A", "MXH02LL/A", "MN873LL/A"]
     },
-    {
-        "label": "ipod classic 7th gen",
-        "query": "ipod classic 7th gen",
-        "max_price": 135,
-        "min_price": 85,
-        "require_words": ["ipod"],
-        "require_any": ["160gb", "160", "160 gb"],
-        "exclude_words": ["upgrade", "nano", "parts", "flawed", "touch", "housing", "headphone", "adapter", "6th", "5th", "4th", "3rd", "2nd", "1st", "broken", "repair", "silicone", "kit", "button", "lot", "ssd", "drive", "socks", "sock", "6", "5", "4", "3", "2", "1"],
-    },
+    #{
+    #    "label": "ipod classic 7th gen",
+    #    "query": "ipod classic 7th gen",
+    #    "max_price": 135,
+    #    "min_price": 85,
+    #    "require_words": ["ipod"],
+    #    "require_any": ["160gb", "160", "160 gb"],
+    #    "exclude_words": ["upgrade", "nano", "parts", "flawed", "touch", "housing", "headphone", "adapter", "6th", "5th", "4th", "3rd", "2nd", "1st", "broken", "repair", "silicone", "kit", "button", "lot", "ssd", "drive", "socks", "sock", "6", "5", "4", "3", "2", "1"],
+    #},
     {
         "label": "TI-Nspire CX II CAS",
         "query": "ti-nspire cx ii cas",
         "max_price": 65,
         "min_price": 45,
         "require_words": ["cx", "ii", "cas"],
+        "exclude_words": ["Treatise", "guide", "school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
+    },
+    {
+        "label": "HP 48gx calculator",
+        "query": "hp 48gx calculator",
+        "max_price": 150,
+        "min_price": 45,
+        "require_words": ["hp", "calculator"],
+        "require_any": ["48gx", "48 gx", "48-gx"],
         "exclude_words": ["Treatise", "guide", "school", "case", "silicone", "parts", "repair", "broken", "docking", "manual"],
     },
     {
@@ -215,6 +224,15 @@ ITEMS = [
         "min_price": 9,
         "require_words": ["sony", "walkman"],
         "require_any": ["wm-fx195", "wm fx195", "wmfx195"],
+        "every_n_runs": 3
+    },
+    {
+        "label": "sony wm-FX190 Walkman",
+        "query": "sony wm-FX190",
+        "max_price": 30,
+        "min_price": 9,
+        "require_words": ["sony", "walkman"],
+        "require_any": ["wm-fx190", "wm fx190", "wmfx190"],
         "every_n_runs": 3
     },
     {
