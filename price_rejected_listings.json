@@ -21344,5 +21344,31 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-11-03T02:20:15.098150+00:00"
+  },
+  "v1|407334957502|0": {
+    "item_id": "v1|407334957502|0",
+    "title": "Apple AirPort Express Base Station (2nd Generation) A1392 White w/ Power Cord",
+    "price": 30.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407334957502?_skw=airport+express+a1392&hash=item5ed70e31be:g:bfcAAeSwNLBq6TjS",
+    "search_label": "AirPort Express A1392",
+    "search_query": "airport express a1392",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 20.0,
+    "first_recorded_at": "2026-11-03T02:55:12.905188+00:00"
+  },
+  "v1|377616660490|0": {
+    "item_id": "v1|377616660490|0",
+    "title": "1991 Topps Chipper Jones #333 RC Rookie #1 Draft Pick PSA 10 GEM MINT Braves HOF",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377616660490?_skw=Chipper+Jones+1991+Topps+333+psa+10&hash=item57ebb4f80a:g:bD8AAeSwv05q6UMW",
+    "search_label": "Chipper Jones 1991 Topps #333 PSA 10",
+    "search_query": "Chipper Jones 1991 Topps 333 psa 10",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-03T02:55:12.905188+00:00"
   }
 }
