@@ -22345,5 +22345,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-03T23:15:13.354249+00:00"
+  },
+  "v1|287702958532|0": {
+    "item_id": "v1|287702958532|0",
+    "title": "AMD Ryzen 5 5600X 6-Core Socket AM4 3.7GHz CPU Processor w/ Wraith Cooler",
+    "price": 115.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287702958532?_skw=ryzen+5+5600x&hash=item42fc6ec1c4:g:2scAAeSwH8lq6nGw",
+    "search_label": "ryzen 5 5600x",
+    "search_query": "ryzen 5 5600x",
+    "rejection": "above_max",
+    "min_price": 60.0,
+    "max_price": 110.0,
+    "first_recorded_at": "2026-11-03T23:50:12.385764+00:00"
   }
 }
