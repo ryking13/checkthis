@@ -22488,5 +22488,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-04T08:00:16.719342+00:00"
+  },
+  "v1|366783922931|0": {
+    "item_id": "v1|366783922931|0",
+    "title": "Castlevainia Legacy of Darkness - Nintendo 64 new - Free Shipping ",
+    "price": 36.79,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366783922931?_skw=Castlevania+Legacy+of+Darkness&hash=item55660682f3:g:nT8AAeSwPnxqxbZ~",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-04T09:00:17.527546+00:00"
   }
 }
