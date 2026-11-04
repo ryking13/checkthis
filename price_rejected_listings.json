@@ -22579,5 +22579,18 @@
     "min_price": 95.0,
     "max_price": 175.0,
     "first_recorded_at": "2026-11-04T13:05:12.338970+00:00"
+  },
+  "v1|267833322311|0": {
+    "item_id": "v1|267833322311|0",
+    "title": "Sennheiser HD 600 Wired Headphones – Open-back dynamic wired over-ear headphones",
+    "price": 236.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267833322311?_skw=Sennheiser+HD+600&hash=item3e5c1c2b47:g:V5QAAeSwlGRq2L~W",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-04T15:55:11.935021+00:00"
   }
 }
