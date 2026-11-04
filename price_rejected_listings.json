@@ -22618,5 +22618,18 @@
     "min_price": 60.0,
     "max_price": 110.0,
     "first_recorded_at": "2026-11-04T17:25:11.826957+00:00"
+  },
+  "v1|267833395662|0": {
+    "item_id": "v1|267833395662|0",
+    "title": "Sennheiser HD 600 Audiophile Open-Back Wired Over-Ear Stereo Headphones",
+    "price": 219.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267833395662?_skw=Sennheiser+HD+600&hash=item3e5c1d49ce:g:27QAAeSw2ipq2YUZ",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-04T17:40:13.799655+00:00"
   }
 }
