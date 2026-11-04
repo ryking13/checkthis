@@ -235,14 +235,14 @@ ITEMS = [
         "require_any": ["HD 600", "HD600", "HD-600"],
         "exclude_words": ["cable", "pads", "cord"],
     },
-    {
-        "label": "ryzen 5 5600x",
-        "query": "ryzen 5 5600x",
-        "max_price": 110,
-        "min_price": 60,
-        "require_words": ["ryzen", "5600x"],
-        "exclude_words": ["defective", "lot", "5600m", "5600h", "parts", "repair", "broken", "non-working", "not working", "not work", "5600g", "5600u", "3500", "3600", "3600x", "3700", "3700x", "3800", "3800x", "3900", "3900x", "3950", "3950x", "4100", "4300g", "4350g", "4400g", "4500g", "4600g", "4650g", "4700g", "4750g", "4800g", "4900g"],
-    },
+    #{
+    #    "label": "ryzen 5 5600x",
+    #    "query": "ryzen 5 5600x",
+    #    "max_price": 110,
+    #    "min_price": 60,
+    #    "require_words": ["ryzen", "5600x"],
+    #    "exclude_words": ["defective", "lot", "5600m", "5600h", "parts", "repair", "broken", "non-working", "not working", "not work", "5600g", "5600u", "3500", "3600", "3600x", "3700", "3700x", "3800", "3800x", "3900", "3900x", "3950", "3950x", "4100", "4300g", "4350g", "4400g", "4500g", "4600g", "4650g", "4700g", "4750g", "4800g", "4900g"],
+    #},
     {
         "label": "PGA European Tour n64",
         "query": "PGA European Tour n64",
