@@ -23619,5 +23619,18 @@
     "min_price": 95.0,
     "max_price": 175.0,
     "first_recorded_at": "2026-11-05T21:40:13.781806+00:00"
+  },
+  "v1|237166184838|0": {
+    "item_id": "v1|237166184838|0",
+    "title": "StarCraft 64 Nintendo 64 N64 T NTSC-U/C 2000 clean label/tested/blockbuster",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237166184838?_skw=StarCraft+64&hash=item373834c986:g:MScAAeSwx89q7PkS",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-05T21:55:11.444908+00:00"
   }
 }
