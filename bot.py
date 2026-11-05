@@ -156,13 +156,13 @@ ITEMS = [
         "exclude_words": ["schaumburg", "boomers", "traveling", "secretary", "nap", "sleep", "sleeping", "calzone"],
         "mode_only": "default", "every_n_runs": 2
     },
-    {
-        "label": "AirPort Express A1392",
-        "query": "airport express a1392",
-        "max_price": 20,
-        "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
-        "mode_only": "default", "every_n_runs": 4
-    },
+    #{
+    #    "label": "AirPort Express A1392",
+    #    "query": "airport express a1392",
+    #    "max_price": 20,
+    #    "exclude_words": ["a1264", "a1084", "a1143", "a1408", "a1301"],
+    #    "mode_only": "default", "every_n_runs": 4
+    #},
     {
         "label": "apple tv 4k 3rd gen",
         "query": "apple tv 4k 3rd",
