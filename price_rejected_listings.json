@@ -23554,5 +23554,31 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-05T19:40:16.858711+00:00"
+  },
+  "v1|880086648309|0": {
+    "item_id": "v1|880086648309|0",
+    "title": "Castlevania Legacy of Darkness (Nintendo 64 N64, 1999)",
+    "price": 179.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880086648309?_skw=Castlevania+Legacy+of+Darkness&hash=itemcce94085f5:g:gAkAAeSwg2Fq7Npt",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-05T19:45:19.658767+00:00"
+  },
+  "v1|960158853045|0": {
+    "item_id": "v1|960158853045|0",
+    "title": "Indiana Jones and the Infernal Machine N64 Authentic Tested Blockbuster Rental",
+    "price": 99.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960158853045?_skw=Indiana+Jones+Infernal+Machine+n64&hash=itemdf8ded67b5:g:Ec0AAeSwthZq7Jxx",
+    "search_label": "Indiana Jones Infernal Machine",
+    "search_query": "Indiana Jones Infernal Machine n64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-05T19:45:19.658767+00:00"
   }
 }
