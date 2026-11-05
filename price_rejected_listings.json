@@ -22774,5 +22774,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-05T02:20:15.700189+00:00"
+  },
+  "v1|287705897644|0": {
+    "item_id": "v1|287705897644|0",
+    "title": "Konami Castlevania: Legacy of Darkness Nintendo 64 N64 NTSC-U/C T Teen",
+    "price": 185.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287705897644?_skw=Castlevania+Legacy+of+Darkness&hash=item42fc9b9aac:g:L9YAAeSwr0dq4nsz&amdata=enc%3AAQALAAABAOf5zIIojhOf%2BkQK%2Bxzjn7kxml4N1S%2FWI90AKXWt4bWpZW05V9EhX3HIH81zfRzbsqpi7P%2F8ibXbE6WlU2FLNrNNT0ABxp%2BWAioMUUPzBgJ9QiyOIp00H96A0%2BL83s0exYwk0P9fcJ1xhg%2B7jWVlWLZJ6BMGaHKvQYYhej1MW0AGiaaJ9ql3Z1bT%2FZmukEOjr74laP73bB26eeWBHOpKWtspj9gvhIqnbssevwYr0a6cG7F0KDdXSFT3a%2Bf2xNU8eneGJ4znjmpO%2BuDrlXo4%2BFhiZ5XePV%2BD2%2FGcpVkyYnSFoPyFR67fkyUidX%2FK%2BW7pRBM6id20n%2F6HDEWbETXVQ6U%3D",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-05T03:20:13.830535+00:00"
+  },
+  "v1|206676511800|0": {
+    "item_id": "v1|206676511800|0",
+    "title": "Ogre Battle 64: Person of Lordly Caliber Nintendo 64 N64 Game Cartridge Classic",
+    "price": 28.23,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206676511800?_skw=Ogre+Battle+64&hash=item301ee14c38:g:y7AAAeSwcg9qCo3B",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-05T03:20:13.830535+00:00"
   }
 }
