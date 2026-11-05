@@ -436,7 +436,7 @@ ITEMS = [
     {
         "label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
         "query": "Luka Doncic 2018 Prizm 280 psa 10",
-        "max_price": 170,
+        "max_price": 200,
         "min_price": 70,
         "require_words": ["luka", "doncic", "280"],
         "require_any": ["psa 10", "psa10", "psa-10"],
