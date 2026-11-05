@@ -23424,5 +23424,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-11-05T15:40:13.898075+00:00"
+  },
+  "v1|366787836435|0": {
+    "item_id": "v1|366787836435|0",
+    "title": "Dracula Densetsu Castlevania Nintendo Game Boy Konami 1989 Tested",
+    "price": 36.63,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366787836435?_skw=Castlevania+Legacy+of+Darkness&hash=item5566423a13:g:EC8AAeSw1VJqoQts",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-05T16:30:16.428413+00:00"
   }
 }
