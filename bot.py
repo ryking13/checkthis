@@ -339,14 +339,14 @@ ITEMS = [
     #    "require_any": ["Run Saber"],
     #    "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
     #},
-    {
-        "label": "Robotrek SNES",
-        "query": "Robotrek",
-        "max_price": 100,
-        "min_price": 51,
-        "require_any": ["Robotrek"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
-    },
+    #{
+    #    "label": "Robotrek SNES",
+    #    "query": "Robotrek",
+    #    "max_price": 100,
+    #    "min_price": 51,
+    #    "require_any": ["Robotrek"],
+    #    "exclude_words": RETRO_EXCLUDE_WORDS + ["manual", "box", "booklet"],
+    #},
     {
         "label": "Mega Man X2 SNES",
         "query": "Mega Man X2",
