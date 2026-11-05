@@ -22865,5 +22865,18 @@
     "min_price": 95.0,
     "max_price": 175.0,
     "first_recorded_at": "2026-11-05T10:00:17.245800+00:00"
+  },
+  "v1|206674988865|0": {
+    "item_id": "v1|206674988865|0",
+    "title": "Apple TV 4K 3rd Gen 128GB Wi-Fi + Ethernet Black MN893LL/A WITH REMOTE USED MINT",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206674988865?_skw=apple+tv+4k+3rd&hash=item301eca0f41:g:nWwAAeSwjaFq6yiL",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-05T13:00:17.182982+00:00"
   }
 }
