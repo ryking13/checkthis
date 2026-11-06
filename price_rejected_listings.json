@@ -23684,5 +23684,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-06T15:45:13.748778+00:00"
+  },
+  "v1|327443293113|0": {
+    "item_id": "v1|327443293113|0",
+    "title": "Sony WALKMAN Sports WM-FS111 Portable AM/FM Radio Cassette Player Mega Bass Vtg*",
+    "price": 93.91,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327443293113?_skw=Sony+WM-FS111+Walkman&hash=item4c3d2423b9:g:UA8AAOSwDD5nHo5j",
+    "search_label": "Sony WM-FS111 Sport Walkman FM Radio",
+    "search_query": "Sony WM-FS111 Walkman",
+    "rejection": "above_max",
+    "min_price": 20.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-11-06T15:55:11.219544+00:00"
   }
 }
