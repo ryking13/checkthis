@@ -659,7 +659,12 @@ def search_item(token: str, item: dict, discovery_mode: str) -> tuple[list[dict]
     # via "include_auctions": True instead of hardcoding fixed-price-only
     # for everything.
     buying_options = "FIXED_PRICE|AUCTION" if item.get("include_auctions") else "FIXED_PRICE"
-    filter_value = f"buyingOptions:{{{buying_options}}},{price_clause},priceCurrency:USD"
+    # Server-side Browse API filter: return only listings whose item location is in the US.
+    # This is distinct from EBAY_US (marketplace) and deliveryCountry (shipping destination).
+    filter_value = (
+        f"buyingOptions:{{{buying_options}}},{price_clause},"
+        "priceCurrency:USD,itemLocationCountry:US"
+    )
 
     all_results = []
     pages_scanned = 0
