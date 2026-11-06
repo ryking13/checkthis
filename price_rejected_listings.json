@@ -23645,5 +23645,18 @@
     "min_price": 51.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-11-05T22:25:14.483994+00:00"
+  },
+  "v1|327442338181|0": {
+    "item_id": "v1|327442338181|0",
+    "title": "Lufia II: Rise of the Sinistrals (Super Nintendo Entertainment System 1996) SNES",
+    "price": 189.9,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327442338181?_skw=Lufia+II+Rise+of+Sinistrals&hash=item4c3d159185:g:vmEAAeSw8nxq7UPn",
+    "search_label": "Lufia II Rise of Sinistrals SNES",
+    "search_query": "Lufia II Rise of Sinistrals",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-06T03:10:16.375930+00:00"
   }
 }
