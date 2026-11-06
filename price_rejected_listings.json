@@ -25426,5 +25426,31 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-06T20:45:12.727732+00:00"
+  },
+  "v1|820325431601|0": {
+    "item_id": "v1|820325431601|0",
+    "title": "Apple TV 4K 3rd Gen 64GB Digital HD Media Streamer MN893LL/A WiFi Only",
+    "price": 199.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820325431601?_skw=apple+tv+4k+3rd&hash=itembeff34b931:g:ZoUAAeSws~hq7kIV",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-06T21:15:13.968949+00:00"
+  },
+  "v1|287710168122|0": {
+    "item_id": "v1|287710168122|0",
+    "title": "Castlevania: Legacy Of Darkness Konami Nintendo 64 N64 64 Video Game Cartridge",
+    "price": 169.87,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287710168122?_skw=Castlevania+Legacy+of+Darkness&hash=item42fcdcc43a:g:VYwAAeSwA7Bq7kJs",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-06T21:15:13.968949+00:00"
   }
 }
