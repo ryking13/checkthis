@@ -25387,5 +25387,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-06T19:05:17.012942+00:00"
+  },
+  "v1|287710037907|0": {
+    "item_id": "v1|287710037907|0",
+    "title": "Brooklyn Cyclones Seinfeld Night George Costanza Marine Biologist Bobblehead SGA",
+    "price": 89.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287710037907?_skw=George+Costanza+marine+biologist+Bobble+Head&hash=item42fcdac793:g:8q8AAeSwm9Bq7iyd",
+    "search_label": "Seinfeld George Costanza marine biologist Bobble Head",
+    "search_query": "George Costanza marine biologist Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 70.0,
+    "first_recorded_at": "2026-11-06T20:10:15.474642+00:00"
   }
 }
