@@ -280,7 +280,7 @@ ITEMS = [
         "label": "Pokemon Stadium 2 (need $50 or less)",
         "query": "pokemon stadium 2",
         "max_price": 60,
-        "min_price": 39,
+        "min_price": 54,
         "require_any": ["pokemon stadium 2"],
         "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds", "strategy", "guide"],
     },
