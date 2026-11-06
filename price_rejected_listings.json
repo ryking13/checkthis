@@ -25504,5 +25504,18 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-06T22:15:13.230256+00:00"
+  },
+  "v1|287518142926|589422990879": {
+    "item_id": "v1|287518142926|589422990879",
+    "title": "Ogre Battle 64 Person of Lordly Caliber Unisex Jersey Short Sleeve Graphic Tee",
+    "price": 22.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287518142926?_skw=Ogre+Battle+64&hash=item42f16ab1ce:g:ZOEAAeSwWQxqes5C&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7ntj2KiMbvExQ%2B%2FBKsupU9QOVxinKLobY9jQihTzJ%2BeoJRJwnQtQ%2Fahh5%2Fy1SzCnOF1UXShUbJTWuasTrDrDQcGz23gYKSgFdrgcrAJj7TKOoQb0xFBFHcc77zv0lpObzwKAYx8hLnoLy8qPJjXOnv7x5gP6xWGLn23IfxfbajTkLaIQwXHryCUEfL599rQmkyaLT1%2FIey2isA%2B3Xh7xz4lBKnzBdO8zc7ASGmDExGdw%2FWR7P1HqmESTXs3LUwKEG6ykkAcqWCNJzQXIFldwy2Pe%2Bi4H44q3YW5QVPGFEvUqQ%3D%3D",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-06T22:40:13.179088+00:00"
   }
 }
