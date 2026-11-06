@@ -282,7 +282,7 @@ ITEMS = [
         "max_price": 60,
         "min_price": 39,
         "require_any": ["pokemon stadium 2"],
-        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds"],
+        "exclude_words": RETRO_EXCLUDE_WORDS + ["card", "cards", "deck", "3ds", "strategy", "guide"],
     },
     #{
     #    "label": "Snowboard Kids 2",
