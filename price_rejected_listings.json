@@ -23658,5 +23658,18 @@
     "min_price": 51.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-11-06T03:10:16.375930+00:00"
+  },
+  "v1|860118428097|0": {
+    "item_id": "v1|860118428097|0",
+    "title": "Tested Compatible N64 Cartridge – Goemon's Great Adventure, Cart Only",
+    "price": 36.55,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860118428097?_skw=Goemon%27s+Great+Adventure&hash=itemc8430da9c1:g:gQgAAeSwakhq7aJp",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-06T10:00:19.129703+00:00"
   }
 }
