@@ -25725,5 +25725,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-07T19:25:13.295770+00:00"
+  },
+  "v1|800890029817|0": {
+    "item_id": "v1|800890029817|0",
+    "title": "2018-19 Panini Prizm Luka Dončić RC Base Set #280 Dallas Mavericks PSA 10",
+    "price": 245.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800890029817?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemba78c406f9:g:-0kAAeSwZbdq74z2",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-07T20:50:13.837074+00:00"
   }
 }
