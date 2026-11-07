@@ -25543,5 +25543,18 @@
     "min_price": null,
     "max_price": 40.0,
     "first_recorded_at": "2026-11-07T02:25:11.253566+00:00"
+  },
+  "v1|287710716687|0": {
+    "item_id": "v1|287710716687|0",
+    "title": "Konami Goemon's Great Adventure Nintendo 64 N64 Game Cartridge E NTSC-U/C",
+    "price": 145.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287710716687?_skw=Goemon%27s+Great+Adventure&hash=item42fce5230f:g:ylEAAeSw14tq7o9a",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-07T02:45:15.409667+00:00"
   }
 }
