@@ -25569,5 +25569,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-07T02:50:13.524426+00:00"
+  },
+  "v1|407345870331|0": {
+    "item_id": "v1|407345870331|0",
+    "title": "Mega Man X2 (SNES) Rare Authentic Capcom Game - Tested + Dust Cover",
+    "price": 215.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407345870331?_skw=Mega+Man+X2&hash=item5ed7b4b5fb:g:TnwAAeSwisVq7pA5",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-07T02:55:12.133911+00:00"
   }
 }
