@@ -25621,5 +25621,18 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-11-07T05:00:15.631478+00:00"
+  },
+  "v1|860121300178|0": {
+    "item_id": "v1|860121300178|0",
+    "title": "Tested Compatible N64 Cartridge – Castlevania: Legacy of Darkness, Cart Only",
+    "price": 36.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860121300178?_skw=Castlevania+Legacy+of+Darkness&hash=itemc843397cd2:g:bIMAAeSw3mdq7utv",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-07T10:00:18.248184+00:00"
   }
 }
