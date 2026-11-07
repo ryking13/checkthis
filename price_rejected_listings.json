@@ -25595,5 +25595,31 @@
     "min_price": 39.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-07T03:10:16.748798+00:00"
+  },
+  "v1|840102757912|0": {
+    "item_id": "v1|840102757912|0",
+    "title": "Castlevania Legacy Of Darkness N64",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840102757912?_skw=Castlevania+Legacy+of+Darkness&hash=itemc39a06c618:g:63kAAeSwl2Jq7qKg",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-07T05:00:15.631478+00:00"
+  },
+  "v1|377627730766|0": {
+    "item_id": "v1|377627730766|0",
+    "title": "Banjo-Kazooie, NINTENDO 64, N64, NTSC-J, 1998, CARTRIDGE ONLY",
+    "price": 20.8,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377627730766?_skw=Goemon%27s+Great+Adventure&hash=item57ec5de34e:g:wF0AAeSwChBq0uHx",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-07T05:00:15.631478+00:00"
   }
 }
