@@ -25816,5 +25816,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-08T00:40:16.178513+00:00"
+  },
+  "v1|860123239213|0": {
+    "item_id": "v1|860123239213|0",
+    "title": "Sony Walkman Lot Wm-Fx22 Wm-Fx195 Wm-Fx251",
+    "price": 45.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860123239213?_skw=sony+wm-FX195&hash=itemc84357132d:g:YVcAAeSwvIxq78LI",
+    "search_label": "sony wm-FX195 Walkman",
+    "search_query": "sony wm-FX195",
+    "rejection": "above_max",
+    "min_price": 9.0,
+    "max_price": 30.0,
+    "first_recorded_at": "2026-11-08T00:55:09.352989+00:00"
   }
 }
