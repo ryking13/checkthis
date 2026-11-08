@@ -25946,5 +25946,18 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-11-08T12:00:20.803621+00:00"
+  },
+  "v1|366794890935|0": {
+    "item_id": "v1|366794890935|0",
+    "title": "Castlevania Legacy of Darkness Nintendo N64 REPRODUCTION Konami Game Cartridge",
+    "price": 32.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366794890935?_skw=Castlevania+Legacy+of+Darkness&hash=item5566addeb7:g:mgIAAeSwGG1q791l&amdata=enc%3AAQALAAABAOf5zIIojhOf%2BkQK%2Bxzjn7nMQRNbKtReQ6Kw4W6itxtUlZPziGL7tDFwYEiN2F1gXcRIXpUdhYeZhF7Hz2R2arJZIgJFCXSohdvSYdhSMKfN7iwTST%2BvUOPVuX8kThftzVBmp4ZI5lXgWEijuzK%2FdXwI0pob%2BC8zGlHsxlxbinOTlWSnpEZARCLgdtZbQOSgr6sOyqkglF4U0cD4d1Y4vtXybfeozREFdFFJTieILy7UjJN%2FG6BsCCCUsb0ralPnNp3rmIjE5ssMFgdicjTamppKfcH38ynqmiLXG8yO8KYlNw2gPzEf7z3gOBE8UzjwufOsY7yxTaM12OHMWI7mWUM%3D",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-08T15:25:11.880532+00:00"
   }
 }
