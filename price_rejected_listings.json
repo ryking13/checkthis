@@ -25803,5 +25803,18 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-08T00:10:12.526982+00:00"
+  },
+  "v1|377629495143|0": {
+    "item_id": "v1|377629495143|0",
+    "title": "Apple TV 4K (3rd Gen) 128GB  WiFi + Ethernet A2843 | MN893LL/A | Black",
+    "price": 182.49,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377629495143?_skw=apple+tv+4k+3rd&hash=item57ec78cf67:g:6OsAAeSwMixq78Ly",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-08T00:40:16.178513+00:00"
   }
 }
