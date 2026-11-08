@@ -25933,5 +25933,18 @@
     "min_price": 39.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-08T08:00:16.982813+00:00"
+  },
+  "v1|960170197912|0": {
+    "item_id": "v1|960170197912|0",
+    "title": "Castlevania Legacy of Darkness N64 CARTRIDGE ONLY Authentic Tested OEM",
+    "price": 165.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960170197912?_skw=Castlevania+Legacy+of+Darkness&hash=itemdf8e9a8398:g:fEEAAeSwQIBq8GH9",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-08T12:00:20.803621+00:00"
   }
 }
