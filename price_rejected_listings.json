@@ -26024,5 +26024,31 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-08T18:35:11.521876+00:00"
+  },
+  "v1|800893581985|0": {
+    "item_id": "v1|800893581985|0",
+    "title": "Seinfeld George Costanza Calzone Bobblehead NY Yankees SGA 8/27/26 Bobble head",
+    "price": 60.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800893581985?_skw=George+Costanza+Calzone+Bobble+Head&hash=itemba78fa3aa1:g:JGQAAeSwXxVq8Mra",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-11-08T19:35:21.010854+00:00"
+  },
+  "v1|267837752089|0": {
+    "item_id": "v1|267837752089|0",
+    "title": "Apple iPod Classic Silver, 160GB",
+    "price": 75.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267837752089?_skw=ipod+classic+7th+gen&hash=item3e5c5fc319:g:AykAAeSwJZxq8Mz2&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7lWjUYFW9HEv59Rh0IFvDsGczDAW1A6OkFqFf6ht%2Feffc7IyERAxe5cM94%2FrMQhxaiFg4uEyEnmtb9jgiIadJW2xmErt4%2FTUy7jQt5bYLhB4Im2rGXOX3nFmBHoLCjJ2xFNN07TBZKwqZhY77c9QQ7h1Fgh0RVaDAsda5lpA1%2FDW2MJ8e2yUds4ja5B1rpfHDnuA26fXCCCALoJWN9w9nKZ5Dn4jGSHJj2uS11%2FhE%2BLbItUA8W38sF46rFTTwanv4Hhzsa4FUpIcULLyEGCJqRbKOIaoJ2XV0vAw1eyhL43ng%3D%3D",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "below_min",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-08T19:35:21.010854+00:00"
   }
 }
