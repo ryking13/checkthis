@@ -26063,5 +26063,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-08T21:15:11.523343+00:00"
+  },
+  "v1|357212999101|0": {
+    "item_id": "v1|357212999101|0",
+    "title": "Sennheiser HD 600 Over the Ear Headphone Audiophile Hi-Res Open Back - Black",
+    "price": 229.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/357212999101?_skw=Sennheiser+HD+600&hash=item532b8dcdbd:g:MKQAAeSwj~VoZVjT",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-08T22:00:18.132165+00:00"
   }
 }
