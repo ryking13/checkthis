@@ -26193,5 +26193,18 @@
     "min_price": 95.0,
     "max_price": 175.0,
     "first_recorded_at": "2026-11-09T12:00:17.932185+00:00"
+  },
+  "v1|147433104391|0": {
+    "item_id": "v1|147433104391|0",
+    "title": "Apple 2022 Apple TV 4K Wi‑Fi with 64GB Storage (3rd Generation) - Grade A",
+    "price": 192.48,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/147433104391?_skw=apple+tv+4k+3rd&hash=item2253b2a407:g:ZWUAAeSw1ihqWNgg",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-09T13:00:18.789905+00:00"
   }
 }
