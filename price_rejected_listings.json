@@ -26375,5 +26375,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-09T22:45:14.133962+00:00"
+  },
+  "v1|800897880218|0": {
+    "item_id": "v1|800897880218|0",
+    "title": "Konami Goemon's Great Adventure Nintendo 64 Action Adventure Manual NTSC-U/C E",
+    "price": 140.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800897880218?_skw=Goemon%27s+Great+Adventure&hash=itemba793bd09a:g:pJMAAeSwDDxq8lBp",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-09T23:10:16.794392+00:00"
   }
 }
