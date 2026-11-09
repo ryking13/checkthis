@@ -26284,5 +26284,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-11-09T18:45:17.466838+00:00"
+  },
+  "v1|377633464628|0": {
+    "item_id": "v1|377633464628|0",
+    "title": "Apple TV 4K 3rd Gen A2843 128GB Black 2160p Wi-Fi HDMI HDR10 Atmos L61",
+    "price": 199.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377633464628?_skw=apple+tv+4k+3rd&hash=item57ecb56134:g:2uEAAeSwzKtq8hko",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-09T19:10:13.445208+00:00"
   }
 }
