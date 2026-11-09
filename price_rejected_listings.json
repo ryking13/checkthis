@@ -26245,5 +26245,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-11-09T17:15:15.478456+00:00"
+  },
+  "v1|267838790963|0": {
+    "item_id": "v1|267838790963|0",
+    "title": "Vintage Sony Sports FM/AM Radio Cassette Walkman WM-FS111 w/ MDR-W014 Headphones",
+    "price": 89.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267838790963?_skw=Sony+WM-FS111+Walkman&hash=item3e5c6f9d33:g:RbwAAeSwCEdpwmZb",
+    "search_label": "Sony WM-FS111 Sport Walkman FM Radio",
+    "search_query": "Sony WM-FS111 Walkman",
+    "rejection": "above_max",
+    "min_price": 20.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-11-09T17:30:15.846388+00:00"
   }
 }
