@@ -26180,5 +26180,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-11-09T10:00:19.223612+00:00"
+  },
+  "v1|820334670146|0": {
+    "item_id": "v1|820334670146|0",
+    "title": "Sennheiser HD 600 Open-Back Over-Ear Wired Headphones Black 3.5mm",
+    "price": 250.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820334670146?_skw=Sennheiser+HD+600&hash=itembeffc1b142:g:cw0AAeSwYHVq8azN",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-09T12:00:17.932185+00:00"
   }
 }
