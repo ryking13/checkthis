@@ -26466,5 +26466,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-10T02:50:17.444932+00:00"
+  },
+  "v1|237174314707|0": {
+    "item_id": "v1|237174314707|0",
+    "title": "CASTLEVANIA LEGACY OF DARKNESS 1999 Authentic Nintendo 64 N64 Tested Nice!",
+    "price": 189.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237174314707?_skw=Castlevania+Legacy+of+Darkness&hash=item3738b0d6d3:g:~2oAAeSw-~tq8opz",
+    "search_label": "Castlevania Legacy of Darkness n64",
+    "search_query": "Castlevania Legacy of Darkness",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-10T03:15:13.757336+00:00"
   }
 }
