@@ -26479,5 +26479,18 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-11-10T03:15:13.757336+00:00"
+  },
+  "v1|900079156777|0": {
+    "item_id": "v1|900079156777|0",
+    "title": "Nintendo Pokemon Stadium 2 NUS-NP3E-USA Video Game Cartridge for Nintendo 64",
+    "price": 83.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900079156777?_skw=pokemon+stadium+2&hash=itemd190e5fe29:g:qLUAAeSwXhVq8owb",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-10T03:20:15.161922+00:00"
   }
 }
