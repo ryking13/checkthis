@@ -26713,5 +26713,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-10T23:30:14.792180+00:00"
+  },
+  "v1|407354089275|0": {
+    "item_id": "v1|407354089275|0",
+    "title": "QUEYINFANG 4.4mm Balanced Headphone for Sennheiser HD600 4.9ft 6.6ft 78.74 in",
+    "price": 60.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407354089275?_skw=Sennheiser+HD+600&hash=item5ed8321f3b:g:K0YAAeSwpm5q86pt",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "below_min",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-10T23:40:13.832032+00:00"
   }
 }
