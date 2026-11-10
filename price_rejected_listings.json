@@ -26596,5 +26596,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-10T14:00:17.528233+00:00"
+  },
+  "v1|257845689558|0": {
+    "item_id": "v1|257845689558|0",
+    "title": "Seinfeld George Costanza Calzone Bobblehead Yankees Starr 2026 Never Opened",
+    "price": 49.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/257845689558?_skw=George+Costanza+Calzone+Bobble+Head&hash=item3c08ccfcd6:g:xOYAAeSw8oNq4U9u",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-11-10T15:50:15.729855+00:00"
   }
 }
