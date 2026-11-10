@@ -26492,5 +26492,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-10T03:20:15.161922+00:00"
+  },
+  "v1|227526261862|0": {
+    "item_id": "v1|227526261862|0",
+    "title": "Mega Man X2 Super Nintendo SNES Cartridge Only Tested",
+    "price": 212.49,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227526261862?_skw=Mega+Man+X2&hash=item34f99f3c66:g:fnsAAeSwkHFqoxC7",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-10T03:50:15.991772+00:00"
   }
 }
