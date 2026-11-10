@@ -26622,5 +26622,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-10T16:00:22.910468+00:00"
+  },
+  "v1|137919047707|0": {
+    "item_id": "v1|137919047707|0",
+    "title": "Konami Sunset Riders for Super Nintendo Entertainment System SNES NTSC-U/C",
+    "price": 110.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137919047707?_skw=Sunset+Riders&hash=item201c9da81b:g:XxoAAeSw5BRq8z-h",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-10T16:10:19.170148+00:00"
   }
 }
