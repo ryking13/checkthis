@@ -26882,5 +26882,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-11T16:40:13.085405+00:00"
+  },
+  "v1|286958980573|0": {
+    "item_id": "v1|286958980573|0",
+    "title": "Apple 2022 Apple TV 4K, 64GB, Black (3rd generation), Wi-Fi",
+    "price": 199.89,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/286958980573?_skw=apple+tv+4k+3rd&hash=item42d0168ddd:g:5p4AAeSwyNZpILuT&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7lwwXKLYtBWDjewQd47TZySr3XcqezOKpjt4syAwvdEAxJlEWbGg29HmlsAU2lPQGWzweEGh%2BhOZIFg2aTKMSO%2FwjXin21r%2FLfuTGaob0u5x8hAghPuTE5rrgGDD3e11SGYKzAci20Us8r6NXj8aLJ0cR9bWY0dm9BPpDtb1V38%2FiI%2FjaskZg2RqmQ%2BXzQqLWd7uab4Cphm7N2vxvHE8RqJPlaZ9Sbiea7OrMtwJ6sIBabMoPSgjXnq7YA4uzWKvxithQ6K%2FTvA0TVOdjqX6IKLHqPHX01bm6fUZD2mxlZ57w%3D%3D",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-11T18:05:13.995829+00:00"
   }
 }
