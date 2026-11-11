@@ -26973,5 +26973,18 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-11-11T21:50:15.483020+00:00"
+  },
+  "v1|188851027209|0": {
+    "item_id": "v1|188851027209|0",
+    "title": "Seinfeld George Costanza Calzone Bobblehead, Multicolor Plastic",
+    "price": 54.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/188851027209?_skw=George+Costanza+Calzone+Bobble+Head&hash=item2bf865fd09:g:5DQAAeSwpSVqkOVW",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-11-11T22:35:15.943465+00:00"
   }
 }
