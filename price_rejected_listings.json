@@ -26895,5 +26895,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-11T18:05:13.995829+00:00"
+  },
+  "v1|267841001440|0": {
+    "item_id": "v1|267841001440|0",
+    "title": "Apple iPod Classic 7th Generation 160GB Silver (MC293LL/A) Tested Working w/ Box",
+    "price": 145.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267841001440?_skw=ipod+classic+7th+gen&hash=item3e5c9157e0:g:kb4AAeSwtKZq9MpY",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-11T20:15:18.156634+00:00"
+  },
+  "v1|336892574875|0": {
+    "item_id": "v1|336892574875|0",
+    "title": "Authentic Pokemon Stadium 2 for Nintendo 64 N64 Gold Silver Cartridge Tested USA",
+    "price": 89.5,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336892574875?_skw=pokemon+stadium+2&hash=item4e705cbc9b:g:kPcAAeSwvmBq9Mpq",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-11T20:15:18.156634+00:00"
   }
 }
