@@ -26869,5 +26869,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-11T16:25:14.897536+00:00"
+  },
+  "v1|257845472327|0": {
+    "item_id": "v1|257845472327|0",
+    "title": "Sunset Riders SNES Super Nintendo 1993 Konami Authentic Original Game Cartridge",
+    "price": 129.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/257845472327?_skw=Sunset+Riders&hash=item3c08c9ac47:g:LY0AAeSwJaBq8qKf",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-11T16:40:13.085405+00:00"
   }
 }
