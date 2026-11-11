@@ -26765,5 +26765,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-11T00:55:12.204061+00:00"
+  },
+  "v1|168853518727|0": {
+    "item_id": "v1|168853518727|0",
+    "title": "Sony Walkman WM-FX195 Portable AM/FM Stereo Cassette Tape Player Tested Working",
+    "price": 37.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/168853518727?_skw=sony+wm-FX195&hash=item2750743987:g:zcQAAeSwgRZq8804",
+    "search_label": "sony wm-FX195 Walkman",
+    "search_query": "sony wm-FX195",
+    "rejection": "above_max",
+    "min_price": 9.0,
+    "max_price": 30.0,
+    "first_recorded_at": "2026-11-11T02:15:13.276456+00:00"
   }
 }
