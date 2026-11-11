@@ -26791,5 +26791,31 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-11T03:45:13.652124+00:00"
+  },
+  "v1|800902363284|0": {
+    "item_id": "v1|800902363284|0",
+    "title": "Pokémon Stadium 2",
+    "price": 70.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800902363284?_skw=pokemon+stadium+2&hash=itemba79803894:g:qCcAAeSwbd9q8~bo",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-11T06:00:15.744477+00:00"
+  },
+  "v1|800902353022|0": {
+    "item_id": "v1|800902353022|0",
+    "title": "Panini 2018-19 Prizm Luka Doncic RC Rookie #280 Base Set Mavericks PSA 10",
+    "price": 250.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800902353022?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemba7980107e:g:cR0AAeSwzytq8~dj",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-11T06:00:15.744477+00:00"
   }
 }
