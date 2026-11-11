@@ -26856,5 +26856,18 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-11T15:35:14.288397+00:00"
+  },
+  "v1|860134639548|0": {
+    "item_id": "v1|860134639548|0",
+    "title": "Apple TV A2843 128GB 4K HDR HDR10 Media Streamer w/ Remote & Power Cable",
+    "price": 200.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860134639548?_skw=apple+tv+4k+3rd&hash=itemc8440507bc:g:FlMAAeSw6B5q9JOU&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7nXaVtkSBvT%2Bs7LNUP14ZVuLjMKkzH0PL5qawJpeMT8bldiyPJ6xrFLPFlZby2Qu%2B5pZnbYiLewQyTkJIiLBvB8WkETR5aiFM6k6tZBU8Rdhdv3l%2B5Kg902uwOKaPnzXCTwD0nU5%2F7J0PMN%2F4%2BByxkXfDkSTIVw%2FsIG3FqgLWJCLL686EFdYxADVHpUXDupbAKp1RQ2ZcNfxbv6djjr6vZk6LGD9S2XOl%2BO4aHcVJyCrecnp8RWVrzaRg4nYCu29%2F541yiFH4%2B6vnYaVQ9dvPZ7K%2BIIMUJiAV2Hu2h8w8UI5Q%3D%3D",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-11T16:25:14.897536+00:00"
   }
 }
