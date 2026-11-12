@@ -27428,5 +27428,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-12T23:10:14.231070+00:00"
+  },
+  "v1|307279732620|0": {
+    "item_id": "v1|307279732620|0",
+    "title": "Pokemon Stadium 2 (Nintendo 64, 2001) N64  Authentic Tested Free Shipping",
+    "price": 87.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307279732620?_skw=pokemon+stadium+2&hash=item478b4c9f8c:g:V1gAAeSwqdFq9kyR",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-12T23:40:22.195645+00:00"
   }
 }
