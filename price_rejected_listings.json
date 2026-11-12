@@ -27038,5 +27038,18 @@
     "min_price": 9.0,
     "max_price": 30.0,
     "first_recorded_at": "2026-11-12T01:00:17.170844+00:00"
+  },
+  "v1|800886011471|0": {
+    "item_id": "v1|800886011471|0",
+    "title": "Sennheiser HD 600 Over the Ear Headphones Black (1-Year Warranty) Open Box",
+    "price": 259.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800886011471?_skw=Sennheiser+HD+600&hash=itemba7886b64f:g:saEAAeSwS0Bqc9W2&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7nOQAEM6%2Bk9H9KLplXfKFUQX3UQN2UN%2FI%2B092tYuqBvTSa6re%2FZeQXs9joul7wNLS4wpGRccQnZ6CohYdViXesZ4OuqHs%2FKT7JNpY%2Bp5EMDtG4vf4GOiAJnyo%2Bexf1N9evnBYsZajOgub7TGaL1vBEsT7RZkxGsAJdt5FGaqznGWwmuJu5T3gM6wiCp%2FbaGaAXN05gJMNFZBJi2U1j0VLSZ7BKzbzDBauCU%2BJZBs9BdDIBuab%2BsnZoeNhg6dDAZMnKI%2BB2a5UCqcIUjDfnqyMD5y6I3DRDu8j%2BrGXkth2z1kw%3D%3D",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-12T01:35:13.492455+00:00"
   }
 }
