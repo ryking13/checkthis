@@ -27350,5 +27350,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-12T19:40:13.408426+00:00"
+  },
+  "v1|137925511338|0": {
+    "item_id": "v1|137925511338|0",
+    "title": "Yankees George Costanza Bobblehead Assistant to the Traveling Secretary SGA 2024",
+    "price": 140.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137925511338?_skw=George+Costanza+Traveling+Secretary+Bobble+Head&hash=item201d0048aa:g:EawAAeSwOiRq9g0S",
+    "search_label": "Yankees Seinfeld George Costanza Traveling Secretary Bobble Head",
+    "search_query": "George Costanza Traveling Secretary Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-12T19:50:13.184315+00:00"
+  },
+  "v1|940087018582|0": {
+    "item_id": "v1|940087018582|0",
+    "title": "Apple TV 4K 3rd Gen 128GB Wi‑Fi + Ethernet 4K HDMI tvOS Black MN893LL/A",
+    "price": 50.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940087018582?_skw=apple+tv+4k+3rd&hash=itemdae18d8456:g:G4YAAeSw9mFq9hWE",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "below_min",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-12T19:50:13.184315+00:00"
   }
 }
