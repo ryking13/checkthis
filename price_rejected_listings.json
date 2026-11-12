@@ -27168,5 +27168,83 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-12T14:45:14.206452+00:00"
+  },
+  "v1|227602228038|0": {
+    "item_id": "v1|227602228038|0",
+    "title": "Pokemon TCG Base Set Alakazam 1/102 Holo Rare Eng 1999 PSA 8",
+    "price": 170.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227602228038?_skw=1999+Pokemon+Base+Set+Alakazam+1%2F102+Holo+PSA+8&hash=item34fe266346:g:mdoAAeSw-Udq7pQa",
+    "search_label": "1999 Pokemon Alakazam 1/102 Holo PSA 8",
+    "search_query": "1999 Pokemon Base Set Alakazam 1/102 Holo PSA 8",
+    "rejection": "above_max",
+    "min_price": 100.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-12T15:05:14.137962+00:00"
+  },
+  "v1|407313823132|0": {
+    "item_id": "v1|407313823132|0",
+    "title": "Pokemon 1999 Base Set Alakazam 1/102 Holo Rare PSA 8 English",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407313823132?_skw=1999+Pokemon+Base+Set+Alakazam+1%2F102+Holo+PSA+8&hash=item5ed5cbb59c:g:7wsAAeSwP1pq3PQe",
+    "search_label": "1999 Pokemon Alakazam 1/102 Holo PSA 8",
+    "search_query": "1999 Pokemon Base Set Alakazam 1/102 Holo PSA 8",
+    "rejection": "above_max",
+    "min_price": 100.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-12T15:05:14.137962+00:00"
+  },
+  "v1|128098477153|0": {
+    "item_id": "v1|128098477153|0",
+    "title": "1999 Pokémon TCG Alakazam Base Set Holo Card 1/102 Rare PSA 8 NM-MT",
+    "price": 189.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128098477153?_skw=1999+Pokemon+Base+Set+Alakazam+1%2F102+Holo+PSA+8&hash=item1dd343a461:g:gucAAeSwSUlqlYjE",
+    "search_label": "1999 Pokemon Alakazam 1/102 Holo PSA 8",
+    "search_query": "1999 Pokemon Base Set Alakazam 1/102 Holo PSA 8",
+    "rejection": "above_max",
+    "min_price": 100.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-12T15:05:14.137962+00:00"
+  },
+  "v1|188673923310|0": {
+    "item_id": "v1|188673923310|0",
+    "title": "1999 Pokémon TCG Alakazam Base Set Holo Card 1/102 Rare PSA 8 NM-MT",
+    "price": 189.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/188673923310?_skw=1999+Pokemon+Base+Set+Alakazam+1%2F102+Holo+PSA+8&hash=item2bedd798ee:g:DWIAAeSwZl5qXxPy",
+    "search_label": "1999 Pokemon Alakazam 1/102 Holo PSA 8",
+    "search_query": "1999 Pokemon Base Set Alakazam 1/102 Holo PSA 8",
+    "rejection": "above_max",
+    "min_price": 100.0,
+    "max_price": 130.0,
+    "first_recorded_at": "2026-11-12T15:05:14.137962+00:00"
+  },
+  "v1|366791705650|0": {
+    "item_id": "v1|366791705650|0",
+    "title": "Pokémon TCG Mewtwo Base Set 10/102 Holo Rare PSA 8 English 1999 #42560914",
+    "price": 200.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366791705650?_skw=1999+Pokemon+Base+Set+Mewtwo+10%2F102+Holo+PSA+8&hash=item55667d4432:g:l8sAAeSwKkpq7pWI",
+    "search_label": "1999 Pokemon Mewtwo 10/102 Holo PSA 8",
+    "search_query": "1999 Pokemon Base Set Mewtwo 10/102 Holo PSA 8",
+    "rejection": "above_max",
+    "min_price": 100.0,
+    "max_price": 160.0,
+    "first_recorded_at": "2026-11-12T15:05:14.137962+00:00"
+  },
+  "v1|398431678983|0": {
+    "item_id": "v1|398431678983|0",
+    "title": "Pokemon PSA 8 Mewtwo 10/102 Base Set EN Holo Rare 1999 Pokemon TCG Card",
+    "price": 225.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/398431678983?_skw=1999+Pokemon+Base+Set+Mewtwo+10%2F102+Holo+PSA+8&hash=item5cc460f207:g:a4wAAeSwL7tqtsKZ",
+    "search_label": "1999 Pokemon Mewtwo 10/102 Holo PSA 8",
+    "search_query": "1999 Pokemon Base Set Mewtwo 10/102 Holo PSA 8",
+    "rejection": "above_max",
+    "min_price": 100.0,
+    "max_price": 160.0,
+    "first_recorded_at": "2026-11-12T15:05:14.137962+00:00"
   }
 }
