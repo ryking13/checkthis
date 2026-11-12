@@ -27103,5 +27103,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-12T02:35:12.589307+00:00"
+  },
+  "v1|267840917628|0": {
+    "item_id": "v1|267840917628|0",
+    "title": "1000 piece jigsaw puzzle Sunset riders western frontier cowboy",
+    "price": 28.88,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267840917628?_skw=Sunset+Riders&hash=item3e5c90107c:g:4HcAAeSwZdFpvNDh",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "below_min",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-12T02:50:15.200137+00:00"
   }
 }
