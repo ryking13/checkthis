@@ -27311,5 +27311,31 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-12T16:50:14.039800+00:00"
+  },
+  "v1|198790318489|0": {
+    "item_id": "v1|198790318489|0",
+    "title": "Pokemon Stadium 2 | Nintendo 64 | Cartridge Only",
+    "price": 89.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/198790318489?_skw=pokemon+stadium+2&hash=item2e48d38999:g:X2oAAeSwKAJqofX0",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-12T18:35:12.746705+00:00"
+  },
+  "v1|900086189368|0": {
+    "item_id": "v1|900086189368|0",
+    "title": "2018 PANINI PRIZM #280 LUKA DONCIC ROOKIE RC PSA 10",
+    "price": 284.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900086189368?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itemd191514d38:g:H1QAAeSwARRq8tSc",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-12T18:35:12.746705+00:00"
   }
 }
