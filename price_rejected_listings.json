@@ -28065,5 +28065,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-13T21:40:16.185580+00:00"
+  },
+  "v1|820351768294|0": {
+    "item_id": "v1|820351768294|0",
+    "title": "APPLE IPOD CLASSIC 7TH GEN (MC297) - 160GB Gray/Silver -TESTED",
+    "price": 169.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820351768294?_skw=ipod+classic+7th+gen&hash=itembf00c696e6:g:zvAAAeSwgs9q94Ro",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-13T21:55:11.568427+00:00"
   }
 }
