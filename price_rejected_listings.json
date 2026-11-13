@@ -27935,5 +27935,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-13T18:50:27.565723+00:00"
+  },
+  "v1|314772434854|613545628262": {
+    "item_id": "v1|314772434854|613545628262",
+    "title": "Nintendo 64 N64 Original OEM Authentic *Pick Your Game* Cart Only Cleaned Tested",
+    "price": 20.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/314772434854?_skw=Goemon%27s+Great+Adventure&hash=item4949e62fa6:g:qNQAAOSwP0Zk2r2C",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-13T19:20:14.155283+00:00"
   }
 }
