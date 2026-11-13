@@ -27766,5 +27766,18 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-13T13:00:20.477367+00:00"
+  },
+  "v1|920139008119|0": {
+    "item_id": "v1|920139008119|0",
+    "title": "Ogre Battle 64: Person of Lordly Caliber - Nintendo 64 (N64) Classic edition",
+    "price": 32.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920139008119?_skw=Ogre+Battle+64&hash=itemd63c8f0877:g:igkAAeSwRP1q9wCf",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-13T13:05:12.218576+00:00"
   }
 }
