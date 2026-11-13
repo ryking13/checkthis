@@ -27831,5 +27831,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-13T15:05:12.165727+00:00"
+  },
+  "v1|128192694751|0": {
+    "item_id": "v1|128192694751|0",
+    "title": "Sennheiser HD 600 Open Back Audiophile Headphones 300 Ohm Tested Working",
+    "price": 205.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128192694751?_skw=Sennheiser+HD+600&hash=item1dd8e149df:g:AAMAAeSwDYBq9zTq",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-13T16:15:14.920944+00:00"
   }
 }
