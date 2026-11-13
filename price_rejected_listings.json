@@ -27584,5 +27584,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-13T03:45:13.853842+00:00"
+  },
+  "v1|377641512188|0": {
+    "item_id": "v1|377641512188|0",
+    "title": "Pokemon Stadium 2, NINTENDO 64, NTSC-J, 2000, CIB",
+    "price": 53.3,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377641512188?_skw=pokemon+stadium+2&hash=item57ed302cfc:g:568AAeSwOpdq2st7",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "below_min",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-13T04:00:17.851826+00:00"
   }
 }
