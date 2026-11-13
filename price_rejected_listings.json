@@ -27519,5 +27519,18 @@
     "min_price": 95.0,
     "max_price": 175.0,
     "first_recorded_at": "2026-11-13T01:35:14.157848+00:00"
+  },
+  "v1|287725653896|0": {
+    "item_id": "v1|287725653896|0",
+    "title": "Goemon's Great Adventure - Nintendo 64",
+    "price": 149.98,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287725653896?_skw=Goemon%27s+Great+Adventure&hash=item42fdc90f88:g:XuAAAeSwT1Rq9nBG",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-13T02:10:14.648483+00:00"
   }
 }
