@@ -28078,5 +28078,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-13T21:55:11.568427+00:00"
+  },
+  "v1|940089999191|0": {
+    "item_id": "v1|940089999191|0",
+    "title": "Pokemon Stadium 2 (N64) Loose Cart - Authentic Acceptable Condition",
+    "price": 75.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940089999191?_skw=pokemon+stadium+2&hash=itemdae1baff57:g:4JgAAeSwE41q94gF",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-13T22:10:13.383418+00:00"
   }
 }
