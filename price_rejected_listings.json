@@ -27805,5 +27805,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-13T14:20:13.199337+00:00"
+  },
+  "v1|840123831440|696247710357": {
+    "item_id": "v1|840123831440|696247710357",
+    "title": "N64 Console SUPER MARIO DONKEY KONG POKEMON STADIUM 2 Paper 64 KART for Nintendo",
+    "price": 29.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840123831440?_skw=pokemon+stadium+2&hash=itemc39b485490:g:oXoAAeSwFqxoh0JN&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7lwhjjUWsDbfAWCjbfiyGKvbxboIBg1cI9tzFYV4o%2FCl%2FP5SDyMXAyVmeUweX6c41DdBvCb0BYXf2v%2BAJ7zU6jQMqxUF04ubWwSvole6eGUi8aNPMRbmZYBWwlURIHx%2FRXem02OBefDiHdE%2F0%2BbLymanGrYOoEm5muBZHtVL6VQxqAcTDnH8mY5Rp4nb55RBTERwkGGDZ6b01q%2Bj7hsee%2B9%2FZ8MWeX2krRirXDolFn5ZcD%2B6VifuXqrG6%2Fm81yctzy6XCLjN1BOTLxGmJkhWCmvfEq5o1rid%2Bb%2FE5FMKb6%2BxQ%3D%3D",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "below_min",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-13T14:35:12.185314+00:00"
   }
 }
