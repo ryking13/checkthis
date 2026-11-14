@@ -28533,5 +28533,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-14T19:55:11.545736+00:00"
+  },
+  "v1|327456508734|0": {
+    "item_id": "v1|327456508734|0",
+    "title": "Apple TV 4K 3rd Gen 128GB Wi-Fi + Ethernet 4K HDR Dolby Vision Atmos A2843",
+    "price": 195.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327456508734?_skw=apple+tv+4k+3rd&hash=item4c3dedcb3e:g:qKoAAeSwsIhq-M95",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-14T21:20:13.143807+00:00"
   }
 }
