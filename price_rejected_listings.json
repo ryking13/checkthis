@@ -28377,5 +28377,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-14T13:35:12.324648+00:00"
+  },
+  "v1|128194579436|0": {
+    "item_id": "v1|128194579436|0",
+    "title": "Atlus Ogre Battle 64: Person of Lordly Caliber N64 RPG Ogre Battle Series",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128194579436?_skw=Ogre+Battle+64&hash=item1dd8fe0bec:g:XOwAAeSwENRq-GsX",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "above_max",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-14T14:40:12.549366+00:00"
   }
 }
