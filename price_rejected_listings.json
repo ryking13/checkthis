@@ -28247,5 +28247,31 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-14T04:00:16.170735+00:00"
+  },
+  "v1|377644314180|0": {
+    "item_id": "v1|377644314180|0",
+    "title": "Banjo-Kazooie, NINTENDO 64, N64, NTSC-J, 1998, CARTRIDGE ONLY",
+    "price": 20.8,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377644314180?_skw=Goemon%27s+Great+Adventure&hash=item57ed5aee44:g:wF0AAeSwChBq0uHx",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-14T05:00:15.389170+00:00"
+  },
+  "v1|820352951721|0": {
+    "item_id": "v1|820352951721|0",
+    "title": "2018-19 Panini Prizm Luka Doncic Rookie Card RC #280 (PSA 10)",
+    "price": 269.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820352951721?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=itembf00d8a5a9:g:7-MAAeSwQ~xq9-D5",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-14T05:00:15.389170+00:00"
   }
 }
