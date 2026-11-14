@@ -28169,5 +28169,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-14T00:45:14.355591+00:00"
+  },
+  "v1|840126122332|0": {
+    "item_id": "v1|840126122332|0",
+    "title": "Apple TV 4K 3rd Gen 128GB Wi-Fi +Ethernet Media Streamer MN893LL/A (A2843) w/Box",
+    "price": 195.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840126122332?_skw=apple+tv+4k+3rd&hash=itemc39b6b495c:g:RtgAAeSwfN5q97xO",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-14T01:50:19.663590+00:00"
+  },
+  "v1|820352385784|0": {
+    "item_id": "v1|820352385784|0",
+    "title": "POKEMON STADIUM 2 Nintendo 64 N64 ~Authentic, Cleaned & Tested~ N64A0027",
+    "price": 74.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820352385784?_skw=pokemon+stadium+2&hash=itembf00d002f8:g:PEgAAeSwc8lq97z1",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-14T01:50:19.663590+00:00"
   }
 }
