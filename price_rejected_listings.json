@@ -28351,5 +28351,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-14T11:00:16.757684+00:00"
+  },
+  "v1|227614018532|0": {
+    "item_id": "v1|227614018532|0",
+    "title": "Sennheiser HD 600 Headphones (READ)!",
+    "price": 179.5,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227614018532?_skw=Sennheiser+HD+600&hash=item34feda4be4:g:x48AAeSwwidq93Wz",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-14T13:00:16.406395+00:00"
   }
 }
