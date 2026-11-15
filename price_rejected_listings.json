@@ -28884,5 +28884,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-15T15:45:15.375639+00:00"
+  },
+  "v1|940094571613|0": {
+    "item_id": "v1|940094571613|0",
+    "title": "Apple TV 4K 3rd Generation 128GB- In original box",
+    "price": 208.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/940094571613?_skw=apple+tv+4k+3rd&hash=itemdae200c45d:g:8OoAAeSwoidq-dNu",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-15T16:00:16.665225+00:00"
+  },
+  "v1|820357922689|0": {
+    "item_id": "v1|820357922689|0",
+    "title": "Sony Walkman WM-FX195 Portable Cassette Player AM FM Radio Mega Bass FREE SHIP",
+    "price": 39.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820357922689?_skw=sony+wm-FX195&hash=itembf01247f81:g:iJ0AAeSw7t5q-dNM",
+    "search_label": "sony wm-FX195 Walkman",
+    "search_query": "sony wm-FX195",
+    "rejection": "above_max",
+    "min_price": 9.0,
+    "max_price": 30.0,
+    "first_recorded_at": "2026-11-15T16:00:16.665225+00:00"
   }
 }
