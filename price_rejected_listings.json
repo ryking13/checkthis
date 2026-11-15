@@ -28962,5 +28962,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-15T17:15:11.918937+00:00"
+  },
+  "v1|800921198802|0": {
+    "item_id": "v1|800921198802|0",
+    "title": "Apple TV 4K 3rd Generation 128GB Black MN893LL/A",
+    "price": 200.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800921198802?_skw=apple+tv+4k+3rd&hash=itemba7a9fa0d2:g:mEgAAeSwz89q-e0P",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-15T17:45:12.710022+00:00"
   }
 }
