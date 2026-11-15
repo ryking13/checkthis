@@ -29053,5 +29053,31 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-15T19:45:12.314620+00:00"
+  },
+  "v1|237184797167|0": {
+    "item_id": "v1|237184797167|0",
+    "title": "Apple TV 4K 3rd Generation 128GB Wi-Fi + Ethernet MN893LL/A",
+    "price": 189.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237184797167?_skw=apple+tv+4k+3rd&hash=item373950c9ef:g:FBUAAeSw7JJq-g1A",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-15T20:00:19.011357+00:00"
+  },
+  "v1|168864837995|0": {
+    "item_id": "v1|168864837995|0",
+    "title": "Bundle Apple iPod Classic 7th Gen 160GB Silver MP3 Player A1238 w/ Dock Charger",
+    "price": 130.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/168864837995?_skw=ipod+classic+7th+gen&hash=item275120f16b:g:2GoAAeSwiTtq-JFA",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-15T20:00:19.011357+00:00"
   }
 }
