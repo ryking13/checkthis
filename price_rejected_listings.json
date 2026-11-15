@@ -28988,5 +28988,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-15T18:30:15.063393+00:00"
+  },
+  "v1|880116976139|0": {
+    "item_id": "v1|880116976139|0",
+    "title": "Apple TV 4K 3rd Gen Wi‑Fi 64GB 2160p HDR Media Streamer w/ HDMI",
+    "price": 149.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880116976139?_skw=apple+tv+4k+3rd&hash=itemcceb0f4a0b:g:5s0AAeSwE49q-KkP",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-15T18:40:20.334290+00:00"
   }
 }
