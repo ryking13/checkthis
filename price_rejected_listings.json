@@ -28689,5 +28689,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-15T04:00:27.010202+00:00"
+  },
+  "v1|860145117783|0": {
+    "item_id": "v1|860145117783|0",
+    "title": "Nintendo Pokémon Stadium 2 N64 Cartridge NTSC-U/C E 2001 Dolby Surround Battle",
+    "price": 75.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860145117783?_skw=pokemon+stadium+2&hash=itemc844a4ea57:g:T44AAeSwilBq-Uc-",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-15T06:00:19.508355+00:00"
+  },
+  "v1|366811155560|0": {
+    "item_id": "v1|366811155560|0",
+    "title": "Starcraft 64 , N64 Nintendo 64, game cartridge only, authentic and original",
+    "price": 105.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366811155560?_skw=StarCraft+64&hash=item5567a60c68:g:eJ4AAeSwj~Zq-UJs",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-15T06:00:19.508355+00:00"
   }
 }
