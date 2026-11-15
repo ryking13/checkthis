@@ -29079,5 +29079,31 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-15T20:00:19.011357+00:00"
+  },
+  "v1|900094116555|0": {
+    "item_id": "v1|900094116555|0",
+    "title": "Apple Ipod Classic 7th Generation 160gb GRAY NEVER UNMODDED",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/900094116555?_skw=ipod+classic+7th+gen&hash=itemd191ca42cb:g:-wsAAeSwc8lq-gwz",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-15T20:05:11.630441+00:00"
+  },
+  "v1|307284200599|0": {
+    "item_id": "v1|307284200599|0",
+    "title": "Sennheiser HD 600 Open-Back Professional Hi-Res Audiophile Headphones - New",
+    "price": 240.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307284200599?_skw=Sennheiser+HD+600&hash=item478b90cc97:g:QLEAAeSw~Opq-g67",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-15T20:05:11.630441+00:00"
   }
 }
