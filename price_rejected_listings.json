@@ -29170,5 +29170,31 @@
     "min_price": 100.0,
     "max_price": 160.0,
     "first_recorded_at": "2026-11-15T23:30:15.768807+00:00"
+  },
+  "v1|227616193868|0": {
+    "item_id": "v1|227616193868|0",
+    "title": "Apple TV 4K (3rd Generation) – 128GB Wi-Fi + Ethernet  Model A2843, No Box",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227616193868?_skw=apple+tv+4k+3rd&hash=item34fefb7d4c:g:VwkAAeSwmJ5q-kMr",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-15T23:50:14.654068+00:00"
+  },
+  "v1|137934423827|0": {
+    "item_id": "v1|137934423827|0",
+    "title": "Sennheiser HD 600  Wired Headphones Black",
+    "price": 185.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137934423827?_skw=Sennheiser+HD+600&hash=item201d884713:g:PxIAAeSwIPdq-kPY",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "above_max",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-15T23:50:14.654068+00:00"
   }
 }
