@@ -29404,5 +29404,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T15:25:14.040737+00:00"
+  },
+  "v1|820361512077|0": {
+    "item_id": "v1|820361512077|0",
+    "title": "Apple iPod Classic 160gb 7th Generation with charger bundle",
+    "price": 175.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820361512077?_skw=ipod+classic+7th+gen&hash=itembf015b448d:g:Y9oAAeSw8dtq-yJN",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-16T15:40:18.304809+00:00"
   }
 }
