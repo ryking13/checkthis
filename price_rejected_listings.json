@@ -29573,5 +29573,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T18:40:13.117522+00:00"
+  },
+  "v1|287734306748|0": {
+    "item_id": "v1|287734306748|0",
+    "title": "Nintendo Pokémon Stadium 2 Nintendo 64 N64 NTSC-U/C (US/Canada) E-Everyone",
+    "price": 90.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287734306748?_skw=pokemon+stadium+2&hash=item42fe4d17bc:g:AkgAAeSwHWJq-1zu",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-16T19:50:13.635300+00:00"
   }
 }
