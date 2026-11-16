@@ -29469,5 +29469,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T17:00:17.688913+00:00"
+  },
+  "v1|800924783990|0": {
+    "item_id": "v1|800924783990|0",
+    "title": "Nintendo Pokémon Stadium 2 Gold Cartridge Nintendo 64 N64 Cartridge Only Tested ",
+    "price": 85.4,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800924783990?_skw=pokemon+stadium+2&hash=itemba7ad65576:g:aCsAAeSwGNBq8GYv",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-16T17:45:27.858356+00:00"
   }
 }
