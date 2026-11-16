@@ -29703,5 +29703,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T20:40:17.549655+00:00"
+  },
+  "v1|327460048097|0": {
+    "item_id": "v1|327460048097|0",
+    "title": "StarCraft 64 Nintendo 64 N64 Authentic Tested Working Rare Strategy Game",
+    "price": 129.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327460048097?_skw=StarCraft+64&hash=item4c3e23cce1:g:6eEAAeSwtJ9q-LsJ",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-16T20:45:24.656766+00:00"
   }
 }
