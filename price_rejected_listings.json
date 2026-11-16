@@ -29313,5 +29313,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T03:55:11.247775+00:00"
+  },
+  "v1|840132342229|0": {
+    "item_id": "v1|840132342229|0",
+    "title": "Apple TV 4K (3rd Gen) 128gb Media Streamer A2843 Wi-Fi Ethernet w249",
+    "price": 191.98,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840132342229?_skw=apple+tv+4k+3rd&hash=itemc39bca31d5:g:-5QAAeSwm6Zp9Nkw&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7ltGXJfegNMepPAThIVaCxeOhQuMfIMWm2HoUsQwBvZfizJ5BO0aiT1rlYUnbWyQ1njge0cCaBSW9gSx9L%2FknepaQqMg8sUvN76tA9u3qP8Szog%2Bw0v8U%2Fa%2B%2BWMM3fgKk95JOdd1il0rwyEg6GYqOZqDaFI1eav138GJRvTpLtUd1%2BrBvzQUg8wOFaLTdHnCUEfcVPwyxAb615o0F5W9MLw7odd6vzM%2FN%2F6vf5qlLQrB8uCeUXUpKFVekG%2F9CfuMv75hivSPOWmcNnmQ8qX%2BVme23aVsGS5XXmiCuG9%2BTNjkQ%3D%3D",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-16T04:00:18.058704+00:00"
   }
 }
