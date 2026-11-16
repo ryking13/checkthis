@@ -29365,5 +29365,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T07:00:19.538894+00:00"
+  },
+  "v1|287726270985|0": {
+    "item_id": "v1|287726270985|0",
+    "title": "Mega Man X2 (SNES, 1995) good conition.  Working",
+    "price": 195.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/287726270985?_skw=Mega+Man+X2&hash=item42fdd27a09:g:kCkAAeSwN~tq9q00",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-16T13:15:16.375167+00:00"
   }
 }
