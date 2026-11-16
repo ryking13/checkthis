@@ -29651,5 +29651,31 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-16T20:20:13.842456+00:00"
+  },
+  "v1|227617536023|0": {
+    "item_id": "v1|227617536023|0",
+    "title": "Apple TV 4K 3rd Gen 64GB Digital HD Media Streamer MN893LL/A WiFi + Ethernet",
+    "price": 189.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227617536023?_skw=apple+tv+4k+3rd&hash=item34ff0ff817:g:olUAAeSwClRq-2aB",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-16T20:30:16.144064+00:00"
+  },
+  "v1|860149968996|617306899339": {
+    "item_id": "v1|860149968996|617306899339",
+    "title": "Lufia II The Rise of Sinistrals (Super Nintendo)",
+    "price": 195.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860149968996?_skw=Lufia+II+Rise+of+Sinistrals&hash=itemc844eef064:g:8KgAAeSwRZVq-2aJ&amdata=enc%3AAQALAAABAOf5zIIojhOf%2BkQK%2Bxzjn7k%2BL150vxHiSfIaZYqDiOweU8jNZkCM4MefJiCDifoIsXSS0PPsjF8HFu1qJCNx1Wn%2FyVLxKjZ11UowpjLVbtQiHthzw6zJO0taPZI7fkQasDxoWGzJJYqiwfWS%2F%2Bm3xPxRIok7WvhCKrhzOeRpqqwkiuSWJm%2FSU89TyJK3WW7zvYdP8w9Gl0ud7fFO42hwP0NzLcxCUjhCMT1bLK5t8XoL0UfjzfS23rDdqFiJgYMGc0v7%2FtBd8xAKUSXEmm9kBqAMXvqwwYl9qqGgzpf5aIpJcQygQbtrKQR%2F7WC6bQMPv3YQkeANghZmnmSYb9xwM5M%3D",
+    "search_label": "Lufia II Rise of Sinistrals SNES",
+    "search_query": "Lufia II Rise of Sinistrals",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-16T20:30:16.144064+00:00"
   }
 }
