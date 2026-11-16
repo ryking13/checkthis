@@ -29222,5 +29222,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T00:55:12.036255+00:00"
+  },
+  "v1|880121420094|0": {
+    "item_id": "v1|880121420094|0",
+    "title": "Dekoni Audio Earpads for Sennheiser HD600 Series, Elite Sheepskin",
+    "price": 83.26,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880121420094?_skw=Sennheiser+HD+600&hash=itemcceb53193e:g:-hIAAeSwVExq-lsn",
+    "search_label": "Sennheiser HD 600 headphones",
+    "search_query": "Sennheiser HD 600",
+    "rejection": "below_min",
+    "min_price": 95.0,
+    "max_price": 175.0,
+    "first_recorded_at": "2026-11-16T01:30:15.656697+00:00"
   }
 }
