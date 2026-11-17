@@ -29950,5 +29950,31 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-17T10:00:18.591746+00:00"
+  },
+  "v1|188858839720|0": {
+    "item_id": "v1|188858839720|0",
+    "title": "2026 Seinfeld NY New York Yankees George Costanza Calzone Bobblehead 8/27/26",
+    "price": 58.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/188858839720?_skw=George+Costanza+Calzone+Bobble+Head&hash=item2bf8dd32a8:g:SV0AAeSwqX5qkzws",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-11-17T13:00:19.662717+00:00"
+  },
+  "v1|267845137191|0": {
+    "item_id": "v1|267845137191|0",
+    "title": "Apple TV 4K 3rd Gen Wi-Fi Ethernet 128GB Media Streamer",
+    "price": 187.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267845137191?_skw=apple+tv+4k+3rd&hash=item3e5cd07327:g:t-8AAeSwGKlq-vf6",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-17T13:00:19.662717+00:00"
   }
 }
