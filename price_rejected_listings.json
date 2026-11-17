@@ -29768,5 +29768,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-16T23:55:13.017812+00:00"
+  },
+  "v1|840136008939|0": {
+    "item_id": "v1|840136008939|0",
+    "title": "Topps 1996-97 Steve Nash Base #182 Phoenix Suns Basketball PSA 10 Graded",
+    "price": 125.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840136008939?_skw=Steve+Nash+1996+Topps+182+psa+10&hash=itemc39c0224eb:g:-YUAAeSwN0Bq-4ux",
+    "search_label": "Steve Nash 1996 Topps #182 PSA 10",
+    "search_query": "Steve Nash 1996 Topps 182 psa 10",
+    "rejection": "above_max",
+    "min_price": 50.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-17T00:05:26.844878+00:00"
   }
 }
