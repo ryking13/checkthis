@@ -30808,5 +30808,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-18T22:55:12.652339+00:00"
+  },
+  "v1|407373101419|0": {
+    "item_id": "v1|407373101419|0",
+    "title": "Apple iPod Classic | 7th Generation | 160 GB | Model: A1238 | Black Good Battery",
+    "price": 160.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407373101419?_skw=ipod+classic+7th+gen&hash=item5ed954396b:g:WMMAAeSwe-1q~iwz",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-18T23:00:19.022882+00:00"
   }
 }
