@@ -226,15 +226,15 @@ ITEMS = [
         "require_any": ["wm-fx190", "wm fx190", "wmfx190"],
         "every_n_runs": 3
     },
-    {
-        "label": "Sennheiser HD 600 headphones",
-        "query": "Sennheiser HD 600",
-        "max_price": 175,
-        "min_price": 95,
-        "require_words": ["Sennheiser"],
-        "require_any": ["HD 600", "HD600", "HD-600"],
-        "exclude_words": ["cable", "pads", "cord"],
-    },
+    #{
+    #    "label": "Sennheiser HD 600 headphones",
+    #    "query": "Sennheiser HD 600",
+    #    "max_price": 175,
+    #    "min_price": 95,
+    #    "require_words": ["Sennheiser"],
+    #    "require_any": ["HD 600", "HD600", "HD-600"],
+    #    "exclude_words": ["cable", "pads", "cord"],
+    #},
     #{
     #    "label": "ryzen 5 5600x",
     #    "query": "ryzen 5 5600x",
