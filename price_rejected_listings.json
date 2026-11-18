@@ -30249,5 +30249,44 @@
     "min_price": 100.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-11-18T00:55:12.709821+00:00"
+  },
+  "v1|960209678537|0": {
+    "item_id": "v1|960209678537|0",
+    "title": "Apple TV (4K 3rd Gen) - WIFI + Ethernet - Model A2843 128GB Fully Reset!",
+    "price": 189.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960209678537?_skw=apple+tv+4k+3rd&hash=itemdf90f4f0c9:g:7uAAAeSwYvBq~QJp",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-18T01:50:16.194516+00:00"
+  },
+  "v1|336902987663|0": {
+    "item_id": "v1|336902987663|0",
+    "title": "Pokemon Stadium 2 Nintendo 64 N64 Authentic OEM Gold Cartridge",
+    "price": 85.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336902987663?_skw=pokemon+stadium+2&hash=item4e70fb9f8f:g:xqUAAeSwcrJq~NFy",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-18T01:50:16.194516+00:00"
+  },
+  "v1|336902988658|0": {
+    "item_id": "v1|336902988658|0",
+    "title": "Sunset Riders (Super Nintendo SNES 1993) Konami Authentic - TESTED ",
+    "price": 120.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336902988658?_skw=Sunset+Riders&hash=item4e70fba372:g:3W0AAeSwZsdq~NNH",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-18T01:50:16.194516+00:00"
   }
 }
