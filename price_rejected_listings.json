@@ -30210,5 +30210,18 @@
     "min_price": 95.0,
     "max_price": 175.0,
     "first_recorded_at": "2026-11-18T00:05:11.822819+00:00"
+  },
+  "v1|860153353012|0": {
+    "item_id": "v1|860153353012|0",
+    "title": "Apple TV (4K 3rd Gen) - WIFI + Ethernet - Model A2843 128GB Fully Reset!",
+    "price": 199.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860153353012?_skw=apple+tv+4k+3rd&hash=itemc845229334:g:k4oAAeSwffhq~Opa",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-18T00:10:16.191803+00:00"
   }
 }
