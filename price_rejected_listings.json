@@ -30639,5 +30639,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-18T17:45:14.058722+00:00"
+  },
+  "v1|960212470487|0": {
+    "item_id": "v1|960212470487|0",
+    "title": "Apple iPod Classic 7th Gen 160GB Space Gray MC297LL/A",
+    "price": 139.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/960212470487?_skw=ipod+classic+7th+gen&hash=itemdf911f8ad7:g:iCgAAeSwX7Nq~ed2",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-18T18:05:13.866745+00:00"
   }
 }
