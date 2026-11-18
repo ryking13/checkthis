@@ -30379,5 +30379,18 @@
     "min_price": 39.0,
     "max_price": 115.0,
     "first_recorded_at": "2026-11-18T03:15:15.245733+00:00"
+  },
+  "v1|407371018899|0": {
+    "item_id": "v1|407371018899|0",
+    "title": "Apple TV 4K (3rd generation, 128GB, Wi-Fi + Ethernet) with HDMi",
+    "price": 195.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407371018899?_skw=apple+tv+4k+3rd&hash=item5ed9347293:g:2DMAAeSwtJ9q~RtN",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-18T03:35:11.885587+00:00"
   }
 }
