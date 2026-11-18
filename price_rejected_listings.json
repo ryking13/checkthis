@@ -30574,5 +30574,31 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-18T16:10:14.919319+00:00"
+  },
+  "v1|860155594520|0": {
+    "item_id": "v1|860155594520|0",
+    "title": "Pokemon Stadium 2 Nintendo 64 N64 USA Gold Silver Game Cartridge Only",
+    "price": 79.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860155594520?_skw=pokemon+stadium+2&hash=itemc84544c718:g:xB4AAeSwrKRq487q",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-18T16:30:16.625936+00:00"
+  },
+  "v1|820369738511|0": {
+    "item_id": "v1|820369738511|0",
+    "title": "Mega Man X2 Cartridge Only Authentic SNES Super Nintendo 1995 Capcom MegaMan",
+    "price": 189.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820369738511?_skw=Mega+Man+X2&hash=itembf01d8cb0f:g:uSUAAeSwpZtq~dBD",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-18T16:30:16.625936+00:00"
   }
 }
