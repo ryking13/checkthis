@@ -31042,5 +31042,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-19T15:55:11.245061+00:00"
+  },
+  "v1|267847145900|0": {
+    "item_id": "v1|267847145900|0",
+    "title": "Apple iPod Classic 7th Gen 160GB Charcoal Black MP3 Player A1238 Tested",
+    "price": 161.49,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/267847145900?_skw=ipod+classic+7th+gen&hash=item3e5cef19ac:g:F-0AAeSwfrlq2jK1&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7nNh%2BC9%2Bmv%2BqA7jWImbJ7%2FnWR5nNCZcZIXkVLx2MuPdtOCwvVtD623IqeD3oZH3Fk0VpSsfpFOdAMpklld9kmBsdyk%2Fkte9TGmRODDy0tqXUWNHEzgfKgvMvSqc1Pdh8g3%2Fk2VW4RTYjWphK2mLrjpiS6Ve9zj6xbW6USCvQkpJdMJzu6Rdi5WyKLqM4FV6z63yWzRZsVldkCT%2BF1Q2w8R6c0G1vCLqDRyXHA7H%2FDmyDXPKfkePJ5lOs8LCnzVs%2FvxfJdx6Etu3JFE8Xb2qSOqCc5RS%2BFivnIHPB%2BdaqJEdcw%3D%3D",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-19T16:20:29.547948+00:00"
   }
 }
