@@ -31185,5 +31185,18 @@
     "min_price": 39.0,
     "max_price": 100.0,
     "first_recorded_at": "2026-11-19T21:35:12.348868+00:00"
+  },
+  "v1|860159026671|0": {
+    "item_id": "v1|860159026671|0",
+    "title": "Apple iPod Classic 160GB Silver (A1238) - TESTED",
+    "price": 144.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860159026671?_skw=ipod+classic+7th+gen&hash=itemc8457925ef:g:-CgAAeSwui5q~z5u&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7nnnO6eSHwGhAt1aWRbDFotKWRhlPq7f0JmkWuqT2rUI2wrCwGq8KE8WLMytMzl5CPGzDw7nmWYQgXAxm4mMEjeiVmRh6%2BFo6shsZy23ePQfBTY2yOcQlgRdg20Fjf0o9jScjyPA3ni%2FY0QTk82LlRcZHy1ZI7X3SLJTNxgW6NaLr%2B6Y41yYiNNAzntrJOIJRtgRS2rLwUVKCHqoEu0Wdrwsga3q5d3dO2DVcSZILj8iUvE%2Fw7ivdnBKeyszdI345AlkSs2vA8PaXo7IlnF1yWmOiqtIvcHFDFPsi0x8U7C3A%3D%3D",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-19T21:40:14.763148+00:00"
   }
 }
