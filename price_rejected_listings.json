@@ -30925,5 +30925,44 @@
     "min_price": 100.0,
     "max_price": 160.0,
     "first_recorded_at": "2026-11-19T08:00:24.750696+00:00"
+  },
+  "v1|840144337398|0": {
+    "item_id": "v1|840144337398|0",
+    "title": "Apple iPod Classic 7th Generation 160GB Space Gray Model A1238 Tested Working",
+    "price": 164.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/840144337398?_skw=ipod+classic+7th+gen&hash=itemc39c8139f6:g:9y4AAeSwrdBq~q9B",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-19T09:00:22.714979+00:00"
+  },
+  "v1|820371857068|0": {
+    "item_id": "v1|820371857068|0",
+    "title": "Pokemon Stadium 2 (Nintendo 64) Authentic Gold Cartridge N64 OEM Blockbuster",
+    "price": 85.88,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820371857068?_skw=pokemon+stadium+2&hash=itembf01f91eac:g:azQAAeSw4lJq9Psc",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-19T09:00:22.714979+00:00"
+  },
+  "v1|880132055291|0": {
+    "item_id": "v1|880132055291|0",
+    "title": "Goemon's Great Adventure N64 Cartridge US Version Tested Works Great",
+    "price": 24.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880132055291?_skw=Goemon%27s+Great+Adventure&hash=itemccebf560fb:g:0poAAeSwuP5q~rg4",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-19T09:00:22.714979+00:00"
   }
 }
