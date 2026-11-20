@@ -31445,5 +31445,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-20T13:00:18.125094+00:00"
+  },
+  "v1|820376893692|0": {
+    "item_id": "v1|820376893692|0",
+    "title": "Vtg 2.5\" Sunset Riders MC Patch 1950-1972 Butler PA Motorcycle Club Embroidered",
+    "price": 39.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820376893692?_skw=Sunset+Riders&hash=itembf0245f8fc:g:yy0AAeSwoi5qUQKZ",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "below_min",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-20T14:35:13.444188+00:00"
   }
 }
