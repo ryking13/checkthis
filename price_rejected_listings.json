@@ -31757,5 +31757,18 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-21T03:15:14.094019+00:00"
+  },
+  "v1|227623998098|0": {
+    "item_id": "v1|227623998098|0",
+    "title": "Sony Walkman WM-FX195 Portable Cassette Player AM/FM Mega Bass AVLS Silver",
+    "price": 43.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227623998098?_skw=sony+wm-FX195&hash=item34ff729292:g:FVEAAeSwsOprAQ1j",
+    "search_label": "sony wm-FX195 Walkman",
+    "search_query": "sony wm-FX195",
+    "rejection": "above_max",
+    "min_price": 9.0,
+    "max_price": 30.0,
+    "first_recorded_at": "2026-11-21T03:30:24.098152+00:00"
   }
 }
