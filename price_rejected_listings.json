@@ -31705,5 +31705,18 @@
     "min_price": 69.0,
     "max_price": 140.0,
     "first_recorded_at": "2026-11-20T22:40:15.162930+00:00"
+  },
+  "v1|307292772982|0": {
+    "item_id": "v1|307292772982|0",
+    "title": "VTG Panhandle Slim Western Pearl Snap Shirt XL Mens Black Sunset Riders Rodeo",
+    "price": 45.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307292772982?_skw=Sunset+Riders&hash=item478c139a76:g:57YAAeSweM5rANwG",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "below_min",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-21T00:00:16.389037+00:00"
   }
 }
