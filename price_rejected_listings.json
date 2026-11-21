@@ -31770,5 +31770,31 @@
     "min_price": 9.0,
     "max_price": 30.0,
     "first_recorded_at": "2026-11-21T03:30:24.098152+00:00"
+  },
+  "v1|147690586062|0": {
+    "item_id": "v1|147690586062|0",
+    "title": "Authentic Pokemon Stadium 2 for Nintendo 64 N64 Gold Silver Cartridge Tested USA",
+    "price": 86.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/147690586062?_skw=pokemon+stadium+2&hash=item22630b7fce:g:EA0AAeSwgNBrASPo",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-21T05:00:22.157472+00:00"
+  },
+  "v1|377663693235|0": {
+    "item_id": "v1|377663693235|0",
+    "title": "Banjo-Kazooie, NINTENDO 64, N64, NTSC-J, 1998, CARTRIDGE ONLY",
+    "price": 20.8,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377663693235?_skw=Goemon%27s+Great+Adventure&hash=item57ee82a1b3:g:wF0AAeSwChBq0uHx",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-21T05:00:22.157472+00:00"
   }
 }
