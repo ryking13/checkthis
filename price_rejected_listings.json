@@ -32069,5 +32069,18 @@
     "min_price": null,
     "max_price": 40.0,
     "first_recorded_at": "2026-11-22T02:40:17.742954+00:00"
+  },
+  "v1|366829170970|0": {
+    "item_id": "v1|366829170970|0",
+    "title": "Sunset Riders Super Nintendo SNES Cartridge Konami Authentic Tested Retro Game",
+    "price": 109.75,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366829170970?_skw=Sunset+Riders&hash=item5568b8f11a:g:MDoAAeSwyMNrAmFn",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-22T03:50:15.583892+00:00"
   }
 }
