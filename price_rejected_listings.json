@@ -32043,5 +32043,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-22T00:05:12.089788+00:00"
+  },
+  "v1|920169841141|0": {
+    "item_id": "v1|920169841141|0",
+    "title": "Mint Carmageddon 64 Nintendo Game Cartridge tested works",
+    "price": 115.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920169841141?_skw=Carmageddon+64&hash=itemd63e6581f5:g:VPgAAeSw9GBrAjV7",
+    "search_label": "Carmageddon 64",
+    "search_query": "Carmageddon 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 95.0,
+    "first_recorded_at": "2026-11-22T00:30:17.279165+00:00"
   }
 }
