@@ -32160,5 +32160,18 @@
     "min_price": 100.0,
     "max_price": 160.0,
     "first_recorded_at": "2026-11-22T12:00:24.694921+00:00"
+  },
+  "v1|336910605088|0": {
+    "item_id": "v1|336910605088|0",
+    "title": "apple ipod classic 7th generation 160gb",
+    "price": 180.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/336910605088?_skw=ipod+classic+7th+gen&hash=item4e716fdb20:g:jvQAAeSwfF1rAt8W",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-22T13:00:19.309284+00:00"
   }
 }
