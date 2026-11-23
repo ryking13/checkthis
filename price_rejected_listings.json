@@ -32511,5 +32511,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-23T11:00:23.027669+00:00"
+  },
+  "v1|880146474558|0": {
+    "item_id": "v1|880146474558|0",
+    "title": "N64 Game Ogre Battle US Version Cartridge Only Tested Works",
+    "price": 28.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880146474558?_skw=Ogre+Battle+64&hash=itemccecd1663e:g:s4oAAeSwwVlrBCF7&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7lENbzTyxIn0V6Igz3FMiSbQ7JYKoJttBiFAR4mOMVodf8QhG6SsX1%2B9iEqcJO0PEDhmsqaSPdSh3BK%2BegMfjcIutQ0ePgQ%2FDny83O%2F24FQxZ7TaaMnttRcePgLzeS7%2FZg8uR4a7MVAQ4P24%2FHqK2bPEjzaUow4Hmtq8S38D9H%2BJSZiulvsr3m8eTOUAIGKceMLsm6yyvgHwcDQlR3WcYE7P%2ByuNMOEF%2BOGv12caAkp0023wuEIuaAWJ2fd7CzTD%2Fd%2FfanJXN8rtKSag1dBSQmoizxJgNuVeKf4RX8LfY6aHQ%3D%3D",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-23T13:10:14.942834+00:00"
   }
 }
