@@ -32563,5 +32563,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-23T16:35:16.249183+00:00"
+  },
+  "v1|128206874000|0": {
+    "item_id": "v1|128206874000|0",
+    "title": "Sony Walkman WM-FX195 AM/FM Cassette Player, Tested and Working, Belt Replaced",
+    "price": 45.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128206874000?_skw=sony+wm-FX195&hash=item1dd9b9a590:g:PXsAAeSwtlhq~SJf",
+    "search_label": "sony wm-FX195 Walkman",
+    "search_query": "sony wm-FX195",
+    "rejection": "above_max",
+    "min_price": 9.0,
+    "max_price": 30.0,
+    "first_recorded_at": "2026-11-23T17:00:22.865142+00:00"
   }
 }
