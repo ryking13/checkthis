@@ -32485,5 +32485,18 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-23T06:00:20.147366+00:00"
+  },
+  "v1|206722094370|0": {
+    "item_id": "v1|206722094370|0",
+    "title": "Universal Replacement Remote for Apple TV HD/4K (1st-3rd Gen) - Easy Setup",
+    "price": 51.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206722094370?_skw=apple+tv+4k+3rd&hash=item302198d522:g:NvMAAeSwrVJrA~lL",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "below_min",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-23T09:00:17.149371+00:00"
   }
 }
