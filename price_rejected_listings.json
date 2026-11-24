@@ -32810,5 +32810,31 @@
     "min_price": 45.0,
     "max_price": 65.0,
     "first_recorded_at": "2026-11-24T15:20:13.521841+00:00"
+  },
+  "v1|860173738067|0": {
+    "item_id": "v1|860173738067|0",
+    "title": "Pokemon Stadium 2 Nintendo 64 N64 USA Gold Silver Game Cartridge Only",
+    "price": 49.95,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860173738067?_skw=pokemon+stadium+2&hash=itemc84659a053:g:xB4AAeSwrKRq487q",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "below_min",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-24T15:55:13.934240+00:00"
+  },
+  "v1|800961157514|0": {
+    "item_id": "v1|800961157514|0",
+    "title": "2016-17 Panini Donruss Optic LeBron James #15 PSA 10 Kobe Bryant GEM MINT",
+    "price": 259.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800961157514?_skw=LeBron+James+%2315+2016+Panini+Donruss+Optic+psa+10&hash=itemba7d01598a:g:n3QAAeSw80xrBbGK",
+    "search_label": "LeBron James #15 2016 Panini Donruss Optic PSA 10",
+    "search_query": "LeBron James #15 2016 Panini Donruss Optic psa 10",
+    "rejection": "above_max",
+    "min_price": 75.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-24T15:55:13.934240+00:00"
   }
 }
