@@ -32745,5 +32745,31 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-24T07:00:20.260453+00:00"
+  },
+  "v1|206722138495|0": {
+    "item_id": "v1|206722138495|0",
+    "title": "Replacement Remote for Apple TV HD/4K (1st-3rd Gen) - Compatible & Easy to Use",
+    "price": 43.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/206722138495?_skw=apple+tv+4k+3rd&hash=item302199817f:g:ebgAAeSwBQprA~-0",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "below_min",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-24T09:00:31.100225+00:00"
+  },
+  "v1|117539453156|0": {
+    "item_id": "v1|117539453156|0",
+    "title": "Pokemon Stadium 2 N64 Nintendo 64 Gold / Authentic / OEM",
+    "price": 75.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/117539453156?_skw=pokemon+stadium+2&hash=item1b5de5b8e4:g:kpQAAeSwzuNrBUrN",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-24T09:00:31.100225+00:00"
   }
 }
