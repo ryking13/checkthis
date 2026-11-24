@@ -32719,5 +32719,18 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-24T03:25:11.156145+00:00"
+  },
+  "v1|407384830743|0": {
+    "item_id": "v1|407384830743|0",
+    "title": "Nintendo Pokémon Stadium 2 N64 Gold/Silver NTSC-U/C-Cartridge Only-TESTED-MARKED",
+    "price": 79.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407384830743?_skw=pokemon+stadium+2&hash=item5eda073317:g:o4YAAeSw8VRrBRBq",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-24T05:00:29.493093+00:00"
   }
 }
