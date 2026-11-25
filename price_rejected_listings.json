@@ -33122,5 +33122,18 @@
     "min_price": 70.0,
     "max_price": 200.0,
     "first_recorded_at": "2026-11-25T18:55:12.597085+00:00"
+  },
+  "v1|327474556508|0": {
+    "item_id": "v1|327474556508|0",
+    "title": "AppleTV 4K 128GB (3rd gen MN893LL/A) boxed in GWC (black)",
+    "price": 180.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/327474556508?_skw=apple+tv+4k+3rd&hash=item4c3f012e5c:g:mScAAeSwDB5rBeCx",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-25T19:15:14.894023+00:00"
   }
 }
