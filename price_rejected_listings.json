@@ -33265,5 +33265,18 @@
     "min_price": null,
     "max_price": 40.0,
     "first_recorded_at": "2026-11-25T23:50:14.891981+00:00"
+  },
+  "v1|920185104790|0": {
+    "item_id": "v1|920185104790|0",
+    "title": "SNES Super Nintendo Sunset Riders Cart Only",
+    "price": 110.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920185104790?_skw=Sunset+Riders&hash=itemd63f4e6996:g:SGYAAeSwEhBrB3CI",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-25T23:55:13.064205+00:00"
   }
 }
