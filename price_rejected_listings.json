@@ -32979,5 +32979,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-25T01:40:13.907043+00:00"
+  },
+  "v1|860175095051|0": {
+    "item_id": "v1|860175095051|0",
+    "title": "StarCraft 64 Nintendo 64 N64 Cleaned & Tested Authentic",
+    "price": 119.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/860175095051?_skw=StarCraft+64&hash=itemc8466e550b:g:pOwAAeSwhCZrBkoT",
+    "search_label": "StarCraft 64",
+    "search_query": "StarCraft 64",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 100.0,
+    "first_recorded_at": "2026-11-25T02:45:14.156725+00:00"
   }
 }
