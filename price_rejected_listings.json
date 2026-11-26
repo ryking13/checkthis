@@ -33551,5 +33551,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-26T17:00:16.853305+00:00"
+  },
+  "v1|237209477963|0": {
+    "item_id": "v1|237209477963|0",
+    "title": "Seinfeld NY Yankees George Costanza Calzone Bobblehead Bobble SGA 8/27 IN  HAND ",
+    "price": 59.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/237209477963?_skw=George+Costanza+Calzone+Bobble+Head&hash=item373ac9634b:g:PWQAAeSwJRFrB2~q&amdata=enc%3AAQALAAABAOf5zIIojhOf%2BkQK%2Bxzjn7nbErhm%2BsjkKfO4%2BQxx9oFEajv7kWsH%2FvMVbH3x6ecEa20HPtJatf1w2EzLwMeFg0wZ3CuDtR5sHZ%2Fix9ofuit8x9fhjNNF8WvDHWVu7Sl6j8ZkhCn%2Frikin6Dk4rRoI6OOEUWloS3Lj3fkff1gelRd2KxZwv94lT3ayd8T3MNk%2Fc8tfQFg9s0J2FBwabFq%2F%2B9JqKnnf1rmrC%2F1X5QAJpjJEqdq42SZ9E6Bcr%2BjBEYRekCAJWsSEDW%2Ba%2Ft%2FgoRgp5rAa24%2BgPYwMT54cb3aH%2BGhol5AYsJ9BYoLvKF0AYgPSe8ZmUFC1EwGijNh2Ri%2BGak%3D",
+    "search_label": "Yankees Seinfeld George Costanza Calzone Bobble Head",
+    "search_query": "George Costanza Calzone Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 40.0,
+    "first_recorded_at": "2026-11-26T17:05:12.719016+00:00"
   }
 }
