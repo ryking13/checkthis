@@ -33460,5 +33460,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-26T08:00:20.443115+00:00"
+  },
+  "v1|407390005587|0": {
+    "item_id": "v1|407390005587|0",
+    "title": "Ogre Battle N64 Game US Version Has Been Tested And Shipped Quickly",
+    "price": 27.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/407390005587?_skw=Ogre+Battle+64&hash=item5eda562953:g:O3kAAeSweZ9rB~Hi&amdata=enc%3AAQALAAAA8Of5zIIojhOf%2BkQK%2Bxzjn7mWSbaQBWlyQ45swJ4nP8wwW%2FHCBDsja2Lz%2B51gu5WLLuE3kHAIpKn2SjCPUv34P7nO7AaOcvpfFhlGodG5RocEtc4FWyd3PdVkh9MdgUD9TcKUUJ%2FxIVLhWfU%2FHX2quD1PkZKwFyHKRYz6iv2xlyvX9WonkEL92PO%2BG1rjU3PLEYYqlG7TSlQj0rG3faroblfUypFewKbZ6LcVXU7VeiRW1K3KYxgJuUGfpBkW1dm6ZpgcL04zzNNtq4YFnqY7yzrEN51bWPib6BSUYv1DdmHBBbEOYx6dlRSQhQ%2FjlcBX2A%3D%3D",
+    "search_label": "Ogre Battle 64",
+    "search_query": "Ogre Battle 64",
+    "rejection": "below_min",
+    "min_price": 40.0,
+    "max_price": 145.0,
+    "first_recorded_at": "2026-11-26T10:00:21.462938+00:00"
   }
 }
