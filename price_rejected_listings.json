@@ -33382,5 +33382,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-26T03:15:16.758858+00:00"
+  },
+  "v1|227632738068|0": {
+    "item_id": "v1|227632738068|0",
+    "title": "2018-19 Panini Prizm Luka Doncic #280 RC Rookie PSA 10 GEM MINT Lakers Mavericks",
+    "price": 259.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227632738068?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=item34fff7ef14:g:NAUAAeSwQ81rB63w",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-26T04:00:17.433859+00:00"
   }
 }
