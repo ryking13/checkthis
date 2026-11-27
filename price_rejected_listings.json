@@ -33694,5 +33694,18 @@
     "min_price": 39.0,
     "max_price": 100.0,
     "first_recorded_at": "2026-11-27T01:10:15.539314+00:00"
+  },
+  "v1|820403597738|0": {
+    "item_id": "v1|820403597738|0",
+    "title": "Apple iPod Classic 7th Gen 160GB Black A1238 MC297LL/A Works But Dies Fast",
+    "price": 170.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/820403597738?_skw=ipod+classic+7th+gen&hash=itembf03dd71aa:g:UgwAAeSwjCprCO-S",
+    "search_label": "ipod classic 7th gen",
+    "search_query": "ipod classic 7th gen",
+    "rejection": "above_max",
+    "min_price": 85.0,
+    "max_price": 125.0,
+    "first_recorded_at": "2026-11-27T02:55:12.471540+00:00"
   }
 }
