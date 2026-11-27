@@ -33720,5 +33720,18 @@
     "min_price": 39.0,
     "max_price": 100.0,
     "first_recorded_at": "2026-11-27T03:30:15.457021+00:00"
+  },
+  "v1|880155893623|0": {
+    "item_id": "v1|880155893623|0",
+    "title": "Pokemon Stadium 2 Nintendo 64 N64 Gold Cartridge Authentic Tested & Working",
+    "price": 75.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/880155893623?_skw=pokemon+stadium+2&hash=itemcced611f77:g:wFAAAeSwZmJrCPvc",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-27T03:45:14.119518+00:00"
   }
 }
