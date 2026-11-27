@@ -33915,5 +33915,18 @@
     "min_price": 51.0,
     "max_price": 90.0,
     "first_recorded_at": "2026-11-27T20:15:14.380225+00:00"
+  },
+  "v1|800974775866|0": {
+    "item_id": "v1|800974775866|0",
+    "title": "2025 Yankees Seinfeld George Costanza Sleeping Under Desk Bobblehead",
+    "price": 149.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/800974775866?_skw=George+Costanza+Nap+Bobble+Head&hash=itemba7dd1263a:g:crwAAeSwKl9rCeZu",
+    "search_label": "Yankees Seinfeld George Costanza Nap Bobble Head",
+    "search_query": "George Costanza Nap Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 120.0,
+    "first_recorded_at": "2026-11-27T20:40:15.100624+00:00"
   }
 }
