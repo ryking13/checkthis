@@ -34253,5 +34253,31 @@
     "min_price": 39.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-11-28T09:00:17.009250+00:00"
+  },
+  "v1|366844741020|0": {
+    "item_id": "v1|366844741020|0",
+    "title": "Texas Instruments TI-Nspire CX II CAS Graphing Calculator Cable Screen Protector",
+    "price": 84.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/366844741020?_skw=ti-nspire+cx+ii+cas&hash=item5569a6859c:g:jVgAAeSwFbVq1Yd0",
+    "search_label": "TI-Nspire CX II CAS",
+    "search_query": "ti-nspire cx ii cas",
+    "rejection": "above_max",
+    "min_price": 45.0,
+    "max_price": 65.0,
+    "first_recorded_at": "2026-11-28T11:00:17.681029+00:00"
+  },
+  "v1|377463007093|0": {
+    "item_id": "v1|377463007093|0",
+    "title": "Mega Man X2 Super Nintendo SNES Authentic Clean Cart",
+    "price": 220.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377463007093?_skw=Mega+Man+X2&hash=item57e28c6775:g:7LMAAeSwNoNqlxTy",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-28T11:00:17.681029+00:00"
   }
 }
