@@ -34344,5 +34344,18 @@
     "min_price": 100.0,
     "max_price": 160.0,
     "first_recorded_at": "2026-11-28T17:20:13.252348+00:00"
+  },
+  "v1|377684760913|0": {
+    "item_id": "v1|377684760913|0",
+    "title": "Banjo-Kazooie 2, NINTENDO 64, NTSC-J, 2000, LOOSE CARTRIDGE",
+    "price": 20.8,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377684760913?_skw=Goemon%27s+Great+Adventure&hash=item57efc41951:g:bBUAAeSwYmBq3Oxv",
+    "search_label": "Goemon's Great Adventure",
+    "search_query": "Goemon's Great Adventure",
+    "rejection": "below_min",
+    "min_price": 39.0,
+    "max_price": 115.0,
+    "first_recorded_at": "2026-11-28T18:45:13.919950+00:00"
   }
 }
