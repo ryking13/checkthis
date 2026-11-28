@@ -34149,5 +34149,18 @@
     "min_price": null,
     "max_price": 40.0,
     "first_recorded_at": "2026-11-28T04:00:17.804444+00:00"
+  },
+  "v1|377683142364|0": {
+    "item_id": "v1|377683142364|0",
+    "title": "Pokémon Stadium 2 Nintendo 64 N64 Game Cartridge Multiplayer NTSC-U/C",
+    "price": 68.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/377683142364?_skw=pokemon+stadium+2&hash=item57efab66dc:g:ykAAAeSwkjlrClMC",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-28T05:00:18.578970+00:00"
   }
 }
