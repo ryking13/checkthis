@@ -34318,5 +34318,18 @@
     "min_price": 39.0,
     "max_price": 155.0,
     "first_recorded_at": "2026-11-28T15:40:19.279385+00:00"
+  },
+  "v1|307307152502|0": {
+    "item_id": "v1|307307152502|0",
+    "title": "apple tv 4k 3rd gen 128gb wi-fi ethernet",
+    "price": 150.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/307307152502?_skw=apple+tv+4k+3rd&hash=item478cef0476:g:j6IAAeSwh7hrCwNW",
+    "search_label": "apple tv 4k 3rd gen",
+    "search_query": "apple tv 4k 3rd",
+    "rejection": "above_max",
+    "min_price": 69.0,
+    "max_price": 140.0,
+    "first_recorded_at": "2026-11-28T16:45:13.252800+00:00"
   }
 }
