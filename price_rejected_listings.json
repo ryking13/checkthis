@@ -34045,5 +34045,18 @@
     "min_price": 100.0,
     "max_price": 130.0,
     "first_recorded_at": "2026-11-28T00:45:12.572901+00:00"
+  },
+  "v1|227635927332|0": {
+    "item_id": "v1|227635927332|0",
+    "title": "Natsume Lufia II: Rise of the Sinistrals Super Nintendo SNES Cart Only VTG",
+    "price": 164.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/227635927332?_skw=Lufia+II+Rise+of+Sinistrals&hash=item3500289924:g:5bsAAeSwaBRrCibj",
+    "search_label": "Lufia II Rise of Sinistrals SNES",
+    "search_query": "Lufia II Rise of Sinistrals",
+    "rejection": "above_max",
+    "min_price": 51.0,
+    "max_price": 135.0,
+    "first_recorded_at": "2026-11-28T01:10:13.300938+00:00"
   }
 }
