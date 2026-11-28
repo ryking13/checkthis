@@ -34097,5 +34097,18 @@
     "min_price": 85.0,
     "max_price": 125.0,
     "first_recorded_at": "2026-11-28T02:40:12.552850+00:00"
+  },
+  "v1|920193046156|0": {
+    "item_id": "v1|920193046156|0",
+    "title": "Seinfeld George Costanza Marine Biologist Bobblehead Whale BROOKLYN CYCLONES SGA",
+    "price": 99.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/920193046156?_skw=George+Costanza+marine+biologist+Bobble+Head&hash=itemd63fc7968c:g:eHoAAeSw45VrCj7N",
+    "search_label": "Seinfeld George Costanza marine biologist Bobble Head",
+    "search_query": "George Costanza marine biologist Bobble Head",
+    "rejection": "above_max",
+    "min_price": null,
+    "max_price": 70.0,
+    "first_recorded_at": "2026-11-28T02:50:13.173328+00:00"
   }
 }
