@@ -34162,5 +34162,57 @@
     "min_price": 54.0,
     "max_price": 60.0,
     "first_recorded_at": "2026-11-28T05:00:18.578970+00:00"
+  },
+  "v1|128221281883|0": {
+    "item_id": "v1|128221281883|0",
+    "title": "Pokemon Stadium 2 (Nintendo 64, 2001)",
+    "price": 70.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128221281883?_skw=pokemon+stadium+2&hash=item1dda957e5b:g:SfIAAeSw4XtrCmBk",
+    "search_label": "Pokemon Stadium 2 (need $50 or less)",
+    "search_query": "pokemon stadium 2",
+    "rejection": "above_max",
+    "min_price": 54.0,
+    "max_price": 60.0,
+    "first_recorded_at": "2026-11-28T06:00:19.517281+00:00"
+  },
+  "v1|137969468057|435831558237": {
+    "item_id": "v1|137969468057|435831558237",
+    "title": "Florida Knights Sunset Riders Vintage Biker Tee",
+    "price": 41.5,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137969468057?_skw=Sunset+Riders&hash=item201f9f0299:g:WWsAAeSwAItrCmDT",
+    "search_label": "Sunset Riders SNES",
+    "search_query": "Sunset Riders",
+    "rejection": "below_min",
+    "min_price": 51.0,
+    "max_price": 90.0,
+    "first_recorded_at": "2026-11-28T06:00:19.517281+00:00"
+  },
+  "v1|128211348887|0": {
+    "item_id": "v1|128211348887|0",
+    "title": "2016-17 Panini DONRUSS OPTIC Base LeBRON JAMES #15  PSA 10 GEM MINT 🏀 with KOBE",
+    "price": 299.99,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128211348887?_skw=LeBron+James+%2315+2016+Panini+Donruss+Optic+psa+10&hash=item1dd9fded97:g:97QAAeSwondq4RFm",
+    "search_label": "LeBron James #15 2016 Panini Donruss Optic PSA 10",
+    "search_query": "LeBron James #15 2016 Panini Donruss Optic psa 10",
+    "rejection": "above_max",
+    "min_price": 75.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-28T06:00:19.517281+00:00"
+  },
+  "v1|137969520317|0": {
+    "item_id": "v1|137969520317|0",
+    "title": "Panini 2018 Prizm Luka Doncic RC Base #280 PSA 10 Dallas Mavericks",
+    "price": 280.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/137969520317?_skw=Luka+Doncic+2018+Prizm+280+psa+10&hash=item201f9fcebd:g:ip0AAeSwE9lrCZ~O",
+    "search_label": "Luka Doncic 2018 Prizm #280 RC PSA 10",
+    "search_query": "Luka Doncic 2018 Prizm 280 psa 10",
+    "rejection": "above_max",
+    "min_price": 70.0,
+    "max_price": 200.0,
+    "first_recorded_at": "2026-11-28T06:00:19.517281+00:00"
   }
 }
