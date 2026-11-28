@@ -34058,5 +34058,18 @@
     "min_price": 51.0,
     "max_price": 135.0,
     "first_recorded_at": "2026-11-28T01:10:13.300938+00:00"
+  },
+  "v1|128221047879|0": {
+    "item_id": "v1|128221047879|0",
+    "title": "Mega Man X2 SNES Super Nintendo 1995 Capcom Game Cartridge Only",
+    "price": 215.0,
+    "currency": "USD",
+    "url": "https://www.ebay.com/itm/128221047879?_skw=Mega+Man+X2&hash=item1dda91ec47:g:EE8AAeSwf-FrCiqw",
+    "search_label": "Mega Man X2 SNES",
+    "search_query": "Mega Man X2",
+    "rejection": "above_max",
+    "min_price": 39.0,
+    "max_price": 155.0,
+    "first_recorded_at": "2026-11-28T01:40:14.824424+00:00"
   }
 }
